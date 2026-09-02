@@ -1,0 +1,352 @@
+<!--
+  CDR Writers Australia — FAQ Accordion (replacement for the broken widget)
+  ---------------------------------------------------------------------------
+  HOW TO USE IN WPBAKERY:
+  1. Delete/hide the existing FAQ widget element on the page.
+  2. Add a new "Raw HTML" (Text Block set to "Text") element in its place.
+  3. Paste this ENTIRE file's contents into it, then Save/Update.
+  4. To add more FAQs, copy one ".cdr-faq-item" block (from <div class="cdr-faq-item">
+     to its closing </div>) and paste it before </div> that closes .cdr-faq,
+     then edit the question text and answer text.
+  5. To have an item open by default, add class="cdr-faq-item is-open" to it —
+     no other JS changes needed.
+-->
+
+<style>
+.cdr-faq{
+  width: 100%;
+  margin: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px;
+  box-sizing: border-box;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+}
+.cdr-faq *{ box-sizing: border-box; }
+
+.cdr-faq-item{
+  display: block !important;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  overflow: hidden;
+  height: auto !important;
+  max-height: none !important;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+
+.cdr-faq-question{
+  display: block !important;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  background: #ffffff;
+  color: #1f2937;
+  border: 0 !important;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+  padding: 20px 24px 24px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.45;
+  font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  border-bottom: 0 !important;
+  background-image: none !important;
+  border-radius: 6px;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  text-decoration: none !important;
+  transition: background-color .25s ease, color .25s ease;
+}
+.cdr-faq-question::before,
+.cdr-faq-question::after,
+.cdr-faq-question-text::before,
+.cdr-faq-question-text::after{
+  display: none !important;
+  content: none !important;
+}
+.cdr-faq-question:hover,
+.cdr-faq-question:focus-visible{
+  background: #d2a98e !important;
+  color: #ffffff !important;
+}
+.cdr-faq-question:hover,
+.cdr-faq-question:active{
+  box-shadow: none !important;
+  outline: none !important;
+}
+.cdr-faq-question:focus-visible{
+  box-shadow: inset 0 0 0 3px #8a6a54 !important;
+  outline: none !important;
+}
+
+/* Already-open items: lock the open colors in place with no transition,
+   so hovering an item that's already open never re-triggers any animation. */
+.cdr-faq-item.is-open .cdr-faq-question,
+.cdr-faq-item.is-open .cdr-faq-question:hover,
+.cdr-faq-item.is-open .cdr-faq-question:focus-visible{
+  background: #d2a98e !important;
+  color: #ffffff !important;
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+  border-radius: 6px 6px 0 0 !important;
+}
+.cdr-faq-item.is-open{
+  box-shadow: 0 8px 22px rgba(0,0,0,.09);
+}
+
+/* Inner row handles the flex layout. Keeping flex OFF the <button> itself
+   avoids a WebKit/iOS Safari bug where a flex <button> miscalculates its
+   own height for wrapped multi-line text and crushes the padding. */
+.cdr-faq-row{
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+
+/* Question text: allowed to wrap to any number of lines without ever
+   touching the icon, because the icon is a normal flex sibling — not
+   absolutely positioned — so it can never overlap wrapped text. */
+.cdr-faq-question-text{
+  flex: 1 1 auto;
+  min-width: 0;
+  height: auto !important;
+  max-height: none !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+  display: inline !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.cdr-faq-icon{
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .25s ease;
+  margin-top: 2px; /* optical alignment with first line of text */
+}
+.cdr-faq-item.is-open .cdr-faq-icon{ transform: rotate(180deg); }
+.cdr-faq-icon svg{ width: 100%; height: 100%; display: block; }
+
+.cdr-faq-answer{
+  display: block !important;
+  max-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 0 6px 6px;
+  transition: max-height .3s ease;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+  text-overflow: clip !important;
+}
+.cdr-faq-item:not(.is-open) .cdr-faq-answer{
+  height: 0 !important;
+}
+.cdr-faq-answer-inner{
+  padding: 20px 24px;
+  color: #141414;
+  font-size: 16px;
+  line-height: 1.65;
+  height: auto !important;
+  max-height: none !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+  display: block !important;
+}
+
+@media (max-width: 600px){
+  .cdr-faq{ gap: 12px; }
+  .cdr-faq-question{
+    padding: 16px 16px 20px;
+    font-size: 15px;
+  }
+  .cdr-faq-row{ gap: 12px; }
+  .cdr-faq-answer-inner{
+    padding: 14px 16px 18px;
+    font-size: 14.5px;
+  }
+  .cdr-faq-icon{ flex-basis: 18px; width: 18px; height: 18px; }
+}
+
+/* Keep theme button styles from adding an edge or decorative underline. */
+#cdrFaqAccordion .cdr-faq-item .cdr-faq-question,
+#cdrFaqAccordion .cdr-faq-item .cdr-faq-question:hover,
+#cdrFaqAccordion .cdr-faq-item .cdr-faq-question:focus,
+#cdrFaqAccordion .cdr-faq-item .cdr-faq-question:focus-visible,
+#cdrFaqAccordion .cdr-faq-item .cdr-faq-question:active{
+  border: 0 !important;
+  border-bottom: 0 !important;
+  background-image: none !important;
+  text-decoration: none !important;
+  transform: none !important;
+  animation: none !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+}
+
+#cdrFaqAccordion .cdr-faq-item:hover{
+  background: #d2a98e !important;
+  transform: translateZ(0) !important;
+  animation: none !important;
+}
+</style>
+
+<div class="cdr-faq" id="cdrFaqAccordion">
+
+  <div class="cdr-faq-item">
+    <button class="cdr-faq-question" type="button" aria-expanded="false" aria-controls="cdrFaqAnswer1">
+      <span class="cdr-faq-row"><span class="cdr-faq-question-text">What is a Competency Demonstration Report (CDR) for Engineers Australia skill assessment?</span>
+      <span class="cdr-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></span>
+    </button>
+    <div class="cdr-faq-answer" id="cdrFaqAnswer1">
+      <div class="cdr-faq-answer-inner">A CDR is a technical document submitted to Engineers Australia comprising three Career Episodes, a Summary Statement, and a CPD list. It's required for overseas-trained engineers applying for Australian skilled migration visas like Subclass 189, 190, or 491.</div>
+    </div>
+  </div>
+
+  <div class="cdr-faq-item">
+    <button class="cdr-faq-question" type="button" aria-expanded="false" aria-controls="cdrFaqAnswer2">
+      <span class="cdr-faq-row"><span class="cdr-faq-question-text">How many career episodes are required in a CDR for Engineers Australia?</span>
+      <span class="cdr-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></span>
+    </button>
+    <div class="cdr-faq-answer" id="cdrFaqAnswer2">
+      <div class="cdr-faq-answer-inner">Three Career Episodes are required, each describing a separate engineering project where you personally contributed. Each episode should be 1,000–2,500 words, written in first-person.</div>
+    </div>
+  </div>
+
+  <div class="cdr-faq-item">
+    <button class="cdr-faq-question" type="button" aria-expanded="false" aria-controls="cdrFaqAnswer3">
+      <span class="cdr-faq-row"><span class="cdr-faq-question-text">What is the Engineers Australia CDR skill assessment fee in 2025?</span>
+      <span class="cdr-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></span>
+    </button>
+    <div class="cdr-faq-answer" id="cdrFaqAnswer3">
+      <div class="cdr-faq-answer-inner">The standard Migration Skills Assessment (CDR pathway) fee is approximately AUD 907.50. Fees are subject to change, always verify on the Engineers Australia official website before applying.</div>
+    </div>
+  </div>
+
+  <div class="cdr-faq-item">
+    <button class="cdr-faq-question" type="button" aria-expanded="false" aria-controls="cdrFaqAnswer4">
+      <span class="cdr-faq-row"><span class="cdr-faq-question-text">How long does Engineers Australia take to process a CDR application?</span>
+      <span class="cdr-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></span>
+    </button>
+    <div class="cdr-faq-answer" id="cdrFaqAnswer4">
+      <div class="cdr-faq-answer-inner">Standard CDR assessments typically take 8–12 weeks. Complex cases or incomplete submissions may take longer. Submit well ahead of your visa deadline.</div>
+    </div>
+  </div>
+
+  <div class="cdr-faq-item">
+    <button class="cdr-faq-question" type="button" aria-expanded="false" aria-controls="cdrFaqAnswer5">
+      <span class="cdr-faq-row"><span class="cdr-faq-question-text">What is the acceptance rate for Competency Demonstration Reports submitted to Engineers Australia?</span>
+      <span class="cdr-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></span>
+    </button>
+    <div class="cdr-faq-answer" id="cdrFaqAnswer5">
+      <div class="cdr-faq-answer-inner">Engineers Australia does not publish official acceptance rates, but rejection rates are high for first-time applicants often due to plagiarism, weak personal contribution, or misaligned Summary Statements.</div>
+    </div>
+  </div>
+
+  <div class="cdr-faq-item">
+    <button class="cdr-faq-question" type="button" aria-expanded="false" aria-controls="cdrFaqAnswer6">
+      <span class="cdr-faq-row"><span class="cdr-faq-question-text">What happens if my CDR is rejected by Engineers Australia?</span>
+      <span class="cdr-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></span>
+    </button>
+    <div class="cdr-faq-answer" id="cdrFaqAnswer6">
+      <div class="cdr-faq-answer-inner">You can resubmit after addressing the reasons cited in the rejection notice. The full assessment fee applies again. Professional CDR review before resubmission is strongly recommended.</div>
+    </div>
+  </div>
+
+  <div class="cdr-faq-item">
+    <button class="cdr-faq-question" type="button" aria-expanded="false" aria-controls="cdrFaqAnswer7">
+      <span class="cdr-faq-row"><span class="cdr-faq-question-text">Who needs to submit a CDR to Engineers Australia for Australian PR?</span>
+      <span class="cdr-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></span>
+    </button>
+    <div class="cdr-faq-answer" id="cdrFaqAnswer7">
+      <div class="cdr-faq-answer-inner">Overseas-trained engineers whose qualifications are not accredited under international accords (Washington, Sydney, or Dublin Accord) must submit a CDR to qualify for a positive skills assessment for Australian PR.</div>
+    </div>
+  </div>
+
+  <div class="cdr-faq-item">
+    <button class="cdr-faq-question" type="button" aria-expanded="false" aria-controls="cdrFaqAnswer8">
+      <span class="cdr-faq-row"><span class="cdr-faq-question-text">What are the most common CDR rejection reasons by Engineers Australia?</span>
+      <span class="cdr-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span></span>
+    </button>
+    <div class="cdr-faq-answer" id="cdrFaqAnswer8">
+      <div class="cdr-faq-answer-inner">The top reasons are: plagiarized content, using "we" instead of "I", episodes describing the same project, weak Summary Statement mapping, and career episodes that lack technical depth.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var accordion = document.getElementById('cdrFaqAccordion');
+  if(!accordion) return;
+  var items = Array.prototype.slice.call(accordion.querySelectorAll('.cdr-faq-item'));
+
+  function closeItem(item){
+    item.classList.remove('is-open');
+    item.querySelector('.cdr-faq-question').setAttribute('aria-expanded','false');
+    item.querySelector('.cdr-faq-answer').style.maxHeight = null;
+  }
+  function openItem(item){
+    item.classList.add('is-open');
+    item.querySelector('.cdr-faq-question').setAttribute('aria-expanded','true');
+    var panel = item.querySelector('.cdr-faq-answer');
+    panel.style.maxHeight = panel.scrollHeight + 'px';
+  }
+
+  items.forEach(function(item){
+    var btn = item.querySelector('.cdr-faq-question');
+    btn.addEventListener('click', function(){
+      var wasOpen = item.classList.contains('is-open');
+      // Single-open behaviour: close every item first.
+      items.forEach(closeItem);
+      // Then reopen the clicked one, unless it was already open (toggle-closed).
+      if(!wasOpen){ openItem(item); }
+    });
+
+    // Support items marked open by default in the markup (class="is-open").
+    if(item.classList.contains('is-open')){ openItem(item); }
+  });
+
+  // Recalculate the open panel's height on resize/orientation change so
+  // reflowed text never gets clipped or leaves extra empty space.
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+      var open = accordion.querySelector('.cdr-faq-item.is-open .cdr-faq-answer');
+      if(open){ open.style.maxHeight = open.scrollHeight + 'px'; }
+    }, 100);
+  });
+})();
+</script>

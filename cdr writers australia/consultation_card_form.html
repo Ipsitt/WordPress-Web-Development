@@ -137,8 +137,9 @@
 
   .consultation-input::placeholder,
   .consultation-textarea::placeholder{
-    color: #9ca3af;
-    opacity: 1;
+    color: #b8b8b8 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #b8b8b8 !important;
   }
 
   .consultation-phone-wrap{
@@ -210,12 +211,14 @@
     font-size: 17px;
     font-weight: 700;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: none !important;
   }
 
   .consultation-submit:hover{
-    transform: translateY(-1px);
+    transform: none !important;
     background: #a52828;
+    transition: none !important;
+    position: static;
   }
 
   .consultation-footer-note{

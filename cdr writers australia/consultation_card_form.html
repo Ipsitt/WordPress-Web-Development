@@ -265,7 +265,7 @@
         <div class="consultation-field consultation-field--full">
           <label for="consultationPhone">Phone *</label>
           <div class="consultation-phone-wrap">
-            <input class="consultation-input" id="consultationPhone" name="phone" type="tel" placeholder="+1 000 000 ..." required>
+            <input class="consultation-input" id="consultationPhone" name="phone" type="tel" placeholder="000 000 ..." required>
           </div>
         </div>
 
@@ -315,8 +315,10 @@
       }
     });
 
+    phoneInput.placeholder = "000 000 ...";
+
     phoneInput.addEventListener("countrychange", function () {
-      phoneInput.placeholder = iti.getSelectedCountryData().dialCode ? "+" + iti.getSelectedCountryData().dialCode + " 000 000 ..." : "+1 000 000 ...";
+      phoneInput.placeholder = "000 000 ...";
     });
   }
 })();

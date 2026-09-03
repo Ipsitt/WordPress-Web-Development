@@ -99,7 +99,7 @@
   .consultation-textarea,
   .iti input.consultation-input{
     width: 100%;
-    min-height: 48px;
+    min-height: 42px;
     border: 1.5px solid #f3f4f6;
     background: #f8f8f9;
     border-radius: 10px;
@@ -111,10 +111,11 @@
   }
 
   .consultation-textarea{
-    padding-top: 12px;
-    padding-bottom: 12px;
-    min-height: 48px;
-    resize: vertical;
+    height: 42px;
+    min-height: 42px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    resize: none;
   }
 
   .consultation-input:hover,
@@ -143,11 +144,33 @@
     width: 100%;
   }
 
-  .consultation-form .iti__country-list{
+  .iti__country-list{
     border-radius: 12px;
     border: 1px solid #e5e7eb;
     box-shadow: 0 14px 32px rgba(15, 23, 42, 0.18);
     max-height: 280px;
+    width: 320px !important;
+    max-width: calc(100vw - 24px);
+    overflow-x: hidden;
+  }
+
+  .iti__country{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .iti__country-name{
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .iti__dial-code{
+    margin-left: auto;
+    white-space: nowrap;
   }
 
   .consultation-form .iti__selected-flag{
@@ -222,7 +245,6 @@
     <form class="consultation-form" id="consultationForm">
       <div class="consultation-form__header">
         <h3 id="consultation-form-title">Get Free Expert Consultation</h3>
-        <p>Complete your skills assessment with ease.</p>
       </div>
 
       <div class="consultation-form__grid">
@@ -231,7 +253,12 @@
           <input class="consultation-input" id="consultationName" name="name" type="text" placeholder="John Smith" required>
         </div>
 
-        <div class="consultation-field">
+        <div class="consultation-field consultation-field--full">
+          <label for="consultationEmail">Email address *</label>
+          <input class="consultation-input" id="consultationEmail" name="email" type="email" placeholder="*****@gmail.com" required>
+        </div>
+
+        <div class="consultation-field consultation-field--full">
           <label for="consultationPhone">Phone *</label>
           <div class="consultation-phone-wrap">
             <input class="consultation-input" id="consultationPhone" name="phone" type="tel" placeholder="+1 000 000 ..." required>
@@ -239,13 +266,8 @@
         </div>
 
         <div class="consultation-field consultation-field--full">
-          <label for="consultationEmail">Email address *</label>
-          <input class="consultation-input" id="consultationEmail" name="email" type="email" placeholder="*****@gmail.com" required>
-        </div>
-
-        <div class="consultation-field consultation-field--full">
           <label for="consultationMessage">Message</label>
-          <textarea class="consultation-textarea" id="consultationMessage" name="message" rows="3"></textarea>
+          <textarea class="consultation-textarea" id="consultationMessage" name="message" rows="1"></textarea>
         </div>
 
         <div class="consultation-field consultation-field--full">

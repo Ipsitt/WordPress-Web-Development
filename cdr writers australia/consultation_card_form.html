@@ -320,16 +320,23 @@
       const name = document.getElementById("consultationName").value.trim();
       const email = document.getElementById("consultationEmail").value.trim();
       const message = document.getElementById("consultationMessage").value.trim();
-      const phone = phoneInstance && phoneInstance.getNumber
+      const typedPhone = phoneInput.value.trim();
+      const formattedPhone = phoneInstance && phoneInstance.getNumber
         ? phoneInstance.getNumber()
-        : phoneInput.value.trim();
+        : "";
+      const countryData = phoneInstance && phoneInstance.getSelectedCountryData
+        ? phoneInstance.getSelectedCountryData()
+        : null;
+      const phone = formattedPhone || (countryData && countryData.dialCode
+        ? "+" + countryData.dialCode + (typedPhone ? " " + typedPhone : "")
+        : typedPhone);
 
       const whatsappMessage = [
         "Message: " + message,
         "Name: " + name,
         "Email: " + email,
         "Phone: " + phone
-      ].join("\\n");
+      ].join("\n");
 
       window.location.href = WHATSAPP_URL + encodeURIComponent(whatsappMessage) + "&type=phone_number&app_absent=0";
     });

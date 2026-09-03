@@ -76,7 +76,7 @@
 
   .consultation-form__grid{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 
@@ -100,20 +100,22 @@
   .consultation-textarea,
   .iti input.consultation-input{
     width: 100%;
-    min-height: 36px;
+    height: 40px !important;
+    min-height: 40px !important;
     border: 1.5px solid #f3f4f6;
     background: #f8f8f9;
     border-radius: 10px;
     padding: 0 14px;
     font-size: 16px;
-    color: #111827;
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   }
 
   .consultation-textarea{
-    height: 36px;
-    min-height: 36px;
+    height: 40px !important;
+    min-height: 40px !important;
     padding-top: 8px;
     padding-bottom: 8px;
     resize: none;
@@ -277,7 +279,6 @@
         </div>
       </div>
 
-      <p class="consultation-footer-note">This site is protected by reCAPTCHA.</p>
     </form>
   </section>
 </div>

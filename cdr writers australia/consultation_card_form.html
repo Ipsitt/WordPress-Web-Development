@@ -306,21 +306,37 @@
 
 <script>
 (function () {
-  // Keep the destination easy to edit from the top of the code.
-  const LANDING_URL = "https://cdrwritersaustralia.com/";
+  // Keep the WhatsApp destination easy to edit from the top of the code.
+  const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=%2B61482085705&text=";
 
   const form = document.getElementById("consultationForm");
   const phoneInput = document.getElementById("consultationPhone");
+  let phoneInstance = null;
 
   if (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
-      window.location.href = LANDING_URL;
+
+      const name = document.getElementById("consultationName").value.trim();
+      const email = document.getElementById("consultationEmail").value.trim();
+      const message = document.getElementById("consultationMessage").value.trim();
+      const phone = phoneInstance && phoneInstance.getNumber
+        ? phoneInstance.getNumber()
+        : phoneInput.value.trim();
+
+      const whatsappMessage = [
+        "Message: " + message,
+        "Name: " + name,
+        "Email: " + email,
+        "Phone: " + phone
+      ].join("\\n");
+
+      window.location.href = WHATSAPP_URL + encodeURIComponent(whatsappMessage) + "&type=phone_number&app_absent=0";
     });
   }
 
   if (window.intlTelInput && phoneInput) {
-    const iti = window.intlTelInput(phoneInput, {
+    phoneInstance = window.intlTelInput(phoneInput, {
       initialCountry: "us",
       preferredCountries: ["us", "gb", "au", "ca", "in"],
       nationalMode: false,

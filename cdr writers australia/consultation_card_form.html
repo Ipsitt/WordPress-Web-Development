@@ -49,6 +49,7 @@
     background: #ffffff;
     border-radius: 22px;
     padding: 22px;
+    padding-bottom: 18px;
     width: 100%;
     min-width: 0;
   }
@@ -177,16 +178,18 @@
     white-space: nowrap;
   }
 
-  .consultation-form .iti__selected-flag{
+  .iti__selected-country,
+  .iti__selected-country:hover,
+  .iti__selected-country:focus,
+  .consultation-form .iti__selected-flag,
+  .consultation-form .iti__selected-flag:hover,
+  .consultation-form .iti__selected-flag:focus,
+  .consultation-form .iti__selected-flag[aria-expanded="true"]{
     border-radius: 10px 0 0 10px;
     padding-left: 12px;
     padding-right: 12px;
     background: transparent !important;
-  }
-
-  .consultation-form .iti__selected-flag:hover,
-  .consultation-form .iti__selected-flag:focus{
-    background: transparent !important;
+    background-color: transparent !important;
   }
 
   .consultation-form .iti__selected-dial-code{

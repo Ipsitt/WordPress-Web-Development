@@ -63,6 +63,7 @@
     font-size: clamp(24px, 4vw, 32px);
     line-height: 1.1;
     color: var(--consultation-text);
+    font-weight: 700;
     letter-spacing: -0.03em;
   }
 
@@ -99,7 +100,7 @@
   .consultation-textarea,
   .iti input.consultation-input{
     width: 100%;
-    min-height: 42px;
+    min-height: 36px;
     border: 1.5px solid #f3f4f6;
     background: #f8f8f9;
     border-radius: 10px;
@@ -111,11 +112,12 @@
   }
 
   .consultation-textarea{
-    height: 42px;
-    min-height: 42px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 36px;
+    min-height: 36px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     resize: none;
+    overflow: hidden;
   }
 
   .consultation-input:hover,
@@ -248,7 +250,7 @@
       </div>
 
       <div class="consultation-form__grid">
-        <div class="consultation-field">
+        <div class="consultation-field consultation-field--full">
           <label for="consultationName">Name *</label>
           <input class="consultation-input" id="consultationName" name="name" type="text" placeholder="John Smith" required>
         </div>
@@ -267,7 +269,7 @@
 
         <div class="consultation-field consultation-field--full">
           <label for="consultationMessage">Message</label>
-          <textarea class="consultation-textarea" id="consultationMessage" name="message" rows="1"></textarea>
+          <input class="consultation-input" id="consultationMessage" name="message" type="text">
         </div>
 
         <div class="consultation-field consultation-field--full">

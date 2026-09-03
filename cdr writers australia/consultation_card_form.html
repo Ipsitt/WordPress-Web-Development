@@ -1,0 +1,394 @@
+<!--
+  Consultation card + form block for CDR Writers Australia
+  Drop this into a WordPress "Raw HTML" / "Custom HTML" block.
+
+  Edit only the config variables at the top of the script to change destinations.
+-->
+
+<style>
+  :root{
+    --consultation-red: #b82d2d;
+    --consultation-red-hover: #e53e3e;
+    --consultation-text: #344054;
+    --consultation-muted: #667085;
+    --consultation-border: #e4e7ec;
+    --consultation-shadow: 0 18px 60px rgba(15, 23, 42, 0.18);
+    --consultation-sticky-top: 12px;
+  }
+
+  .consultation-stack{
+    display: grid;
+    gap: 18px;
+    max-width: 760px;
+    width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 12px;
+    box-sizing: border-box;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+    animation: none !important;
+  }
+
+  .consultation-stack *{
+    box-sizing: border-box;
+    animation: none !important;
+  }
+
+  .consultation-card,
+  .consultation-form-card{
+    border-radius: 22px;
+    box-shadow: var(--consultation-shadow);
+    overflow: hidden;
+  }
+
+  .consultation-card{
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbfc 100%);
+    border: 1px solid rgba(255,255,255,0.85);
+    padding: 22px;
+  }
+
+  .consultation-card__top{
+    display: block;
+  }
+
+  .consultation-card h2{
+    margin: 0;
+    font-size: clamp(25px, 4vw, 36px);
+    line-height: 1.05;
+    color: #1f2937;
+    letter-spacing: -0.03em;
+    max-width: none;
+    color: #1f2937 !important;
+  }
+
+  .consultation-card__text{
+    margin: 10px 0 0;
+    color: var(--consultation-muted);
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: none;
+    color: var(--consultation-muted) !important;
+  }
+
+  .consultation-card h2:hover,
+  .consultation-card__text:hover{
+    color: #1f2937 !important;
+  }
+
+  .consultation-card__text:hover{
+    color: var(--consultation-muted) !important;
+  }
+
+  .consultation-card__cta{
+    margin-top: 20px;
+  }
+
+  .consultation-card__button{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    border: 0;
+    border-radius: 999px;
+    background: #e53e3e;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 12px 28px rgba(229, 62, 62, 0.26);
+  }
+
+  .consultation-card__button:hover{
+    transform: translateY(-1px);
+    color: #ffffff !important;
+  }
+
+  .consultation-card__button:focus,
+  .consultation-card__button:visited{
+    color: #ffffff !important;
+  }
+
+  .consultation-form-card{
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    min-width: 0;
+    position: sticky;
+    top: var(--consultation-sticky-top);
+    z-index: 2;
+  }
+
+  .consultation-form{
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 22px;
+    width: 100%;
+    min-width: 0;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+  }
+
+  .consultation-form__header{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .consultation-form__header h3{
+    margin: 0;
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: 1.1;
+    color: var(--consultation-text);
+    letter-spacing: -0.03em;
+  }
+
+  .consultation-form__header p{
+    margin: 10px 0 0;
+    color: var(--consultation-text);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .consultation-form__grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .consultation-field{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .consultation-field--full{
+    grid-column: 1 / -1;
+  }
+
+  .consultation-field label{
+    font-size: 16px;
+    color: #3f3f46;
+    font-weight: 500;
+  }
+
+  .consultation-input,
+  .consultation-textarea,
+  .iti input.consultation-input{
+    width: 100%;
+    min-height: 48px;
+    border: 1.5px solid #f3f4f6;
+    background: #f8f8f9;
+    border-radius: 10px;
+    padding: 0 14px;
+    font-size: 16px;
+    color: #111827;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+
+  .consultation-textarea{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    min-height: 48px;
+    resize: vertical;
+  }
+
+  .consultation-input:hover,
+  .consultation-textarea:hover{
+    border-color: var(--consultation-red);
+  }
+
+  .consultation-input:focus,
+  .consultation-textarea:focus{
+    border-color: var(--consultation-red);
+    box-shadow: 0 0 0 3px rgba(184, 45, 45, 0.12);
+    background: #ffffff;
+  }
+
+  .consultation-input::placeholder,
+  .consultation-textarea::placeholder{
+    color: #9ca3af;
+    opacity: 1;
+  }
+
+  .consultation-phone-wrap{
+    position: relative;
+  }
+
+  .consultation-form .iti{
+    width: 100%;
+  }
+
+  .consultation-form .iti__country-list{
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.18);
+    max-height: 280px;
+  }
+
+  .consultation-form .iti__selected-flag{
+    border-radius: 10px 0 0 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .consultation-submit{
+    width: 100%;
+    min-height: 50px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--consultation-red);
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .consultation-submit:hover{
+    transform: translateY(-1px);
+    background: #a52828;
+  }
+
+  .consultation-footer-note{
+    margin: 14px 0 0;
+    color: #8c8c8c;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 720px){
+    .consultation-stack{
+      padding: 8px;
+    }
+
+    .consultation-card,
+    .consultation-form{
+      padding: 18px;
+      border-radius: 18px;
+    }
+
+    .consultation-form__grid{
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px){
+    .consultation-form__header p,
+    .consultation-field label,
+    .consultation-input,
+    .consultation-textarea,
+    .consultation-submit{
+      font-size: 16px;
+    }
+  }
+</style>
+
+<div class="consultation-stack">
+  <section class="consultation-card" aria-labelledby="consultation-card-title">
+    <div class="consultation-card__top">
+      <div>
+        <h2 id="consultation-card-title">Get Free Expert Consultation</h2>
+      </div>
+    </div>
+
+    <div class="consultation-card__cta">
+      <a
+        class="consultation-card__button"
+        id="freeConsultationButton"
+        href="https://api.whatsapp.com/send/?phone=%2B61482085705&text&type=phone_number&app_absent=0"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Free Consultation
+      </a>
+    </div>
+  </section>
+
+  <section class="consultation-form-card" aria-labelledby="consultation-form-title">
+    <form class="consultation-form" id="consultationForm">
+      <div class="consultation-form__header">
+        <h3 id="consultation-form-title">Get Free Expert Consultation</h3>
+        <p>Complete your skills assessment with ease.</p>
+      </div>
+
+      <div class="consultation-form__grid">
+        <div class="consultation-field">
+          <label for="consultationName">Name *</label>
+          <input class="consultation-input" id="consultationName" name="name" type="text" placeholder="John Smith" required>
+        </div>
+
+        <div class="consultation-field">
+          <label for="consultationPhone">Phone *</label>
+          <div class="consultation-phone-wrap">
+            <input class="consultation-input" id="consultationPhone" name="phone" type="tel" placeholder="+1 000 000 ..." required>
+          </div>
+        </div>
+
+        <div class="consultation-field consultation-field--full">
+          <label for="consultationEmail">Email address *</label>
+          <input class="consultation-input" id="consultationEmail" name="email" type="email" placeholder="*****@gmail.com" required>
+        </div>
+
+        <div class="consultation-field consultation-field--full">
+          <label for="consultationMessage">Message</label>
+          <textarea class="consultation-textarea" id="consultationMessage" name="message" rows="3"></textarea>
+        </div>
+
+        <div class="consultation-field consultation-field--full">
+          <button class="consultation-submit" type="submit">Claim Free Consultation</button>
+        </div>
+      </div>
+
+      <p class="consultation-footer-note">This site is protected by reCAPTCHA.</p>
+    </form>
+  </section>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.1/build/css/intlTelInput.css">
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.1/build/js/intlTelInput.min.js"></script>
+
+<script>
+(function () {
+  // Keep these easy to edit from the top of the code.
+  const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=%2B61482085705&text&type=phone_number&app_absent=0";
+  const LANDING_URL = "https://cdrwritersaustralia.com/";
+
+  const consultationButton = document.getElementById("freeConsultationButton");
+  const form = document.getElementById("consultationForm");
+  const phoneInput = document.getElementById("consultationPhone");
+
+  if (consultationButton) {
+    consultationButton.href = WHATSAPP_URL;
+  }
+
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      window.location.href = LANDING_URL;
+    });
+  }
+
+  if (window.intlTelInput && phoneInput) {
+    const iti = window.intlTelInput(phoneInput, {
+      initialCountry: "us",
+      preferredCountries: ["us", "gb", "au", "ca", "in"],
+      nationalMode: false,
+      autoPlaceholder: "polite",
+      separateDialCode: true,
+      formatOnDisplay: false,
+      dropdownContainer: document.body,
+      geoIpLookup: function (success) {
+        success("us");
+      }
+    });
+
+    phoneInput.addEventListener("countrychange", function () {
+      phoneInput.placeholder = iti.getSelectedCountryData().dialCode ? "+" + iti.getSelectedCountryData().dialCode + " 000 000 ..." : "+1 000 000 ...";
+    });
+  }
+})();
+</script>

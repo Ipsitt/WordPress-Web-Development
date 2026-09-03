@@ -190,6 +190,10 @@
     padding-right: 12px;
     background: transparent !important;
     background-color: transparent !important;
+    box-shadow: none !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
   }
 
   .consultation-form .iti__selected-dial-code{
@@ -320,8 +324,21 @@
 
     phoneInput.placeholder = "000 000 ...";
 
+    function removePhoneSelectorTooltip() {
+      const selector = phoneInput.closest(".iti");
+      if (!selector) return;
+
+      const countryButton = selector.querySelector(".iti__selected-country");
+      const selectedFlag = selector.querySelector(".iti__selected-flag");
+      if (countryButton) countryButton.removeAttribute("title");
+      if (selectedFlag) selectedFlag.removeAttribute("title");
+    }
+
+    removePhoneSelectorTooltip();
+
     phoneInput.addEventListener("countrychange", function () {
       phoneInput.placeholder = "000 000 ...";
+      removePhoneSelectorTooltip();
     });
   }
 })();

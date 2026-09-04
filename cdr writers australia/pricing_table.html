@@ -1,0 +1,180 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: white;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 16px;
+    }
+    th {
+        background-color: #f4f4f4;
+    }
+
+    .highlight-pkg {
+        width: 30%;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .highlight-pkg-royal {
+        width: 30%;
+        font-weight: bold;
+        font-size: 18px;  
+        height: 90px;
+        background-color: #dd3333;
+        color:#fff;
+    }
+    .normal-pkg {
+        width: 16.6666667%;
+        font-size: 14px;
+    }
+    .plan-pkg{
+        width: 16.6666667%;
+        font-size: 18px;
+        height:90px;
+    }
+    .price-pkg{
+        font-size:34px;
+        font-weight:55px;
+    }
+    .btn-pkg {
+        display: inline-block;
+        padding: 8px 16px;
+        color: #dd3333;
+        background-color: white;
+        text-decoration: none;
+        border: 1px solid #dd3333;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .btn-pkg:hover {
+        background-color: #dd3333;
+        color: white;
+    }
+    .btn-pkg-highlight {
+        background-color: #dd3333;
+        color: white;
+        border: none;
+    }
+    .yes {
+        color: red;
+    }
+    .no {
+        color: red;
+    }
+    .cdr-table-container {
+    width: 100%;
+    overflow-x: auto;
+    }
+    
+    /* Media query for tablet view */
+    @media screen and (max-width: 768px) {
+    .highlight-pkg, .highlight-pkg-royal, .normal-pkg {
+        width: calc(100% / 5); /* Make each cell 1/5th of the container */
+        box-sizing: border-box;
+    }
+    .normal-pkg{
+        width:133.47%
+    }
+    .btn-pkg{
+        padding: 8px 10px !important;
+        font-size: 12px;
+        width: 88.05px;
+        border: 1px solid #dd3333;
+    }
+    th, td {
+        width: calc(100% / 5); /* Ensure all columns are the same width */
+    }
+    }
+
+    @media screen and (max-width: 600px) {
+    .cdr-table-container {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+    }
+    table {
+        width: auto;
+    }
+    .btn-pkg{
+    border: 1px solid #dd3333;
+    }
+    }
+</style>
+<div class="cdr-table-container">
+<table>
+    <tr>
+        <th class="plan-pkg"></th>
+        <th class="plan-pkg">15 days plan</th>
+        <th class="plan-pkg">10 days plan</th>
+        <th class="plan-pkg">7 days plan</th>
+        <th class="highlight-pkg-royal">Royal Package</th>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td class="price-pkg">$799</td>
+        <td class="price-pkg">$999</td>
+        <td class="price-pkg">$1299</td>
+        <td class="price-pkg">$2999</td>
+    </tr>
+    <tr>
+        <td>3 Career Episodes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+    </tr>
+    <tr>
+        <td>Summary Statement</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+    </tr>
+    <tr>
+        <td>Plagiarism Check</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+    </tr>
+    <tr>
+        <td>Correction Limit</td>
+        <td>3 Times</td>
+        <td>6 Times</td>
+        <td>Unlimited</td>
+        <td>Unlimited</td>
+    </tr>
+    <tr>
+        <td>Speak with the Writer</td>
+        <td><i class="fas fa-times no"></i> No</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+    </tr>
+    <tr>
+        <td>PR procedure guidance</td>
+        <td><i class="fas fa-times no"></i> No</td>
+        <td><i class="fas fa-times no"></i> No</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+    </tr>
+    <tr>
+        <td>Full Refund</td>
+        <td><i class="fas fa-times no"></i> No</td>
+        <td><i class="fas fa-times no"></i> No</td>
+        <td><i class="fas fa-times no"></i> No</td>
+        <td><i class="fas fa-check yes"></i> Yes</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><a href="https://api.whatsapp.com/send/?phone=%2B61482085705&text&type=phone_number&app_absent=0" class="btn-pkg">Order Via WhatsApp</a></td>
+        <td><a href="https://api.whatsapp.com/send/?phone=%2B61482085705&text&type=phone_number&app_absent=0" class="btn-pkg">Order Via WhatsApp</a></td>
+        <td><a href="https://api.whatsapp.com/send/?phone=%2B61482085705&text&type=phone_number&app_absent=0" class="btn-pkg">Order Via WhatsApp</a></td>
+        <td><a href="https://api.whatsapp.com/send/?phone=%2B61482085705&text&type=phone_number&app_absent=0" class="btn-pkg btn-pkg-highlight">Order Via WhatsApp</a></td>
+    </tr>
+</table>
+</div>

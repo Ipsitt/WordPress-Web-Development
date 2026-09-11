@@ -1,0 +1,18 @@
+/* Target both the solid and flat pricing button variations */
+a.tm-button.tm-pricing-button.style-solid,
+a.tm-button.tm-pricing-button.style-flat {
+    font-size: 0 !important;
+    display: inline-flex !important;    /* Forces a flexbox layout */
+    justify-content: center !important; /* Centers text horizontally */
+    align-items: center !important;     /* Centers text vertically */
+    text-align: center !important;
+}
+
+/* Inject and format the text for both button variations */
+a.tm-button.tm-pricing-button.style-solid::after,
+a.tm-button.tm-pricing-button.style-flat::after {
+    content: "Order via WhatsApp";
+    font-size: 14px !important; /* Adjust if you want the text larger or smaller */
+    display: inline-block;
+    line-height: 1 !important;  /* Keeps the text perfectly aligned on the axis */
+}

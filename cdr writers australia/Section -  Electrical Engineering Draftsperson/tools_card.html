@@ -1,0 +1,145 @@
+<style>
+  .eng-tools {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 32px 0;
+    background-color: #fbfcfd;
+    border: 1px solid #e3e9ef;
+    border-top: 3px solid #123456;
+    border-radius: 4px;
+    padding: 40px 44px;
+  }
+  .eng-tools * { box-sizing: border-box; }
+
+  .eng-tools h2 {
+    margin: 0 0 16px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #16233d;
+  }
+  .eng-tools > p {
+    margin: 0 0 32px 0;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #46536b;
+    max-width: none;
+  }
+
+  .eng-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 0;
+  }
+  .eng-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+  }
+  .eng-item-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #123456;
+    flex-shrink: 0;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+  .eng-item-line {
+    width: 24px;
+    height: 2px;
+    background-color: #d3dde6;
+    flex-shrink: 0;
+  }
+  .eng-item:last-child .eng-item-line { display: none; }
+  .eng-item-label {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid #dde5ed;
+    border-radius: 6px;
+    padding: 9px 16px;
+    margin: 0 10px;
+    transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  }
+  .eng-item-label .eng-tag {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+    color: #8fa3b8;
+    margin-bottom: 2px;
+  }
+  .eng-item-label .eng-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #16233d;
+    white-space: nowrap;
+  }
+  .eng-item:hover .eng-item-label {
+    border-color: #123456;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px -6px rgba(18, 52, 86, 0.35);
+  }
+  .eng-item:hover .eng-item-dot {
+    background-color: #cc1f29;
+    box-shadow: 0 0 0 4px rgba(204, 31, 41, 0.14);
+  }
+
+  @media screen and (max-width: 767px) {
+    .eng-tools { padding: 30px 24px; }
+    .eng-legend { flex-direction: column; align-items: stretch; }
+    .eng-item { width: 100%; }
+    .eng-item-line { display: none; }
+    .eng-item-dot { display: none; }
+    .eng-item-label { margin: 0; width: 100%; }
+  }
+</style>
+
+<div class="eng-tools">
+  <h2>Tools and Technologies</h2>
+  <p>
+    Electrical engineering draftspeople use computers, especially CAD (computer-aided design) software, as well as electrical system modeling and testing systems. They must also be knowledgeable with various types of electrical circuits and parts, such as transformers, circuit breakers, and transmission lines. They may be expected to utilize other office equipment as well.
+  </p>
+
+  <div class="eng-legend">
+    <div class="eng-item">
+      <span class="eng-item-dot"></span>
+      <span class="eng-item-label">
+        <span class="eng-tag">SOFTWARE</span>
+        <span class="eng-name">CAD Design Software</span>
+      </span>
+      <span class="eng-item-line"></span>
+    </div>
+    <div class="eng-item">
+      <span class="eng-item-dot"></span>
+      <span class="eng-item-label">
+        <span class="eng-tag">SYSTEM</span>
+        <span class="eng-name">Circuit Modeling & Testing</span>
+      </span>
+      <span class="eng-item-line"></span>
+    </div>
+    <div class="eng-item">
+      <span class="eng-item-dot"></span>
+      <span class="eng-item-label">
+        <span class="eng-tag">COMPONENT</span>
+        <span class="eng-name">Transformers & Breakers</span>
+      </span>
+      <span class="eng-item-line"></span>
+    </div>
+    <div class="eng-item">
+      <span class="eng-item-dot"></span>
+      <span class="eng-item-label">
+        <span class="eng-tag">INFRASTRUCTURE</span>
+        <span class="eng-name">Transmission Lines</span>
+      </span>
+      <span class="eng-item-line"></span>
+    </div>
+    <div class="eng-item">
+      <span class="eng-item-dot"></span>
+      <span class="eng-item-label">
+        <span class="eng-tag">GENERAL</span>
+        <span class="eng-name">Office & Reporting Equipment</span>
+      </span>
+    </div>
+  </div>
+</div>

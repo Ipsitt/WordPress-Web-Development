@@ -1,0 +1,236 @@
+<style>
+  .struct-card {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background-color: #ffffff;
+    border: 1px solid #eceef1;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .struct-card * { box-sizing: border-box; }
+
+  .struct-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+  .struct-line { fill: none; stroke: #d3d6da; stroke-width: 1.4; }
+  .struct-line-soft { fill: none; stroke: #dfe2e6; stroke-width: 1; }
+  .struct-shaft { fill: none; stroke: #c7cace; stroke-width: 1.2; }
+  .struct-mono { fill: none; stroke: currentColor; }
+
+  .struct-pillar-svg { width: 100%; height: 100%; display: block; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .struct-wipe { display: none; }
+  }
+
+  /* ---------- desktop side pillars (hidden by default / mobile) ---------- */
+  .struct-pillar-desktop { display: none; }
+
+  /* ---------- main content ---------- */
+  .struct-main { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  .struct-col { padding: 34px 36px 28px 36px; }
+  .struct-col h3 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    position: relative;
+    padding-left: 14px;
+  }
+  .struct-col h3::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 3px; bottom: 3px;
+    width: 4px;
+    border-radius: 2px;
+    background-color: #cc1f29;
+  }
+  .struct-col p { margin: 0; font-size: 14.5px; line-height: 1.75; color: #565b64; }
+  .struct-list { display: flex; flex-direction: column; gap: 14px; }
+  .struct-list-item { display: flex; align-items: flex-start; gap: 12px; }
+  .struct-check { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; }
+  .struct-list-item span { font-size: 14.5px; line-height: 1.7; color: #565b64; }
+
+  .struct-exceptions-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border-top: 1px solid #f0f1f3;
+  }
+  .struct-exceptions-wrap .struct-col { flex: 1; min-width: 0; }
+  .struct-pillar-mobile {
+    flex-shrink: 0;
+    width: 110px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 20px 12px 20px 0;
+  }
+
+  /* ---------- desktop layout ---------- */
+  @media screen and (min-width: 768px) {
+    .struct-card { flex-direction: row; }
+
+    .struct-pillar-desktop {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      width: 140px;
+      flex-shrink: 0;
+      padding: 14px 6px;
+    }
+
+    .struct-main { flex-direction: row; }
+    .struct-col { flex: 1; min-width: 0; }
+    .struct-col + .struct-col { border-left: 1px solid #f0f1f3; }
+
+    .struct-exceptions-wrap { border-top: none; flex: 1; }
+    .struct-pillar-mobile { display: none; }
+  }
+</style>
+
+<div class="struct-card">
+
+  <svg class="struct-defs" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <clipPath id="ionic-wipe-clip" clipPathUnits="userSpaceOnUse">
+        <rect x="-10" y="-40" width="120" height="40">
+          <animate attributeName="y" values="-40;270;270" keyTimes="0;0.75;1" dur="4.5s" repeatCount="indefinite" />
+        </rect>
+      </clipPath>
+
+      <symbol id="ionic-pillar" viewBox="0 0 100 260">
+        <path class="struct-line" d="M6,16 H94 M2,22 L6,16 M98,22 L94,16 M2,22 H98" />
+        <g>
+          <circle class="struct-line" cx="22" cy="42" r="15.5" />
+          <circle class="struct-line-soft" cx="22" cy="42" r="10.5" />
+          <circle class="struct-line-soft" cx="22" cy="42" r="6" />
+          <circle class="struct-line" cx="22" cy="42" r="1.8" />
+          <path class="struct-line-soft" d="M22,26.5 A15.5,15.5 0 0 1 37.5,42" />
+        </g>
+        <g>
+          <circle class="struct-line" cx="78" cy="42" r="15.5" />
+          <circle class="struct-line-soft" cx="78" cy="42" r="10.5" />
+          <circle class="struct-line-soft" cx="78" cy="42" r="6" />
+          <circle class="struct-line" cx="78" cy="42" r="1.8" />
+          <path class="struct-line-soft" d="M78,26.5 A15.5,15.5 0 0 0 62.5,42" />
+        </g>
+        <path class="struct-line" d="M6,38 C14,26 30,26 37,38 C42,47 58,47 63,38 C70,26 86,26 94,38" />
+        <circle class="struct-line" cx="50" cy="34" r="5" />
+        <circle class="struct-line-soft" cx="50" cy="34" r="1.8" />
+        <path class="struct-line" d="M8,58 H92" />
+        <circle class="struct-line-soft" cx="18" cy="63" r="2.2" />
+        <circle class="struct-line-soft" cx="30" cy="63" r="2.2" />
+        <circle class="struct-line-soft" cx="42" cy="63" r="2.2" />
+        <circle class="struct-line-soft" cx="58" cy="63" r="2.2" />
+        <circle class="struct-line-soft" cx="70" cy="63" r="2.2" />
+        <circle class="struct-line-soft" cx="82" cy="63" r="2.2" />
+        <path class="struct-line" d="M6,70 H94" />
+        <path class="struct-line" d="M14,70 L20,82 M86,70 L80,82" />
+        <path class="struct-shaft" d="M22,90 Q22,82 27,82 Q32,82 32,90 V225" />
+        <path class="struct-shaft" d="M34,90 Q34,82 39,82 Q44,82 44,90 V225" />
+        <path class="struct-shaft" d="M46,90 Q46,82 51,82 Q56,82 56,90 V225" />
+        <path class="struct-shaft" d="M58,90 Q58,82 63,82 Q68,82 68,90 V225" />
+        <path class="struct-shaft" d="M70,90 Q70,82 75,82 Q80,82 80,90 V225" />
+        <path class="struct-line" d="M18,225 Q50,236 82,225" />
+        <path class="struct-line" d="M12,236 H88 M8,244 H92" />
+      </symbol>
+
+      <symbol id="ionic-pillar-mono" viewBox="0 0 100 260">
+        <path class="struct-mono" stroke-width="1.4" d="M6,16 H94 M2,22 L6,16 M98,22 L94,16 M2,22 H98" />
+        <g>
+          <circle class="struct-mono" stroke-width="1.4" cx="22" cy="42" r="15.5" />
+          <circle class="struct-mono" stroke-width="1" cx="22" cy="42" r="10.5" />
+          <circle class="struct-mono" stroke-width="1" cx="22" cy="42" r="6" />
+          <circle class="struct-mono" stroke-width="1.4" cx="22" cy="42" r="1.8" />
+          <path class="struct-mono" stroke-width="1" d="M22,26.5 A15.5,15.5 0 0 1 37.5,42" />
+        </g>
+        <g>
+          <circle class="struct-mono" stroke-width="1.4" cx="78" cy="42" r="15.5" />
+          <circle class="struct-mono" stroke-width="1" cx="78" cy="42" r="10.5" />
+          <circle class="struct-mono" stroke-width="1" cx="78" cy="42" r="6" />
+          <circle class="struct-mono" stroke-width="1.4" cx="78" cy="42" r="1.8" />
+          <path class="struct-mono" stroke-width="1" d="M78,26.5 A15.5,15.5 0 0 0 62.5,42" />
+        </g>
+        <path class="struct-mono" stroke-width="1.4" d="M6,38 C14,26 30,26 37,38 C42,47 58,47 63,38 C70,26 86,26 94,38" />
+        <circle class="struct-mono" stroke-width="1.4" cx="50" cy="34" r="5" />
+        <circle class="struct-mono" stroke-width="1" cx="50" cy="34" r="1.8" />
+        <path class="struct-mono" stroke-width="1.4" d="M8,58 H92" />
+        <circle class="struct-mono" stroke-width="1" cx="18" cy="63" r="2.2" />
+        <circle class="struct-mono" stroke-width="1" cx="30" cy="63" r="2.2" />
+        <circle class="struct-mono" stroke-width="1" cx="42" cy="63" r="2.2" />
+        <circle class="struct-mono" stroke-width="1" cx="58" cy="63" r="2.2" />
+        <circle class="struct-mono" stroke-width="1" cx="70" cy="63" r="2.2" />
+        <circle class="struct-mono" stroke-width="1" cx="82" cy="63" r="2.2" />
+        <path class="struct-mono" stroke-width="1.4" d="M6,70 H94" />
+        <path class="struct-mono" stroke-width="1.4" d="M14,70 L20,82 M86,70 L80,82" />
+        <path class="struct-mono" stroke-width="1.2" d="M22,90 Q22,82 27,82 Q32,82 32,90 V225" />
+        <path class="struct-mono" stroke-width="1.2" d="M34,90 Q34,82 39,82 Q44,82 44,90 V225" />
+        <path class="struct-mono" stroke-width="1.2" d="M46,90 Q46,82 51,82 Q56,82 56,90 V225" />
+        <path class="struct-mono" stroke-width="1.2" d="M58,90 Q58,82 63,82 Q68,82 68,90 V225" />
+        <path class="struct-mono" stroke-width="1.2" d="M70,90 Q70,82 75,82 Q80,82 80,90 V225" />
+        <path class="struct-mono" stroke-width="1.4" d="M18,225 Q50,236 82,225" />
+        <path class="struct-mono" stroke-width="1.4" d="M12,236 H88 M8,244 H92" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="struct-pillar-desktop struct-pillar-left">
+    <svg class="struct-pillar-svg" viewBox="0 0 100 260">
+      <use href="#ionic-pillar"></use>
+      <g class="struct-wipe" clip-path="url(#ionic-wipe-clip)">
+        <use href="#ionic-pillar-mono" style="color:#cc1f29"></use>
+      </g>
+    </svg>
+  </div>
+
+  <div class="struct-main">
+    <div class="struct-col struct-skill">
+      <h3>Skill Level</h3>
+      <p>
+        Most occupations in this unit group have a level of skill commensurate with a bachelor degree or higher qualification. At least five years of relevant experience and/or relevant vendor certification may substitute for the formal qualification. In some instances, relevant experience and/or on-the-job training may be required in addition to the formal qualification (ANZSCO Skill Level 1).
+      </p>
+    </div>
+
+    <div class="struct-exceptions-wrap">
+      <div class="struct-col struct-exceptions">
+        <h3>Exceptions</h3>
+        <div class="struct-list">
+          <div class="struct-list-item">
+            <svg class="struct-check" viewBox="0 0 24 24" fill="none"><path d="M5 12.5L10 17.5L19 7.5" stroke="#cc1f29" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Australian Graduate exceptions apply in some states/territories</span>
+          </div>
+          <div class="struct-list-item">
+            <svg class="struct-check" viewBox="0 0 24 24" fill="none"><path d="M5 12.5L10 17.5L19 7.5" stroke="#cc1f29" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Priority Skilled Lists may apply a specific requirement in some states</span>
+          </div>
+          <div class="struct-list-item">
+            <svg class="struct-check" viewBox="0 0 24 24" fill="none"><path d="M5 12.5L10 17.5L19 7.5" stroke="#cc1f29" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Countries exempt from submitting IELTS or OET include the UK; Canada; New Zealand; US; and Ireland. Where mandatory licensing or registration is required you must demonstrate a level of English either sufficient to meet licensing/registration or a minimum IELTS, or equivalent, whichever is higher.</span>
+          </div>
+        </div>
+      </div>
+      <div class="struct-pillar-mobile">
+        <svg class="struct-pillar-svg" viewBox="0 0 100 260" preserveAspectRatio="none">
+          <use href="#ionic-pillar"></use>
+          <g class="struct-wipe" clip-path="url(#ionic-wipe-clip)">
+            <use href="#ionic-pillar-mono" style="color:#cc1f29"></use>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="struct-pillar-desktop struct-pillar-right">
+    <svg class="struct-pillar-svg" viewBox="0 0 100 260">
+      <use href="#ionic-pillar"></use>
+      <g class="struct-wipe" clip-path="url(#ionic-wipe-clip)">
+        <use href="#ionic-pillar-mono" style="color:#cc1f29"></use>
+      </g>
+    </svg>
+  </div>
+
+</div>

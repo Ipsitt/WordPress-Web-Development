@@ -1,0 +1,131 @@
+<style>
+    .visa-table-scroll-wrapper-b {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 25px;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .visa-data-table-b {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        background: #ffffff;
+        table-layout: auto;
+        display: table !important;
+    }
+
+    .visa-data-table-b thead {
+        display: table-header-group !important;
+    }
+
+    .visa-data-table-b tbody {
+        display: table-row-group !important;
+    }
+
+    .visa-data-table-b tr {
+        display: table-row !important;
+        height: auto !important;
+    }
+
+    .visa-data-table-b th,
+    .visa-data-table-b td {
+        display: table-cell !important;
+    }
+
+    .visa-data-table-b thead tr {
+        background-color: #cc1f29 !important;
+    }
+
+    .visa-data-table-b th {
+        padding: 10px 15px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #ffffff !important;
+        text-align: left !important;
+        border: none;
+        white-space: nowrap;
+    }
+
+    .visa-data-table-b tbody tr {
+        background-color: #ffffff !important;
+        transition: background-color 0.15s ease-in-out;
+    }
+
+    .visa-data-table-b tbody tr td {
+        padding: 10px 15px;
+        font-size: 13px;
+        color: #333333;
+        text-align: left !important;
+        border-bottom: 1px solid #e0e0e0;
+        vertical-align: middle;
+        white-space: normal;
+    }
+
+    .visa-data-table-b tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .visa-data-table-b tbody tr:hover {
+        background-color: #f5f5f5 !important;
+    }
+
+    .visa-bold-text {
+        font-weight: 700;
+        color: #000000;
+    }
+
+    .visa-points-highlight {
+        color: #cc1f29;
+        font-weight: 700;
+    }
+
+    @media screen and (min-width: 768px) {
+        .visa-data-table-b {
+            table-layout: fixed;
+        }
+
+        .visa-data-table-b th,
+        .visa-data-table-b td {
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .visa-data-table-b {
+            table-layout: auto;
+            min-width: 680px !important;
+        }
+    }
+</style>
+
+<div class="visa-table-scroll-wrapper-b">
+    <table class="visa-data-table-b">
+        <thead>
+            <tr>
+                <th style="width: 30%;">Invitation Round Date</th>
+                <th style="width: 25%;">Visa Subclass</th>
+                <th style="width: 45%;">Stream & Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="visa-bold-text">Recent State Draws</span></td>
+                <td>Subclass 189</td>
+                <td>Federal skilled independent pool closed • <strong style="color: #dc2626; font-weight: 700;">STSOL Restriction Applied</strong></td>
+            </tr>
+            <tr>
+                <td><span class="visa-bold-text">2024 / 2025 Allocation</span></td>
+                <td>Subclass 190</td>
+                <td>State-nominated allocation • Invites subject to state-specific matrices (Typical min: <span class="visa-points-highlight">75-85 pts</span>)</td>
+            </tr>
+            <tr>
+                <td><span class="visa-bold-text">2024 / 2025 Allocation</span></td>
+                <td>Subclass 491</td>
+                <td>Regional provisional stream open • Subject to state nomination caps and regional employment rules</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

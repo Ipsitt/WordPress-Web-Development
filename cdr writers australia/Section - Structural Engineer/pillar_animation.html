@@ -17,21 +17,24 @@
 
   .struct-line { fill: none; stroke: #d3d6da; stroke-width: 1.4; }
   .struct-line-soft { fill: none; stroke: #dfe2e6; stroke-width: 1; }
-  .struct-shaft { fill: none; stroke: #c7cace; stroke-width: 1.2; }
+  .struct-shaft-stroke { fill: none; stroke: #c7cace; stroke-width: 1.2; }
   .struct-mono { fill: none; stroke: currentColor; }
-
-  .struct-pillar-svg { width: 100%; height: 100%; display: block; }
 
   @media (prefers-reduced-motion: reduce) {
     .struct-wipe { display: none; }
   }
 
-  /* ---------- desktop side pillars (hidden by default / mobile) ---------- */
   .struct-pillar-desktop { display: none; }
+
+  .struct-pillar-col { display: flex; flex-direction: column; width: 100%; height: 100%; }
+  .struct-pillar-cap, .struct-pillar-base { width: 100%; flex-shrink: 0; }
+  .struct-pillar-cap svg, .struct-pillar-base svg { width: 100%; height: auto; display: block; }
+  .struct-pillar-shaft { flex: 1; min-height: 24px; width: 100%; }
+  .struct-pillar-shaft svg { width: 100%; height: 100%; display: block; }
 
   /* ---------- main content ---------- */
   .struct-main { display: flex; flex-direction: column; flex: 1; min-width: 0; }
-  .struct-col { padding: 34px 36px 28px 36px; }
+  .struct-col { padding: 34px 15px 28px 15px; }
   .struct-col h3 {
     margin: 0 0 16px 0;
     font-size: 18px;
@@ -63,11 +66,11 @@
   .struct-exceptions-wrap .struct-col { flex: 1; min-width: 0; }
   .struct-pillar-mobile {
     flex-shrink: 0;
-    width: 110px;
+    width: 90px;
     display: flex;
     align-items: stretch;
     justify-content: center;
-    padding: 20px 12px 20px 0;
+    padding: 34px 12px 28px 8px;
   }
 
   /* ---------- desktop layout ---------- */
@@ -78,9 +81,9 @@
       display: flex;
       align-items: stretch;
       justify-content: center;
-      width: 140px;
+      width: 90px;
       flex-shrink: 0;
-      padding: 14px 6px;
+      padding: 34px 25px 28px 25px;
     }
 
     .struct-main { flex-direction: row; }
@@ -96,13 +99,24 @@
 
   <svg class="struct-defs" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <clipPath id="ionic-wipe-clip" clipPathUnits="userSpaceOnUse">
-        <rect x="-10" y="-40" width="120" height="40">
-          <animate attributeName="y" values="-40;270;270" keyTimes="0;0.75;1" dur="4.5s" repeatCount="indefinite" />
+      <clipPath id="wipe-cap" clipPathUnits="userSpaceOnUse">
+        <rect x="-10" y="-20" width="120" height="20">
+          <animate attributeName="y" values="-20;104;104" keyTimes="0;0.332;1" dur="4.5s" repeatCount="indefinite" />
+        </rect>
+      </clipPath>
+      <clipPath id="wipe-shaft" clipPathUnits="userSpaceOnUse">
+        <rect x="-10" y="-20" width="120" height="20">
+          <animate attributeName="y" values="-20;-20;163;163" keyTimes="0;0.332;0.897;1" dur="4.5s" repeatCount="indefinite" />
+        </rect>
+      </clipPath>
+      <clipPath id="wipe-base" clipPathUnits="userSpaceOnUse">
+        <rect x="-10" y="-20" width="120" height="20">
+          <animate attributeName="y" values="-20;-20;46" keyTimes="0;0.897;1" dur="4.5s" repeatCount="indefinite" />
         </rect>
       </clipPath>
 
-      <symbol id="ionic-pillar" viewBox="0 0 100 260">
+      <!-- capital: abacus, volutes, echinus, band, neck taper -->
+      <symbol id="ionic-cap" viewBox="0 0 100 84">
         <path class="struct-line" d="M6,16 H94 M2,22 L6,16 M98,22 L94,16 M2,22 H98" />
         <g>
           <circle class="struct-line" cx="22" cy="42" r="15.5" />
@@ -130,16 +144,8 @@
         <circle class="struct-line-soft" cx="82" cy="63" r="2.2" />
         <path class="struct-line" d="M6,70 H94" />
         <path class="struct-line" d="M14,70 L20,82 M86,70 L80,82" />
-        <path class="struct-shaft" d="M22,90 Q22,82 27,82 Q32,82 32,90 V225" />
-        <path class="struct-shaft" d="M34,90 Q34,82 39,82 Q44,82 44,90 V225" />
-        <path class="struct-shaft" d="M46,90 Q46,82 51,82 Q56,82 56,90 V225" />
-        <path class="struct-shaft" d="M58,90 Q58,82 63,82 Q68,82 68,90 V225" />
-        <path class="struct-shaft" d="M70,90 Q70,82 75,82 Q80,82 80,90 V225" />
-        <path class="struct-line" d="M18,225 Q50,236 82,225" />
-        <path class="struct-line" d="M12,236 H88 M8,244 H92" />
       </symbol>
-
-      <symbol id="ionic-pillar-mono" viewBox="0 0 100 260">
+      <symbol id="ionic-cap-mono" viewBox="0 0 100 84">
         <path class="struct-mono" stroke-width="1.4" d="M6,16 H94 M2,22 L6,16 M98,22 L94,16 M2,22 H98" />
         <g>
           <circle class="struct-mono" stroke-width="1.4" cx="22" cy="42" r="15.5" />
@@ -167,24 +173,57 @@
         <circle class="struct-mono" stroke-width="1" cx="82" cy="63" r="2.2" />
         <path class="struct-mono" stroke-width="1.4" d="M6,70 H94" />
         <path class="struct-mono" stroke-width="1.4" d="M14,70 L20,82 M86,70 L80,82" />
-        <path class="struct-mono" stroke-width="1.2" d="M22,90 Q22,82 27,82 Q32,82 32,90 V225" />
-        <path class="struct-mono" stroke-width="1.2" d="M34,90 Q34,82 39,82 Q44,82 44,90 V225" />
-        <path class="struct-mono" stroke-width="1.2" d="M46,90 Q46,82 51,82 Q56,82 56,90 V225" />
-        <path class="struct-mono" stroke-width="1.2" d="M58,90 Q58,82 63,82 Q68,82 68,90 V225" />
-        <path class="struct-mono" stroke-width="1.2" d="M70,90 Q70,82 75,82 Q80,82 80,90 V225" />
-        <path class="struct-mono" stroke-width="1.4" d="M18,225 Q50,236 82,225" />
-        <path class="struct-mono" stroke-width="1.4" d="M12,236 H88 M8,244 H92" />
+      </symbol>
+
+      <!-- shaft: just straight fluted lines, safe to stretch freely -->
+      <symbol id="ionic-shaft" viewBox="0 0 100 143" preserveAspectRatio="none">
+        <path class="struct-shaft-stroke" d="M22,8 Q22,0 27,0 Q32,0 32,8 V143" />
+        <path class="struct-shaft-stroke" d="M34,8 Q34,0 39,0 Q44,0 44,8 V143" />
+        <path class="struct-shaft-stroke" d="M46,8 Q46,0 51,0 Q56,0 56,8 V143" />
+        <path class="struct-shaft-stroke" d="M58,8 Q58,0 63,0 Q68,0 68,8 V143" />
+        <path class="struct-shaft-stroke" d="M70,8 Q70,0 75,0 Q80,0 80,8 V143" />
+      </symbol>
+      <symbol id="ionic-shaft-mono" viewBox="0 0 100 143" preserveAspectRatio="none">
+        <path class="struct-mono" stroke-width="1.2" d="M22,8 Q22,0 27,0 Q32,0 32,8 V143" />
+        <path class="struct-mono" stroke-width="1.2" d="M34,8 Q34,0 39,0 Q44,0 44,8 V143" />
+        <path class="struct-mono" stroke-width="1.2" d="M46,8 Q46,0 51,0 Q56,0 56,8 V143" />
+        <path class="struct-mono" stroke-width="1.2" d="M58,8 Q58,0 63,0 Q68,0 68,8 V143" />
+        <path class="struct-mono" stroke-width="1.2" d="M70,8 Q70,0 75,0 Q80,0 80,8 V143" />
+      </symbol>
+
+      <!-- base: torus and plinth -->
+      <symbol id="ionic-base" viewBox="0 0 100 26">
+        <path class="struct-line" d="M18,0 Q50,11 82,0" />
+        <path class="struct-line" d="M12,11 H88 M8,19 H92" />
+      </symbol>
+      <symbol id="ionic-base-mono" viewBox="0 0 100 26">
+        <path class="struct-mono" stroke-width="1.4" d="M18,0 Q50,11 82,0" />
+        <path class="struct-mono" stroke-width="1.4" d="M12,11 H88 M8,19 H92" />
       </symbol>
     </defs>
   </svg>
 
   <div class="struct-pillar-desktop struct-pillar-left">
-    <svg class="struct-pillar-svg" viewBox="0 0 100 260">
-      <use href="#ionic-pillar"></use>
-      <g class="struct-wipe" clip-path="url(#ionic-wipe-clip)">
-        <use href="#ionic-pillar-mono" style="color:#cc1f29"></use>
-      </g>
-    </svg>
+    <div class="struct-pillar-col">
+      <div class="struct-pillar-cap">
+        <svg viewBox="0 0 100 84">
+          <use href="#ionic-cap"></use>
+          <g class="struct-wipe" clip-path="url(#wipe-cap)"><use href="#ionic-cap-mono" style="color:#cc1f29"></use></g>
+        </svg>
+      </div>
+      <div class="struct-pillar-shaft">
+        <svg viewBox="0 0 100 143" preserveAspectRatio="none">
+          <use href="#ionic-shaft"></use>
+          <g class="struct-wipe" clip-path="url(#wipe-shaft)"><use href="#ionic-shaft-mono" style="color:#cc1f29"></use></g>
+        </svg>
+      </div>
+      <div class="struct-pillar-base">
+        <svg viewBox="0 0 100 26">
+          <use href="#ionic-base"></use>
+          <g class="struct-wipe" clip-path="url(#wipe-base)"><use href="#ionic-base-mono" style="color:#cc1f29"></use></g>
+        </svg>
+      </div>
+    </div>
   </div>
 
   <div class="struct-main">
@@ -214,23 +253,51 @@
         </div>
       </div>
       <div class="struct-pillar-mobile">
-        <svg class="struct-pillar-svg" viewBox="0 0 100 260" preserveAspectRatio="none">
-          <use href="#ionic-pillar"></use>
-          <g class="struct-wipe" clip-path="url(#ionic-wipe-clip)">
-            <use href="#ionic-pillar-mono" style="color:#cc1f29"></use>
-          </g>
-        </svg>
+        <div class="struct-pillar-col">
+          <div class="struct-pillar-cap">
+            <svg viewBox="0 0 100 84">
+              <use href="#ionic-cap"></use>
+              <g class="struct-wipe" clip-path="url(#wipe-cap)"><use href="#ionic-cap-mono" style="color:#cc1f29"></use></g>
+            </svg>
+          </div>
+          <div class="struct-pillar-shaft">
+            <svg viewBox="0 0 100 143" preserveAspectRatio="none">
+              <use href="#ionic-shaft"></use>
+              <g class="struct-wipe" clip-path="url(#wipe-shaft)"><use href="#ionic-shaft-mono" style="color:#cc1f29"></use></g>
+            </svg>
+          </div>
+          <div class="struct-pillar-base">
+            <svg viewBox="0 0 100 26">
+              <use href="#ionic-base"></use>
+              <g class="struct-wipe" clip-path="url(#wipe-base)"><use href="#ionic-base-mono" style="color:#cc1f29"></use></g>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="struct-pillar-desktop struct-pillar-right">
-    <svg class="struct-pillar-svg" viewBox="0 0 100 260">
-      <use href="#ionic-pillar"></use>
-      <g class="struct-wipe" clip-path="url(#ionic-wipe-clip)">
-        <use href="#ionic-pillar-mono" style="color:#cc1f29"></use>
-      </g>
-    </svg>
+    <div class="struct-pillar-col">
+      <div class="struct-pillar-cap">
+        <svg viewBox="0 0 100 84">
+          <use href="#ionic-cap"></use>
+          <g class="struct-wipe" clip-path="url(#wipe-cap)"><use href="#ionic-cap-mono" style="color:#cc1f29"></use></g>
+        </svg>
+      </div>
+      <div class="struct-pillar-shaft">
+        <svg viewBox="0 0 100 143" preserveAspectRatio="none">
+          <use href="#ionic-shaft"></use>
+          <g class="struct-wipe" clip-path="url(#wipe-shaft)"><use href="#ionic-shaft-mono" style="color:#cc1f29"></use></g>
+        </svg>
+      </div>
+      <div class="struct-pillar-base">
+        <svg viewBox="0 0 100 26">
+          <use href="#ionic-base"></use>
+          <g class="struct-wipe" clip-path="url(#wipe-base)"><use href="#ionic-base-mono" style="color:#cc1f29"></use></g>
+        </svg>
+      </div>
+    </div>
   </div>
 
 </div>

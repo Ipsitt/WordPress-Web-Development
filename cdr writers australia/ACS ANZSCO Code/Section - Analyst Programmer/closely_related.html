@@ -1,0 +1,171 @@
+<style>
+  .prog-card {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .prog-card * { box-sizing: border-box; }
+
+  .prog-mono {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+
+  /* ---------- LEFT: code editor panel ---------- */
+  .prog-editor {
+    flex: 1.35;
+    min-width: 320px;
+    background-color: #1b1e27;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px -12px rgba(0,0,0,0.35);
+  }
+  .prog-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background-color: #22262f;
+    border-bottom: 1px solid #2c303b;
+  }
+  .prog-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .prog-dot.r { background-color: #ff5f56; }
+  .prog-dot.y { background-color: #ffbd2e; }
+  .prog-dot.g { background-color: #27c93f; }
+  .prog-filename {
+    margin-left: 8px;
+    font-size: 12.5px;
+    color: #8992a8;
+    letter-spacing: 0.02em;
+  }
+  .prog-filename b { color: #cc1f29; font-weight: 600; }
+
+  .prog-code-body { padding: 18px 0 20px 0; }
+  .prog-line {
+    display: flex;
+    padding: 5px 20px 5px 0;
+    transition: background-color 0.15s ease;
+  }
+  .prog-line:hover { background-color: rgba(204, 31, 41, 0.08); }
+  .prog-lineno {
+    width: 40px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 16px;
+    font-size: 12.5px;
+    color: #4d5468;
+    user-select: none;
+  }
+  .prog-code-text {
+    font-size: 13.5px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .prog-kw { color: #c586c0; }
+  .prog-str { color: #ce9178; }
+  .prog-punct { color: #d4d4d4; }
+  .prog-comment { color: #6a7280; font-style: italic; }
+  .prog-bracket { color: #e5c07b; }
+
+  /* ---------- RIGHT: preview / description panel ---------- */
+  .prog-preview {
+    flex: 1;
+    min-width: 280px;
+    background-color: #ffffff;
+    border: 1px solid #eceef1;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .prog-preview-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #eceef1;
+  }
+  .prog-preview-tab svg { flex-shrink: 0; }
+  .prog-preview-tab span {
+    font-size: 12.5px;
+    color: #8992a8;
+    letter-spacing: 0.02em;
+  }
+  .prog-preview-body { padding: 26px 30px 30px 30px; }
+  .prog-preview-body h3 {
+    margin: 0 0 16px 0;
+    font-size: 19px;
+    font-weight: 700;
+    color: #cc1f29;
+  }
+  .prog-preview-body p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #4a5165;
+  }
+  .prog-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 15px;
+    background-color: #cc1f29;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: prog-blink 1s steps(1) infinite;
+  }
+  @keyframes prog-blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .prog-cursor { animation: none; }
+  }
+
+  @media screen and (max-width: 767px) {
+    .prog-code-body { padding: 14px 0 16px 0; }
+    .prog-line { padding: 5px 14px 5px 0; }
+    .prog-lineno { width: 28px; padding-right: 10px; }
+    .prog-preview-body { padding: 22px 22px 26px 22px; }
+  }
+</style>
+
+<div class="prog-card">
+
+  <div class="prog-editor">
+    <div class="prog-titlebar">
+      <span class="prog-dot r"></span>
+      <span class="prog-dot y"></span>
+      <span class="prog-dot g"></span>
+      <span class="prog-filename prog-mono">skill_set<b>.js</b> — ANZSCO 261311</span>
+    </div>
+    <div class="prog-code-body prog-mono">
+      <div class="prog-line"><span class="prog-lineno">01</span><span class="prog-code-text"><span class="prog-kw">const</span> <span class="prog-punct">skillSet</span> <span class="prog-punct">=</span> <span class="prog-bracket">[</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">02</span><span class="prog-code-text">&nbsp;&nbsp;<span class="prog-str">"Algorithm design and development"</span><span class="prog-punct">,</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">03</span><span class="prog-code-text">&nbsp;&nbsp;<span class="prog-str">"Compilers"</span><span class="prog-punct">,</span> <span class="prog-comment">// Compiler Construction, Compiler Theory</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">04</span><span class="prog-code-text">&nbsp;&nbsp;<span class="prog-str">"Data structures"</span><span class="prog-punct">,</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">05</span><span class="prog-code-text">&nbsp;&nbsp;<span class="prog-str">"Formal languages"</span><span class="prog-punct">,</span> <span class="prog-comment">// Formal Methods, Functional Programming</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">06</span><span class="prog-code-text">&nbsp;&nbsp;<span class="prog-str">"Object-Oriented Programming"</span><span class="prog-punct">,</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">07</span><span class="prog-code-text">&nbsp;&nbsp;<span class="prog-str">"Operating systems"</span><span class="prog-punct">,</span> <span class="prog-comment">// Unix, Linux, Xenix, Network OS</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">08</span><span class="prog-code-text">&nbsp;&nbsp;<span class="prog-str">"Programming"</span><span class="prog-punct">,</span> <span class="prog-comment">// C, C++, Objective C, Visual C, Basic,</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">09</span><span class="prog-code-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="prog-comment">// Visual Basic, Java, Assembler, Cobol,</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">10</span><span class="prog-code-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="prog-comment">// Pascal, PL/1, Fortran, PHP, Pearl, AS3, FoxPro</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">11</span><span class="prog-code-text">&nbsp;&nbsp;<span class="prog-str">"Software Engineering"</span><span class="prog-punct">,</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">12</span><span class="prog-code-text">&nbsp;&nbsp;<span class="prog-str">"Testing strategies and methods"</span> <span class="prog-comment">// Software Testing</span></span></div>
+      <div class="prog-line"><span class="prog-lineno">13</span><span class="prog-code-text"><span class="prog-bracket">];</span></span></div>
+    </div>
+  </div>
+
+  <div class="prog-preview">
+    <div class="prog-preview-tab">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 3h11v9H2z" stroke="#8992a8" stroke-width="1.2"/><path d="M2 5.5h11" stroke="#8992a8" stroke-width="1.2"/></svg>
+      <span class="prog-mono">Brief_Description.md — Preview</span>
+    </div>
+    <div class="prog-preview-body">
+      <h3># Brief Description</h3>
+      <p>
+        Analyst programmer is to design, develop, test, maintain and document program code in accordance with user requirements, and system and technical specifications. The major tasks include the designation and the development of the algorithm. An analyst has a major role on analyzing the system and compiling it to find out the problem or any error. They should also have to know about the data structures and various languages like formal and the functioning, this unit also include the object-oriented programming methods. It can be used on a various operating system like UNIX, Linux and etc. Also, this unit includes software engineering and implements various testing method and strategies.<span class="prog-cursor"></span>
+      </p>
+    </div>
+  </div>
+
+</div>

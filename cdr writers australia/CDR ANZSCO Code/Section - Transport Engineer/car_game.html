@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe Car Racing Game</title>
+    <style>
+        /* Scoped Container for WPBakery Raw HTML Integration */
+        #wpb-wireframe-race-game {
+            --wfr-bg: #FFFFFF;
+            --wfr-bg-alt: #FAFAFA;
+            --wfr-red: #C3272E;
+            --wfr-red-dark: #8E1B27;
+            --wfr-red-light: rgba(195, 39, 46, 0.12);
+            --wfr-red-glow: rgba(195, 39, 46, 0.25);
+            --wfr-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+            background-color: var(--wfr-bg);
+            color: var(--wfr-red);
+            font-family: var(--wfr-font);
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 16px;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            position: relative;
+        }
+
+        #wpb-wireframe-race-game * {
+            box-sizing: border-box;
+        }
+
+        /* Top HUD Dashboard */
+        .wfr-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid var(--wfr-red);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px var(--wfr-red-light);
+        }
+
+        .wfr-title-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .wfr-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+            color: var(--wfr-red);
+        }
+
+        .wfr-stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .wfr-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .wfr-stat-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--wfr-red-dark);
+            opacity: 0.8;
+            font-weight: 700;
+        }
+
+        .wfr-stat-value {
+            font-size: 1.2rem;
+            font-weight: 900;
+            font-family: monospace;
+            line-height: 1.1;
+        }
+
+        /* Viewport Canvas Container */
+        .wfr-viewport {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 2px solid var(--wfr-red);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--wfr-bg);
+            box-shadow: 0 8px 30px var(--wfr-red-light);
+            cursor: crosshair;
+        }
+
+        .wfr-viewport canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Overlay Screens & Prompts */
+        .wfr-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 24px;
+            z-index: 10;
+            transition: opacity 0.3s ease;
+        }
+
+        .wfr-overlay.wfr-hidden {
+            display: none !important;
+        }
+
+        .wfr-card {
+            border: 2px solid var(--wfr-red);
+            border-radius: 12px;
+            padding: 28px 36px;
+            background: #FFFFFF;
+            max-width: 460px;
+            width: 90%;
+            box-shadow: 0 12px 40px rgba(195, 39, 46, 0.15);
+        }
+
+        .wfr-card h2 {
+            margin: 0 0 12px 0;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--wfr-red);
+        }
+
+        .wfr-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* Wireframe Buttons */
+        .wfr-btn {
+            background: #FFFFFF;
+            color: var(--wfr-red);
+            border: 2px solid var(--wfr-red);
+            border-radius: 6px;
+            padding: 10px 24px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .wfr-btn:hover {
+            background: var(--wfr-red);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--wfr-red-glow);
+        }
+
+        .wfr-sound-toggle {
+            background: transparent;
+            border: 1.5px solid var(--wfr-red);
+            color: var(--wfr-red);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .wfr-sound-toggle.muted {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+
+        /* Respawn Banner */
+        .wfr-respawn-banner {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 2px solid var(--wfr-red);
+            background: #FFFFFF;
+            color: var(--wfr-red);
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 5;
+            box-shadow: 0 4px 16px var(--wfr-red-light);
+        }
+
+        .wfr-respawn-banner.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wpb-wireframe-race-game">
+    <!-- Top HUD Dashboard -->
+    <div class="wfr-header">
+        <div class="wfr-title-box">
+            <h1 class="wfr-title">Wireframe Racer</h1>
+            <button id="wfr-audio-btn" class="wfr-sound-toggle" title="Toggle Sound">SOUND ON</button>
+        </div>
+        <div class="wfr-stats">
+            <div class="wfr-stat-item">
+                <span class="wfr-stat-label">Distance</span>
+                <span id="wfr-score-val" class="wfr-stat-value">00000 m</span>
+            </div>
+            <div class="wfr-stat-item">
+                <span class="wfr-stat-label">Speed</span>
+                <span id="wfr-speed-val" class="wfr-stat-value">0 KM/H</span>
+            </div>
+            <div class="wfr-stat-item">
+                <span class="wfr-stat-label">Crashes</span>
+                <span id="wfr-crash-val" class="wfr-stat-value">0</span>
+            </div>
+            <div class="wfr-stat-item">
+                <span class="wfr-stat-label">Best</span>
+                <span id="wfr-high-val" class="wfr-stat-value">00000 m</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Viewport Canvas -->
+    <div id="wfr-viewport" class="wfr-viewport">
+        <canvas id="wfr-canvas"></canvas>
+        <div id="wfr-respawn-banner" class="wfr-respawn-banner">CRASHED! RESPAWNING...</div>
+
+        <!-- Start Game Overlay -->
+        <div id="wfr-start-screen" class="wfr-overlay">
+            <div class="wfr-card">
+                <h2>Vector Highway</h2>
+                <p>Move your <strong>mouse cursor</strong> across the screen to steer your car. Drive automatically, dodge wireframe traffic & cones, and survive!</p>
+                <button id="wfr-start-btn" class="wfr-btn">Start Driving</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    // Container DOM Elements
+    const viewport = document.getElementById('wfr-viewport');
+    const canvas = document.getElementById('wfr-canvas');
+    const ctx = canvas.getContext('2d');
+
+    const scoreVal = document.getElementById('wfr-score-val');
+    const speedVal = document.getElementById('wfr-speed-val');
+    const crashVal = document.getElementById('wfr-crash-val');
+    const highVal = document.getElementById('wfr-high-val');
+    const respawnBanner = document.getElementById('wfr-respawn-banner');
+
+    const startScreen = document.getElementById('wfr-start-screen');
+    const startBtn = document.getElementById('wfr-start-btn');
+    const audioBtn = document.getElementById('wfr-audio-btn');
+
+    // Color Palette Definition
+    const COLOR_RED = '#C3272E';
+    const COLOR_RED_DARK = '#8E1B27';
+    const COLOR_RED_LIGHT = 'rgba(195, 39, 46, 0.15)';
+    const COLOR_BG = '#FFFFFF';
+
+    // Game Core States
+    let isPlaying = false;
+    let gameState = 'DRIVING'; // 'DRIVING', 'CRASHED', 'RESPAWNING'
+    let score = 0;
+    let crashesCount = 0;
+    let highScore = parseInt(localStorage.getItem('wfr_highscore') || '0', 10);
+    highVal.textContent = String(highScore).padStart(5, '0') + ' m';
+
+    // Camera & Motion Variables
+    let cameraZ = 0;
+    let baseSpeed = 100; // Auto-forward starting speed
+    let currentSpeed = baseSpeed;
+    const maxSpeed = 220;
+
+    // Player Positioning & Cursor Control
+    let targetX = 0; // Target lane (-1.2 to 1.2) derived from cursor position
+    let playerX = 0; // Current interpolated car X
+    let playerSteerAngle = 0;
+
+    // Visual Shake & Flash Effects
+    let shakeTimer = 0;
+    let flashTimer = 0;
+    let respawnProgress = 0; // 0 to 1 during respawn reconstruction
+
+    // Wireframe Debris Particle System for Crashes
+    let debrisParticles = [];
+
+    // Audio Web Synthesizer
+    let audioCtx = null;
+    let audioEnabled = true;
+
+    function initAudio() {
+        if (!audioCtx) {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (AudioContext) {
+                audioCtx = new AudioContext();
+            }
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioEnabled || !audioCtx) return;
+        try {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        } catch(e){}
+    }
+
+    function playCrashSound() {
+        if (!audioEnabled || !audioCtx) return;
+        try {
+            // Buffer Noise Generator for Crunch Effect
+            const bufferSize = audioCtx.sampleRate * 0.4;
+            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = Math.random() * 2 - 1;
+            }
+
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = buffer;
+
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(800, audioCtx.currentTime);
+            filter.frequency.exponentialRampToValueAtTime(80, audioCtx.currentTime + 0.4);
+
+            const gain = audioCtx.createGain();
+            gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(audioCtx.destination);
+            noise.start();
+
+            // Low Sawtooth Thump
+            playTone(80, 'sawtooth', 0.35, 0.4);
+        } catch(e){}
+    }
+
+    const ROAD_WIDTH = 1200;
+    let trafficCars = [];
+    let roadsidePoles = [];
+    let roadsideCones = [];
+
+    function resetWorld() {
+        cameraZ = 0;
+        baseSpeed = 100;
+        currentSpeed = baseSpeed;
+        playerX = 0;
+        targetX = 0;
+        playerSteerAngle = 0;
+        score = 0;
+        crashesCount = 0;
+        gameState = 'DRIVING';
+        debrisParticles = [];
+        
+        crashVal.textContent = '0';
+        respawnBanner.classList.remove('active');
+
+        // Generate Roadside Flags & Markers
+        roadsidePoles = [];
+        for (let z = 100; z < 8000; z += 140) {
+            roadsidePoles.push({ z: z, side: -1 });
+            roadsidePoles.push({ z: z, side: 1 });
+        }
+
+        // Generate Traffic Wireframe Cars & Cones
+        trafficCars = [];
+        roadsideCones = [];
+        for (let z = 600; z < 8000; z += 320) {
+            spawnTrafficCluster(z);
+        }
+    }
+
+    function spawnTrafficCluster(z) {
+        const laneX = (Math.random() * 1.6 - 0.8);
+        const speedOffset = Math.random() * 30 - 15;
+        
+        trafficCars.push({
+            x: laneX,
+            z: z,
+            speed: 50 + speedOffset, // Slower forward traffic
+            color: COLOR_RED,
+            type: Math.random() > 0.5 ? 'sedan' : 'coupe'
+        });
+
+        // Occasional cone hazard
+        if (Math.random() > 0.6) {
+            roadsideCones.push({
+                x: (Math.random() * 1.8 - 0.9),
+                z: z + 160
+            });
+        }
+    }
+
+    // Canvas Resizing Mechanics
+    function resizeCanvas() {
+        const rect = viewport.getBoundingClientRect();
+        canvas.width = rect.width * (window.devicePixelRatio || 1);
+        canvas.height = rect.height * (window.devicePixelRatio || 1);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function updateCursorTarget(clientX) {
+        const rect = viewport.getBoundingClientRect();
+        // Calculate relative X ratio inside canvas (-1 to 1)
+        const relX = (clientX - rect.left) / rect.width;
+        // Map ratio to highway lane bounds [-1.2, 1.2]
+        targetX = (relX * 2.6) - 1.3;
+        targetX = Math.max(-1.25, Math.min(1.25, targetX));
+    }
+
+    viewport.addEventListener('mousemove', (e) => {
+        updateCursorTarget(e.clientX);
+    });
+
+    viewport.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+            updateCursorTarget(e.touches[0].clientX);
+        }
+    }, { passive: true });
+
+    function strokeLine(x1, y1, x2, y2, width = 2, color = COLOR_RED) {
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.lineWidth = width;
+        ctx.strokeStyle = color;
+        ctx.stroke();
+    }
+
+    function drawWireframePlayerCar(cx, cy, scale, steerAngle, opacity = 1.0) {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.scale(scale, scale);
+        ctx.rotate(steerAngle * 0.08);
+        ctx.globalAlpha = opacity;
+
+        const w = 120;
+        const h = 70;
+        const halfW = w / 2;
+
+        // Mask background so wireframe remains readable
+        ctx.beginPath();
+        ctx.rect(-halfW - 5, -h - 10, w + 10, h + 20);
+        ctx.fillStyle = COLOR_BG;
+        ctx.fill();
+
+        // 1. Rear Wheels
+        strokeLine(-halfW + 4, 0, -halfW + 4, -16, 3);
+        strokeLine(halfW - 4, 0, halfW - 4, -16, 3);
+
+        // 2. Main Outer Rear Body Outline
+        ctx.beginPath();
+        ctx.moveTo(-halfW, -14);
+        ctx.lineTo(-halfW + 6, -42);
+        ctx.lineTo(-halfW + 18, -46);
+        ctx.lineTo(-halfW + 26, -72);
+        ctx.lineTo(halfW - 26, -72);
+        ctx.lineTo(halfW - 18, -46);
+        ctx.lineTo(halfW - 6, -42);
+        ctx.lineTo(halfW, -14);
+        ctx.lineTo(halfW - 12, -4);
+        ctx.lineTo(-halfW + 12, -4);
+        ctx.closePath();
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = COLOR_RED;
+        ctx.stroke();
+
+        // 3. Antenna Line
+        strokeLine(0, -72, 0, -84, 1.5);
+
+        // 4. Rear Windshield Trapezoid
+        ctx.beginPath();
+        ctx.moveTo(-halfW + 29, -70);
+        ctx.lineTo(-halfW + 21, -48);
+        ctx.lineTo(halfW - 21, -48);
+        ctx.lineTo(halfW - 29, -70);
+        ctx.closePath();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = COLOR_RED;
+        ctx.stroke();
+
+        // 5. Taillight Housing Rectangles & Quad Circles
+        const lightY = -28;
+        const lightRadius = 4.5;
+        ctx.strokeRect(-halfW + 12, -34, 24, 12);
+        ctx.strokeRect(halfW - 36, -34, 24, 12);
+
+        [-halfW + 18, -halfW + 30, halfW - 30, halfW - 18].forEach(lx => {
+            ctx.beginPath();
+            ctx.arc(lx, lightY, lightRadius, 0, Math.PI * 2);
+            ctx.lineWidth = 1.5;
+            ctx.strokeStyle = COLOR_RED;
+            ctx.stroke();
+        });
+
+        // 6. License Plate Box & Diffuser Fins
+        ctx.strokeRect(-14, -30, 28, 10);
+        strokeLine(-18, -14, -18, -4, 1.5);
+        strokeLine(0, -14, 0, -4, 1.5);
+        strokeLine(18, -14, 18, -4, 1.5);
+
+        ctx.restore();
+    }
+
+    function drawWireframeTrafficCar(cx, cy, scale) {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.scale(scale, scale);
+
+        const w = 110;
+        const h = 65;
+        const halfW = w / 2;
+
+        // White background mask
+        ctx.fillStyle = COLOR_BG;
+        ctx.fillRect(-halfW - 4, -h - 8, w + 8, h + 14);
+
+        // Outer Body Outline
+        ctx.beginPath();
+        ctx.moveTo(-halfW, -12);
+        ctx.lineTo(-halfW + 4, -38);
+        ctx.lineTo(-halfW + 16, -42);
+        ctx.lineTo(-halfW + 22, -66);
+        ctx.lineTo(halfW - 22, -66);
+        ctx.lineTo(halfW - 16, -42);
+        ctx.lineTo(halfW - 4, -38);
+        ctx.lineTo(halfW, -12);
+        ctx.lineTo(-halfW, -12);
+        ctx.closePath();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = COLOR_RED;
+        ctx.stroke();
+
+        // Rear Windshield
+        ctx.beginPath();
+        ctx.moveTo(-halfW + 25, -64);
+        ctx.lineTo(-halfW + 18, -44);
+        ctx.lineTo(halfW - 18, -44);
+        ctx.lineTo(halfW - 25, -64);
+        ctx.closePath();
+        ctx.lineWidth = 1.8;
+        ctx.stroke();
+
+        // Horizontal Taillight Bar
+        ctx.strokeRect(-halfW + 10, -32, w - 20, 10);
+
+        ctx.restore();
+    }
+
+    function drawWireframeCone(cx, cy, scale) {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.scale(scale, scale);
+
+        // Base Box Mask & Stroke
+        ctx.fillStyle = COLOR_BG;
+        ctx.fillRect(-14, -4, 28, 8);
+        ctx.strokeRect(-14, -4, 28, 8);
+
+        // Slanted Cone Body
+        ctx.beginPath();
+        ctx.moveTo(-10, -4);
+        ctx.lineTo(-3, -36);
+        ctx.lineTo(3, -36);
+        ctx.lineTo(10, -4);
+        ctx.closePath();
+        ctx.fillStyle = COLOR_BG;
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = COLOR_RED;
+        ctx.stroke();
+
+        // Stripes
+        strokeLine(-7, -18, 7, -18, 1.5);
+        strokeLine(-5, -26, 5, -26, 1.5);
+
+        ctx.restore();
+    }
+
+    function drawRoadsidePole(cx, cy, scale, side) {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.scale(scale * side, scale);
+
+        strokeLine(0, 0, 0, -85, 2);
+        strokeLine(0, -85, 22, -85, 2);
+        strokeLine(22, -85, 22, -65, 1.5);
+        strokeLine(0, -65, 22, -65, 1.5);
+
+        ctx.restore();
+    }
+
+    function triggerCrashShatter(x, y) {
+        gameState = 'CRASHED';
+        shakeTimer = 0.45;
+        flashTimer = 0.25;
+        crashesCount++;
+        crashVal.textContent = String(crashesCount);
+        respawnBanner.classList.add('active');
+        playCrashSound();
+
+        // Generate flying wireframe fragments
+        debrisParticles = [];
+        for (let i = 0; i < 30; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = Math.random() * 12 + 4;
+            debrisParticles.push({
+                x: x,
+                y: y - 30,
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed - 5,
+                rot: Math.random() * Math.PI,
+                vRot: (Math.random() - 0.5) * 0.3,
+                length: Math.random() * 30 + 10,
+                type: Math.random() > 0.4 ? 'line' : 'rect'
+            });
+        }
+
+        // Schedule Auto-Respawn sequence after 1.5s
+        setTimeout(() => {
+            if (!isPlaying) return;
+            gameState = 'RESPAWNING';
+            respawnProgress = 0;
+            playerX = targetX;
+
+            // Clear immediate traffic in front of player
+            trafficCars.forEach(car => {
+                if (car.z > cameraZ - 100 && car.z < cameraZ + 600) {
+                    car.z += 800;
+                }
+            });
+
+            setTimeout(() => {
+                if (gameState === 'RESPAWNING') {
+                    gameState = 'DRIVING';
+                    respawnBanner.classList.remove('active');
+                }
+            }, 600);
+
+        }, 1500);
+    }
+
+    function updateDebris(dt) {
+        debrisParticles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vy += 0.3; // Gravity effect
+            p.rot += p.vRot;
+        });
+    }
+
+    function drawDebris() {
+        debrisParticles.forEach(p => {
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rot);
+            ctx.strokeStyle = COLOR_RED;
+            ctx.lineWidth = 2;
+            if (p.type === 'line') {
+                strokeLine(-p.length / 2, 0, p.length / 2, 0, 2);
+            } else {
+                ctx.strokeRect(-p.length / 4, -p.length / 4, p.length / 2, p.length / 2);
+            }
+            ctx.restore();
+        });
+    }
+
+    function project(x, y, z, cameraX, cameraY, cameraZ, cameraDepth, width, height) {
+        const transX = x - cameraX;
+        const transY = y - cameraY;
+        const transZ = z - cameraZ;
+
+        if (transZ <= 0) return null;
+
+        const scale = cameraDepth / transZ;
+        const projectedX = (width / 2) + (scale * transX * width / 2);
+        const projectedY = (height / 2) - (scale * transY * height / 2);
+        const projectedW = scale * ROAD_WIDTH * width / 2;
+
+        return { x: projectedX, y: projectedY, w: projectedW, scale: scale, z: transZ };
+    }
+
+    function render() {
+        const w = canvas.width;
+        const h = canvas.height;
+
+        ctx.save();
+
+        // Screen Shake offset
+        if (shakeTimer > 0) {
+            const dx = (Math.random() - 0.5) * 18;
+            const dy = (Math.random() - 0.5) * 18;
+            ctx.translate(dx, dy);
+        }
+
+        // Pristine White Canvas Background
+        ctx.fillStyle = COLOR_BG;
+        ctx.fillRect(0, 0, w, h);
+
+        const horizonY = h * 0.42;
+        const cameraDepth = 0.8;
+        const cameraHeight = 1000;
+        const cameraX = playerX * ROAD_WIDTH * 0.45;
+
+        // 1. Horizon & Wireframe Sky Line
+        strokeLine(0, horizonY, w, horizonY, 2, COLOR_RED);
+
+        ctx.beginPath();
+        ctx.moveTo(0, horizonY);
+        for (let i = 0; i <= w; i += 50) {
+            const mountainH = Math.sin(i * 0.012) * 20 + Math.cos(i * 0.03) * 12;
+            ctx.lineTo(i, horizonY - Math.abs(mountainH));
+        }
+        ctx.lineTo(w, horizonY);
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = COLOR_RED;
+        ctx.stroke();
+
+        // 2. Center Dash Lines
+        const maxDrawZ = cameraZ + 2400;
+        let lastP = project(0, -cameraHeight, cameraZ + 20, cameraX, 0, cameraZ, cameraDepth, w, h);
+
+        for (let z = cameraZ + 40; z < maxDrawZ; z += 60) {
+            const p = project(0, -cameraHeight, z, cameraX, 0, cameraZ, cameraDepth, w, h);
+            if (p && p.y > horizonY && lastP) {
+                if ((Math.floor(z / 60) % 2) === 0) {
+                    strokeLine(p.x, p.y, lastP.x, lastP.y, Math.max(1, p.scale * 110));
+                }
+            }
+            lastP = p;
+        }
+
+        // 3. Steep Slanted Outer Road Borders (Matching red wireframe line art)
+        const pNear = project(0, -cameraHeight, cameraZ + 30, cameraX, 0, cameraZ, cameraDepth, w, h);
+        const pFar = project(0, -cameraHeight, cameraZ + 1800, cameraX, 0, cameraZ, cameraDepth, w, h);
+
+        if (pNear && pFar) {
+            strokeLine(pNear.x - pNear.w * 0.55, pNear.y, pFar.x - pFar.w * 0.45, pFar.y, 3.5);
+            strokeLine(pNear.x + pNear.w * 0.55, pNear.y, pFar.x + pFar.w * 0.45, pFar.y, 3.5);
+        }
+
+        // 4. Depth Sorted Render List (Poles, Traffic, Cones)
+        const drawList = [];
+
+        roadsidePoles.forEach(pole => {
+            if (pole.z > cameraZ && pole.z < maxDrawZ) {
+                const poleX = pole.side * (ROAD_WIDTH * 0.58);
+                const p = project(poleX, -cameraHeight, pole.z, cameraX, 0, cameraZ, cameraDepth, w, h);
+                if (p && p.y > horizonY) {
+                    drawList.push({ type: 'pole', z: pole.z, x: p.x, y: p.y, scale: p.scale * 450, side: pole.side });
+                }
+            }
+        });
+
+        roadsideCones.forEach(cone => {
+            if (cone.z > cameraZ && cone.z < maxDrawZ) {
+                const coneWorldX = cone.x * (ROAD_WIDTH * 0.42);
+                const p = project(coneWorldX, -cameraHeight, cone.z, cameraX, 0, cameraZ, cameraDepth, w, h);
+                if (p && p.y > horizonY) {
+                    drawList.push({ type: 'cone', z: cone.z, x: p.x, y: p.y, scale: p.scale * 450 });
+                }
+            }
+        });
+
+        trafficCars.forEach(car => {
+            if (car.z > cameraZ - 20 && car.z < maxDrawZ) {
+                const carWorldX = car.x * (ROAD_WIDTH * 0.42);
+                const p = project(carWorldX, -cameraHeight, car.z, cameraX, 0, cameraZ, cameraDepth, w, h);
+                if (p && p.y > horizonY) {
+                    drawList.push({ type: 'traffic', z: car.z, x: p.x, y: p.y, scale: p.scale * 450 });
+                }
+            }
+        });
+
+        drawList.sort((a, b) => b.z - a.z);
+
+        drawList.forEach(item => {
+            if (item.type === 'pole') drawRoadsidePole(item.x, item.y, item.scale, item.side);
+            else if (item.type === 'cone') drawWireframeCone(item.x, item.y, item.scale);
+            else if (item.type === 'traffic') drawWireframeTrafficCar(item.x, item.y, item.scale);
+        });
+
+        // 5. Player Car / Debris Shatter Rendering
+        const carScale = (h / 600) * 1.1;
+        const carScreenX = w * 0.5;
+        const carScreenY = h * 0.86;
+
+        if (gameState === 'DRIVING') {
+            drawWireframePlayerCar(carScreenX, carScreenY, carScale, playerSteerAngle, 1.0);
+        } else if (gameState === 'CRASHED') {
+            drawDebris();
+        } else if (gameState === 'RESPAWNING') {
+            const flickerOpacity = (Math.sin(performance.now() * 0.02) > 0) ? 0.9 : 0.3;
+            drawWireframePlayerCar(carScreenX, carScreenY, carScale, 0, flickerOpacity);
+        }
+
+        // 6. Flash Overlay Effect on Crash
+        if (flashTimer > 0) {
+            ctx.fillStyle = `rgba(195, 39, 46, ${flashTimer * 2.5})`;
+            ctx.fillRect(0, 0, w, h);
+        }
+
+        ctx.restore();
+    }
+
+    let lastTime = performance.now();
+
+    function update(dt) {
+        if (!isPlaying) return;
+
+        if (shakeTimer > 0) shakeTimer -= dt;
+        if (flashTimer > 0) flashTimer -= dt;
+
+        if (gameState === 'DRIVING' || gameState === 'RESPAWNING') {
+            // Smoothly interpolate car position towards target cursor X
+            const dx = targetX - playerX;
+            playerX += dx * 0.12; // Easing speed
+            playerSteerAngle = dx * 8; // Car steering tilt based on movement velocity
+
+            // Auto-Forward Acceleration
+            baseSpeed = Math.min(maxSpeed, baseSpeed + dt * 2.5);
+            currentSpeed = baseSpeed;
+
+            // Advance Camera along highway
+            const distanceMoved = currentSpeed * dt * 2.8;
+            cameraZ += distanceMoved;
+            score += Math.floor(distanceMoved * 0.1);
+
+            // Update UI HUD
+            scoreVal.textContent = String(score).padStart(5, '0') + ' m';
+            speedVal.textContent = `${Math.floor(currentSpeed)} KM/H`;
+
+            if (score > highScore) {
+                highScore = score;
+                highVal.textContent = String(highScore).padStart(5, '0') + ' m';
+                localStorage.setItem('wfr_highscore', highScore);
+            }
+
+            // Endless track recycling for poles
+            roadsidePoles.forEach(pole => {
+                if (pole.z < cameraZ - 50) pole.z += 7800;
+            });
+
+            // Endless track recycling & forward movement for traffic
+            trafficCars.forEach(car => {
+                car.z += car.speed * dt * 1.5;
+                if (car.z < cameraZ - 100) {
+                    car.z = cameraZ + 2200 + Math.random() * 800;
+                    car.x = (Math.random() * 1.6 - 0.8);
+                }
+            });
+
+            roadsideCones.forEach(cone => {
+                if (cone.z < cameraZ - 100) {
+                    cone.z = cameraZ + 2200 + Math.random() * 800;
+                    cone.x = (Math.random() * 1.8 - 0.9);
+                }
+            });
+
+            // Collision Detection (Only active during normal DRIVING)
+            if (gameState === 'DRIVING') {
+                const playerZ = cameraZ + 120;
+                const carScreenX = canvas.width * 0.5;
+                const carScreenY = canvas.height * 0.86;
+
+                // Collision with Traffic Cars
+                trafficCars.forEach(car => {
+                    if (Math.abs(car.z - playerZ) < 45) {
+                        const xDiff = Math.abs(car.x - playerX);
+                        if (xDiff < 0.26) {
+                            triggerCrashShatter(carScreenX, carScreenY);
+                        }
+                    }
+                });
+
+                // Collision with Roadside Cones
+                roadsideCones.forEach(cone => {
+                    if (Math.abs(cone.z - playerZ) < 35) {
+                        const xDiff = Math.abs(cone.x - playerX);
+                        if (xDiff < 0.22) {
+                            triggerCrashShatter(carScreenX, carScreenY);
+                        }
+                    }
+                });
+            }
+        } else if (gameState === 'CRASHED') {
+            updateDebris(dt);
+        }
+    }
+
+    function gameLoop(timestamp) {
+        const dt = Math.min((timestamp - lastTime) / 1000, 0.1);
+        lastTime = timestamp;
+
+        update(dt);
+        render();
+
+        requestAnimationFrame(gameLoop);
+    }
+
+    // Start Button Action
+    startBtn.addEventListener('click', () => {
+        initAudio();
+        startScreen.classList.add('wfr-hidden');
+        resetWorld();
+        isPlaying = true;
+    });
+
+    // Audio Toggle Action
+    audioBtn.addEventListener('click', () => {
+        audioEnabled = !audioEnabled;
+        if (audioEnabled) {
+            audioBtn.textContent = 'SOUND ON';
+            audioBtn.classList.remove('muted');
+            initAudio();
+        } else {
+            audioBtn.textContent = 'MUTED';
+            audioBtn.classList.add('muted');
+        }
+    });
+
+    // Initialize initial frame render
+    resetWorld();
+    requestAnimationFrame(gameLoop);
+
+})();
+</script>
+</body>
+</html>

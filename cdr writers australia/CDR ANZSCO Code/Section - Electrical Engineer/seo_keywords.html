@@ -1,0 +1,183 @@
+<style>
+  .eng-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(155deg, #123456 0%, #0d2942 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .eng-article * { box-sizing: border-box; }
+
+  /* faint blueprint grid, kept quiet behind everything */
+  .eng-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(180, 210, 235, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180, 210, 235, 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  .eng-article-inner { position: relative; }
+
+  /* ---------- top: heading + intro text + diagram ---------- */
+  .eng-article-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .eng-article-text {
+    flex: 1.3;
+    min-width: 280px;
+    padding: 44px 12px 24px 44px;
+  }
+  .eng-article-text h2 {
+    margin: 0 0 20px 0;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+    line-height: 1.35;
+  }
+  .eng-article-text p {
+    margin: 0 0 16px 0;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #c3d7e8;
+  }
+  .eng-article-text p:last-child { margin-bottom: 0; }
+
+  .eng-article-diagram {
+    flex: 0.9;
+    min-width: 280px;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .eng-article-diagram svg { width: 100%; height: auto; max-width: 420px; }
+
+  .eng-wire { fill: none; stroke: #4d84ac; stroke-width: 2; }
+  .eng-node { fill: #0d2942; stroke: #cfe3f2; stroke-width: 2; }
+  .eng-chip { fill: rgba(207, 227, 242, 0.06); stroke: #cfe3f2; stroke-width: 2; }
+  .eng-pulse {
+    fill: none;
+    stroke: #5fd0ff;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 4 220;
+    animation: eng-current 4.5s linear infinite;
+  }
+  @keyframes eng-current {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -224; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .eng-pulse { animation: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .eng-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(180, 210, 235, 0.12);
+    margin-top: 8px;
+  }
+  .eng-article-bottom h3 {
+    margin: 28px 0 18px 0;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+  }
+  .eng-article-bottom p {
+    margin: 0 0 16px 0;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #c3d7e8;
+  }
+  .eng-article-bottom p:last-child { margin-bottom: 0; }
+
+  .eng-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .eng-article-footer-trace svg { width: 100%; height: 32px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .eng-article-top { flex-direction: column; }
+    .eng-article-text { padding: 12px 24px 8px 24px; min-width: 0; }
+    .eng-article-diagram { padding: 28px 24px 8px 24px; order: -1; min-width: 0; width: 100%; }
+    .eng-article-diagram svg { max-width: 200px; margin: 0 auto; }
+    .eng-article-bottom { padding: 4px 24px 8px 24px; }
+    .eng-article-bottom h3 { font-size: 16.5px; }
+    .eng-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="eng-article">
+  <div class="eng-article-inner">
+
+    <div class="eng-article-top">
+      <div class="eng-article-text">
+        <h2>Understanding the Role of an Electrical Engineer in Australia</h2>
+        <p>
+          Executing complex electrical engineering projects involves managing the deep integration of high-voltage sub-stations, automated control loops, and smart grid distributions. Beyond managing field deployments, these technical leaders optimize circuit diagnostics, configure power generation frameworks, and audit load flow safety margins. Managing these highly complex power infrastructures and heavy industrial machinery systems makes this a critical Australian skilled occupation across Australia's rapidly evolving energy and manufacturing sectors.
+        </p>
+        <p>
+          Because sustainable grid transitions and micro-grid innovations are high priorities for regional development bodies, their technical knowledge is in high demand. Consequently, the profession is thoroughly integrated into the active skilled migration list, the Australian immigration skills list, and the overarching skilled employment list, presenting robust pathways for international engineering specialists looking to build a long-term career down under.
+        </p>
+      </div>
+
+      <div class="eng-article-diagram">
+        <svg viewBox="0 35 300 150" xmlns="http://www.w3.org/2000/svg">
+          <path class="eng-wire" d="M20,110 H70 M70,110 L85,95 L95,125 L105,95 L115,125 L125,95 L135,110 H160" />
+          <path class="eng-wire" d="M160,110 H180 M200,110 H220" />
+          <path class="eng-wire" d="M180,95 V125 M188,95 V125" />
+          <path class="eng-wire" d="M220,110 H260 M260,110 V60 H280 M260,110 V160 H280" />
+          <path class="eng-pulse" d="M20,110 H70 M70,110 L85,95 L95,125 L105,95 L115,125 L125,95 L135,110 H160 M160,110 H180 M200,110 H220 M220,110 H260 M260,110 V60 H280 M260,110 V160 H280" />
+          <text x="92" y="80" fill="#6fa8d6" font-size="9" font-family="Consolas, monospace" letter-spacing="0.5">R1</text>
+          <text x="176" y="80" fill="#6fa8d6" font-size="9" font-family="Consolas, monospace" letter-spacing="0.5">C1</text>
+          <rect class="eng-chip" x="0" y="90" width="20" height="40" rx="2" />
+          <circle class="eng-node" cx="20" cy="110" r="4" />
+          <circle class="eng-node" cx="280" cy="60" r="4" />
+          <circle class="eng-node" cx="280" cy="160" r="4" />
+          <rect class="eng-chip" x="255" y="45" width="10" height="30" />
+          <rect class="eng-chip" x="255" y="145" width="10" height="30" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="eng-article-bottom">
+      <h3>Why a Meticulous CDR is Essential for Your Migration Success</h3>
+      <p>
+        While finding your exact code on the skilled occupation list is an encouraging initial milestone, advancing your career transition requires passing a rigid credential check. Before you can lodge your formal visa application or finalize your application roadmap for a permanent Australia visa, you must secure a positive assessment from the designated regulatory authority.
+      </p>
+      <p>
+        This technical skills assessment is conducted directly by Engineers Australia via the Competency Demonstration Report (CDR) pathway. The CDR requires you to draft comprehensive career episodes detailing your specific structural calculations, power flow simulations, and layout designs on major projects. Every narrative section must be carefully mapped to satisfy the mandatory visa requirements governed by the skilled occupation list framework.
+      </p>
+      <p>
+        A generic or poorly structured report can cause extensive processing delays or immediate application rejections from case officers. Ensuring your documentation clearly demonstrates your individual engineering decisions, safety compliance tracking, and network problem-solving skills is vital to secure your points validation without unexpected issues.
+      </p>
+      <p>
+        Ultimately, a reliable, engineer-focused portfolio serves as the core foundation for navigating the complexities of Australian immigration, smoothing your path toward obtaining your approvals so you can legally live and work in Australia over the long term.
+      </p>
+    </div>
+
+    <div class="eng-article-footer-trace">
+      <svg viewBox="0 0 600 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path class="eng-wire" d="M0,20 H180 L195,8 L210,32 L225,8 L240,32 L255,20 H345 L360,8 L375,32 L390,8 L405,32 L420,20 H600" />
+        <path class="eng-pulse" d="M0,20 H180 L195,8 L210,32 L225,8 L240,32 L255,20 H345 L360,8 L375,32 L390,8 L405,32 L420,20 H600" />
+        <circle class="eng-node" cx="0" cy="20" r="4" />
+        <circle class="eng-node" cx="600" cy="20" r="4" />
+      </svg>
+    </div>
+
+  </div>
+</div>

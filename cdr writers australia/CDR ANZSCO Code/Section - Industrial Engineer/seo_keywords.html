@@ -1,0 +1,122 @@
+<div class="ie-dashboard-card" style="background: #111625; padding: 40px 5vw; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #cbd5e1; line-height: 1.7; position: relative; overflow: hidden; border: 1px solid #1e293b; width: 100%; box-sizing: border-box; margin: 0; border-radius: 24px;">
+    
+    <!-- CSS Animations & Global Card Styles -->
+    <style>
+        @keyframes ie-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes ie-pulse {
+            0%, 100% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        @keyframes ie-scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .ie-dashboard-card h2, .ie-dashboard-card h3 {
+            letter-spacing: -0.02em;
+        }
+        .ie-badge {
+            background: rgba(249, 115, 22, 0.1);
+            color: #f97316;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .ie-pulse-dot {
+            width: 6px;
+            height: 6px;
+            background: #f97316;
+            border-radius: 50%;
+            animation: ie-pulse 1.5s infinite ease-in-out;
+        }
+        .ie-highlight-box {
+            background: rgba(15, 118, 110, 0.15);
+            border-left: 4px solid #0f766e;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 30px 0;
+        }
+        .ie-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        @media (min-width: 992px) {
+            .ie-grid {
+                grid-template-columns: 1.2fr 1fr;
+                gap: 50px;
+                align-items: start;
+            }
+        }
+    </style>
+
+    <!-- Industrial Laser Scan Overlay Effect -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, transparent, rgba(15, 118, 110, 0.03), transparent); animation: ie-scan 6s linear infinite; pointer-events: none;"></div>
+
+    <!-- Background Blueprint Rotating Gear Graphic -->
+    <div style="position: absolute; bottom: -80px; right: -40px; width: 350px; height: 350px; color: rgba(15, 118, 110, 0.06); pointer-events: none; animation: ie-spin 30s linear infinite;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+    </div>
+
+    <!-- Header Status Section -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px;">
+        <div class="ie-badge">
+            <div class="ie-pulse-dot"></div> ANZSCO 233511 • ACTIVE DEMAND
+        </div>
+        <div style="font-size: 12px; color: #64748b; font-weight: 500; font-family: monospace;">SYS_REF: AU_MIGRATION_2026</div>
+    </div>
+
+    <!-- Responsive Layout Split -->
+    <div class="ie-grid">
+        
+        <!-- Left Side: Main Background Context -->
+        <div>
+            <h2 style="color: #ffffff; margin-top: 0; margin-bottom: 20px; font-size: 28px; font-weight: 800; line-height: 1.25;">
+                Understanding the Role of an <span style="color: #06b6d4; background: linear-gradient(to right, #06b6d4, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Industrial Engineer</span> in Australia
+            </h2>
+            
+            <p style="margin-bottom: 15px; color: #94a3b8; font-size: 15px;">
+                Specializing in industrial systems engineering involves optimizing manufacturing workflows, designing integrated factory layouts, and implementing lean methodologies to maximize facility efficiency. Because operational scaling and cost-effective production models drive the infrastructure, logistics, and resource sectors, this profile stands out as a highly prioritized australia skilled occupation nationwide. 
+            </p>
+
+            <p style="margin-bottom: 0; color: #94a3b8; font-size: 15px;">
+                To assist global professionals in shifting their technical careers to thriving industrial hubs, the role is actively maintained across the australia skilled migration list, the australian immigration skills list, and the general skilled employment list. These official frameworks ensure strong pathways across diverse states and territories for qualified migration candidates.
+            </p>
+        </div>
+
+        <!-- Right Side: Action/CDR Emphasis Panel -->
+        <div class="ie-highlight-box">
+            <h3 style="color: #02f8e1; font-size: 18px; margin-top: 0; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;">
+                Why a Meticulous CDR is Essential for Your Migration Success
+            </h3>
+            
+            <p style="margin-bottom: 15px; color: #e2e8f0; font-size: 14.5px;">
+                Discovering your specialty code on the active skill list australia or the broader australia skilled occupation list is an excellent initial milestone. Before you can advance a formal visa application or secure your roadmap for an australia visa pathway, you must prove your capabilities through a mandatory skills assessment evaluated by <strong>Engineers Australia</strong>.
+            </p>
+
+            <p style="margin-bottom: 0; color: #e2e8f0; font-size: 14.5px;">
+                Compiling an authoritative Competency Demonstration Report (CDR) ensures your documentation perfectly matches the precise visa requirements managed under the skill occupation list australia framework. A poorly structured report can cause long processing delays or unexpected rejections, making strategic presentation vital to safeguarding your immigration goals.
+            </p>
+        </div>
+    </div>
+
+    <!-- Full-Width Footer Element -->
+    <div style="margin-top: 30px; font-size: 14px; color: #64748b; border-top: 1px solid #1e293b; padding-top: 25px; display: flex; align-items: flex-start; gap: 10px;">
+        <span style="color: #f97316; margin-top: 2px;">■</span>
+        <p style="margin: 0; color: #64748b;">
+            Ultimately, a reliable, engineer-focused portfolio serves as the core foundation for navigating the complexities of australia immigration, smoothing your path toward obtaining your approvals so you can legally live and work australia visa streams over the long term.
+        </p>
+    </div>
+</div>

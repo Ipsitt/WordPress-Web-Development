@@ -162,17 +162,16 @@
   </div>
 </div>
 
-<!-- Live Ping Fetch Script -->
+<!-- Single-Fetch Ping Script -->
 <script>
   (function() {
     const pingElement = document.getElementById('live-ping-value');
     if (!pingElement) return;
 
-    async function checkLivePing() {
+    async function getInitialPing() {
       const startTime = performance.now();
       try {
-        // Fetch current page URL with a random cache-buster to force a real network trip.
-        // Method 'HEAD' ensures we only request headers, making it practically zero-bandwidth.
+        // Fetch current page URL with a random cache-buster for an accurate single trip
         const currentUrl = window.location.href.split('?')[0];
         await fetch(currentUrl + '?ping=' + Math.random(), { 
           method: 'HEAD',
@@ -182,7 +181,7 @@
         const latency = Math.round(performance.now() - startTime);
         pingElement.innerText = latency + 'ms';
         
-        // Dynamically shift colors based on connection health
+        // Set static color based on initial connection health
         if (latency < 80) {
           pingElement.style.color = '#22c55e'; // Fast / Green
         } else if (latency < 200) {
@@ -191,14 +190,13 @@
           pingElement.style.color = '#ef4444'; // Slow / Red
         }
       } catch (e) {
-        // Fallback if fetch fails (e.g. offline)
+        // Fallback if fetch fails
         pingElement.innerText = 'ERR';
         pingElement.style.color = '#ef4444';
       }
     }
 
-    // Run the check immediately on load, then repeat every 4 seconds.
-    checkLivePing();
-    setInterval(checkLivePing, 4000);
+    // Run exactly once on load
+    getInitialPing();
   })();
 </script>

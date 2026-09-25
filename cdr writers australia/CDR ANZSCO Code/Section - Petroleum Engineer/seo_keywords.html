@@ -1,0 +1,216 @@
+<style>
+  .petro-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #201a12 0%, #100c08 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .petro-article * { box-sizing: border-box; }
+
+  /* faint horizon glow behind the rig, kept quiet */
+  .petro-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 60% 40% at 78% 55%, rgba(201, 160, 106, 0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .petro-article-inner { position: relative; }
+
+  /* ---------- top: heading + text1, diagram, text2 (grid keeps diagram between the two paragraphs on mobile) ---------- */
+  .petro-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .petro-article-text-1 { grid-area: text1; }
+  .petro-article-text-2 { grid-area: text2; }
+
+  .petro-article-text-1,
+  .petro-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .petro-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .petro-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .petro-article-text-1 p,
+  .petro-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #d9c4a3 !important;
+  }
+
+  .petro-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .petro-article-diagram svg { width: 100%; height: auto; max-width: 300px; }
+
+  .petro-line { fill: none; stroke: #a89a86; stroke-width: 2; }
+  .petro-line-soft { fill: none; stroke: #6b5f4d; stroke-width: 1.4; }
+  .petro-fill { fill: rgba(201, 160, 106, 0.1); stroke: #a89a86; stroke-width: 1.8; }
+  .petro-pressure { fill: none; stroke: #cc1f29; stroke-width: 2; opacity: 0.9; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .petro-beam-group animateTransform,
+    .petro-flow-anim { display: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .petro-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(201, 160, 106, 0.14);
+    margin-top: 8px;
+  }
+  .petro-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .petro-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #d9c4a3 !important;
+  }
+  .petro-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: looping pipeline flow ---------- */
+  .petro-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .petro-article-footer-trace svg { width: 100%; height: 34px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .petro-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .petro-article-text-1 { padding: 24px 24px 0 24px; }
+    .petro-article-text-2 { padding: 8px 24px 8px 24px; }
+    .petro-article-diagram { padding: 12px 24px; width: 100%; }
+    .petro-article-diagram svg { max-width: 200px; margin: 0 auto; }
+    .petro-article-bottom { padding: 4px 24px 8px 24px; }
+    .petro-article-bottom h3 { font-size: 16.5px !important; }
+    .petro-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="petro-article">
+  <div class="petro-article-inner">
+
+    <div class="petro-article-top">
+      <div class="petro-article-text-1">
+        <h2>Understanding the Role of a Petroleum Engineer in Australia</h2>
+        <p>
+          Specializing in hydrocarbon extraction involves developing advanced reservoir models, designing deep-well trajectories, and implementing artificial lift configurations to optimize oil and gas production. These specialists evaluate complex seismic data, engineer safe drilling setups, and direct recovery methods to maximize extraction efficiency from subsurface fields. Managing these capital-intensive fluid dynamics and process workflows makes this a highly vital skilled occupation across Australia's global energy and natural resources sectors.
+        </p>
+      </div>
+
+      <div class="petro-article-diagram">
+        <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- ground line -->
+          <line class="petro-line" x1="10" y1="170" x2="210" y2="170" />
+
+          <!-- sampson post (A-frame support), static -->
+          <path class="petro-line-soft" d="M115,170 L138,68" />
+          <path class="petro-line-soft" d="M165,170 L142,68" />
+          <line class="petro-line-soft" x1="122" y1="130" x2="158" y2="130" />
+
+          <!-- wellhead + polished rod guide, static -->
+          <line class="petro-line" x1="140" y1="130" x2="140" y2="170" />
+          <rect class="petro-fill" x="130" y="150" width="20" height="20" rx="2" />
+          <line class="petro-line-soft" x1="122" y1="158" x2="130" y2="158" />
+          <line class="petro-line-soft" x1="150" y1="158" x2="158" y2="158" />
+
+          <!-- the walking beam, rocking around the pivot at the top of the post -->
+          <g class="petro-beam-group">
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              values="9 140 66; -9 140 66; 9 140 66"
+              dur="3.4s"
+              repeatCount="indefinite" />
+
+            <!-- beam -->
+            <rect class="petro-fill" x="70" y="61" width="140" height="10" rx="3" />
+            <!-- pivot -->
+            <circle class="petro-line" cx="140" cy="66" r="4" />
+
+            <!-- counterweight, left end -->
+            <rect class="petro-fill" x="72" y="71" width="26" height="22" rx="2" />
+
+            <!-- horsehead, right end -->
+            <path class="petro-fill" d="M178,61 Q206,58 206,74 Q206,86 190,86 L178,86 Z" />
+            <!-- cable down to the polished rod -->
+            <line class="petro-line-soft" x1="188" y1="86" x2="140" y2="150" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="petro-article-text-2">
+        <p>
+          To assist qualified specialists looking to shift their engineering careers to major resource operations, the profile is actively maintained on Australia's skilled migration list, the immigration skills list, and the general skilled employment list. These distinct listings ensure visible independent and state-nominated points-tested pathways for qualified candidates.
+        </p>
+      </div>
+    </div>
+
+    <div class="petro-article-bottom">
+      <h3>Why a Meticulous CDR is Essential for Your Migration Success</h3>
+      <p>
+        Locating your specific occupation code on the skilled occupation list is an excellent operational starting point. However, transitioning that basic eligibility into an approved visa requires clearing a detailed technical verification before you can advance a formal visa application or secure your roadmap for a permanent Australia visa.
+      </p>
+      <p>
+        The gateway to this process is the mandatory skills assessment governed by Engineers Australia. Compiling an authoritative CDR for Petroleum Engineer applicants allows you to detail your individual field projects, system simulations, and reservoir interventions in structured career episodes. A meticulously formatted report ensures your documentation fully satisfies the rigorous visa requirements managed under the skilled occupation list framework.
+      </p>
+      <p>
+        A poorly constructed or generic report can easily lead to extensive processing delays or direct application rejections, making high-quality documentation preparation your top priority. Ensuring your narrative accurately demonstrates your specific technical choices and safety compliance records is essential to secure your points validation without unexpected issues.
+      </p>
+      <p>
+        Ultimately, a reliable, engineer-focused portfolio serves as the core foundation for navigating the complexities of Australian immigration, smoothing your path toward obtaining your approvals so you can legally live and work in Australia over the long term.
+      </p>
+    </div>
+
+    <div class="petro-article-footer-trace">
+      <svg viewBox="0 0 600 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <!-- pipeline -->
+        <line class="petro-line" x1="0" y1="20" x2="600" y2="20" />
+        <!-- flanges along the pipe -->
+        <line class="petro-line-soft" x1="60" y1="10" x2="60" y2="30" />
+        <line class="petro-line-soft" x1="180" y1="10" x2="180" y2="30" />
+        <line class="petro-line-soft" x1="300" y1="10" x2="300" y2="30" />
+        <line class="petro-line-soft" x1="420" y1="10" x2="420" y2="30" />
+        <line class="petro-line-soft" x1="540" y1="10" x2="540" y2="30" />
+
+        <!-- pressurized flow, looping continuously along the pipe -->
+        <line class="petro-pressure" x1="0" y1="20" x2="600" y2="20" stroke-dasharray="4 26" stroke-linecap="round">
+          <animate attributeName="stroke-dashoffset" values="0;-30" dur="1s" repeatCount="indefinite" />
+        </line>
+      </svg>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,198 @@
+<style>
+  .aero-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #0d1b2a 0%, #060c14 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .aero-article * { box-sizing: border-box; }
+
+  /* faint radial glow, like an instrument backlight */
+  .aero-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 55% 45% at 78% 50%, rgba(95, 208, 255, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .aero-article-inner { position: relative; }
+
+  /* ---------- top: heading + text1, diagram, text2 ---------- */
+  .aero-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .aero-article-text-1 { grid-area: text1; }
+  .aero-article-text-2 { grid-area: text2; }
+
+  .aero-article-text-1,
+  .aero-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .aero-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .aero-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .aero-article-text-1 p,
+  .aero-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #bcd4e6 !important;
+  }
+
+  .aero-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .aero-article-diagram svg { width: 100%; height: auto; max-width: 300px; }
+
+  .aero-wing { fill: rgba(95, 208, 255, 0.08); stroke: #cfe3f2; stroke-width: 1.8; }
+  .aero-stream { fill: none; stroke: #5fd0ff; stroke-width: 1.6; opacity: 0.8; }
+  .aero-line-soft { fill: none; stroke: #4d6b84; stroke-width: 1.2; }
+  .aero-warn { fill: none; stroke: #cc1f29; stroke-width: 1.8; stroke-linecap: round; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aero-stream-anim,
+    .aero-plane-motion { display: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .aero-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(95, 208, 255, 0.14);
+    margin-top: 8px;
+  }
+  .aero-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .aero-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #bcd4e6 !important;
+  }
+  .aero-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: looping flight path ---------- */
+  .aero-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .aero-article-footer-trace svg { width: 100%; height: 40px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .aero-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .aero-article-text-1 { padding: 24px 24px 0 24px; }
+    .aero-article-text-2 { padding: 8px 24px 8px 24px; }
+    .aero-article-diagram { padding: 12px 24px; width: 100%; }
+    .aero-article-diagram svg { max-width: 200px; margin: 0 auto; }
+    .aero-article-bottom { padding: 4px 24px 8px 24px; }
+    .aero-article-bottom h3 { font-size: 16.5px !important; }
+    .aero-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="aero-article">
+  <div class="aero-article-inner">
+
+    <div class="aero-article-top">
+      <div class="aero-article-text-1">
+        <h2>Understanding the Role of an Aeronautical Engineer in Australia</h2>
+        <p>
+          Specializing in flight technologies involves designing, testing, and modifying advanced commercial aircraft, defense systems, and missile components. Because aerospace innovation dictates national defense and logistics growth, this niche technical field stands out as a highly prioritized skilled occupation nationwide.
+        </p>
+      </div>
+
+      <div class="aero-article-diagram">
+        <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+          <!-- airfoil (wing cross-section) -->
+          <path class="aero-wing" d="M40,75 C40,55 70,45 120,45 C200,45 260,60 280,75 C260,90 200,95 120,95 C70,95 40,85 40,75 Z" />
+
+          <!-- angle-of-attack marker at the leading edge -->
+          <path class="aero-warn" d="M40,75 L58,68" />
+
+          <!-- streamlines flowing over the top (curving up and over the wing) -->
+          <path class="aero-stream" d="M0,32 C100,32 140,16 300,16" stroke-dasharray="6 10">
+            <animate attributeName="stroke-dashoffset" values="0;-32" dur="1s" repeatCount="indefinite" />
+          </path>
+          <path class="aero-stream" d="M0,50 C100,50 140,36 300,36" stroke-dasharray="6 10">
+            <animate attributeName="stroke-dashoffset" values="0;-32" dur="1.15s" repeatCount="indefinite" />
+          </path>
+
+          <!-- streamlines flowing under (straighter, slower-looking) -->
+          <path class="aero-stream" d="M0,108 C100,108 140,112 300,110" stroke-dasharray="6 10" opacity="0.6">
+            <animate attributeName="stroke-dashoffset" values="0;-32" dur="1.4s" repeatCount="indefinite" />
+          </path>
+          <path class="aero-stream" d="M0,124 C100,124 140,126 300,125" stroke-dasharray="6 10" opacity="0.6">
+            <animate attributeName="stroke-dashoffset" values="0;-32" dur="1.55s" repeatCount="indefinite" />
+          </path>
+
+          <!-- lift arrow -->
+          <path class="aero-line-soft" d="M150,45 V20" />
+          <path class="aero-line-soft" d="M145,26 L150,18 L155,26" />
+        </svg>
+      </div>
+
+      <div class="aero-article-text-2">
+        <p>
+          To assist global professionals in relocating their technical careers, the profile is actively maintained across Australia's skilled migration list, the immigration skills list, and the general skilled employment list. These official frameworks ensure visible independent and state-nominated points-tested visa pathways across multiple regional territories.
+        </p>
+      </div>
+    </div>
+
+    <div class="aero-article-bottom">
+      <h3>Why a Meticulous CDR is Essential for Your Migration Success</h3>
+      <p>
+        Discovering your occupation on the skilled occupation list is an excellent initial step. Before you can advance a formal visa application or secure your roadmap for a permanent Australia visa, you must first prove your technical credentials through a mandatory skills assessment evaluated by Engineers Australia.
+      </p>
+      <p>
+        Compiling an authoritative CDR for Aeronautical Engineer applicants ensures your documentation perfectly matches the precise visa requirements managed under the skilled occupation list framework. A poorly structured report can cause long processing delays or unexpected rejections, making strategic presentation vital to safeguarding your immigration goals.
+      </p>
+      <p>
+        Ultimately, a reliable, engineer-focused portfolio serves as the core foundation for navigating the complexities of Australian immigration, smoothing your path toward obtaining your approvals so you can legally live and work in Australia over the long term.
+      </p>
+    </div>
+
+    <div class="aero-article-footer-trace">
+      <svg viewBox="0 0 600 50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+        <!-- flight path -->
+        <path id="aero-flight-path" class="aero-line-soft" d="M10,40 Q300,-10 590,40" stroke-dasharray="2 8" />
+
+        <!-- the aircraft, travelling the flight path continuously -->
+        <path class="aero-wing" d="M-10,0 L6,-4 L1,0 L6,4 Z">
+          <animateMotion dur="5s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#aero-flight-path" xlink:href="#aero-flight-path" />
+          </animateMotion>
+        </path>
+      </svg>
+    </div>
+
+  </div>
+</div>

@@ -110,11 +110,50 @@
   }
   .eln-article-footer-trace svg { width: 100%; height: 32px; display: block; }
 
+  /* ---------- Mobile Overrides: Inject diagram between paragraphs ---------- */
   @media screen and (max-width: 767px) {
-    .eln-article-top { flex-direction: column; }
-    .eln-article-text { padding: 12px 24px 8px 24px; min-width: 0; }
-    .eln-article-diagram { padding: 28px 24px 8px 24px; order: -1; min-width: 0; width: 100%; }
-    .eln-article-diagram svg { max-width: 200px; margin: 0 auto; }
+    .eln-article-top { 
+      flex-direction: column; 
+      gap: 0; 
+    }
+    
+    /* Unwrap the text container visually to reorder its children alongside the diagram */
+    .eln-article-text { 
+      display: contents; 
+    }
+    
+    .eln-article-text h2 { 
+      order: 1; 
+      padding: 24px 24px 0 24px; 
+      margin-bottom: 16px; 
+    }
+    
+    /* First Paragraph */
+    .eln-article-text p:nth-of-type(1) { 
+      order: 2; 
+      padding: 0 24px; 
+      margin-bottom: 0; 
+    }
+    
+    /* Schematic Diagram (image_fbfc7f.png equivalent layout) injected in the middle */
+    .eln-article-diagram { 
+      order: 3; 
+      padding: 28px 24px; 
+      min-width: 0; 
+      width: 100%; 
+    }
+    .eln-article-diagram svg { 
+      max-width: 200px; 
+      margin: 0 auto; 
+    }
+    
+    /* Second Paragraph */
+    .eln-article-text p:nth-of-type(2) { 
+      order: 4; 
+      padding: 0 24px 12px 24px; 
+      margin-bottom: 0; 
+    }
+    
     .eln-article-bottom { padding: 4px 24px 8px 24px; }
     .eln-article-bottom h3 { font-size: 16.5px; }
     .eln-article-footer-trace { padding: 6px 24px 24px 24px; }

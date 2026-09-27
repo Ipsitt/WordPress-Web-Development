@@ -1,0 +1,228 @@
+<style>
+  .draft-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #20242a 0%, #0e1114 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .draft-article * { box-sizing: border-box; }
+
+  /* faint graphite grid paper, kept quiet behind everything */
+  .draft-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(210, 214, 220, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(210, 214, 220, 0.06) 1px, transparent 1px);
+    background-size: 26px 26px;
+    pointer-events: none;
+  }
+
+  .draft-article-inner { position: relative; }
+
+  /* ---------- top: heading + text1, diagram, text2 ---------- */
+  .draft-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .draft-article-text-1 { grid-area: text1; }
+  .draft-article-text-2 { grid-area: text2; }
+
+  .draft-article-text-1,
+  .draft-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .draft-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .draft-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .draft-article-text-1 p,
+  .draft-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #cdd3da !important;
+  }
+
+  .draft-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .draft-article-diagram svg { width: 100%; height: auto; max-width: 260px; }
+
+  .draft-line { fill: none; stroke: #d2d6dc; stroke-width: 1.6; }
+  .draft-line-soft { fill: none; stroke: #6b7280; stroke-width: 1.1; }
+  .draft-trace { fill: none; stroke: #5fd0ff; stroke-width: 2; }
+  .draft-accent { fill: none; stroke: #cc1f29; stroke-width: 1.6; }
+  .draft-accent-fill { fill: #cc1f29; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .draft-compass-group animateTransform,
+    .draft-trace-anim,
+    .draft-dim-anim { display: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .draft-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(210, 214, 220, 0.14);
+    margin-top: 8px;
+  }
+  .draft-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .draft-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #cdd3da !important;
+  }
+  .draft-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: looping dimension line ---------- */
+  .draft-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .draft-article-footer-trace svg { width: 100%; height: 34px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .draft-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .draft-article-text-1 { padding: 24px 24px 0 24px; }
+    .draft-article-text-2 { padding: 8px 24px 8px 24px; }
+    .draft-article-diagram { padding: 12px 24px; width: 100%; }
+    .draft-article-diagram svg { max-width: 190px; margin: 0 auto; }
+    .draft-article-bottom { padding: 4px 24px 8px 24px; }
+    .draft-article-bottom h3 { font-size: 16.5px !important; }
+    .draft-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="draft-article">
+  <div class="draft-article-inner">
+
+    <div class="draft-article-top">
+      <div class="draft-article-text-1">
+        <h2>Understanding the Role of a Civil Engineering Technician in Australia</h2>
+        <p>
+          Specializing as a technical specialist in infrastructure projects involves conducting field soil tests, inspecting materials on construction sites, and preparing operational reports. Working on the ground, these professionals assist in civil engineering research, design, construction, operations, and maintenance frameworks. Ensuring all site operations strictly match structural guidelines makes this a highly sought-after australia skilled occupation inside the country's booming construction sector.
+        </p>
+      </div>
+
+      <div class="draft-article-diagram">
+        <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+          <!-- contour circles being traced, drawn on the grid -->
+          <circle class="draft-line-soft" cx="130" cy="150" r="90" stroke-dasharray="3 5" />
+
+          <!-- the contour line the compass is actively tracing -->
+          <circle class="draft-trace" cx="130" cy="150" r="60" stroke-dasharray="377" stroke-dashoffset="377">
+            <animate attributeName="stroke-dashoffset" values="377;0" dur="4s" repeatCount="indefinite" />
+          </circle>
+
+          <!-- fixed centre point of the compass -->
+          <circle class="draft-accent-fill" cx="130" cy="150" r="3" />
+
+          <!-- the compass itself, rotating around the fixed point -->
+          <g class="draft-compass-group">
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              from="0 130 150"
+              to="360 130 150"
+              dur="4s"
+              repeatCount="indefinite" />
+            <!-- pivot leg -->
+            <line class="draft-line" x1="130" y1="150" x2="130" y2="72" />
+            <!-- drawing leg, angled slightly outward to the tracing radius -->
+            <line class="draft-line" x1="130" y1="150" x2="167" y2="86" />
+            <!-- hinge -->
+            <circle class="draft-line" cx="130" cy="72" r="3.5" fill="#0e1114" />
+            <!-- pencil tip -->
+            <circle class="draft-accent-fill" cx="167" cy="86" r="2.6" />
+          </g>
+
+          <!-- dimension callout -->
+          <line class="draft-accent" x1="40" y1="235" x2="220" y2="235" />
+          <line class="draft-accent" x1="40" y1="228" x2="40" y2="242" />
+          <line class="draft-accent" x1="220" y1="228" x2="220" y2="242" />
+          <text x="130" y="222" fill="#cc1f29" font-size="11" text-anchor="middle" font-family="Consolas, monospace">R = 12.400 m</text>
+        </svg>
+      </div>
+
+      <div class="draft-article-text-2">
+        <p>
+          To assist global professionals in shifting their technical careers to growing states, this profile is actively tracked on the australia skilled migration list, the australian immigration skills list, and the general skilled employment list. These comprehensive indexes unlock clear point-tested pathways across multiple states for eligible candidates.
+        </p>
+      </div>
+    </div>
+
+    <div class="draft-article-bottom">
+      <h3>Why a Meticulous CDR is Essential for Your Migration Success</h3>
+      <p>
+        Locating your occupation on the active skill list australia or the broader australia skilled occupation list marks a fantastic beginning. However, before lodging a formal visa application or advancing down a pathway toward a permanent australia visa, you must secure a positive skills assessment confirming your technical competency matches domestic workplace baselines.
+      </p>
+      <p>
+        Compiling an authoritative CDR for Civil Engineering Technician candidates allows you to accurately map out your previous materials testing logs, site inspection checklists, and technical reports. Aligning your engineering documentation with these project instances proves your capability to deliver field-level results while satisfying the core visa requirements managed under the skill occupation list australia framework.
+      </p>
+      <p>
+        Ultimately, a reliable, engineer-focused portfolio serves as the core foundation for navigating the complexities of australia immigration, smoothing your path toward obtaining your approvals so you can legally live and work australia visa streams over the long term.
+      </p>
+    </div>
+
+    <div class="draft-article-footer-trace">
+      <svg viewBox="0 0 600 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+
+        <!-- ground line -->
+        <line class="draft-line-soft" x1="0" y1="34" x2="600" y2="34" />
+
+        <!-- tripod -->
+        <path class="draft-line" d="M40,34 L30,10 L20,34" />
+        <path class="draft-line" d="M40,34 L30,10 L40,34" />
+        <line class="draft-line" x1="30" y1="10" x2="30" y2="34" />
+
+        <!-- total station instrument head, scanning slowly side to side -->
+        <g>
+          <animateTransform attributeName="transform" type="rotate" values="-6 30 10; 6 30 10; -6 30 10" dur="3s" repeatCount="indefinite" />
+          <rect class="draft-line" x="22" y="3" width="16" height="9" rx="1.5" fill="#0e1114" />
+          <circle class="draft-line" cx="30" cy="7.5" r="2" fill="#0e1114" />
+        </g>
+
+        <!-- measurement laser, pulsing continuously toward the survey target -->
+        <line class="draft-trace" x1="34" y1="7" x2="560" y2="7" stroke-dasharray="3 18" stroke-linecap="round">
+          <animate attributeName="stroke-dashoffset" values="0;-21" dur="0.9s" repeatCount="indefinite" />
+        </line>
+
+        <!-- survey target stake -->
+        <line class="draft-line" x1="560" y1="34" x2="560" y2="4" />
+        <rect class="draft-accent-fill" x="554" y="4" width="12" height="6" />
+      </svg>
+    </div>
+
+  </div>
+</div>

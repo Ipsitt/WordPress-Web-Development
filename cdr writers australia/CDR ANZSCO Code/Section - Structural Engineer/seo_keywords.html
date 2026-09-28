@@ -1,29 +1,264 @@
-<div class="seo-card-container" style="background: #ffffff; padding: 35px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); font-family: inherit; color: #333333; line-height: 1.6;">
-    <h2 style="color: #222222; margin-top: 0; margin-bottom: 20px; font-size: 19px; font-weight: 700;">Understanding the Role of a Structural Engineer in Australia</h2>
-    
-    <p style="margin-bottom: 15px;">
-        Specializing in this field requires mastering advanced load-bearing calculations, finite element analysis, and material fatigue parameters. Rather than looking for a basic structural engineer report near me, enterprise developers and infrastructure projects rely on comprehensive structural engineering services to guarantee the ultimate stability of multi-story frameworks and heavy industrial builds under intense environmental stress. Delivering these complex load simulations and structural configurations makes this a highly specialized australia skilled occupation across Australia's commercial development sectors.
-    </p>
+<style>
+  .struct-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    /* Industrial/Steel dark gradient */
+    background: linear-gradient(160deg, #1e2530 0%, #0d1117 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .struct-article * { box-sizing: border-box; }
 
-    <p style="margin-bottom: 20px;">
-        Because their oversight directly ensures public safety and building durability, their practical knowledge is incredibly sought after in rapidly expanding urban centers. Consequently, the profession is thoroughly integrated into the active australia skilled migration list, the australian immigration skills list, and the overarching skilled employment list, presenting robust pathways for highly skilled international applicants.
-    </p>
+  /* Faint neon-blue structural glow behind the section */
+  .struct-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 55% 45% at 78% 55%, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-    <h3 style="color: #222222; font-size: 19px; margin-bottom: 15px; font-weight: 600;">Why a Meticulous CDR is Essential for Your Migration Success</h3>
-    
-    <p style="margin-bottom: 15px;">
+  .struct-article-inner { position: relative; }
+
+  /* ---------- top: heading + text1, diagram, text2 ---------- */
+  .struct-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .struct-article-text-1 { grid-area: text1; }
+  .struct-article-text-2 { grid-area: text2; }
+
+  .struct-article-text-1,
+  .struct-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .struct-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .struct-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .struct-article-text-1 p,
+  .struct-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #cbd5e1 !important; /* Slate 300 */
+  }
+
+  /* ---------- diagram formatting ---------- */
+  .struct-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .struct-article-diagram svg { width: 100%; height: auto; max-width: 320px; }
+
+  /* SVG Element Styles */
+  .struct-base { fill: #334155; }
+  .struct-ground { fill: none; stroke: #1e293b; stroke-width: 2; }
+  .struct-col, .struct-beam { fill: none; stroke: #475569; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+  .struct-brace { fill: none; stroke: #334155; stroke-width: 1.5; stroke-dasharray: 4 4; }
+  .struct-node { fill: #0f172a; stroke: #475569; stroke-width: 1.5; }
+  .struct-force { fill: none; stroke: #f97316; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .struct-beam-anim,
+    .struct-force-anim,
+    .struct-brace-anim,
+    .struct-text-anim,
+    .struct-scan-anim { animation: none; display: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .struct-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(56, 189, 248, 0.12);
+    margin-top: 8px;
+  }
+  .struct-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .struct-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #cbd5e1 !important;
+  }
+  .struct-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: looping structural scanner ---------- */
+  .struct-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .struct-article-footer-trace svg { width: 100%; height: 42px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .struct-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .struct-article-text-1 { padding: 24px 24px 0 24px; }
+    .struct-article-text-2 { padding: 8px 24px 8px 24px; }
+    .struct-article-diagram { padding: 12px 24px; width: 100%; }
+    .struct-article-diagram svg { max-width: 250px; margin: 0 auto; }
+    .struct-article-bottom { padding: 4px 24px 8px 24px; }
+    .struct-article-bottom h3 { font-size: 16.5px !important; }
+    .struct-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="struct-article">
+  <div class="struct-article-inner">
+
+    <div class="struct-article-top">
+      <div class="struct-article-text-1">
+        <h2>Understanding the Role of a Structural Engineer in Australia</h2>
+        <p>
+          Specializing in this field requires mastering advanced load-bearing calculations, finite element analysis, and material fatigue parameters. Rather than looking for a basic structural engineer report near me, enterprise developers and infrastructure projects rely on comprehensive structural engineering services to guarantee the ultimate stability of multi-story frameworks and heavy industrial builds under intense environmental stress. Delivering these complex load simulations and structural configurations makes this a highly specialized australia skilled occupation across Australia's commercial development sectors.
+        </p>
+      </div>
+
+      <div class="struct-article-diagram">
+        <svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
+          
+          <!-- Ground and Foundation -->
+          <path class="struct-ground" d="M20,178 L240,178" />
+          <rect class="struct-base" x="50" y="170" width="160" height="8" rx="2" />
+
+          <!-- Background Cross Bracing (Static & Animated Stress) -->
+          <path class="struct-brace" d="M80,120 L180,70" />
+          <path class="struct-brace struct-brace-anim" d="M80,70 L180,120">
+            <!-- Simulates tension/compression stress highlighting -->
+            <animate attributeName="stroke" values="#334155; #ef4444; #334155" dur="3s" repeatCount="indefinite" />
+          </path>
+
+          <!-- Vertical Columns -->
+          <line class="struct-col" x1="80" y1="170" x2="80" y2="70" />
+          <line class="struct-col" x1="180" y1="170" x2="180" y2="70" />
+
+          <!-- Middle Floor Beam -->
+          <line class="struct-beam" x1="65" y1="120" x2="195" y2="120" />
+
+          <!-- Top Roof Beam (Dynamic Deflection Bending) -->
+          <path class="struct-beam struct-beam-anim" d="M 65,70 Q 130,70 195,70">
+            <animate attributeName="d" values="M 65,70 Q 130,70 195,70; M 65,70 Q 130,88 195,70; M 65,70 Q 130,70 195,70" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#475569; #38bdf8; #475569" dur="3s" repeatCount="indefinite"/>
+          </path>
+
+          <!-- Structural Nodes (Joints) -->
+          <circle class="struct-node" cx="80" cy="120" r="3.5" />
+          <circle class="struct-node" cx="180" cy="120" r="3.5" />
+          <circle class="struct-node" cx="80" cy="70" r="3.5" />
+          <circle class="struct-node" cx="180" cy="70" r="3.5" />
+          <circle class="struct-node" cx="80" cy="170" r="3.5" />
+          <circle class="struct-node" cx="180" cy="170" r="3.5" />
+
+          <!-- Pulsing Gravity Load Arrows -->
+          <g class="struct-force-anim">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,12; 0,0" dur="3s" repeatCount="indefinite"/>
+            <!-- Center heavy load -->
+            <path class="struct-force" d="M130,22 L130,55 L125,48 M130,55 L135,48" stroke-width="2.5" />
+            <!-- Flank loads -->
+            <path class="struct-force" d="M90,32 L90,55 L86,50 M90,55 L94,50" />
+            <path class="struct-force" d="M170,32 L170,55 L166,50 M170,55 L174,50" />
+          </g>
+
+          <!-- Deflection Readout -->
+          <text x="130" y="106" fill="#38bdf8" font-size="11" font-weight="bold" font-family="Consolas, monospace" text-anchor="middle" class="struct-text-anim">
+            <animate attributeName="opacity" values="0; 1; 0" dur="3s" repeatCount="indefinite"/>
+            Δ = 18.2mm
+          </text>
+        </svg>
+      </div>
+
+      <div class="struct-article-text-2">
+        <p>
+          Because their oversight directly ensures public safety and building durability, their practical knowledge is incredibly sought after in rapidly expanding urban centers. Consequently, the profession is thoroughly integrated into the active australia skilled migration list, the australian immigration skills list, and the overarching skilled employment list, presenting robust pathways for highly skilled international applicants.
+        </p>
+      </div>
+    </div>
+
+    <div class="struct-article-bottom">
+      <h3>Why a Meticulous CDR is Essential for Your Migration Success</h3>
+      <p>
         While locating your specific engineering designation on the active skill list australia or the broader australia skilled occupation list is an excellent initial step, advancing your journey down under requires passing a comprehensive verification. Before you can lodge your formal visa application or finalize your strategy for a permanent australia visa, you must secure a positive assessment from the proper regulatory body.
-    </p>
-
-    <p style="margin-bottom: 15px;">
+      </p>
+      <p>
         This technical skills assessment is managed directly by Engineers Australia through the Competency Demonstration Report (CDR) pathway. The CDR requires you to draft comprehensive career episodes that outline your calculations, stress analyses, and direct physical interventions on active engineering sites. Every narrative section must be carefully structured to meet the precise visa requirements enforced by the current skill occupation list australia framework.
-    </p>
-
-    <p style="margin-bottom: 20px;">
+      </p>
+      <p>
         A generic or poorly mapped report can cause extensive processing delays or immediate rejections from the case officers. Making sure your documentation showcases your personal technical decisions, safety compliance tracking, and structural problem-solving skills is vital to secure your points validation without unexpected issues.
-    </p>
-
-    <p style="margin-bottom: 0;">
+      </p>
+      <p>
         Ultimately, a reliable, engineer-focused portfolio serves as the core foundation for navigating the complexities of australia immigration, smoothing your path toward obtaining your approvals so you can legally live and work australia visa streams.
-    </p>
+      </p>
+    </div>
+
+    <div class="struct-article-footer-trace">
+      <svg viewBox="0 0 600 42" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+          <!-- Base Static Truss -->
+          <pattern id="truss-base" x="0" y="0" width="40" height="42" patternUnits="userSpaceOnUse">
+            <line stroke="#334155" stroke-width="2" x1="0" y1="34" x2="20" y2="8" />
+            <line stroke="#334155" stroke-width="2" x1="20" y1="8" x2="40" y2="34" />
+            <line stroke="#475569" stroke-width="2.5" x1="0" y1="8" x2="40" y2="8" />
+            <line stroke="#475569" stroke-width="2.5" x1="0" y1="34" x2="40" y2="34" />
+            <circle cx="20" cy="8" r="1.5" fill="#1e293b" stroke="#475569" />
+            <circle cx="40" cy="34" r="1.5" fill="#1e293b" stroke="#475569" />
+          </pattern>
+          
+          <!-- Active "Scanned" Truss (Cyan) -->
+          <pattern id="truss-active" x="0" y="0" width="40" height="42" patternUnits="userSpaceOnUse">
+            <line stroke="#0ea5e9" stroke-width="2" x1="0" y1="34" x2="20" y2="8" />
+            <line stroke="#0ea5e9" stroke-width="2" x1="20" y1="8" x2="40" y2="34" />
+            <line stroke="#38bdf8" stroke-width="2.5" x1="0" y1="8" x2="40" y2="8" />
+            <line stroke="#38bdf8" stroke-width="2.5" x1="0" y1="34" x2="40" y2="34" />
+            <circle cx="20" cy="8" r="2" fill="#fff" />
+            <circle cx="40" cy="34" r="2" fill="#fff" />
+          </pattern>
+
+          <!-- Scanning Mask Sweep -->
+          <linearGradient id="scan-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#fff" stop-opacity="0" />
+            <stop offset="80%" stop-color="#fff" stop-opacity="1" />
+            <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+          </linearGradient>
+          
+          <mask id="scan-mask">
+            <rect class="struct-scan-anim" x="-150" y="0" width="150" height="42" fill="url(#scan-grad)">
+              <animate attributeName="x" values="-150; 650" dur="4s" repeatCount="indefinite" />
+            </rect>
+          </mask>
+        </defs>
+
+        <!-- Render Base Truss -->
+        <rect x="0" y="0" width="100%" height="42" fill="url(#truss-base)" />
+        
+        <!-- Render Active Truss revealed by the sweeping mask -->
+        <rect x="0" y="0" width="100%" height="42" fill="url(#truss-active)" mask="url(#scan-mask)" />
+        
+      </svg>
+    </div>
+
+  </div>
 </div>

@@ -1,19 +1,19 @@
 <style>
-  .struct-article {
+  .trans-article {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     width: 100%;
     box-sizing: border-box;
     margin: 32px 0;
-    /* Industrial/Steel dark gradient */
-    background: linear-gradient(160deg, #1e2530 0%, #0d1117 100%);
+    /* Deep satellite dark gradient */
+    background: linear-gradient(160deg, #12161f 0%, #090c10 100%);
     border-radius: 16px;
     overflow: hidden;
     position: relative;
   }
-  .struct-article * { box-sizing: border-box; }
+  .trans-article * { box-sizing: border-box; }
 
-  /* Faint neon-blue structural glow behind the section */
-  .struct-article::before {
+  /* Faint satellite radar glow behind the section */
+  .trans-article::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -21,10 +21,10 @@
     pointer-events: none;
   }
 
-  .struct-article-inner { position: relative; }
+  .trans-article-inner { position: relative; }
 
   /* ---------- top: heading + text1, diagram, text2 ---------- */
-  .struct-article-top {
+  .trans-article-top {
     display: grid;
     grid-template-columns: 1.3fr 0.9fr;
     grid-template-areas: "text1 diagram" "text2 diagram";
@@ -32,17 +32,17 @@
     gap: 8px;
   }
 
-  .struct-article-text-1 { grid-area: text1; }
-  .struct-article-text-2 { grid-area: text2; }
+  .trans-article-text-1 { grid-area: text1; }
+  .trans-article-text-2 { grid-area: text2; }
 
-  .struct-article-text-1,
-  .struct-article-text-2 {
+  .trans-article-text-1,
+  .trans-article-text-2 {
     min-width: 0;
     padding: 44px 12px 0 44px;
   }
-  .struct-article-text-2 { padding: 0 12px 24px 44px; }
+  .trans-article-text-2 { padding: 0 12px 24px 44px; }
 
-  .struct-article-text-1 h2 {
+  .trans-article-text-1 h2 {
     margin: 0 0 20px 0 !important;
     font-size: 21px !important;
     font-weight: 700 !important;
@@ -50,16 +50,16 @@
     color: #ffffff !important;
     line-height: 1.35 !important;
   }
-  .struct-article-text-1 p,
-  .struct-article-text-2 p {
+  .trans-article-text-1 p,
+  .trans-article-text-2 p {
     margin: 0 !important;
     font-size: 15px !important;
     line-height: 1.75 !important;
-    color: #cbd5e1 !important; /* Slate 300 */
+    color: #94a3b8 !important; /* Slate 400 */
   }
 
   /* ---------- diagram formatting ---------- */
-  .struct-article-diagram {
+  .trans-article-diagram {
     grid-area: diagram;
     min-width: 0;
     padding: 20px 30px 20px 8px;
@@ -67,196 +67,296 @@
     align-items: center;
     justify-content: center;
   }
-  .struct-article-diagram svg { width: 100%; height: auto; max-width: 320px; }
+  .trans-article-diagram svg { width: 100%; height: auto; max-width: 320px; }
 
-  /* SVG Element Styles */
-  .struct-base { fill: #334155; }
-  .struct-ground { fill: none; stroke: #1e293b; stroke-width: 2; }
-  .struct-col, .struct-beam { fill: none; stroke: #475569; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
-  .struct-brace { fill: none; stroke: #334155; stroke-width: 1.5; stroke-dasharray: 4 4; }
-  .struct-node { fill: #0f172a; stroke: #475569; stroke-width: 1.5; }
-  .struct-force { fill: none; stroke: #f97316; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  
   @media (prefers-reduced-motion: reduce) {
-    .struct-beam-anim,
-    .struct-force-anim,
-    .struct-brace-anim,
-    .struct-text-anim,
-    .struct-scan-anim { animation: none; display: none; }
+    .trans-anim { animation: none !important; display: none !important; }
   }
 
   /* ---------- bottom: full-width continuation ---------- */
-  .struct-article-bottom {
+  .trans-article-bottom {
     padding: 4px 44px 44px 44px;
     border-top: 1px solid rgba(56, 189, 248, 0.12);
     margin-top: 8px;
   }
-  .struct-article-bottom h3 {
+  .trans-article-bottom h3 {
     margin: 28px 0 18px 0 !important;
     font-size: 18px !important;
     font-weight: 700 !important;
     color: #ffffff !important;
     line-height: 1.35 !important;
   }
-  .struct-article-bottom p {
+  .trans-article-bottom p {
     margin: 0 0 16px 0 !important;
     font-size: 15px !important;
     line-height: 1.75 !important;
-    color: #cbd5e1 !important;
+    color: #94a3b8 !important;
   }
-  .struct-article-bottom p:last-child { margin-bottom: 0 !important; }
+  .trans-article-bottom p:last-child { margin-bottom: 0 !important; }
 
-  /* ---------- footer: looping structural scanner ---------- */
-  .struct-article-footer-trace {
+  /* ---------- footer: looping railroad and train ---------- */
+  .trans-article-footer-trace {
     padding: 8px 44px 28px 44px;
   }
-  .struct-article-footer-trace svg { width: 100%; height: 42px; display: block; }
+  .trans-article-footer-trace svg { width: 100%; height: 42px; display: block; }
 
   @media screen and (max-width: 767px) {
-    .struct-article-top {
+    .trans-article-top {
       grid-template-columns: 1fr;
       grid-template-areas: "text1" "diagram" "text2";
     }
-    .struct-article-text-1 { padding: 24px 24px 0 24px; }
-    .struct-article-text-2 { padding: 8px 24px 8px 24px; }
-    .struct-article-diagram { padding: 12px 24px; width: 100%; }
-    .struct-article-diagram svg { max-width: 250px; margin: 0 auto; }
-    .struct-article-bottom { padding: 4px 24px 8px 24px; }
-    .struct-article-bottom h3 { font-size: 16.5px !important; }
-    .struct-article-footer-trace { padding: 6px 24px 24px 24px; }
+    .trans-article-text-1 { padding: 24px 24px 0 24px; }
+    .trans-article-text-2 { padding: 8px 24px 8px 24px; }
+    .trans-article-diagram { padding: 12px 24px; width: 100%; }
+    .trans-article-diagram svg { max-width: 250px; margin: 0 auto; }
+    .trans-article-bottom { padding: 4px 24px 8px 24px; }
+    .trans-article-bottom h3 { font-size: 16.5px !important; }
+    .trans-article-footer-trace { padding: 6px 24px 24px 24px; }
   }
 </style>
 
-<div class="struct-article">
-  <div class="struct-article-inner">
+<div class="trans-article">
+  <div class="trans-article-inner">
 
-    <div class="struct-article-top">
-      <div class="struct-article-text-1">
-        <h2>Understanding the Role of a Structural Engineer in Australia</h2>
+    <div class="trans-article-top">
+      <div class="trans-article-text-1">
+        <h2>Understanding the Role of a Transport Engineer in Australia</h2>
         <p>
-          Specializing in this field requires mastering advanced load-bearing calculations, finite element analysis, and material fatigue parameters. Rather than looking for a basic structural engineer report near me, enterprise developers and infrastructure projects rely on comprehensive structural engineering services to guarantee the ultimate stability of multi-story frameworks and heavy industrial builds under intense environmental stress. Delivering these complex load simulations and structural configurations makes this a highly specialized australia skilled occupation across Australia's commercial development sectors.
+          Specializing in transportation engineering involves analyzing traffic flows, modeling multi-modal transit networks, and deploying geometric highway designs to optimize regional mobility. Beyond mapping network capacities and enhancing public safety metrics, these experts design scalable signaling systems and evaluate logistics corridors to ease urban congestion. Managing these highly complex traffic infrastructures and urban flow mechanics makes this a critical australia skilled occupation across Australia's rapidly expanding metropolitan hubs.
         </p>
       </div>
 
-      <div class="struct-article-diagram">
+      <div class="trans-article-diagram">
         <svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Satellite Map Grid -->
+            <pattern id="sat-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+            </pattern>
+            
+            <!-- Vehicle Glow Filters -->
+            <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="1.5" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            <filter id="glow-amber" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="1.5" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          <!-- Satellite Background & Grid -->
+          <rect width="260" height="200" fill="#0d1117"/>
+          <rect width="260" height="200" fill="url(#sat-grid)"/>
+
+          <!-- City Blocks (Buildings / Urban Terrain Outlines) -->
+          <rect x="15" y="15" width="95" height="75" rx="3" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+          <rect x="145" y="15" width="100" height="55" rx="3" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+          <rect x="15" y="125" width="95" height="60" rx="3" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+          <rect x="145" y="125" width="100" height="60" rx="3" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+
+          <!-- Road Asphalt Surfaces -->
+          <!-- Boulevard (Horizontal) -->
+          <rect x="0" y="96" width="260" height="22" fill="#222733"/>
+          <!-- Avenue (Vertical) -->
+          <rect x="116" y="0" width="22" height="200" fill="#222733"/>
+
+          <!-- Road Markings & Lane Dividers -->
+          <line x1="0" y1="107" x2="260" y2="107" stroke="#eab308" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+          <line x1="127" y1="0" x2="127" y2="200" stroke="#eab308" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+
+          <!-- Crosswalks -->
+          <line x1="112" y1="96" x2="112" y2="118" stroke="#ffffff" stroke-width="2" stroke-dasharray="2 2" opacity="0.5"/>
+          <line x1="142" y1="96" x2="142" y2="118" stroke="#ffffff" stroke-width="2" stroke-dasharray="2 2" opacity="0.5"/>
+          <line x1="116" y1="92" x2="138" y2="92" stroke="#ffffff" stroke-width="2" stroke-dasharray="2 2" opacity="0.5"/>
+          <line x1="116" y1="122" x2="138" y2="122" stroke="#ffffff" stroke-width="2" stroke-dasharray="2 2" opacity="0.5"/>
+
+          <!-- TRAFFIC SIMULATION WITH COLLISION AVOIDANCE -->
           
-          <!-- Ground and Foundation -->
-          <path class="struct-ground" d="M20,178 L240,178" />
-          <rect class="struct-base" x="50" y="170" width="160" height="8" rx="2" />
-
-          <!-- Background Cross Bracing (Static & Animated Stress) -->
-          <path class="struct-brace" d="M80,120 L180,70" />
-          <path class="struct-brace struct-brace-anim" d="M80,70 L180,120">
-            <!-- Simulates tension/compression stress highlighting -->
-            <animate attributeName="stroke" values="#334155; #ef4444; #334155" dur="3s" repeatCount="indefinite" />
-          </path>
-
-          <!-- Vertical Columns -->
-          <line class="struct-col" x1="80" y1="170" x2="80" y2="70" />
-          <line class="struct-col" x1="180" y1="170" x2="180" y2="70" />
-
-          <!-- Middle Floor Beam -->
-          <line class="struct-beam" x1="65" y1="120" x2="195" y2="120" />
-
-          <!-- Top Roof Beam (Dynamic Deflection Bending) -->
-          <path class="struct-beam struct-beam-anim" d="M 65,70 Q 130,70 195,70">
-            <animate attributeName="d" values="M 65,70 Q 130,70 195,70; M 65,70 Q 130,88 195,70; M 65,70 Q 130,70 195,70" dur="3s" repeatCount="indefinite" />
-            <animate attributeName="stroke" values="#475569; #38bdf8; #475569" dur="3s" repeatCount="indefinite"/>
-          </path>
-
-          <!-- Structural Nodes (Joints) -->
-          <circle class="struct-node" cx="80" cy="120" r="3.5" />
-          <circle class="struct-node" cx="180" cy="120" r="3.5" />
-          <circle class="struct-node" cx="80" cy="70" r="3.5" />
-          <circle class="struct-node" cx="180" cy="70" r="3.5" />
-          <circle class="struct-node" cx="80" cy="170" r="3.5" />
-          <circle class="struct-node" cx="180" cy="170" r="3.5" />
-
-          <!-- Pulsing Gravity Load Arrows -->
-          <g class="struct-force-anim">
-            <animateTransform attributeName="transform" type="translate" values="0,0; 0,12; 0,0" dur="3s" repeatCount="indefinite"/>
-            <!-- Center heavy load -->
-            <path class="struct-force" d="M130,22 L130,55 L125,48 M130,55 L135,48" stroke-width="2.5" />
-            <!-- Flank loads -->
-            <path class="struct-force" d="M90,32 L90,55 L86,50 M90,55 L94,50" />
-            <path class="struct-force" d="M170,32 L170,55 L166,50 M170,55 L174,50" />
+          <!-- Vehicle 1 (Emerald): Southbound through intersection -->
+          <g class="trans-anim">
+            <circle cx="123" cy="-10" r="3" fill="#10b981">
+              <animate attributeName="cy" values="-10; 210" dur="4s" repeatCount="indefinite"/>
+            </circle>
           </g>
 
-          <!-- Deflection Readout -->
-          <text x="130" y="106" fill="#38bdf8" font-size="11" font-weight="bold" font-family="Consolas, monospace" text-anchor="middle" class="struct-text-anim">
-            <animate attributeName="opacity" values="0; 1; 0" dur="3s" repeatCount="indefinite"/>
-            Δ = 18.2mm
-          </text>
+          <!-- Vehicle 2 (Amber): Eastbound - APPROACHES, YIELDS/WAITS FOR EMERALD, THEN PROCEEDS -->
+          <g class="trans-anim">
+            <!-- Vehicle Dot with keyTimes sequence: 0-1.2s approach, 1.2s-2.8s WAIT at x=88, 2.8s-4.8s proceed -->
+            <circle cy="102" r="3" fill="#f59e0b" filter="url(#glow-amber)">
+              <animate attributeName="cx" values="-20; 88; 88; 280" keyTimes="0; 0.28; 0.62; 1" dur="4.8s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- Red Yield / Proximity Stop Ring Indicator at x=88 while waiting -->
+            <circle cx="88" cy="102" r="8" fill="none" stroke="#ef4444" stroke-width="1.2">
+              <animate attributeName="opacity" values="0; 0; 1; 1; 0; 0" keyTimes="0; 0.27; 0.3; 0.6; 0.63; 1" dur="4.8s" repeatCount="indefinite"/>
+              <animate attributeName="r" values="6; 6; 10; 10; 6; 6" keyTimes="0; 0.27; 0.3; 0.6; 0.63; 1" dur="4.8s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- "YIELD / STOP" HUD Text above the waiting car -->
+            <text x="88" y="88" text-anchor="middle" fill="#ef4444" font-size="6.5" font-family="Consolas, monospace" font-weight="bold">
+              <animate attributeName="opacity" values="0; 0; 1; 1; 0; 0" keyTimes="0; 0.27; 0.3; 0.6; 0.63; 1" dur="4.8s" repeatCount="indefinite"/>
+              YIELD / STOP
+            </text>
+          </g>
+
+          <!-- Vehicle 3 (Cyan): Westbound Flow -->
+          <g class="trans-anim">
+            <circle cx="280" cy="112" r="2.5" fill="#22d3ee" filter="url(#glow-cyan)">
+              <animate attributeName="cx" values="280; -20" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+
+          <!-- SATELLITE HUD OVERLAY -->
+          <!-- Central Radar Target -->
+          <g transform="translate(127, 107)">
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#22d3ee" stroke-width="0.8" stroke-dasharray="4 2" opacity="0.6" class="trans-anim">
+              <animate attributeName="r" values="12; 22; 12" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <line x1="-6" y1="0" x2="6" y2="0" stroke="#22d3ee" stroke-width="1" opacity="0.8"/>
+            <line x1="0" y1="-6" x2="0" y2="6" stroke="#22d3ee" stroke-width="1" opacity="0.8"/>
+          </g>
+
+          <!-- Telemetry UI Text -->
+          <g font-family="Consolas, monospace" font-size="7.5" fill="#22d3ee" opacity="0.85">
+            <text x="10" y="24">SAT-CAM [04]</text>
+            <text x="180" y="24" text-anchor="end">AI-COLLISION: ON</text>
+            
+            <rect x="8" y="172" width="118" height="18" fill="#0d1117" rx="2" stroke="#22d3ee" stroke-width="0.5" opacity="0.8"/>
+            <text x="13" y="184" fill="#38bdf8" font-size="7">INTERSECTION SAFE</text>
+          </g>
+
+          <!-- Framing Corner Brackets -->
+          <path d="M 6,16 L 6,6 L 16,6" fill="none" stroke="#38bdf8" stroke-width="1.2"/>
+          <path d="M 254,16 L 254,6 L 244,6" fill="none" stroke="#38bdf8" stroke-width="1.2"/>
+          <path d="M 6,184 L 6,194 L 16,194" fill="none" stroke="#38bdf8" stroke-width="1.2"/>
+          <path d="M 254,184 L 254,194 L 244,194" fill="none" stroke="#38bdf8" stroke-width="1.2"/>
+
         </svg>
       </div>
 
-      <div class="struct-article-text-2">
+      <div class="trans-article-text-2">
         <p>
-          Because their oversight directly ensures public safety and building durability, their practical knowledge is incredibly sought after in rapidly expanding urban centers. Consequently, the profession is thoroughly integrated into the active australia skilled migration list, the australian immigration skills list, and the overarching skilled employment list, presenting robust pathways for highly skilled international applicants.
+          Because sustainable traffic management and transit scaling are top priorities for state infrastructure bodies, their specialized knowledge is in high demand. Consequently, the profession is thoroughly integrated into the active australia skilled migration list, the australian immigration skills list, and the overarching skilled employment list, presenting robust pathways for international engineering specialists looking to build a long-term career down under.
         </p>
       </div>
     </div>
 
-    <div class="struct-article-bottom">
+    <div class="trans-article-bottom">
       <h3>Why a Meticulous CDR is Essential for Your Migration Success</h3>
       <p>
-        While locating your specific engineering designation on the active skill list australia or the broader australia skilled occupation list is an excellent initial step, advancing your journey down under requires passing a comprehensive verification. Before you can lodge your formal visa application or finalize your strategy for a permanent australia visa, you must secure a positive assessment from the proper regulatory body.
+        While finding your exact code on the open skill list australia or the broader australia skilled occupation list is an encouraging initial milestone, advancing your career transition requires passing a rigid credential check. Before you can lodge your formal visa application or finalize your application roadmap for a permanent australia visa, you must secure a positive assessment from the designated regulatory authority.
       </p>
       <p>
-        This technical skills assessment is managed directly by Engineers Australia through the Competency Demonstration Report (CDR) pathway. The CDR requires you to draft comprehensive career episodes that outline your calculations, stress analyses, and direct physical interventions on active engineering sites. Every narrative section must be carefully structured to meet the precise visa requirements enforced by the current skill occupation list australia framework.
+        This technical skills assessment is conducted directly by Engineers Australia via the Competency Demonstration Report (CDR) pathway. The CDR requires you to draft comprehensive career episodes detailing your specific structural calculations, traffic simulations, and layout designs on major civic projects. Every narrative section must be carefully mapped to satisfy the mandatory visa requirements governed by the skill occupation list australia framework.
       </p>
       <p>
-        A generic or poorly mapped report can cause extensive processing delays or immediate rejections from the case officers. Making sure your documentation showcases your personal technical decisions, safety compliance tracking, and structural problem-solving skills is vital to secure your points validation without unexpected issues.
+        A generic or poorly structured report can cause extensive processing delays or immediate application rejections from case officers. Ensuring your documentation clearly demonstrates your individual engineering decisions, safety compliance tracking, and network problem-solving skills is vital to secure your points validation without unexpected issues.
       </p>
       <p>
-        Ultimately, a reliable, engineer-focused portfolio serves as the core foundation for navigating the complexities of australia immigration, smoothing your path toward obtaining your approvals so you can legally live and work australia visa streams.
+        Ultimately, a reliable, engineer-focused portfolio serves as the core foundation for navigating the complexities of australia immigration, smoothing your path toward obtaining your approvals so you can legally live and work australia visa streams over the long term.
       </p>
     </div>
 
-    <div class="struct-article-footer-trace">
+    <div class="trans-article-footer-trace">
       <svg viewBox="0 0 600 42" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <defs>
-          <!-- Base Static Truss -->
-          <pattern id="truss-base" x="0" y="0" width="40" height="42" patternUnits="userSpaceOnUse">
-            <line stroke="#334155" stroke-width="2" x1="0" y1="34" x2="20" y2="8" />
-            <line stroke="#334155" stroke-width="2" x1="20" y1="8" x2="40" y2="34" />
-            <line stroke="#475569" stroke-width="2.5" x1="0" y1="8" x2="40" y2="8" />
-            <line stroke="#475569" stroke-width="2.5" x1="0" y1="34" x2="40" y2="34" />
-            <circle cx="20" cy="8" r="1.5" fill="#1e293b" stroke="#475569" />
-            <circle cx="40" cy="34" r="1.5" fill="#1e293b" stroke="#475569" />
+          <!-- Repeating Railroad Ties Pattern -->
+          <pattern id="rail-ties" width="10" height="18" patternUnits="userSpaceOnUse">
+            <line x1="5" y1="0" x2="5" y2="18" stroke="#334155" stroke-width="2.5" />
           </pattern>
           
-          <!-- Active "Scanned" Truss (Cyan) -->
-          <pattern id="truss-active" x="0" y="0" width="40" height="42" patternUnits="userSpaceOnUse">
-            <line stroke="#0ea5e9" stroke-width="2" x1="0" y1="34" x2="20" y2="8" />
-            <line stroke="#0ea5e9" stroke-width="2" x1="20" y1="8" x2="40" y2="34" />
-            <line stroke="#38bdf8" stroke-width="2.5" x1="0" y1="8" x2="40" y2="8" />
-            <line stroke="#38bdf8" stroke-width="2.5" x1="0" y1="34" x2="40" y2="34" />
-            <circle cx="20" cy="8" r="2" fill="#fff" />
-            <circle cx="40" cy="34" r="2" fill="#fff" />
-          </pattern>
-
-          <!-- Scanning Mask Sweep -->
-          <linearGradient id="scan-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#fff" stop-opacity="0" />
-            <stop offset="80%" stop-color="#fff" stop-opacity="1" />
-            <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+          <!-- Headlight Beam Gradient -->
+          <linearGradient id="headlight-beam" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
           </linearGradient>
-          
-          <mask id="scan-mask">
-            <rect class="struct-scan-anim" x="-150" y="0" width="150" height="42" fill="url(#scan-grad)">
-              <animate attributeName="x" values="-150; 650" dur="4s" repeatCount="indefinite" />
-            </rect>
-          </mask>
         </defs>
 
-        <!-- Render Base Truss -->
-        <rect x="0" y="0" width="100%" height="42" fill="url(#truss-base)" />
+        <!-- 1. TRACK BED (Drawn FIRST so it's under everything) -->
+        <!-- Ballast Gravel Base -->
+        <rect x="0" y="20" width="600" height="16" fill="#1e293b" />
         
-        <!-- Render Active Truss revealed by the sweeping mask -->
-        <rect x="0" y="0" width="100%" height="42" fill="url(#truss-active)" mask="url(#scan-mask)" />
-        
+        <!-- Concrete Sleepers / Ties -->
+        <rect x="0" y="20" width="600" height="16" fill="url(#rail-ties)" />
+
+        <!-- Top Steel Rail (Far Rail) -->
+        <line x1="0" y1="22" x2="600" y2="22" stroke="#475569" stroke-width="1.5" />
+
+        <!-- Bottom Steel Rail (Near Rail - Wheels rest directly on top of this line at y=32) -->
+        <line x1="0" y1="32" x2="600" y2="32" stroke="#94a3b8" stroke-width="2" />
+        <line x1="0" y1="31" x2="600" y2="31" stroke="#f1f5f9" stroke-width="0.7" />
+
+        <!-- Railway Signal Light Posts -->
+        <g stroke="#475569" stroke-width="1.5">
+          <line x1="120" y1="6" x2="120" y2="36" />
+          <circle cx="120" cy="8" r="2.5" fill="#10b981" stroke="none" />
+          
+          <line x1="480" y1="6" x2="480" y2="36" />
+          <circle cx="480" cy="8" r="2.5" fill="#ef4444" stroke="none" />
+        </g>
+
+        <!-- 2. ANIMATED TRAIN (Drawn AFTER tracks so it physically sits ON TOP) -->
+        <g class="trans-anim">
+          <animateTransform attributeName="transform" type="translate" values="-280,0; 650,0" dur="5.5s" repeatCount="indefinite" />
+          
+          <!-- Headlight Beam Ray -->
+          <polygon points="255,20 320,8 320,32" fill="url(#headlight-beam)" />
+
+          <!-- Carriage 3 (Rear) -->
+          <rect x="25" y="8" width="55" height="16" rx="2" fill="#1e293b" stroke="#38bdf8" stroke-width="0.8" />
+          <rect x="30" y="11" width="8" height="4" fill="#38bdf8" rx="0.5" />
+          <rect x="42" y="11" width="8" height="4" fill="#38bdf8" rx="0.5" />
+          <rect x="54" y="11" width="8" height="4" fill="#38bdf8" rx="0.5" />
+          <rect x="66" y="11" width="8" height="4" fill="#38bdf8" rx="0.5" />
+          <!-- Under-carriage / Bogeys -->
+          <rect x="30" y="24" width="45" height="5" fill="#0f172a" />
+          <!-- Wheels contacting rail at y=32 -->
+          <circle cx="35" cy="30.5" r="2.2" fill="#cbd5e1" stroke="#0f172a" stroke-width="0.8" />
+          <circle cx="70" cy="30.5" r="2.2" fill="#cbd5e1" stroke="#0f172a" stroke-width="0.8" />
+
+          <!-- Connector -->
+          <rect x="80" y="15" width="5" height="5" fill="#0f172a" />
+
+          <!-- Carriage 2 (Middle) -->
+          <rect x="85" y="8" width="65" height="16" rx="2" fill="#1e293b" stroke="#38bdf8" stroke-width="0.8" />
+          <line x1="85" y1="20" x2="150" y2="20" stroke="#0284c7" stroke-width="1.5" />
+          <rect x="92" y="11" width="10" height="4" fill="#38bdf8" rx="0.5" />
+          <rect x="106" y="11" width="10" height="4" fill="#38bdf8" rx="0.5" />
+          <rect x="120" y="11" width="10" height="4" fill="#38bdf8" rx="0.5" />
+          <rect x="134" y="11" width="10" height="4" fill="#38bdf8" rx="0.5" />
+          <!-- Under-carriage / Bogeys & Wheels -->
+          <rect x="90" y="24" width="55" height="5" fill="#0f172a" />
+          <circle cx="95" cy="30.5" r="2.2" fill="#cbd5e1" stroke="#0f172a" stroke-width="0.8" />
+          <circle cx="140" cy="30.5" r="2.2" fill="#cbd5e1" stroke="#0f172a" stroke-width="0.8" />
+
+          <!-- Connector -->
+          <rect x="150" y="15" width="5" height="5" fill="#0f172a" />
+
+          <!-- Carriage 1 (Lead Passenger Unit) -->
+          <rect x="155" y="8" width="65" height="16" rx="2" fill="#1e293b" stroke="#38bdf8" stroke-width="0.8" />
+          <line x1="155" y1="20" x2="220" y2="20" stroke="#0284c7" stroke-width="1.5" />
+          <rect x="162" y="11" width="10" height="4" fill="#38bdf8" rx="0.5" />
+          <rect x="176" y="11" width="10" height="4" fill="#38bdf8" rx="0.5" />
+          <rect x="190" y="11" width="10" height="4" fill="#38bdf8" rx="0.5" />
+          <rect x="204" y="11" width="10" height="4" fill="#38bdf8" rx="0.5" />
+          <!-- Under-carriage / Bogeys & Wheels -->
+          <rect x="160" y="24" width="55" height="5" fill="#0f172a" />
+          <circle cx="165" cy="30.5" r="2.2" fill="#cbd5e1" stroke="#0f172a" stroke-width="0.8" />
+          <circle cx="210" cy="30.5" r="2.2" fill="#cbd5e1" stroke="#0f172a" stroke-width="0.8" />
+
+          <!-- Connector -->
+          <rect x="220" y="15" width="4" height="5" fill="#0f172a" />
+
+          <!-- Locomotive Aerodynamic Engine Head -->
+          <path d="M 224,8 L 244,8 Q 254,8 257,16 L 257,24 L 224,24 Z" fill="#0284c7" />
+          <path d="M 238,10 L 250,10 Q 254,10 255,14 L 238,14 Z" fill="#0f172a" />
+          <circle cx="255" cy="20" r="2" fill="#ffffff" />
+          <!-- Locomotive Wheels -->
+          <circle cx="232" cy="30.5" r="2.2" fill="#cbd5e1" stroke="#0f172a" stroke-width="0.8" />
+          <circle cx="250" cy="30.5" r="2.2" fill="#cbd5e1" stroke="#0f172a" stroke-width="0.8" />
+        </g>
+
       </svg>
     </div>
 

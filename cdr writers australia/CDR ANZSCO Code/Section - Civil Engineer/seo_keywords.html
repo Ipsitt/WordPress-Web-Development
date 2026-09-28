@@ -1,29 +1,264 @@
-<div class="seo-card-container" style="background: #ffffff; padding: 35px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); font-family: inherit; color: #333333; line-height: 1.6;">
-    <h2 style="color: #222222; margin-top: 0; margin-bottom: 20px; font-size: 19px; font-weight: 700;">Understanding the Role of a Civil Engineer in Australia</h2>
-    
-    <p style="margin-bottom: 15px;">
-        A qualified civil engineer plays a crucial role in modern urban development by transforming complex structural concepts into functional infrastructure. Beyond managing site operations and ensuring structural safety, these professionals must demonstrate deep commercial acumen by handling precise estimate and costing in civil engineering projects. Managing these financial models alongside strict design parameters makes this a highly sought-after australia skilled occupation across the growing domestic construction sector.
-    </p>
+<style>
+  .civ-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #262d34 0%, #101418 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .civ-article * { box-sizing: border-box; }
 
-    <p style="margin-bottom: 20px;">
-        For professionals holding a formal bachelor of civil engineering, aligning your career with this profile provides an exceptional advantage for long-term migration planning. Because structural growth is a national priority, the role is heavily integrated into the active australia skilled migration list, the australian immigration skills list, and the general skilled employment list, ensuring diverse pathway options across multiple regional territories.
-    </p>
+  /* faint dusk glow behind the bridge, kept quiet */
+  .civ-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 55% 45% at 78% 55%, rgba(242, 194, 48, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-    <h3 style="color: #222222; font-size: 19px; margin-bottom: 15px; font-weight: 600;">Why a Meticulous CDR is Essential for Your Migration Success</h3>
-    
-    <p style="margin-bottom: 15px;">
-        While discovering the position on the open skill list australia or the broader australia skilled occupation list is an excellent initial step, advancing your journey requires passing a thorough validation process. Before you can lodge your formal visa application or finalize your overall australia visa strategy, your technical credentials must be validated by the proper authorities.
-    </p>
+  .civ-article-inner { position: relative; }
 
-    <p style="margin-bottom: 15px;">
-        Securing this positive skills assessment requires submitting an exhaustive Competency Demonstration Report (CDR) directly to Engineers Australia. Your CDR must serve as a comprehensive technical narrative, mapping out individual engineering interventions, calculations, and financial oversight strategies. Every section must be carefully aligned with the mandatory visa requirements governed by the skill occupation list australia framework.
-    </p>
+  /* ---------- top: heading + text1, diagram, text2 ---------- */
+  .civ-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
 
-    <p style="margin-bottom: 20px;">
+  .civ-article-text-1 { grid-area: text1; }
+  .civ-article-text-2 { grid-area: text2; }
+
+  .civ-article-text-1,
+  .civ-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .civ-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .civ-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .civ-article-text-1 p,
+  .civ-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #cdd5dc !important;
+  }
+
+  .civ-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .civ-article-diagram svg { width: 100%; height: auto; max-width: 320px; }
+
+  .civ-line { fill: none; stroke: #b7c2cc; stroke-width: 2; }
+  .civ-line-soft { fill: none; stroke: #55626e; stroke-width: 1.2; }
+  .civ-cable { fill: none; stroke: #f2c230; stroke-width: 1.5; opacity: 0.9; }
+  .civ-deck { fill: rgba(183, 194, 204, 0.12); stroke: #b7c2cc; stroke-width: 1.8; }
+  .civ-truck { fill: rgba(242, 194, 48, 0.14); stroke: #f2c230; stroke-width: 1.6; }
+  .civ-wheel { fill: #101418; stroke: #f2c230; stroke-width: 1.4; }
+  .civ-water { fill: none; stroke: #3f7fa6; stroke-width: 1.4; stroke-linecap: round; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .civ-truck-anim,
+    .civ-cable-anim,
+    .civ-flow-anim { display: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .civ-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(183, 194, 204, 0.14);
+    margin-top: 8px;
+  }
+  .civ-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .civ-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #cdd5dc !important;
+  }
+  .civ-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: looping two-lane road traffic ---------- */
+  .civ-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .civ-article-footer-trace svg { width: 100%; height: 42px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .civ-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .civ-article-text-1 { padding: 24px 24px 0 24px; }
+    .civ-article-text-2 { padding: 8px 24px 8px 24px; }
+    .civ-article-diagram { padding: 12px 24px; width: 100%; }
+    .civ-article-diagram svg { max-width: 250px; margin: 0 auto; }
+    .civ-article-bottom { padding: 4px 24px 8px 24px; }
+    .civ-article-bottom h3 { font-size: 16.5px !important; }
+    .civ-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="civ-article">
+  <div class="civ-article-inner">
+
+    <div class="civ-article-top">
+      <div class="civ-article-text-1">
+        <h2>Understanding the Role of a Civil Engineer in Australia</h2>
+        <p>
+          A qualified civil engineer plays a crucial role in modern urban development by transforming complex structural concepts into functional infrastructure. Beyond managing site operations and ensuring structural safety, these professionals must demonstrate deep commercial acumen by handling precise estimating and costing on civil engineering projects. Managing these financial models alongside strict design parameters makes this a highly sought-after skilled occupation across the growing domestic construction sector.
+        </p>
+      </div>
+
+      <div class="civ-article-diagram">
+        <svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- water below the bridge, gently flowing -->
+          <path class="civ-water civ-flow-anim" d="M10,182 Q25,176 40,182 T70,182 T100,182 T130,182 T160,182 T190,182 T220,182 T250,182" stroke-dasharray="14 8">
+            <animate attributeName="stroke-dashoffset" values="0;-22" dur="1.6s" repeatCount="indefinite" />
+          </path>
+          <path class="civ-water civ-flow-anim" d="M10,192 Q25,186 40,192 T70,192 T100,192 T130,192 T160,192 T190,192 T220,192 T250,192" stroke-dasharray="14 8" opacity="0.6">
+            <animate attributeName="stroke-dashoffset" values="0;-22" dur="2.2s" repeatCount="indefinite" />
+          </path>
+
+          <!-- ground / waterline -->
+          <line class="civ-line-soft" x1="10" y1="172" x2="250" y2="172" />
+
+          <!-- end piers -->
+          <line class="civ-line" x1="22" y1="123" x2="22" y2="172" />
+          <line class="civ-line" x1="238" y1="123" x2="238" y2="172" />
+
+          <!-- pylon -->
+          <line class="civ-line" x1="130" y1="26" x2="130" y2="172" />
+          <line class="civ-line-soft" x1="122" y1="172" x2="138" y2="172" />
+
+          <!-- bridge deck -->
+          <rect class="civ-deck" x="10" y="118" width="240" height="6" rx="1" />
+
+          <!-- stay cables: each one flashes red as the truck's load passes beneath its anchor -->
+          <line class="civ-cable civ-cable-anim" x1="130" y1="34" x2="30" y2="118">
+            <animate attributeName="stroke" values="#f2c230;#f2c230;#cc1f29;#f2c230;#f2c230" keyTimes="0;0.10;0.15;0.20;1" dur="6s" repeatCount="indefinite" />
+          </line>
+          <line class="civ-cable civ-cable-anim" x1="130" y1="44" x2="55" y2="118">
+            <animate attributeName="stroke" values="#f2c230;#f2c230;#cc1f29;#f2c230;#f2c230" keyTimes="0;0.183;0.233;0.283;1" dur="6s" repeatCount="indefinite" />
+          </line>
+          <line class="civ-cable civ-cable-anim" x1="130" y1="54" x2="80" y2="118">
+            <animate attributeName="stroke" values="#f2c230;#f2c230;#cc1f29;#f2c230;#f2c230" keyTimes="0;0.267;0.317;0.367;1" dur="6s" repeatCount="indefinite" />
+          </line>
+          <line class="civ-cable civ-cable-anim" x1="130" y1="64" x2="105" y2="118">
+            <animate attributeName="stroke" values="#f2c230;#f2c230;#cc1f29;#f2c230;#f2c230" keyTimes="0;0.35;0.40;0.45;1" dur="6s" repeatCount="indefinite" />
+          </line>
+          <line class="civ-cable civ-cable-anim" x1="130" y1="64" x2="155" y2="118">
+            <animate attributeName="stroke" values="#f2c230;#f2c230;#cc1f29;#f2c230;#f2c230" keyTimes="0;0.517;0.567;0.617;1" dur="6s" repeatCount="indefinite" />
+          </line>
+          <line class="civ-cable civ-cable-anim" x1="130" y1="54" x2="180" y2="118">
+            <animate attributeName="stroke" values="#f2c230;#f2c230;#cc1f29;#f2c230;#f2c230" keyTimes="0;0.60;0.65;0.70;1" dur="6s" repeatCount="indefinite" />
+          </line>
+          <line class="civ-cable civ-cable-anim" x1="130" y1="44" x2="205" y2="118">
+            <animate attributeName="stroke" values="#f2c230;#f2c230;#cc1f29;#f2c230;#f2c230" keyTimes="0;0.683;0.733;0.783;1" dur="6s" repeatCount="indefinite" />
+          </line>
+          <line class="civ-cable civ-cable-anim" x1="130" y1="34" x2="230" y2="118">
+            <animate attributeName="stroke" values="#f2c230;#f2c230;#cc1f29;#f2c230;#f2c230" keyTimes="0;0.767;0.817;0.867;1" dur="6s" repeatCount="indefinite" />
+          </line>
+
+          <!-- the truck, driving across the deck in a continuous loop -->
+          <g class="civ-truck-anim" transform="translate(-30,118)">
+            <animateTransform attributeName="transform" type="translate" values="-30,118;280,118" dur="6s" repeatCount="indefinite" />
+            <rect class="civ-truck" x="0" y="-14" width="20" height="11" rx="1.5" />
+            <rect class="civ-truck" x="20" y="-10" width="9" height="7" rx="1.5" />
+            <circle class="civ-wheel" cx="5" cy="-3" r="3" />
+            <circle class="civ-wheel" cx="24" cy="-3" r="3" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="civ-article-text-2">
+        <p>
+          For professionals holding a formal bachelor of civil engineering, aligning your career with this profile provides an exceptional advantage for long-term migration planning. Because structural growth is a national priority, the role is heavily integrated into Australia's active skilled migration list, the immigration skills list, and the general skilled employment list, ensuring diverse pathway options across multiple regional territories.
+        </p>
+      </div>
+    </div>
+
+    <div class="civ-article-bottom">
+      <h3>Why a Meticulous CDR is Essential for Your Migration Success</h3>
+      <p>
+        While discovering the position on the skilled occupation list is an excellent initial step, advancing your journey requires passing a thorough validation process. Before you can lodge your formal visa application or finalize your overall Australia visa strategy, your technical credentials must be validated by the proper authorities.
+      </p>
+      <p>
+        Securing this positive skills assessment requires submitting an exhaustive Competency Demonstration Report (CDR) directly to Engineers Australia. Your CDR must serve as a comprehensive technical narrative, mapping out individual engineering interventions, calculations, and financial oversight strategies. Every section must be carefully aligned with the mandatory visa requirements governed by the skilled occupation list framework.
+      </p>
+      <p>
         A poorly constructed or structurally weak report can lead to extensive processing delays or immediate application rejections. Ensuring your documentation presents your technical problem-solving capabilities accurately is vital to securing your invitation points without unnecessary complications.
-    </p>
+      </p>
+      <p>
+        Ultimately, a reliable, robust engineering portfolio serves as the core foundation for navigating the complexities of Australian immigration, smoothing your path toward obtaining your approvals so you can legally live and work in Australia.
+      </p>
+    </div>
 
-    <p style="margin-bottom: 0;">
-        Ultimately, a reliable, robust engineering portfolio serves as the core foundation for navigating the complexities of australia immigration, smoothing your path toward obtaining your approvals so you can legally live and work australia visa streams.
-    </p>
+    <div class="civ-article-footer-trace">
+      <svg viewBox="0 0 600 42" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <!-- road edges -->
+        <line class="civ-line-soft" x1="0" y1="6" x2="600" y2="6" />
+        <line class="civ-line-soft" x1="0" y1="36" x2="600" y2="36" />
+
+        <!-- centre line markings, flowing -->
+        <line class="civ-line-soft civ-flow-anim" x1="0" y1="21" x2="600" y2="21" stroke-dasharray="14 12">
+          <animate attributeName="stroke-dashoffset" values="0;-26" dur="1s" repeatCount="indefinite" />
+        </line>
+
+        <!-- upper lane: cars heading right, spread around the loop -->
+        <g class="civ-truck-anim">
+          <animateTransform attributeName="transform" type="translate" values="-40,0;620,0" dur="7s" begin="0s" repeatCount="indefinite" />
+          <rect class="civ-truck" x="0" y="10" width="26" height="9" rx="2" />
+        </g>
+        <g class="civ-truck-anim">
+          <animateTransform attributeName="transform" type="translate" values="-40,0;620,0" dur="7s" begin="-2.4s" repeatCount="indefinite" />
+          <rect class="civ-truck" x="0" y="10" width="20" height="9" rx="2" />
+        </g>
+        <g class="civ-truck-anim">
+          <animateTransform attributeName="transform" type="translate" values="-40,0;620,0" dur="7s" begin="-4.6s" repeatCount="indefinite" />
+          <rect class="civ-truck" x="0" y="10" width="30" height="9" rx="2" />
+        </g>
+
+        <!-- lower lane: cars heading left -->
+        <g class="civ-truck-anim">
+          <animateTransform attributeName="transform" type="translate" values="620,0;-40,0" dur="8s" begin="0s" repeatCount="indefinite" />
+          <rect class="civ-truck" x="0" y="24" width="24" height="9" rx="2" />
+        </g>
+        <g class="civ-truck-anim">
+          <animateTransform attributeName="transform" type="translate" values="620,0;-40,0" dur="8s" begin="-3s" repeatCount="indefinite" />
+          <rect class="civ-truck" x="0" y="24" width="28" height="9" rx="2" />
+        </g>
+        <g class="civ-truck-anim">
+          <animateTransform attributeName="transform" type="translate" values="620,0;-40,0" dur="8s" begin="-5.6s" repeatCount="indefinite" />
+          <rect class="civ-truck" x="0" y="24" width="20" height="9" rx="2" />
+        </g>
+      </svg>
+    </div>
+
+  </div>
 </div>

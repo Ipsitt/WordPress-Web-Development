@@ -1,0 +1,327 @@
+<style>
+  .ms-card {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(145deg, #181028 0%, #291845 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 111, 216, 0.15);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+    overflow: hidden;
+    position: relative;
+  }
+  .ms-card * { box-sizing: border-box; }
+
+  /* Subtle creative blueprint grid */
+  .ms-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255, 111, 216, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 111, 216, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .ms-inner { position: relative; z-index: 1; }
+
+  /* ---------- Layout ---------- */
+  .ms-top {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-areas: 
+      "text1 diagram" 
+      "text2 diagram";
+    align-items: center;
+    gap: 16px;
+  }
+
+  .ms-text-1 { grid-area: text1; padding: 40px 10px 0 40px; }
+  .ms-text-2 { grid-area: text2; padding: 0 10px 20px 40px; }
+
+  /* Typography */
+  .ms-text-1 h2, .ms-bottom h3 {
+    margin: 0 0 16px 0 !important;
+    color: #ff6fd8 !important; 
+    font-weight: 600 !important;
+    letter-spacing: -0.01em;
+    line-height: 1.3 !important;
+  }
+  .ms-text-1 h2 { font-size: 22px !important; }
+  .ms-bottom h3 { font-size: 19px !important; margin-top: 24px !important; }
+  
+  .ms-text-1 p, .ms-text-2 p, .ms-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15.5px !important;
+    line-height: 1.75 !important;
+    color: #d1bad8 !important; 
+    font-weight: 400 !important;
+  }
+  .ms-text-2 p:last-child, .ms-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- Main Multimedia Studio Graphic ---------- */
+  .ms-diagram {
+    grid-area: diagram;
+    padding: 30px 40px 30px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ms-diagram svg { width: 100%; height: auto; max-width: 340px; display: block; }
+
+  /* ---------- Bottom Section ---------- */
+  .ms-bottom {
+    padding: 0 40px 30px 40px;
+  }
+
+  /* ---------- Compact Low-Height Timeline Waveform Footer ---------- */
+  .ms-footer {
+    width: 100%;
+    padding: 6px 0;
+    background: transparent;
+    border-top: 1px solid rgba(255, 111, 216, 0.15);
+    display: flex;
+    align-items: center;
+  }
+  .ms-footer svg { width: 100%; height: 32px; display: block; }
+
+  @keyframes playheadMove {
+    0% { transform: translateX(0px); }
+    100% { transform: translateX(1000px); }
+  }
+
+  .timeline-playhead {
+    animation: playheadMove 8s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ms-anim, .timeline-playhead { animation: none !important; }
+  }
+
+  @media screen and (max-width: 768px) {
+    .ms-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .ms-text-1 { padding: 30px 24px 0 24px; }
+    .ms-text-2 { padding: 10px 24px 20px 24px; }
+    .ms-diagram { padding: 10px 24px 20px 24px; }
+    .ms-bottom { padding: 0 24px 24px 24px; }
+  }
+</style>
+
+<div class="ms-card">
+  <div class="ms-inner">
+    
+    <div class="ms-top">
+      <div class="ms-text-1">
+        <h2>Navigating the Multimedia Specialist Pathway in Australia</h2>
+        <p>
+          Targeting a career in digital media production provides an exceptional advantage for long-term migration planning. As technology driving interactive content expands, this creative tech role remains a highly sought-after australia skilled occupation. The profile is fully integrated into the australia skilled migration list, the australian immigration skills list, and the general skilled employment list, presenting diverse options across regional territories.
+        </p>
+      </div>
+
+      <!-- MULTIMEDIA PRODUCTION STUDIO GRAPHIC -->
+      <div class="ms-diagram">
+        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="glow-magenta-studio" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          <!-- Studio Timeline / Audio Waveform Inputs -->
+          <g stroke="#5a3d6b" stroke-width="1.5" fill="none">
+            <path d="M 15,45 Q 50,20 85,45 T 155,45" />
+            <path d="M 15,90 L 35,70 L 45,110 L 60,80 L 75,100 L 95,75 L 115,95 L 135,80 L 155,90" />
+            <path d="M 15,135 Q 60,160 100,120 T 155,135" />
+          </g>
+
+          <circle cx="15" cy="45" r="3.5" fill="#d85bc0" />
+          <circle cx="15" cy="90" r="3.5" fill="#d85bc0" />
+          <circle cx="15" cy="135" r="3.5" fill="#d85bc0" />
+
+          <!-- Central Creative Mixing / Rendering Console Frame -->
+          <rect x="155" y="30" width="60" height="130" rx="8" fill="rgba(41, 24, 69, 0.9)" stroke="#d85bc0" stroke-width="2"/>
+          
+          <g stroke="#ff6fd8" stroke-width="1.5" stroke-linecap="round">
+            <line x1="170" y1="55" x2="200" y2="55" />
+            <circle cx="185" cy="55" r="3" fill="#ff6fd8" />
+            
+            <line x1="170" y1="85" x2="200" y2="85" />
+            <circle cx="177" cy="85" r="3" fill="#ff6fd8" />
+            
+            <line x1="170" y1="115" x2="200" y2="115" />
+            <circle cx="192" cy="115" r="3" fill="#ff6fd8" />
+          </g>
+
+          <line x1="185" y1="35" x2="185" y2="155" stroke="#d85bc0" stroke-width="1" stroke-dasharray="2 2" opacity="0.4"/>
+
+          <!-- Multi-Screen / Multi-Format Outputs -->
+          <g stroke="#d85bc0" stroke-width="1.5" fill="none">
+            <path d="M 215,60 L 250,60" />
+            <path d="M 215,95 L 250,95" />
+            <path d="M 215,130 L 250,130" />
+          </g>
+
+          <g fill="#291845" stroke="#ff6fd8" stroke-width="1.75">
+            <rect x="250" y="45" width="55" height="30" rx="4" />
+            <polygon points="272,55 272,65 282,60" fill="#ff6fd8" stroke="none"/>
+
+            <rect x="250" y="80" width="55" height="30" rx="4" />
+            <circle cx="277" cy="95" r="5" fill="none" stroke="#ff6fd8"/>
+
+            <rect x="250" y="115" width="55" height="30" rx="4" />
+            <line x1="258" y1="123" x2="297" y2="123" stroke-width="1"/>
+            <circle cx="290" cy="137" r="2" fill="#ff6fd8"/>
+          </g>
+
+          <g class="ms-anim">
+            <circle r="3" fill="#ff6fd8" filter="url(#glow-magenta-studio)">
+              <animateMotion dur="2.2s" repeatCount="indefinite" path="M 15,45 Q 50,20 85,45 T 155,45" />
+            </circle>
+            <circle r="3" fill="#ff6fd8" filter="url(#glow-magenta-studio)">
+              <animateMotion dur="1.8s" repeatCount="indefinite" path="M 15,90 L 35,70 L 45,110 L 60,80 L 75,100 L 95,75 L 115,95 L 135,80 L 155,90" />
+            </circle>
+            <circle r="3" fill="#ff6fd8" filter="url(#glow-magenta-studio)">
+              <animateMotion dur="2.5s" repeatCount="indefinite" path="M 155,95 L 215,95 L 250,95" />
+            </circle>
+          </g>
+        </svg>
+      </div>
+
+      <div class="ms-text-2">
+        <p>
+          While identifying the role on the skill list australia or the broader australia skilled occupation list is an excellent initial step, advancing your journey requires a formal validation process. Before you can lodge your formal visa application, your creative and technical credentials must be validated to satisfy mandatory visa requirements.
+        </p>
+      </div>
+    </div>
+
+    <div class="ms-bottom">
+      <h3>Securing Your Skills Assessment for Migration Success</h3>
+      <p>
+        Depending on your specific pathway, preparing a detailed CDR for Multimedia Specialist may serve as the foundation of your technical review. This report maps out your project design and engineering solutions to align perfectly with the guidelines governing the skill occupation list australia framework.
+      </p>
+      <p>
+        Ultimately, a robust technical portfolio is essential to navigating the complexities of australia immigration, smoothing your path toward an approved australia visa so you can safely live and work australia visa streams.
+      </p>
+    </div>
+
+    <!-- COMPACT TIMELINE WAVEFORM FOOTER -->
+    <div class="ms-footer">
+      <svg viewBox="0 0 1000 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Center Baseline -->
+        <line x1="0" y1="16" x2="1000" y2="16" stroke="rgba(255,111,216,0.12)" stroke-width="1" />
+
+        <!-- Symmetrical Audio Track Amplitude Bars -->
+        <g fill="#9c78b5" opacity="0.65">
+          <!-- Low-amplitude lead-in -->
+          <rect x="20" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="35" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="50" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="65" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="80" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="95" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="110" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="125" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="140" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="155" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="170" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="185" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="200" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="215" y="13" width="1.5" height="6" rx="0.75" />
+
+          <!-- First Audio Cluster -->
+          <rect x="235" y="10" width="1.5" height="12" rx="0.75" />
+          <rect x="243" y="6" width="1.5" height="20" rx="0.75" />
+          <rect x="251" y="4" width="1.5" height="24" rx="0.75" />
+          <rect x="259" y="8" width="1.5" height="16" rx="0.75" />
+          <rect x="267" y="5" width="1.5" height="22" rx="0.75" />
+          <rect x="275" y="3" width="1.5" height="26" rx="0.75" />
+          <rect x="283" y="7" width="1.5" height="18" rx="0.75" />
+          <rect x="291" y="4" width="1.5" height="24" rx="0.75" />
+          <rect x="299" y="8" width="1.5" height="16" rx="0.75" />
+          <rect x="307" y="6" width="1.5" height="20" rx="0.75" />
+          <rect x="315" y="10" width="1.5" height="12" rx="0.75" />
+          <rect x="323" y="13" width="1.5" height="6" rx="0.75" />
+
+          <!-- Mid Gap -->
+          <rect x="340" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="355" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="370" y="13" width="1.5" height="6" rx="0.75" />
+
+          <!-- Main Loud Audio Cluster (Center Peak) -->
+          <rect x="390" y="6" width="1.5" height="20" rx="0.75" />
+          <rect x="398" y="3" width="1.5" height="26" rx="0.75" />
+          <rect x="406" y="1" width="1.5" height="30" rx="0.75" />
+          <rect x="414" y="2" width="1.5" height="28" rx="0.75" />
+          <rect x="422" y="0" width="1.5" height="32" rx="0.75" />
+          <rect x="430" y="1" width="1.5" height="30" rx="0.75" />
+          <rect x="438" y="3" width="1.5" height="26" rx="0.75" />
+          <rect x="446" y="2" width="1.5" height="28" rx="0.75" />
+          <rect x="454" y="5" width="1.5" height="22" rx="0.75" />
+          <rect x="462" y="2" width="1.5" height="28" rx="0.75" />
+          <rect x="470" y="0" width="1.5" height="32" rx="0.75" />
+          <rect x="478" y="2" width="1.5" height="28" rx="0.75" />
+          <rect x="486" y="4" width="1.5" height="24" rx="0.75" />
+          <rect x="494" y="6" width="1.5" height="20" rx="0.75" />
+          <rect x="502" y="3" width="1.5" height="26" rx="0.75" />
+          <rect x="510" y="5" width="1.5" height="22" rx="0.75" />
+          <rect x="518" y="8" width="1.5" height="16" rx="0.75" />
+          <rect x="526" y="12" width="1.5" height="8" rx="0.75" />
+
+          <!-- Mid Gap 2 -->
+          <rect x="545" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="560" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="575" y="14" width="1.5" height="4" rx="0.75" />
+
+          <!-- Second Audio Cluster -->
+          <rect x="595" y="8" width="1.5" height="16" rx="0.75" />
+          <rect x="603" y="4" width="1.5" height="24" rx="0.75" />
+          <rect x="611" y="2" width="1.5" height="28" rx="0.75" />
+          <rect x="619" y="5" width="1.5" height="22" rx="0.75" />
+          <rect x="627" y="1" width="1.5" height="30" rx="0.75" />
+          <rect x="635" y="3" width="1.5" height="26" rx="0.75" />
+          <rect x="643" y="6" width="1.5" height="20" rx="0.75" />
+          <rect x="651" y="4" width="1.5" height="24" rx="0.75" />
+          <rect x="659" y="8" width="1.5" height="16" rx="0.75" />
+          <rect x="667" y="11" width="1.5" height="10" rx="0.75" />
+
+          <!-- Tail Gap & End Ticks -->
+          <rect x="685" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="700" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="715" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="730" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="745" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="760" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="775" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="790" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="805" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="820" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="835" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="850" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="865" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="880" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="895" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="910" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="925" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="940" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="955" y="13" width="1.5" height="6" rx="0.75" />
+          <rect x="970" y="14" width="1.5" height="4" rx="0.75" />
+          <rect x="985" y="13" width="1.5" height="6" rx="0.75" />
+        </g>
+
+        <!-- Moving Playhead Cursor Line with Top Handle Dot -->
+        <g class="timeline-playhead">
+          <line x1="0" y1="0" x2="0" y2="32" stroke="#38bdf8" stroke-width="1.5" />
+          <circle cx="0" cy="2" r="3" fill="#38bdf8" />
+        </g>
+      </svg>
+    </div>
+
+  </div>
+</div>

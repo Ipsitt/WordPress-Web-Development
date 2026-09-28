@@ -1,0 +1,338 @@
+<style>
+  .ict-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    /* Deep digital/cyber gradient */
+    background: linear-gradient(160deg, #0f172a 0%, #020617 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .ict-article * { box-sizing: border-box; }
+
+  /* Faint digital purple/cyan glow behind the section */
+  .ict-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 60% 50% at 50% 45%, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .ict-article-inner { position: relative; }
+
+  /* ---------- top: heading + text1, diagram, text2 ---------- */
+  .ict-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ict-article-text-1 { grid-area: text1; }
+  .ict-article-text-2 { grid-area: text2; }
+
+  .ict-article-text-1,
+  .ict-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .ict-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .ict-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .ict-article-text-1 p,
+  .ict-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #94a3b8 !important; /* Slate 400 */
+  }
+
+  /* ---------- diagram formatting ---------- */
+  .ict-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ict-article-diagram svg { width: 100%; height: auto; max-width: 320px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ict-anim { animation: none !important; display: none !important; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .ict-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(139, 92, 246, 0.15); /* Purple accent line */
+    margin-top: 8px;
+  }
+  .ict-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .ict-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #94a3b8 !important;
+  }
+  .ict-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: looping data circuit ---------- */
+  .ict-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .ict-article-footer-trace svg { width: 100%; height: 42px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .ict-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .ict-article-text-1 { padding: 24px 24px 0 24px; }
+    .ict-article-text-2 { padding: 8px 24px 8px 24px; }
+    .ict-article-diagram { padding: 12px 24px; width: 100%; }
+    .ict-article-diagram svg { max-width: 250px; margin: 0 auto; }
+    .ict-article-bottom { padding: 4px 24px 8px 24px; }
+    .ict-article-bottom h3 { font-size: 16.5px !important; }
+    .ict-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="ict-article">
+  <div class="ict-article-inner">
+
+    <div class="ict-article-top">
+      <div class="ict-article-text-1">
+        <h2>Navigating the ICT Business Analyst Pathway in Australia</h2>
+        <p>
+          An ICT Business Analyst bridges the gap between complex business challenges and technology solutions. As digital infrastructure expands, this professional role remains a prominent australia skilled occupation across the tech sector. Securing a spot under this profile offers a distinct advantage for long-term migration planning, as the role is actively included on the australia skilled migration list, the australian immigration skills list, and the general skilled employment list.
+        </p>
+      </div>
+
+      <div class="ict-article-diagram">
+        <svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Blueprint / Cyber Grid -->
+            <pattern id="cyber-grid" width="16" height="16" patternUnits="userSpaceOnUse">
+              <path d="M 16 0 L 0 0 0 16" fill="none" stroke="rgba(139, 92, 246, 0.05)" stroke-width="1"/>
+            </pattern>
+            
+            <!-- Glow Filters for Nodes & Packets -->
+            <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="1.5" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          <!-- Background (Solid dark rect removed so it's transparent) -->
+          <rect width="260" height="200" fill="url(#cyber-grid)"/>
+
+          <!-- CONNECTION PATHS (Data pipelines) -->
+          <!-- Business to Hub -->
+          <path d="M 60 70 C 90 70, 100 100, 130 100" fill="none" stroke="#1e293b" stroke-width="3"/>
+          <path d="M 60 130 C 90 130, 100 100, 130 100" fill="none" stroke="#1e293b" stroke-width="3"/>
+          <!-- Hub to Tech/DB -->
+          <path d="M 130 100 C 160 100, 170 70, 200 70" fill="none" stroke="#1e293b" stroke-width="3"/>
+          <path d="M 130 100 C 160 100, 170 130, 200 130" fill="none" stroke="#1e293b" stroke-width="3"/>
+
+          <!-- Active glowing trace lines -->
+          <path d="M 60 70 C 90 70, 100 100, 130 100" fill="none" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+          <path d="M 130 100 C 160 100, 170 130, 200 130" fill="none" stroke="#06b6d4" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+
+          <!-- LEFT SIDE: Business / Requirements Node -->
+          <rect x="20" y="50" width="40" height="40" rx="6" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.5"/>
+          <rect x="28" y="62" width="6" height="18" fill="#8b5cf6" rx="1"/>
+          <rect x="37" y="56" width="6" height="24" fill="#a78bfa" rx="1"/>
+          <rect x="46" y="68" width="6" height="12" fill="#8b5cf6" rx="1"/>
+
+          <rect x="20" y="110" width="40" height="40" rx="6" fill="#0f172a" stroke="#4c1d95" stroke-width="1"/>
+          <circle cx="40" cy="125" r="7" fill="none" stroke="#8b5cf6" stroke-width="2"/>
+          <path d="M 33 140 Q 40 130 47 140" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- RIGHT SIDE: Technology / System Node -->
+          <rect x="200" y="50" width="40" height="40" rx="6" fill="#0f172a" stroke="#06b6d4" stroke-width="1.5"/>
+          <path d="M 210 65 Q 220 70 230 65 M 210 70 L 210 65 Q 220 60 230 65 L 230 70" fill="none" stroke="#06b6d4" stroke-width="1.5"/>
+          <path d="M 210 75 Q 220 80 230 75 M 210 80 L 210 75 Q 220 70 230 75 L 230 80" fill="none" stroke="#06b6d4" stroke-width="1.5"/>
+          <path d="M 210 85 Q 220 90 230 85 M 210 90 L 210 85 Q 220 80 230 85 L 230 90" fill="none" stroke="#06b6d4" stroke-width="1.5"/>
+
+          <rect x="200" y="110" width="40" height="40" rx="6" fill="#0f172a" stroke="#0891b2" stroke-width="1"/>
+          <polyline points="208,125 218,135 232,118" fill="none" stroke="#10b981" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+
+          <!-- CENTER: Data Processing / Analysis Hub -->
+          <g transform="translate(130, 100)">
+            <circle cx="0" cy="0" r="22" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+            <!-- Pulsing API ring -->
+            <circle cx="0" cy="0" r="22" fill="none" stroke="#8b5cf6" stroke-width="1" class="ict-anim">
+              <animate attributeName="r" values="22; 32; 22" dur="2.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.8; 0; 0.8" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <!-- Core diamond -->
+            <polygon points="0,-12 12,0 0,12 -12,0" fill="#06b6d4" filter="url(#glow-cyan)"/>
+            <!-- Spinning gear/nodes indicator -->
+            <g class="ict-anim">
+              <animateTransform attributeName="transform" type="rotate" values="0; 360" dur="8s" repeatCount="indefinite"/>
+              <circle cx="16" cy="0" r="2" fill="#2dd4bf"/>
+              <circle cx="-16" cy="0" r="2" fill="#a78bfa"/>
+              <circle cx="0" cy="16" r="2" fill="#2dd4bf"/>
+              <circle cx="0" cy="-16" r="2" fill="#a78bfa"/>
+            </g>
+          </g>
+
+          <!-- ANIMATED DATA PACKETS -->
+          <!-- Packet 1: Business -> Hub -->
+          <g class="ict-anim">
+            <circle r="2.5" fill="#a78bfa" filter="url(#glow-purple)">
+              <animateMotion dur="2s" repeatCount="indefinite" path="M 60 70 C 90 70, 100 100, 130 100" />
+            </circle>
+          </g>
+          <!-- Packet 2: User -> Hub -->
+          <g class="ict-anim">
+            <circle r="2.5" fill="#a78bfa">
+              <animateMotion dur="2.5s" repeatCount="indefinite" path="M 60 130 C 90 130, 100 100, 130 100" />
+            </circle>
+          </g>
+          <!-- Packet 3: Hub -> Tech DB -->
+          <g class="ict-anim">
+            <circle r="2.5" fill="#2dd4bf" filter="url(#glow-cyan)">
+              <animateMotion dur="1.8s" repeatCount="indefinite" path="M 130 100 C 160 100, 170 70, 200 70" />
+            </circle>
+          </g>
+          <!-- Packet 4: Hub -> Checkmark -->
+          <g class="ict-anim">
+            <circle r="2.5" fill="#10b981">
+              <animateMotion dur="2.2s" repeatCount="indefinite" path="M 130 100 C 160 100, 170 130, 200 130" />
+            </circle>
+          </g>
+
+          <!-- SATELLITE HUD / TELEMETRY OVERLAY -->
+          <g>
+            <!-- Bottom progress bar simulation -->
+            <rect x="8" y="176" width="125" height="14" fill="#0f172a" rx="2" stroke="#334155" stroke-width="1"/>
+            <rect x="10" y="178" width="85" height="10" fill="#8b5cf6" rx="1" opacity="0.8">
+              <animate attributeName="width" values="45; 115; 45" dur="4s" repeatCount="indefinite"/>
+            </rect>
+          </g>
+
+          <!-- Cyber Framing Brackets -->
+          <path d="M 6,16 L 6,6 L 16,6" fill="none" stroke="#4c1d95" stroke-width="1.5"/>
+          <path d="M 254,16 L 254,6 L 244,6" fill="none" stroke="#4c1d95" stroke-width="1.5"/>
+          <path d="M 6,184 L 6,194 L 16,194" fill="none" stroke="#0891b2" stroke-width="1.5"/>
+          <path d="M 254,184 L 254,194 L 244,194" fill="none" stroke="#0891b2" stroke-width="1.5"/>
+
+        </svg>
+      </div>
+
+      <div class="ict-article-text-2">
+        <p>
+          While identifying the role on the skill list australia or the broader australia skilled occupation list is a great first step, you must validate your credentials before lodging a visa application. For tech professionals, navigating the migration pathway requires a formal skills assessment to prove your qualifications align with strict Australian standards and mandatory visa requirements.
+        </p>
+      </div>
+    </div>
+
+    <div class="ict-article-bottom">
+      <h3>Securing Your Skills Assessment for Migration Success</h3>
+      <p>
+        Depending on your specific academic background and the assessing authority's guidelines, preparing a tailored CDR for ICT Business Analyst may serve as the foundation of your technical submission. This report details your data modeling, system analysis, and project delivery expertise to satisfy the criteria governing the skill occupation list australia framework.
+      </p>
+      <p>
+        Ultimately, a meticulously prepared portfolio is the key to managing the complexities of australia immigration. Perfecting this documentation safeguards your invitation points, streamlining your journey toward an approved australia visa so you can legally live and work australia visa streams.
+      </p>
+    </div>
+
+    <div class="ict-article-footer-trace">
+      <svg viewBox="0 0 600 42" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+          <!-- Packet Glows -->
+          <filter id="packet-glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="1.5" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+          <filter id="packet-glow-purple" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="1.5" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+
+        <!-- Base Circuit Lines (Dull) -->
+        <!-- Track 1 -->
+        <path d="M 0,12 L 120,12 L 130,22 L 480,22 L 490,12 L 600,12" fill="none" stroke="#1e293b" stroke-width="2"/>
+        <!-- Track 2 -->
+        <path d="M 0,28 L 80,28 L 90,18 L 300,18 L 310,28 L 600,28" fill="none" stroke="#1e293b" stroke-width="2"/>
+        <!-- Track 3 (Straight high speed) -->
+        <line x1="0" y1="36" x2="600" y2="36" stroke="#1e293b" stroke-width="1.5"/>
+
+        <!-- Hardware Vias / Nodes -->
+        <g fill="#0f172a" stroke="#334155" stroke-width="1.5">
+          <circle cx="120" cy="12" r="3" />
+          <circle cx="130" cy="22" r="3" />
+          <circle cx="480" cy="22" r="3" />
+          <circle cx="490" cy="12" r="3" />
+          
+          <circle cx="80" cy="28" r="3" />
+          <circle cx="90" cy="18" r="3" />
+          <circle cx="300" cy="18" r="3" />
+          <circle cx="310" cy="28" r="3" />
+        </g>
+        
+        <!-- Active Circuit Traces (Bright) -->
+        <path d="M 0,12 L 120,12 L 130,22 L 480,22 L 490,12 L 600,12" fill="none" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
+        <path d="M 0,28 L 80,28 L 90,18 L 300,18 L 310,28 L 600,28" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+        
+        <!-- ANIMATED DATA STREAMS -->
+        <!-- Stream 1 (Cyan) -->
+        <g class="ict-anim">
+          <circle r="3" fill="#2dd4bf" filter="url(#packet-glow-cyan)">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M -10,12 L 120,12 L 130,22 L 480,22 L 490,12 L 610,12" />
+          </circle>
+          <!-- Trailing packet -->
+          <circle r="1.5" fill="#06b6d4" opacity="0.7">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="0.15s" path="M -10,12 L 120,12 L 130,22 L 480,22 L 490,12 L 610,12" />
+          </circle>
+        </g>
+
+        <!-- Stream 2 (Purple) -->
+        <g class="ict-anim">
+          <circle r="2.5" fill="#a78bfa" filter="url(#packet-glow-purple)">
+            <animateMotion dur="4s" repeatCount="indefinite" path="M -10,28 L 80,28 L 90,18 L 300,18 L 310,28 L 610,28" />
+          </circle>
+          <circle r="2.5" fill="#c084fc" filter="url(#packet-glow-purple)">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="1.5s" path="M -10,28 L 80,28 L 90,18 L 300,18 L 310,28 L 610,28" />
+          </circle>
+        </g>
+
+        <!-- Stream 3 (Fast straight line - Emerald) -->
+        <g class="ict-anim">
+          <rect x="-20" y="35" width="15" height="2" fill="#10b981" rx="1" opacity="0.8">
+            <animate attributeName="x" values="-50; 650" dur="2s" repeatCount="indefinite" />
+          </rect>
+          <rect x="-20" y="35" width="8" height="2" fill="#34d399" rx="1" opacity="0.6">
+            <animate attributeName="x" values="-50; 650" dur="2s" repeatCount="indefinite" begin="0.8s" />
+          </rect>
+        </g>
+
+      </svg>
+    </div>
+
+  </div>
+</div>

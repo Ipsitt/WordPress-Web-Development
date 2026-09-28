@@ -1,0 +1,575 @@
+<style>
+  .ap-card-v5 {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    /* Deep purple-to-dark-blue gradient matching the tech aesthetic */
+    background: linear-gradient(135deg, #100524 0%, #1a0b38 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 51, 102, 0.3);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ap-card-v5 * {
+    box-sizing: border-box;
+  }
+
+  /* Faint isometric background grid pattern */
+  .ap-card-v5::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(51, 204, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(51, 204, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .ap-inner-v5 {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---------- Layout ---------- */
+  .ap-top-v5 {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-areas:
+      "text1 diagram"
+      "text2 diagram";
+    align-items: center;
+    gap: 16px;
+  }
+
+  .ap-text-1-v5 {
+    grid-area: text1;
+    padding: 40px 10px 0 40px;
+  }
+
+  .ap-text-2-v5 {
+    grid-area: text2;
+    padding: 0 10px 20px 40px;
+  }
+
+  /* Typography */
+  .ap-text-1-v5 h2,
+  .ap-bottom-v5 h3 {
+    margin: 0 0 16px 0 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em;
+    line-height: 1.3 !important;
+  }
+
+  .ap-text-1-v5 h2 {
+    font-size: 22px !important;
+    color: #33ccff !important;
+  }
+
+  .ap-bottom-v5 h3 {
+    font-size: 19px !important;
+    margin-top: 24px !important;
+    color: #ff9933 !important;
+  }
+
+  .ap-text-1-v5 p,
+  .ap-text-2-v5 p,
+  .ap-bottom-v5 p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15.5px !important;
+    line-height: 1.75 !important;
+    color: #e0d4f5 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  .ap-text-2-v5 p:last-child,
+  .ap-bottom-v5 p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* ---------- Animated Isometric Workspace Graphic ---------- */
+  .ap-diagram-v5 {
+    grid-area: diagram;
+    padding: 30px 40px 30px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ap-diagram-v5 svg {
+    width: 100%;
+    height: auto;
+    max-width: 380px;
+    display: block;
+  }
+
+  /* Main Graphic Animations */
+  .type-line {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+
+  .t1 {
+    animation: typeCode 4s steps(40, end) infinite;
+  }
+
+  .t2 {
+    animation: typeCode 4s steps(40, end) infinite 0.5s;
+  }
+
+  .t3 {
+    animation: typeCode 4s steps(40, end) infinite 1s;
+  }
+
+  .t4 {
+    animation: typeCode 4s steps(40, end) infinite 1.5s;
+  }
+
+  .t5 {
+    animation: typeCode 4s steps(40, end) infinite 2s;
+  }
+
+  @keyframes typeCode {
+    0% {
+      stroke-dashoffset: 100;
+      opacity: 1;
+    }
+
+    30%, 85% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+
+    90%, 100% {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+  }
+
+  /* ---------- Steam Animation ---------- */
+
+  .steam-puff {
+    animation: riseSteam 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform-box: fill-box;
+    transform-origin: center bottom;
+  }
+
+  .steam-delay {
+    animation-delay: 1.7s;
+  }
+
+  @keyframes riseSteam {
+    0% {
+      opacity: 0;
+      transform: translateY(0) scale(0.8);
+    }
+
+    15% {
+      opacity: 0.6;
+    }
+
+    70% {
+      opacity: 0.5;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(-35px) scale(1.15);
+    }
+  }
+
+  .float-element {
+    animation: bobble 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes bobble {
+    0% {
+      transform: translateY(0px);
+    }
+
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* ---------- Bottom Section ---------- */
+  .ap-bottom-v5 {
+    padding: 0 40px 40px 40px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .type-line,
+    .steam-puff,
+    .float-element {
+      animation: none !important;
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .ap-top-v5 {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "text1"
+        "diagram"
+        "text2";
+    }
+
+    .ap-text-1-v5 {
+      padding: 30px 24px 0 24px;
+    }
+
+    .ap-text-2-v5 {
+      padding: 10px 24px 20px 24px;
+    }
+
+    .ap-diagram-v5 {
+      padding: 10px 24px 20px 24px;
+    }
+
+    .ap-bottom-v5 {
+      padding: 0 24px 30px 24px;
+    }
+  }
+</style>
+
+<div class="ap-card-v5">
+  <div class="ap-inner-v5">
+
+    <div class="ap-top-v5">
+
+      <div class="ap-text-1-v5">
+        <h2>Navigating the Software Engineer Pathway in Australia</h2>
+
+        <p>
+          Targeting a career in software engineering provides a highly strategic advantage for long-term migration planning. As the tech ecosystem continues to expand, this analytical role remains a critical australia skilled occupation across multiple commercial sectors. The profile is prominently featured on the active australia skilled migration list, the australian immigration skills list, and the general skilled employment list.
+        </p>
+      </div>
+
+      <!-- ANIMATED ISOMETRIC WORKSPACE GRAPHIC -->
+      <div class="ap-diagram-v5">
+        <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="base-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ff7eb3" />
+              <stop offset="100%" stop-color="#7a22ff" />
+            </linearGradient>
+
+            <linearGradient id="cup-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7a22ff" />
+              <stop offset="100%" stop-color="#2d0b5e" />
+            </linearGradient>
+
+            <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feComposite
+                in="SourceGraphic"
+                in2="blur"
+                operator="over"
+              />
+            </filter>
+          </defs>
+
+          <!-- Floating Grid Outlines (Floor Matrix) -->
+          <g transform="matrix(1, 0.428, -1, 0.363, 200, 210)">
+            <rect
+              x="-80"
+              y="-60"
+              width="220"
+              height="150"
+              rx="6"
+              fill="none"
+              stroke="#ff9933"
+              stroke-width="1.5"
+              opacity="0.6"
+            />
+            <rect
+              x="-130"
+              y="20"
+              width="35"
+              height="35"
+              rx="4"
+              fill="none"
+              stroke="#ff3366"
+              stroke-width="2"
+              class="float-element"
+              filter="url(#neon-glow)"
+            />
+          </g>
+
+          <!-- Coffee Cup -->
+          <g transform="translate(110, 100)">
+            <!-- Cup Shadow -->
+            <ellipse
+              cx="40"
+              cy="110"
+              rx="20"
+              ry="8"
+              fill="#100524"
+              filter="url(#neon-glow)"
+            />
+            <!-- Cup Body -->
+            <path
+              d="M 20,40 L 25,110 A 15 8 0 0 0 55,110 L 60,40 Z"
+              fill="url(#cup-grad)"
+            />
+            <!-- Cup Opening -->
+            <ellipse
+              cx="40"
+              cy="40"
+              rx="20"
+              ry="10"
+              fill="#1a0b38"
+              stroke="#ff3366"
+              stroke-width="2"
+            />
+            <!-- Coffee -->
+            <ellipse
+              cx="40"
+              cy="40"
+              rx="16"
+              ry="7"
+              fill="#0d0514"
+            />
+            <!-- Cute Paw Logo -->
+            <circle cx="34" cy="85" r="2.5" fill="#ff9933" />
+            <circle cx="40" cy="81" r="2.5" fill="#ff9933" />
+            <circle cx="46" cy="85" r="2.5" fill="#ff9933" />
+            <path
+              d="M 36,92 C 36,88 44,88 44,92 C 45,96 35,96 36,92 Z"
+              fill="#ff9933"
+            />
+            <!-- Animated Steam -->
+            <g>
+              <path
+                d="M 40,40
+                   Q 27,25 40,12
+                   T 40,-16"
+                fill="none"
+                stroke="#e0d4f5"
+                stroke-width="2"
+                stroke-linecap="round"
+                class="steam-puff"
+              />
+              <path
+                d="M 40,40
+                   Q 53,25 40,12
+                   T 40,-16"
+                fill="none"
+                stroke="#e0d4f5"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                class="steam-puff steam-delay"
+              />
+            </g>
+          </g>
+
+          <!-- Laptop Base (Matrix Skew) -->
+          <g transform="matrix(1, 0.428, -1, 0.363, 190, 190)">
+            <rect
+              width="140"
+              height="100"
+              rx="6"
+              fill="url(#base-grad)"
+              stroke="#1a0b38"
+              stroke-width="1"
+            />
+            <rect
+              x="15"
+              y="10"
+              width="110"
+              height="55"
+              rx="3"
+              fill="#1d0d3b"
+            />
+            <rect
+              x="50"
+              y="72"
+              width="40"
+              height="20"
+              rx="3"
+              fill="#2d1164"
+            />
+            <g
+              stroke-width="4"
+              stroke-opacity="0.8"
+              stroke-linecap="round"
+            >
+              <line
+                x1="20"
+                y1="18"
+                x2="120"
+                y2="18"
+                stroke="#ff3366"
+                stroke-dasharray="10 4 6 4 12 4 10 4 8 4"
+              />
+              <line
+                x1="20"
+                y1="28"
+                x2="120"
+                y2="28"
+                stroke="#ff9933"
+                stroke-dasharray="8 4 14 4 6 4 12 4"
+              />
+              <line
+                x1="20"
+                y1="38"
+                x2="120"
+                y2="38"
+                stroke="#33ccff"
+                stroke-dasharray="12 4 8 4 10 4 14 4"
+              />
+              <line
+                x1="20"
+                y1="48"
+                x2="120"
+                y2="48"
+                stroke="#ff3366"
+                stroke-dasharray="6 4 16 4 8 4 10 4"
+              />
+              <line
+                x1="40"
+                y1="58"
+                x2="100"
+                y2="58"
+                stroke="#e0d4f5"
+                stroke-opacity="0.4"
+              />
+            </g>
+          </g>
+
+          <!-- Laptop Screen (Matrix Skew) -->
+          <g transform="matrix(1, 0.428, -0.1, 0.95, 203, 66.5)">
+            <rect
+              width="140"
+              height="130"
+              rx="6"
+              fill="#1a0b38"
+              stroke="#ff3366"
+              stroke-width="1.5"
+              filter="url(#neon-glow)"
+            />
+            <rect
+              x="6"
+              y="6"
+              width="128"
+              height="118"
+              rx="3"
+              fill="#0a0314"
+            />
+            <circle cx="16" cy="14" r="2.5" fill="#ff3366" />
+            <circle cx="24" cy="14" r="2.5" fill="#ff9933" />
+            <circle cx="32" cy="14" r="2.5" fill="#33ccff" />
+
+            <g
+              stroke-width="3"
+              stroke-linecap="round"
+              filter="url(#neon-glow)"
+            >
+              <line
+                x1="16"
+                y1="30"
+                x2="65"
+                y2="30"
+                stroke="#ff3366"
+                class="type-line t1"
+              />
+              <line
+                x1="16"
+                y1="42"
+                x2="45"
+                y2="42"
+                stroke="#ff9933"
+                class="type-line t2"
+              />
+              <line
+                x1="52"
+                y1="42"
+                x2="95"
+                y2="42"
+                stroke="#33ccff"
+                class="type-line t3"
+              />
+              <line
+                x1="26"
+                y1="54"
+                x2="75"
+                y2="54"
+                stroke="#e0d4f5"
+                class="type-line t4"
+              />
+              <line
+                x1="26"
+                y1="66"
+                x2="55"
+                y2="66"
+                stroke="#ff3366"
+                class="type-line t5"
+              />
+              <line
+                x1="62"
+                y1="66"
+                x2="110"
+                y2="66"
+                stroke="#ff9933"
+                class="type-line t1"
+              />
+              <line
+                x1="16"
+                y1="78"
+                x2="85"
+                y2="78"
+                stroke="#33ccff"
+                class="type-line t2"
+              />
+              <line
+                x1="26"
+                y1="90"
+                x2="65"
+                y2="90"
+                stroke="#ff3366"
+                class="type-line t3"
+              />
+              <line
+                x1="26"
+                y1="102"
+                x2="50"
+                y2="102"
+                stroke="#e0d4f5"
+                class="type-line t4"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="ap-text-2-v5">
+        <p>
+          While locating the profile on the skill list australia or the broader australia skilled occupation list is an excellent first step, advancing your journey requires a formal validation process. Before you can lodge your formal visa application, your engineering credentials and technical portfolio must be verified against mandatory visa requirements.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="ap-bottom-v5">
+      <h3>
+        Securing Your Skills Assessment for Migration Success
+      </h3>
+
+      <p>
+        Depending on your specific educational background and local authority guidelines, drafting a comprehensive CDR for Software Engineer can serve as the technical foundation of your migration strategy. This engineering and computing report demonstrates your system design, technical problem-solving capabilities, and engineering standards within the skill occupation list australia framework.
+      </p>
+
+      <p>
+        Ultimately, a meticulously prepared technical report is essential for navigating the complexities of australia immigration, smoothing your path toward securing an approved australia visa so you can safely live and work australia visa streams.
+      </p>
+    </div>
+
+  </div>
+</div>

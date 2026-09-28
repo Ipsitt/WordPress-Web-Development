@@ -1,29 +1,255 @@
-<div class="seo-card-container" style="background: #ffffff; padding: 35px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); font-family: inherit; color: #333333; line-height: 1.6;">
-    <h2 style="color: #222222; margin-top: 0; margin-bottom: 20px; font-size: 19px; font-weight: 700;">Understanding the Role of a Geotechnical Engineer in Australia</h2>
-    
-    <p style="margin-bottom: 15px;">
-        Specializing in geotechnical engineering involves mapping subsurface conditions to provide critical site stability parameters for structural teams. Professionals working in this field carry out complex site investigations, calculate slope safety thresholds, and manage deep excavation vulnerabilities. By providing specialized geotechnical engineering services, these professionals lay the literal groundwork for major infrastructure projects, making this a highly relied-upon australia skilled occupation across mining and infrastructure sectors.
-    </p>
+<!-- The card features a geotechnical slope stability analysis, which engineers use to determine if a hillside or embankment is safe from collapsing.
 
-    <p style="margin-bottom: 20px;">
-        Because their practical calculations directly mitigate structural risks on major job sites, their technical expertise is highly sought after nationwide. Consequently, the profession is tightly woven into the active australia skilled migration list, the australian immigration skills list, and the overarching skilled employment list, which opens up highly visible pathways for qualified international applicants.
-    </p>
+Key Components:
 
-    <h3 style="color: #222222; font-size: 19px; margin-bottom: 15px; font-weight: 600;">Why a Meticulous CDR is Essential for Your Migration Success</h3>
-    
-    <p style="margin-bottom: 15px;">
-        While locating your engineering code on the current skill list australia or the broader australia skilled occupation list is a strong first step, transitioning that visibility into an approved visa requires clear technical validation. Before you can lodge your formal visa application or finalize your roadmap for a permanent australia visa, you must first clear the rigorous entry barrier set by Engineers Australia.
-    </p>
+- FoS 1.35 (Factor of Safety): This is the most important metric. A Factor of Safety of 1.35 means the soil's resisting forces (shear strength) are 35% greater than the driving forces causing it to slide (gravity and water pressure). Since it is above 1.0, the slope is considered statically stable, meeting typical engineering design minimums (which usually range from 1.3 to 1.5).
 
-    <p style="margin-bottom: 15px;">
-        Securing a positive skills assessment requires putting together a detailed Competency Demonstration Report (CDR). This document is a deep technical narrative where you must systematically break down your career history into distinct episodes, demonstrating how you applied your calculations to solve real-world foundation design challenges. Every written section needs to be meticulously mapped to satisfy the mandatory visa requirements governed by the skill occupation list australia framework.
-    </p>
+- Red Dashed Line: This represents the potential slip surface or failure plane where the soil is most likely to slide down the hill.
 
-    <p style="margin-bottom: 20px;">
+- Red Circle: This typically marks critical point or the center of the circular arc used by a software to calculate this specific slip surface.
+
+- Blue Dashed Line: This shows the groundwater table (phreatic surface). Water adds weight and creates pore water pressure, which reduces soil strength and lowers the factor of safety.
+
+- Solid Yellow & Grey Lines: These define the ground surface geometry and the boundaries between different subsurface soil or rock layers.
+
+- Vertical Arrow: This represents a coordinate datum line or a vertical loading axis used in the model. -->
+
+<style>
+  .geo-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #24261c 0%, #10110b 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .geo-article * { box-sizing: border-box; }
+
+  /* faint subsurface glow behind the section, kept quiet */
+  .geo-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 55% 45% at 78% 55%, rgba(201, 192, 138, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .geo-article-inner { position: relative; }
+
+  /* ---------- top: heading + text1, diagram, text2 ---------- */
+  .geo-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .geo-article-text-1 { grid-area: text1; }
+  .geo-article-text-2 { grid-area: text2; }
+
+  .geo-article-text-1,
+  .geo-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .geo-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .geo-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .geo-article-text-1 p,
+  .geo-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #d6d8c4 !important;
+  }
+
+  .geo-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .geo-article-diagram svg { width: 100%; height: auto; max-width: 320px; }
+
+  .geo-line { fill: none; stroke: #c9c08a; stroke-width: 2; }
+  .geo-line-soft { fill: none; stroke: #6b6b4a; stroke-width: 1.2; }
+  .geo-strata-1 { fill: rgba(201, 192, 138, 0.10); stroke: none; }
+  .geo-strata-2 { fill: rgba(160, 140, 100, 0.13); stroke: none; }
+  .geo-strata-3 { fill: rgba(120, 125, 110, 0.20); stroke: none; }
+  .geo-slip { fill: none; stroke: #cc1f29; stroke-width: 1.6; stroke-dasharray: 4 4; }
+  .geo-slice { fill: #cc1f29; stroke: #ffb3b8; stroke-width: 1; }
+  .geo-water { fill: none; stroke: #4fb3d9; stroke-width: 1.6; stroke-linecap: round; }
+  .geo-probe { fill: #c9c08a; stroke: none; }
+  .geo-wave { fill: none; stroke: #4fb3d9; stroke-width: 1.6; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .geo-slice-anim,
+    .geo-water-anim,
+    .geo-probe-anim,
+    .geo-wave-anim { display: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .geo-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(201, 192, 138, 0.14);
+    margin-top: 8px;
+  }
+  .geo-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .geo-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #d6d8c4 !important;
+  }
+  .geo-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: looping seismic survey ---------- */
+  .geo-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .geo-article-footer-trace svg { width: 100%; height: 42px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .geo-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .geo-article-text-1 { padding: 24px 24px 0 24px; }
+    .geo-article-text-2 { padding: 8px 24px 8px 24px; }
+    .geo-article-diagram { padding: 12px 24px; width: 100%; }
+    .geo-article-diagram svg { max-width: 250px; margin: 0 auto; }
+    .geo-article-bottom { padding: 4px 24px 8px 24px; }
+    .geo-article-bottom h3 { font-size: 16.5px !important; }
+    .geo-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="geo-article">
+  <div class="geo-article-inner">
+
+    <div class="geo-article-top">
+      <div class="geo-article-text-1">
+        <h2>Understanding the Role of a Geotechnical Engineer in Australia</h2>
+        <p>
+          Specializing in geotechnical engineering involves mapping subsurface conditions to provide critical site stability parameters for structural teams. Professionals working in this field carry out complex site investigations, calculate slope safety thresholds, and manage deep excavation vulnerabilities. By providing specialized geotechnical engineering services, these professionals lay the literal groundwork for major infrastructure projects, making this a highly relied-upon skilled occupation across mining and infrastructure sectors.
+        </p>
+      </div>
+
+      <div class="geo-article-diagram">
+        <svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- soil strata beneath the slope -->
+          <path class="geo-strata-1" d="M10,60 L100,60 L170,120 L250,120 L250,135 L170,135 L100,75 L10,75 Z" />
+          <path class="geo-strata-2" d="M10,75 L100,75 L170,135 L250,135 L250,165 L170,165 L100,105 L10,105 Z" />
+          <path class="geo-strata-3" d="M10,105 L100,105 L170,165 L250,165 L250,195 L10,195 Z" />
+
+          <!-- ground surface and layer boundaries -->
+          <path class="geo-line" d="M10,60 L100,60 L170,120 L250,120" />
+          <path class="geo-line-soft" d="M10,75 L100,75 L170,135 L250,135" />
+          <path class="geo-line-soft" d="M10,105 L100,105 L170,165 L250,165" />
+
+          <!-- water table, flowing -->
+          <path class="geo-water geo-water-anim" d="M10,92 C90,92 150,124 250,146" stroke-dasharray="6 6">
+            <animate attributeName="stroke-dashoffset" values="0;-12" dur="1.2s" repeatCount="indefinite" />
+          </path>
+
+          <!-- potential slip surface -->
+          <path class="geo-slip" d="M75,60 A78.5,78.5 0 0 0 180,120" />
+
+          <!-- critical slice, rocking back and forth along the slip surface -->
+          <circle class="geo-slice geo-slice-anim" r="4.5" cx="0" cy="0">
+            <animateMotion dur="4.5s" repeatCount="indefinite" calcMode="linear"
+                           keyPoints="0;0.55;0" keyTimes="0;0.5;1" rotate="0"
+                           path="M75,60 A78.5,78.5 0 0 0 180,120" />
+          </circle>
+
+          <!-- borehole with a probe pushed down through the layers, looping -->
+          <line class="geo-line-soft" x1="36" y1="60" x2="36" y2="192" stroke-dasharray="2 3" />
+          <line class="geo-line geo-probe-anim" x1="36" y1="46" x2="36" y2="62">
+            <animate attributeName="y2" values="62;180;180;62" keyTimes="0;0.7;0.85;1" dur="5s" repeatCount="indefinite" />
+          </line>
+          <path class="geo-probe geo-probe-anim" d="M32,0 L40,0 L36,9 Z">
+            <animateTransform attributeName="transform" type="translate" values="0,62;0,180;0,180;0,62" keyTimes="0;0.7;0.85;1" dur="5s" repeatCount="indefinite" />
+          </path>
+
+          <!-- factor-of-safety readout -->
+          <text x="200" y="98" fill="#c9c08a" font-size="10" font-family="Consolas, monospace" text-anchor="middle">FoS 1.35</text>
+        </svg>
+      </div>
+
+      <div class="geo-article-text-2">
+        <p>
+          Because their practical calculations directly mitigate structural risks on major job sites, their technical expertise is highly sought after nationwide. Consequently, the profession is tightly woven into Australia's active skilled migration list, the immigration skills list, and the overarching skilled employment list, which opens up highly visible pathways for qualified international applicants.
+        </p>
+      </div>
+    </div>
+
+    <div class="geo-article-bottom">
+      <h3>Why a Meticulous CDR is Essential for Your Migration Success</h3>
+      <p>
+        While locating your engineering code on the current skilled occupation list is a strong first step, transitioning that visibility into an approved visa requires clear technical validation. Before you can lodge your formal visa application or finalize your roadmap for a permanent Australia visa, you must first clear the rigorous entry barrier set by Engineers Australia.
+      </p>
+      <p>
+        Securing a positive skills assessment requires putting together a detailed Competency Demonstration Report (CDR). This document is a deep technical narrative where you must systematically break down your career history into distinct episodes, demonstrating how you applied your calculations to solve real-world foundation design challenges. Every written section needs to be meticulously mapped to satisfy the mandatory visa requirements governed by the skilled occupation list framework.
+      </p>
+      <p>
         A poorly framed or generic report can easily lead to lengthy processing delays or direct rejections, making careful execution a top priority. Ensuring your narrative highlights your individual technical decision-making and project control capabilities is essential to secure your points validation without unnecessary complications.
-    </p>
+      </p>
+      <p>
+        Ultimately, a robust, professionally written engineering portfolio serves as the core foundation for navigating the complexities of Australian immigration, paving a clear path for you to establish your home and legally work in Australia over the long term.
+      </p>
+    </div>
 
-    <p style="margin-bottom: 0;">
-        Ultimately, a robust, professionally written engineering portfolio serves as the core foundation for navigating the complexities of australia immigration, paving a clear path for you to establish your home and legally work australia visa streams over the long term.
-    </p>
+    <div class="geo-article-footer-trace">
+      <svg viewBox="0 0 600 42" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <!-- ground surface -->
+        <line class="geo-line-soft" x1="0" y1="6" x2="600" y2="6" />
+
+        <!-- geophones along the survey line -->
+        <path class="geo-probe" d="M105,6 L115,6 L110,15 Z" />
+        <path class="geo-probe" d="M185,6 L195,6 L190,15 Z" />
+        <path class="geo-probe" d="M265,6 L275,6 L270,15 Z" />
+        <path class="geo-probe" d="M345,6 L355,6 L350,15 Z" />
+        <path class="geo-probe" d="M425,6 L435,6 L430,15 Z" />
+        <path class="geo-probe" d="M505,6 L515,6 L510,15 Z" />
+
+        <!-- seismic source -->
+        <circle cx="40" cy="6" r="3.5" fill="#cc1f29" />
+
+        <!-- wave fronts expanding from the source, looping -->
+        <circle class="geo-wave geo-wave-anim" cx="40" cy="6" r="0">
+          <animate attributeName="r" values="0;580" dur="4s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.9;0" dur="4s" repeatCount="indefinite" />
+        </circle>
+        <circle class="geo-wave geo-wave-anim" cx="40" cy="6" r="0">
+          <animate attributeName="r" values="0;580" dur="4s" begin="1.33s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.9;0" dur="4s" begin="1.33s" repeatCount="indefinite" />
+        </circle>
+        <circle class="geo-wave geo-wave-anim" cx="40" cy="6" r="0">
+          <animate attributeName="r" values="0;580" dur="4s" begin="2.66s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.9;0" dur="4s" begin="2.66s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+    </div>
+
+  </div>
 </div>

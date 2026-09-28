@@ -1,29 +1,309 @@
-<div class="seo-card-container" style="background: #ffffff; padding: 35px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); font-family: inherit; color: #333333; line-height: 1.6;">
-    <h2 style="color: #222222; margin-top: 0; margin-bottom: 20px; font-size: 19px; font-weight: 700;">Understanding the Role of a Materials Engineer in Australia</h2>
-    
-    <p style="margin-bottom: 15px;">
-        A Materials Engineer plays a critical role in evaluating, testing, and modifying materials to design durable infrastructure, manufacturing components, and commercial products. By studying structural characteristics down to the atomic level, these specialists optimize the performance of metals, ceramics, plastics, and advanced composites. Navigating the intersection of materials for engineers and industrial applications, this field drives structural safety and technological innovation, cementing its status as a critical australia skilled occupation.
-    </p>
+<!-- The design of this card is based on the atomic lattice the copy mentions ("down to the atomic level").
 
-    <p style="margin-bottom: 20px;">
-        Because their technical knowledge directly impacts sectors like aviation, construction, and sustainable energy, professionals specializing in materials and engineering are heavily sought after across the country. Consequently, the role is consistently maintained on the active australia skilled migration list, the australian immigration skills list, and the general skilled employment list, presenting solid migration avenues for qualified international engineers.
-    </p>
+Lattice: a 5×5 grid of atoms joined by bonds. A stress wave ripples diagonally through it on a loop, each atom swelling and flashing molten orange in turn.
+Defect: the centre atom is missing and shown as a dashed red vacancy. Defect analysis is a core part of the job, and it keeps red as the warning accent.
+Palette: cool steel-charcoal with molten orange. The earlier cards used blues, browns, greens and purples, so this sits apart from them.
+Footer: a stress-strain curve draws itself across the strip. It climbs the elastic line, then yields, hardens and necks, and ends at a red X for the fracture point. It holds briefly and then resets. It uses vector-effect: non-scaling-stroke so the line doesn't distort when the strip stretches. -->
 
-    <h3 style="color: #222222; font-size: 19px; margin-bottom: 15px; font-weight: 600;">Why a Meticulous CDR is Essential for Your Migration Success</h3>
-    
-    <p style="margin-bottom: 15px;">
-        While discovering your occupation on the active skill list australia or the broader australia skilled occupation list is an excellent starting point, moving your career down under requires clearing a strict credential verification. Before you can confidently lodge a formal visa application or finalize your roadmap for an australia visa, you must secure a positive engineering assessment.
-    </p>
+<style>
+  .mat-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #1f242c 0%, #0e1115 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .mat-article * { box-sizing: border-box; }
 
-    <p style="margin-bottom: 15px;">
-        The gateway to this process is the technical skills assessment evaluated by Engineers Australia via the Competency Demonstration Report (CDR) pathway. The report requires you to write extensive career episodes detailing individual engineering interventions, testing methodologies, and project management duties. A meticulously structured CDR is vital to satisfy the technical visa requirements dictated by the skill occupation list australia framework.
-    </p>
+  /* faint molten glow behind the lattice, kept quiet */
+  .mat-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 55% 45% at 78% 50%, rgba(232, 137, 74, 0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-    <p style="margin-bottom: 20px;">
+  .mat-article-inner { position: relative; }
+
+  /* ---------- top: heading + text1, diagram, text2 ---------- */
+  .mat-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mat-article-text-1 { grid-area: text1; }
+  .mat-article-text-2 { grid-area: text2; }
+
+  .mat-article-text-1,
+  .mat-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .mat-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .mat-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .mat-article-text-1 p,
+  .mat-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #ccd3dc !important;
+  }
+
+  .mat-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mat-article-diagram svg { width: 100%; height: auto; max-width: 280px; }
+
+  .mat-bond { fill: none; stroke: #4a5563; stroke-width: 1.4; }
+  .mat-atom { fill: #171b21; stroke: #8fa3b8; stroke-width: 2; }
+  .mat-vacancy { fill: none; stroke: #cc1f29; stroke-width: 1.8; stroke-dasharray: 3 3; }
+  .mat-axis { fill: none; stroke: #4a5563; stroke-width: 1.2; }
+  .mat-curve { fill: none; stroke: #e8894a; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .mat-fracture { fill: none; stroke: #cc1f29; stroke-width: 2.4; stroke-linecap: round; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mat-atom-anim,
+    .mat-curve-anim,
+    .mat-fracture-anim { display: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .mat-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(204, 211, 220, 0.14);
+    margin-top: 8px;
+  }
+  .mat-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .mat-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #ccd3dc !important;
+  }
+  .mat-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: looping stress-strain curve to fracture ---------- */
+  .mat-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .mat-article-footer-trace svg { width: 100%; height: 48px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .mat-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .mat-article-text-1 { padding: 24px 24px 0 24px; }
+    .mat-article-text-2 { padding: 8px 24px 8px 24px; }
+    .mat-article-diagram { padding: 12px 24px; width: 100%; }
+    .mat-article-diagram svg { max-width: 210px; margin: 0 auto; }
+    .mat-article-bottom { padding: 4px 24px 8px 24px; }
+    .mat-article-bottom h3 { font-size: 16.5px !important; }
+    .mat-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="mat-article">
+  <div class="mat-article-inner">
+
+    <div class="mat-article-top">
+      <div class="mat-article-text-1">
+        <h2>Understanding the Role of a Materials Engineer in Australia</h2>
+        <p>
+          A Materials Engineer plays a critical role in evaluating, testing, and modifying materials to design durable infrastructure, manufacturing components, and commercial products. By studying structural characteristics down to the atomic level, these specialists optimize the performance of metals, ceramics, plastics, and advanced composites. Navigating the intersection of materials science and industrial applications, this field drives structural safety and technological innovation, cementing its status as a critical skilled occupation.
+        </p>
+      </div>
+
+      <div class="mat-article-diagram">
+        <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- lattice bonds -->
+          <line class="mat-bond" x1="40" y1="40" x2="180" y2="40" />
+          <line class="mat-bond" x1="40" y1="75" x2="180" y2="75" />
+          <line class="mat-bond" x1="40" y1="110" x2="180" y2="110" />
+          <line class="mat-bond" x1="40" y1="145" x2="180" y2="145" />
+          <line class="mat-bond" x1="40" y1="180" x2="180" y2="180" />
+          <line class="mat-bond" x1="40" y1="40" x2="40" y2="180" />
+          <line class="mat-bond" x1="75" y1="40" x2="75" y2="180" />
+          <line class="mat-bond" x1="110" y1="40" x2="110" y2="180" />
+          <line class="mat-bond" x1="145" y1="40" x2="145" y2="180" />
+          <line class="mat-bond" x1="180" y1="40" x2="180" y2="180" />
+
+          <!-- atoms: a stress wave ripples diagonally through the lattice, looping -->
+          <circle class="mat-atom mat-atom-anim" cx="40" cy="40" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="0s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="0s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="75" cy="40" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="0.3s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="0.3s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="110" cy="40" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="0.6s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="0.6s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="145" cy="40" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="0.9s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="0.9s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="180" cy="40" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.2s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.2s" repeatCount="indefinite" />
+          </circle>
+
+          <circle class="mat-atom mat-atom-anim" cx="40" cy="75" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="0.3s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="0.3s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="75" cy="75" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="0.6s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="0.6s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="110" cy="75" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="0.9s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="0.9s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="145" cy="75" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.2s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.2s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="180" cy="75" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.5s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.5s" repeatCount="indefinite" />
+          </circle>
+
+          <circle class="mat-atom mat-atom-anim" cx="40" cy="110" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="0.6s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="0.6s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="75" cy="110" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="0.9s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="0.9s" repeatCount="indefinite" />
+          </circle>
+          <!-- vacancy defect at the centre: an atom missing from the lattice -->
+          <circle class="mat-vacancy" cx="110" cy="110" r="7" />
+          <circle class="mat-atom mat-atom-anim" cx="145" cy="110" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.5s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.5s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="180" cy="110" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.8s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.8s" repeatCount="indefinite" />
+          </circle>
+
+          <circle class="mat-atom mat-atom-anim" cx="40" cy="145" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="0.9s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="0.9s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="75" cy="145" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.2s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.2s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="110" cy="145" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.5s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.5s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="145" cy="145" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.8s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.8s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="180" cy="145" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="2.1s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="2.1s" repeatCount="indefinite" />
+          </circle>
+
+          <circle class="mat-atom mat-atom-anim" cx="40" cy="180" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.2s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.2s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="75" cy="180" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.5s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.5s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="110" cy="180" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="1.8s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="1.8s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="145" cy="180" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="2.1s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="2.1s" repeatCount="indefinite" />
+          </circle>
+          <circle class="mat-atom mat-atom-anim" cx="180" cy="180" r="7">
+            <animate attributeName="r" values="7;10;7" dur="2.6s" begin="2.4s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#8fa3b8;#e8894a;#8fa3b8" dur="2.6s" begin="2.4s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+      </div>
+
+      <div class="mat-article-text-2">
+        <p>
+          Because their technical knowledge directly impacts sectors like aviation, construction, and sustainable energy, professionals specializing in materials engineering are heavily sought after across the country. Consequently, the role is consistently maintained on Australia's active skilled migration list, the immigration skills list, and the general skilled employment list, presenting solid migration avenues for qualified international engineers.
+        </p>
+      </div>
+    </div>
+
+    <div class="mat-article-bottom">
+      <h3>Why a Meticulous CDR is Essential for Your Migration Success</h3>
+      <p>
+        While discovering your occupation on the skilled occupation list is an excellent starting point, moving your career down under requires clearing a strict credential verification. Before you can confidently lodge a formal visa application or finalize your roadmap for an Australia visa, you must secure a positive engineering assessment.
+      </p>
+      <p>
+        The gateway to this process is the technical skills assessment evaluated by Engineers Australia via the Competency Demonstration Report (CDR) pathway. The report requires you to write extensive career episodes detailing individual engineering interventions, testing methodologies, and project management duties. A meticulously structured CDR is vital to satisfy the technical visa requirements dictated by the skilled occupation list framework.
+      </p>
+      <p>
         An incomplete or poorly formatted report can lead to extended delays or direct application rejections, making strategic documentation preparation essential. Aligning your technical career history accurately with the assessment standards ensures you maximize your potential points validation for future invitation rounds.
-    </p>
+      </p>
+      <p>
+        Ultimately, a compliant, engineer-focused portfolio serves as the definitive anchor for smooth navigation through Australian immigration, paving a reliable path for you to establish your home and legally work in Australia over the long term.
+      </p>
+    </div>
 
-    <p style="margin-bottom: 0;">
-        Ultimately, a compliant, engineer-focused portfolio serves as the definitive anchor for smooth navigation through australia immigration, paving a reliable path for you to establish your home and legally work australia visa pathways over the long term.
-    </p>
+    <div class="mat-article-footer-trace">
+      <svg viewBox="0 0 600 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <!-- stress-strain axes -->
+        <line class="mat-axis" x1="10" y1="6" x2="10" y2="44" vector-effect="non-scaling-stroke" />
+        <line class="mat-axis" x1="10" y1="44" x2="590" y2="44" vector-effect="non-scaling-stroke" />
+
+        <!-- stress-strain curve: elastic climb, yield, hardening, necking, fracture. Draws itself, holds, resets. -->
+        <path class="mat-curve mat-curve-anim" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" vector-effect="non-scaling-stroke"
+              d="M10,44 L150,14 C200,7 280,4 340,5 C420,6 480,12 520,24 L556,44">
+          <animate attributeName="stroke-dashoffset" values="100;0;0;100" keyTimes="0;0.6;0.92;1" dur="5s" repeatCount="indefinite" />
+        </path>
+
+        <!-- fracture marker, flashing in once the curve reaches its end -->
+        <g class="mat-fracture-anim" opacity="0">
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.58;0.64;0.92;1" dur="5s" repeatCount="indefinite" />
+          <line class="mat-fracture" x1="548" y1="36" x2="564" y2="46" vector-effect="non-scaling-stroke" />
+          <line class="mat-fracture" x1="564" y1="36" x2="548" y2="46" vector-effect="non-scaling-stroke" />
+        </g>
+      </svg>
+    </div>
+
+  </div>
 </div>

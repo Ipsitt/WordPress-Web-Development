@@ -1,0 +1,307 @@
+﻿<style>
+  .pm-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #0d2127 0%, #050a0d 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .pm-article * { box-sizing: border-box; }
+
+  /* faint grid lines representing a schedule or calendar */
+  .pm-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(0, 210, 211, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 210, 211, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .pm-article-inner { position: relative; }
+
+  .pm-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .pm-article-text-1 { grid-area: text1; }
+  .pm-article-text-2 { grid-area: text2; }
+
+  .pm-article-text-1,
+  .pm-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .pm-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .pm-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .pm-article-text-1 p,
+  .pm-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #b0d8d6 !important;
+  }
+
+  .pm-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pm-article-diagram svg { width: 100%; height: auto; max-width: 280px; }
+
+  /* SVG elements */
+  .pm-board { fill: rgba(0, 210, 211, 0.05); stroke: #00d2d3; stroke-width: 1.5; }
+  .pm-col-line { stroke: #00d2d3; stroke-width: 1; stroke-dasharray: 4 4; stroke-opacity: 0.3; }
+  .pm-task { fill: rgba(0, 210, 211, 0.15); stroke: #00d2d3; stroke-width: 1.2; }
+  .pm-task-active { fill: rgba(29, 209, 161, 0.2); stroke: #1dd1a1; stroke-width: 1.2; }
+  .pm-task-warn { fill: rgba(255, 159, 67, 0.15); stroke: #ff9f43; stroke-width: 1.2; }
+  .pm-bar-bg { fill: rgba(0, 210, 211, 0.1); }
+  .pm-bar-fill { fill: #00d2d3; }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .pm-article animate,
+    .pm-article animateTransform { display: none; }
+  }
+
+  .pm-article-bottom {
+    padding: 4px 44px 16px 44px;
+    border-top: 1px solid rgba(0, 210, 211, 0.15);
+    margin-top: 8px;
+  }
+  .pm-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .pm-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #b0d8d6 !important;
+  }
+  .pm-article-bottom p:last-child { margin-bottom: 0; }
+
+  .pm-article-footer-trace {
+    padding: 8px 44px 16px 44px;
+    position: relative;
+  }
+  .pm-article-footer-trace svg { width: 100%; height: 34px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .pm-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .pm-article-text-1 { padding: 24px 24px 0 24px; }
+    .pm-article-text-2 { padding: 8px 24px 8px 24px; }
+    .pm-article-diagram { padding: 12px 24px; width: 100%; }
+    .pm-article-diagram svg { max-width: 220px; margin: 0 auto; }
+    .pm-article-bottom { padding: 4px 24px 8px 24px; }
+    .pm-article-bottom h3 { font-size: 16.5px !important; }
+    .pm-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="pm-article">
+  <div class="pm-article-inner">
+
+    <div class="pm-article-top">
+      <div class="pm-article-text-1">
+        <h2>Navigating the ICT Project Manager Pathway in Australia</h2>
+        <p>
+          Targeting a career in technical delivery and governance provides an exceptional advantage for long-term migration planning. As businesses continuously scale their digital systems, this leadership profile remains a prominent Australia skilled occupation across the tech sector. The role is actively integrated into the Australia skilled migration list, the Australian immigration skills list, and the general skilled employment list, offering excellent strategic options across multiple regional territories.
+        </p>
+      </div>
+
+      <div class="pm-article-diagram">
+        <svg viewBox="0 0 260 280" xmlns="http://www.w3.org/2000/svg">
+          <!-- Main Board Outline -->
+          <rect x="10" y="40" width="240" height="200" rx="8" class="pm-board" />
+          
+          <!-- Column Dividers -->
+          <line x1="90" y1="50" x2="90" y2="230" class="pm-col-line" />
+          <line x1="170" y1="50" x2="170" y2="230" class="pm-col-line" />
+          
+          <!-- Column Headers -->
+          <rect x="25" y="50" width="40" height="6" rx="3" fill="#00d2d3" opacity="0.6" />
+          <rect x="105" y="50" width="40" height="6" rx="3" fill="#ff9f43" opacity="0.6" />
+          <rect x="185" y="50" width="40" height="6" rx="3" fill="#1dd1a1" opacity="0.6" />
+
+          <!-- Tasks -->
+          <!-- Task 1: Moving from In Progress to Done -->
+          <g>
+            <animateTransform attributeName="transform" type="translate" values="100,70; 100,70; 180,70; 180,70; 100,70" keyTimes="0; 0.2; 0.35; 0.9; 1" dur="10s" repeatCount="indefinite" />
+            <rect x="0" y="0" width="50" height="24" rx="4" class="pm-task-active" />
+            <line x1="6" y1="8" x2="30" y2="8" stroke="#1dd1a1" stroke-width="2" />
+            <line x1="6" y1="16" x2="20" y2="16" stroke="#1dd1a1" stroke-width="2" opacity="0.6" />
+            <circle cx="40" cy="12" r="4" fill="#1dd1a1" opacity="0.5">
+               <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" />
+            </circle>
+          </g>
+
+          <!-- Task 2: Moving from To Do to In Progress -->
+          <g>
+            <animateTransform attributeName="transform" type="translate" values="20,105; 20,105; 100,105; 100,105; 20,105" keyTimes="0; 0.4; 0.55; 0.95; 1" dur="12s" repeatCount="indefinite" />
+            <rect x="0" y="0" width="50" height="24" rx="4" class="pm-task" />
+            <line x1="6" y1="8" x2="36" y2="8" stroke="#00d2d3" stroke-width="2" />
+            <line x1="6" y1="16" x2="24" y2="16" stroke="#00d2d3" stroke-width="2" opacity="0.6" />
+          </g>
+
+          <!-- Task 3: Static in To Do (Warning/Blocker) -->
+          <g transform="translate(20, 140)">
+            <rect x="0" y="0" width="50" height="24" rx="4" class="pm-task-warn" />
+            <line x1="6" y1="8" x2="24" y2="8" stroke="#ff9f43" stroke-width="2" />
+            <circle cx="40" cy="12" r="3" fill="#ff9f43">
+              <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
+            </circle>
+          </g>
+
+          <!-- Task 4: Static in Done -->
+          <g transform="translate(180, 105)">
+            <rect x="0" y="0" width="50" height="24" rx="4" class="pm-task-active" opacity="0.6" />
+            <line x1="6" y1="8" x2="30" y2="8" stroke="#1dd1a1" stroke-width="2" />
+            <path d="M 36,12 L 40,16 L 46,8" fill="none" stroke="#1dd1a1" stroke-width="2" />
+          </g>
+
+          <!-- Task 5: Static in In Progress -->
+          <g transform="translate(100, 140)">
+            <rect x="0" y="0" width="50" height="24" rx="4" class="pm-task" />
+            <line x1="6" y1="8" x2="40" y2="8" stroke="#00d2d3" stroke-width="2" />
+            <line x1="6" y1="16" x2="16" y2="16" stroke="#00d2d3" stroke-width="2" />
+          </g>
+
+          <!-- Global Project Progress Bar at top -->
+          <rect x="10" y="15" width="240" height="8" rx="4" class="pm-bar-bg" />
+          <rect x="10" y="15" height="8" rx="4" class="pm-bar-fill">
+            <animate attributeName="width" values="80; 160; 240; 80" keyTimes="0; 0.4; 0.9; 1" dur="15s" repeatCount="indefinite" />
+          </rect>
+          
+          <!-- Sync pulses linking board to progress -->
+          <circle cx="250" cy="19" r="4" fill="#1dd1a1">
+            <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite" />
+            <animate attributeName="r" values="4;8;4" dur="2s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+      </div>
+
+      <div class="pm-article-text-2">
+        <p>
+          While finding the position on the skill list Australia or the broader Australia skilled occupation list is an excellent initial step, advancing requires a formal validation process. Before you can lodge your formal visa application, your managerial credentials and project history must be verified to satisfy mandatory visa requirements.
+        </p>
+      </div>
+    </div>
+
+    <div class="pm-article-bottom">
+      <h3>Securing Your Skills Assessment for Migration Success</h3>
+      <p>
+        Depending on your background and academic framework, a comprehensive CDR for Project Manager may serve as the foundation of your technical review. This documentation outlines your methodology deployment, milestone delivery models, and operational oversight within the skill occupation list Australia framework.
+      </p>
+      <p>
+        Ultimately, a robust technical and managerial portfolio is essential for navigating the complexities of Australia immigration, smoothing your path toward an approved Australia visa so you can safely live and work in Australia.
+      </p>
+    </div>
+
+    <!-- FOOTER: Scrolling Gantt Chart / Project Timeline -->
+    <div class="pm-article-footer-trace">
+      <svg width="100%" height="34" xmlns="http://www.w3.org/2000/svg">
+        
+        <!-- Background grid lines -->
+        <line x1="0" y1="0" x2="100%" y2="0" stroke="#00d2d3" stroke-width="1" stroke-opacity="0.1" />
+        <line x1="0" y1="17" x2="100%" y2="17" stroke="#00d2d3" stroke-width="1" stroke-opacity="0.1" />
+        <line x1="0" y1="34" x2="100%" y2="34" stroke="#00d2d3" stroke-width="1" stroke-opacity="0.1" />
+
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0,0; -600,0" dur="20s" repeatCount="indefinite" />
+          
+          <defs>
+            <g id="pm-footer-cycle">
+              <!-- Phase 1: Initiation -->
+              <g transform="translate(20, 6)">
+                <polygon points="5,0 10,5 5,10 0,5" fill="#1dd1a1" />
+                <rect x="16" y="2" width="60" height="6" rx="2" fill="rgba(0, 210, 211, 0.2)" stroke="#00d2d3" stroke-width="1" />
+                <!-- Completed phase -->
+                <rect x="16" y="2" width="60" height="6" rx="2" fill="#00d2d3" />
+              </g>
+
+              <!-- Phase 2: Planning -->
+              <g transform="translate(120, 18)">
+                <polygon points="5,0 10,5 5,10 0,5" fill="#ff9f43" />
+                <rect x="16" y="2" width="80" height="6" rx="2" fill="rgba(255, 159, 67, 0.2)" stroke="#ff9f43" stroke-width="1" />
+                <rect x="16" y="2" width="0" height="6" rx="2" fill="#ff9f43">
+                  <animate attributeName="width" values="0; 80; 0" dur="4s" repeatCount="indefinite" />
+                </rect>
+              </g>
+
+              <!-- Phase 3: Execution -->
+              <g transform="translate(240, 6)">
+                <polygon points="5,0 10,5 5,10 0,5" fill="#00d2d3" />
+                <rect x="16" y="2" width="120" height="6" rx="2" fill="rgba(0, 210, 211, 0.2)" stroke="#00d2d3" stroke-width="1" />
+                <rect x="16" y="2" width="0" height="6" rx="2" fill="#00d2d3">
+                  <animate attributeName="width" values="0; 120; 0" dur="5s" repeatCount="indefinite" />
+                </rect>
+              </g>
+
+              <!-- Phase 4: Closure -->
+              <g transform="translate(420, 18)">
+                <polygon points="5,0 10,5 5,10 0,5" fill="#1dd1a1" />
+                <rect x="16" y="2" width="50" height="6" rx="2" fill="rgba(29, 209, 161, 0.2)" stroke="#1dd1a1" stroke-width="1" />
+                <rect x="16" y="2" height="6" rx="2" fill="#1dd1a1">
+                  <animate attributeName="width" values="0; 50; 50; 0" keyTimes="0; 0.4; 0.9; 1" dur="6s" repeatCount="indefinite" />
+                </rect>
+              </g>
+
+              <!-- Dependencies / Connections -->
+              <path d="M 96,9 L 108,9 L 108,21 L 120,21" fill="none" stroke="#00d2d3" stroke-width="1" stroke-dasharray="2 2" />
+              <path d="M 216,21 L 228,21 L 228,9 L 240,9" fill="none" stroke="#ff9f43" stroke-width="1" stroke-dasharray="2 2" />
+              <path d="M 376,9 L 400,9 L 400,21 L 420,21" fill="none" stroke="#00d2d3" stroke-width="1" stroke-dasharray="2 2" />
+            </g>
+          </defs>
+
+          <!-- Seamless loop cycles for up to 3000px wide screens -->
+          <use href="#pm-footer-cycle" x="0" />
+          <use href="#pm-footer-cycle" x="600" />
+          <use href="#pm-footer-cycle" x="1200" />
+          <use href="#pm-footer-cycle" x="1800" />
+          <use href="#pm-footer-cycle" x="2400" />
+        </g>
+        
+        <!-- Edge fade overlays -->
+        <defs>
+          <linearGradient id="fade-left" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#050a0d" stop-opacity="1" />
+            <stop offset="100%" stop-color="#050a0d" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="fade-right" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#050a0d" stop-opacity="0" />
+            <stop offset="100%" stop-color="#050a0d" stop-opacity="1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="40" height="34" fill="url(#fade-left)" />
+        <rect x="100%" y="0" width="40" height="34" transform="translate(-40, 0)" fill="url(#fade-right)" />
+      </svg>
+    </div>
+
+  </div>
+</div>

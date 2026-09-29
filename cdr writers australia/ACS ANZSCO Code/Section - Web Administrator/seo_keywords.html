@@ -1,0 +1,268 @@
+<style>
+  .web-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #0b1329 0%, #050814 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .web-article * { box-sizing: border-box; }
+
+  /* Faint server grid background glow */
+  .web-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0, 229, 255, 0.08) 0%, transparent 70%),
+      linear-gradient(rgba(0, 229, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 20px 20px, 20px 20px;
+    pointer-events: none;
+  }
+
+  .web-article-inner { position: relative; }
+
+  /* Top layout: Heading + Text 1, Diagram, Text 2 */
+  .web-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .web-article-text-1 { grid-area: text1; }
+  .web-article-text-2 { grid-area: text2; }
+
+  .web-article-text-1,
+  .web-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .web-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .web-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .web-article-text-1 p,
+  .web-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #a0aec0 !important;
+  }
+
+  .web-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .web-article-diagram svg { width: 100%; height: auto; max-width: 310px; }
+
+  /* SVG Styling for Web Server Monitoring Diagram */
+  .web-server-box { fill: #0f1c3f; stroke: #1e3a8a; stroke-width: 1.5; rx: 4px; }
+  .web-server-active { fill: #101f4c; stroke: #00e5ff; stroke-width: 1.5; rx: 4px; }
+  .web-text { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 9px; }
+  .web-line { fill: none; stroke: #1e3a8a; stroke-width: 1.5; }
+  .web-pulse-line { fill: none; stroke: #00e5ff; stroke-width: 1.5; stroke-dasharray: 4 4; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .web-article animate,
+    .web-article animateTransform,
+    .web-article animateMotion { display: none; }
+  }
+
+  /* Bottom Content Area */
+  .web-article-bottom {
+    padding: 4px 44px 32px 44px;
+    border-top: 1px solid rgba(0, 229, 255, 0.12);
+    margin-top: 8px;
+  }
+  .web-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 19px !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .web-article-bottom p {
+    margin: 0 0 15px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #a0aec0 !important;
+  }
+  .web-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* Footer Trace: Network Data Packets & Latency Monitor */
+  .web-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .web-article-footer-trace svg { width: 100%; height: 42px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .web-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .web-article-text-1 { padding: 24px 24px 0 24px; }
+    .web-article-text-2 { padding: 8px 24px 8px 24px; }
+    .web-article-diagram { padding: 12px 24px; width: 100%; }
+    .web-article-diagram svg { max-width: 260px; margin: 0 auto; }
+    .web-article-bottom { padding: 4px 24px 8px 24px; }
+    .web-article-bottom h3 { font-size: 17.5px !important; }
+    .web-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="web-article">
+  <div class="web-article-inner">
+
+    <!-- Top Grid: Text 1 + Server Monitoring Node Diagram + Text 2 -->
+    <div class="web-article-top">
+      <div class="web-article-text-1">
+        <h2>Navigating the Web Administrator Pathway in Australia</h2>
+        <p>
+          Building a career in web operations and server management provides an exceptional advantage for long-term migration planning. As businesses rely heavily on seamless online access, keeping digital platforms secure and operational remains a critical australia skilled occupation across the technology sector. The profile is actively featured on the australia skilled migration list, the australian immigration skills list, and the general skilled employment list.
+        </p>
+      </div>
+
+      <div class="web-article-diagram">
+        <svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg">
+          
+          <!-- Connections between Load Balancer, Web Servers & Database -->
+          <path d="M130,45 L65,100 M130,45 L130,100 M130,45 L195,100" class="web-line" />
+          <path d="M65,135 L130,170 M130,135 L130,170 M195,135 L130,170" class="web-line" />
+
+          <!-- Active Network Traffic Lines (Animated Dash Flow) -->
+          <path d="M130,45 L65,100 M130,45 L195,100" class="web-pulse-line">
+            <animate attributeName="stroke-dashoffset" values="16;0" dur="1s" repeatCount="indefinite" />
+          </path>
+          <path d="M65,135 L130,170 M195,135 L130,170" class="web-pulse-line">
+            <animate attributeName="stroke-dashoffset" values="0;16" dur="1s" repeatCount="indefinite" />
+          </path>
+
+          <!-- Top Node: Load Balancer / NGINX Gateway -->
+          <g transform="translate(85, 15)">
+            <rect width="90" height="30" class="web-server-active" />
+            <circle cx="15" cy="15" r="4" fill="#00e5ff" />
+            <text x="26" y="18" fill="#ffffff" class="web-text" font-weight="600">GATEWAY</text>
+            <!-- Status indicator pulse -->
+            <circle cx="75" cy="15" r="3" fill="#10b981">
+              <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+            </circle>
+          </g>
+
+          <!-- Middle Layer: Web Server Nodes -->
+          <!-- Server 01 -->
+          <g transform="translate(25, 95)">
+            <rect width="80" height="38" class="web-server-box" />
+            <line x1="10" y1="12" x2="40" y2="12" stroke="#3b82f6" stroke-width="2" />
+            <line x1="10" y1="20" x2="30" y2="20" stroke="#64748b" stroke-width="1.5" />
+            <circle cx="65" cy="14" r="2.5" fill="#10b981" />
+            <text x="10" y="31" fill="#00e5ff" class="web-text">HTTP 200</text>
+          </g>
+
+          <!-- Server 02 (Active Admin Scan) -->
+          <g transform="translate(115, 95)">
+            <rect width="80" height="38" class="web-server-active" />
+            <line x1="10" y1="12" x2="45" y2="12" stroke="#00e5ff" stroke-width="2" />
+            <line x1="10" y1="20" x2="55" y2="20" stroke="#00e5ff" stroke-width="1.5" opacity="0.6" />
+            <circle cx="65" cy="14" r="2.5" fill="#10b981" />
+            <text x="10" y="31" fill="#10b981" class="web-text">99.99% UP</text>
+          </g>
+
+          <!-- Server 03 -->
+          <g transform="translate(205, 95)">
+            <rect width="80" height="38" class="web-server-box" stroke-dasharray="3 2" />
+            <line x1="10" y1="12" x2="35" y2="12" stroke="#3b82f6" stroke-width="2" />
+            <line x1="10" y1="20" x2="25" y2="20" stroke="#64748b" stroke-width="1.5" />
+            <circle cx="65" cy="14" r="2.5" fill="#10b981" />
+            <text x="10" y="31" fill="#a0aec0" class="web-text">CACHE</text>
+          </g>
+
+          <!-- Bottom Node: Secure Database / Storage -->
+          <g transform="translate(85, 160)">
+            <rect width="90" height="32" class="web-server-box" />
+            <path d="M15,10 C15,8 25,8 25,8 C25,8 35,8 35,10 L35,22 C35,24 25,24 25,24 C25,24 15,24 15,22 Z" fill="none" stroke="#00e5ff" stroke-width="1.2" />
+            <path d="M15,14 C15,16 25,16 25,16 C25,16 35,16 35,14" fill="none" stroke="#00e5ff" stroke-width="1.2" />
+            <path d="M15,18 C15,20 25,20 25,20 C25,20 35,20 35,18" fill="none" stroke="#00e5ff" stroke-width="1.2" />
+            <text x="42" y="20" fill="#ffffff" class="web-text">SSL / DB</text>
+          </g>
+
+          <!-- Floating Data Ping Packet -->
+          <circle r="3" fill="#00e5ff">
+            <animateMotion path="M130,45 L155,95 L130,160" dur="2.5s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.8;1" dur="2.5s" repeatCount="indefinite" />
+          </circle>
+
+          <!-- Security Shield Badge -->
+          <g transform="translate(15, 15)">
+            <path d="M 10 2 L 20 6 L 20 14 C 20 19 10 24 10 24 C 10 24 0 19 0 14 L 0 6 Z" fill="#0b1329" stroke="#10b981" stroke-width="1.5" />
+            <path d="M 6 12 L 9 15 L 14 9" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" />
+          </g>
+
+        </svg>
+      </div>
+
+      <div class="web-article-text-2">
+        <p>
+          While locating the profile on the skill list australia or the broader australia skilled occupation list is an excellent first step, advancing your journey requires a formal validation process. Before you can lodge your official visa application, your technical credentials and web management history must be verified to satisfy mandatory visa requirements.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Content Paragraphs -->
+    <div class="web-article-bottom">
+      <h3>Securing Your Skills Assessment for Migration Success</h3>
+      <p>
+        Depending on your specific educational background and processing requirements, preparing a detailed CDR for Web Administrator can serve as the baseline of your submission. This report outlines your web server deployment, performance monitoring strategies, and site security interventions within the skill occupation list australia framework.
+      </p>
+      <p>
+        Ultimately, a meticulously prepared professional portfolio is essential for navigating the complexities of australia immigration, smoothing your path toward an approved australia visa so you can safely live and work australia visa streams.
+      </p>
+    </div>
+
+    <!-- Footer Trace: Network Uptime Oscilloscope / Ping Trace -->
+    <div class="web-article-footer-trace">
+      <svg viewBox="0 0 600 42" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <!-- Baseline Grid Line -->
+        <line x1="0" y1="26" x2="600" y2="26" stroke="#1e3a8a" stroke-width="1" stroke-dasharray="4 4" />
+
+        <!-- Continuous Network Pulse Signal Wave -->
+        <path d="M0,26 L70,26 L75,10 L80,38 L85,18 L90,26 L180,26 L185,14 L190,32 L195,26 L310,26 L315,8 L320,36 L325,18 L330,26 L440,26 L445,15 L450,30 L455,26 L600,26" 
+              fill="none" stroke="#101f4c" stroke-width="1.5" />
+
+        <!-- Animated Active Ping Signal Wave -->
+        <path d="M0,26 L70,26 L75,10 L80,38 L85,18 L90,26 L180,26 L185,14 L190,32 L195,26 L310,26 L315,8 L320,36 L325,18 L330,26 L440,26 L445,15 L450,30 L455,26 L600,26" 
+              fill="none" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="120 480">
+          <animate attributeName="stroke-dashoffset" values="600;-0" dur="3s" repeatCount="indefinite" />
+        </path>
+
+        <!-- Network Latency Status Markers -->
+        <circle cx="80" cy="26" r="2" fill="#00e5ff" />
+        <circle cx="187" cy="26" r="2" fill="#00e5ff" />
+        <circle cx="320" cy="26" r="2" fill="#00e5ff" />
+        <circle cx="447" cy="26" r="2" fill="#00e5ff" />
+
+        <!-- Server Metric Labels -->
+        <text x="95" y="38" fill="#64748b" font-family="monospace" font-size="8"></text>
+        <text x="202" y="38" fill="#64748b" font-family="monospace" font-size="8"></text>
+        <text x="335" y="38" fill="#64748b" font-family="monospace" font-size="8"></text>
+        <text x="462" y="38" fill="#64748b" font-family="monospace" font-size="8"></text>
+      </svg>
+    </div>
+
+  </div>
+</div>

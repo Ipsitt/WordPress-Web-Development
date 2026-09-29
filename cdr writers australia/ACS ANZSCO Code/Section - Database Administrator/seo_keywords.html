@@ -1,0 +1,243 @@
+<style>
+  .dba-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #2a1218 0%, #12080b 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .dba-article * { box-sizing: border-box; }
+
+  /* faint data-centre glow behind the cluster, kept quiet */
+  .dba-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 55% 45% at 78% 50%, rgba(255, 158, 138, 0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .dba-article-inner { position: relative; }
+
+  /* ---------- top: heading + intro text, diagram ---------- */
+  .dba-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .dba-article-text-1 {
+    grid-area: text1;
+    min-width: 0;
+    padding: 44px 12px 24px 44px;
+  }
+
+  .dba-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .dba-article-text-1 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #e6d3cd !important;
+  }
+
+  .dba-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dba-article-diagram svg { width: 100%; height: auto; max-width: 300px; }
+
+  .dba-line { fill: none; stroke: #e8d5cf; stroke-width: 1.8; }
+  .dba-line-soft { fill: none; stroke: #7d5560; stroke-width: 1.2; }
+  .dba-disk { fill: none; stroke: #e8d5cf; stroke-width: 1.4; }
+  .dba-link { fill: none; stroke: #7d5560; stroke-width: 1.2; stroke-dasharray: 3 4; }
+  .dba-packet { fill: #ff9e8a; }
+  .dba-backup { fill: none; stroke: #ff9e8a; stroke-width: 1.4; stroke-linecap: round; }
+  .dba-shield { fill: rgba(204, 31, 41, 0.22); stroke: #ff8f98; stroke-width: 1.6; }
+  .dba-key { fill: #ff8f98; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dba-packet-anim,
+    .dba-disk-anim,
+    .dba-backup-anim,
+    .dba-scan-anim { display: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .dba-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(232, 213, 207, 0.14);
+    margin-top: 8px;
+  }
+  .dba-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .dba-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #e6d3cd !important;
+  }
+  .dba-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: looping table scan ---------- */
+  .dba-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .dba-article-footer-trace svg { width: 100%; height: 40px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .dba-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram";
+    }
+    .dba-article-text-1 { padding: 24px 24px 0 24px; }
+    .dba-article-diagram { padding: 12px 24px; width: 100%; }
+    .dba-article-diagram svg { max-width: 240px; margin: 0 auto; }
+    .dba-article-bottom { padding: 4px 24px 8px 24px; }
+    .dba-article-bottom h3 { font-size: 16.5px !important; }
+    .dba-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="dba-article">
+  <div class="dba-article-inner">
+
+    <div class="dba-article-top">
+      <div class="dba-article-text-1">
+        <h2>Navigating the Database Administrator Pathway in Australia</h2>
+        <p>
+          Building a career in data architecture and security provides a highly strategic advantage for long-term migration planning. As industries rely heavily on robust data environments, this specialized data management role remains a critical skilled occupation across the tech sector. The profile is prominently featured on Australia's active skilled migration list, the immigration skills list, and the general skilled employment list.
+        </p>
+      </div>
+
+      <div class="dba-article-diagram">
+        <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <path id="dba-link-left" d="M130,78 C130,108 60,104 60,130" />
+            <path id="dba-link-right" d="M130,78 C130,108 200,104 200,130" />
+          </defs>
+
+          <!-- replication links -->
+          <use href="#dba-link-left" xlink:href="#dba-link-left" class="dba-link" />
+          <use href="#dba-link-right" xlink:href="#dba-link-right" class="dba-link" />
+
+          <!-- primary database -->
+          <ellipse class="dba-line" cx="130" cy="28" rx="34" ry="10" />
+          <path class="dba-line" d="M96,28 V68 A34,10 0 0 0 164,68 V28" />
+          <path class="dba-disk dba-disk-anim" d="M96,44 A34,10 0 0 0 164,44">
+            <animate attributeName="stroke" values="#e8d5cf;#ff9e8a;#e8d5cf" dur="2.4s" repeatCount="indefinite" />
+          </path>
+          <path class="dba-disk dba-disk-anim" d="M96,56 A34,10 0 0 0 164,56">
+            <animate attributeName="stroke" values="#e8d5cf;#ff9e8a;#e8d5cf" dur="2.4s" begin="0.4s" repeatCount="indefinite" />
+          </path>
+
+          <!-- left replica -->
+          <ellipse class="dba-line" cx="60" cy="138" rx="26" ry="8" />
+          <path class="dba-line" d="M34,138 V168 A26,8 0 0 0 86,168 V138" />
+          <path class="dba-disk dba-disk-anim" d="M34,150 A26,8 0 0 0 86,150">
+            <animate attributeName="stroke" values="#e8d5cf;#ff9e8a;#e8d5cf" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
+          </path>
+          <path class="dba-disk dba-disk-anim" d="M34,159 A26,8 0 0 0 86,159">
+            <animate attributeName="stroke" values="#e8d5cf;#ff9e8a;#e8d5cf" dur="2.4s" begin="1.5s" repeatCount="indefinite" />
+          </path>
+
+          <!-- right replica -->
+          <ellipse class="dba-line" cx="200" cy="138" rx="26" ry="8" />
+          <path class="dba-line" d="M174,138 V168 A26,8 0 0 0 226,168 V138" />
+          <path class="dba-disk dba-disk-anim" d="M174,150 A26,8 0 0 0 226,150">
+            <animate attributeName="stroke" values="#e8d5cf;#ff9e8a;#e8d5cf" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
+          </path>
+          <path class="dba-disk dba-disk-anim" d="M174,159 A26,8 0 0 0 226,159">
+            <animate attributeName="stroke" values="#e8d5cf;#ff9e8a;#e8d5cf" dur="2.4s" begin="1.5s" repeatCount="indefinite" />
+          </path>
+
+          <!-- records streaming from the primary to each replica -->
+          <rect class="dba-packet dba-packet-anim" x="-3" y="-3" width="6" height="6" rx="1">
+            <animateMotion dur="2.4s" repeatCount="indefinite" rotate="0">
+              <mpath href="#dba-link-left" xlink:href="#dba-link-left" />
+            </animateMotion>
+          </rect>
+          <rect class="dba-packet dba-packet-anim" x="-3" y="-3" width="6" height="6" rx="1">
+            <animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite" rotate="0">
+              <mpath href="#dba-link-left" xlink:href="#dba-link-left" />
+            </animateMotion>
+          </rect>
+          <rect class="dba-packet dba-packet-anim" x="-3" y="-3" width="6" height="6" rx="1">
+            <animateMotion dur="2.4s" repeatCount="indefinite" rotate="0">
+              <mpath href="#dba-link-right" xlink:href="#dba-link-right" />
+            </animateMotion>
+          </rect>
+          <rect class="dba-packet dba-packet-anim" x="-3" y="-3" width="6" height="6" rx="1">
+            <animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite" rotate="0">
+              <mpath href="#dba-link-right" xlink:href="#dba-link-right" />
+            </animateMotion>
+          </rect>
+
+          <!-- backup path linking the replicas, flowing -->
+          <path class="dba-backup dba-backup-anim" d="M60,178 V202 H200 V178" stroke-dasharray="4 6">
+            <animate attributeName="stroke-dashoffset" values="0;-10" dur="0.9s" repeatCount="indefinite" />
+          </path>
+
+          <!-- security shield beside the primary -->
+          <path class="dba-shield" d="M214,12 L228,17 V29 C228,37 222,41 214,45 C206,41 200,37 200,29 V17 Z">
+            <animate attributeName="stroke-opacity" values="1;0.35;1" dur="2.8s" repeatCount="indefinite" />
+          </path>
+          <circle class="dba-key" cx="214" cy="26" r="3" />
+          <rect class="dba-key" x="212.6" y="27" width="2.8" height="7" rx="1" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="dba-article-bottom">
+      <h3>Securing Your Skills Assessment for Migration Success</h3>
+      <p>
+        While locating the profile on the skilled occupation list is an excellent first step, advancing your journey requires a formal validation process. Before you can lodge your formal visa application, your database infrastructure credentials and professional background must be verified against mandatory visa requirements.
+      </p>
+      <p>
+        Depending on your specific educational background and assessing authority guidelines, drafting a comprehensive CDR for Database Administrator can serve as the technical foundation of your migration strategy. This engineering and computing report demonstrates your storage design, recovery planning, performance optimization, and security standards within the skilled occupation list framework.
+      </p>
+      <p>
+        Ultimately, a meticulously prepared technical report is essential for navigating the complexities of Australian immigration, smoothing your path toward securing an approved Australia visa so you can safely live and work in Australia.
+      </p>
+    </div>
+
+    <div class="dba-article-footer-trace">
+      <svg viewBox="0 0 600 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+          <pattern id="dba-cells" width="30" height="20" patternUnits="userSpaceOnUse">
+            <rect x="3" y="3" width="24" height="14" rx="2" fill="none" stroke="#7d5560" stroke-width="1.2" />
+          </pattern>
+        </defs>
+
+        <!-- table rows -->
+        <rect x="0" y="0" width="600" height="40" fill="url(#dba-cells)" />
+
+        <!-- query scan, sweeping across the rows and looping -->
+        <rect class="dba-scan-anim" x="-30" y="0" width="30" height="40" fill="rgba(255, 158, 138, 0.22)" stroke="#ff9e8a" stroke-width="1.4">
+          <animate attributeName="x" values="-30;600" dur="4s" repeatCount="indefinite" />
+        </rect>
+      </svg>
+    </div>
+
+  </div>
+</div>

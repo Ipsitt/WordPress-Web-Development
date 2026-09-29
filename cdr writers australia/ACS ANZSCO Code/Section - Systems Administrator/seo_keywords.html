@@ -1,0 +1,525 @@
+<style>
+  .sys-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #1a222b 0%, #0a0e12 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .sys-article * { box-sizing: border-box; }
+
+  /* faint rack-room glow, kept quiet behind everything */
+  .sys-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 55% 45% at 78% 50%, rgba(95, 208, 255, 0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .sys-article-inner { position: relative; }
+
+  /* ---------- top: heading + intro text, diagram ---------- */
+  .sys-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sys-article-text-1 {
+    grid-area: text1;
+    min-width: 0;
+    padding: 44px 12px 24px 44px;
+  }
+
+  .sys-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .sys-article-text-1 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #c7d6de !important;
+  }
+
+  .sys-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sys-article-diagram svg { width: 100%; height: auto; max-width: 260px; }
+
+  .sys-rack { fill: rgba(95, 208, 255, 0.05); stroke: #7fa8bb; stroke-width: 1.6; }
+  .sys-unit { fill: none; stroke: #435a68; stroke-width: 1.2; }
+  .sys-led { fill: #5fd0ff; }
+  .sys-amber { fill: #f2b23d; }
+  .sys-bar-track { fill: none; stroke: #435a68; stroke-width: 1.2; }
+  .sys-bar-fill { fill: #f2b23d; }
+  .sys-graph { fill: none; stroke: #5fd0ff; stroke-width: 1.6; }
+  .sys-graph-drop { fill: none; stroke: #cc1f29; stroke-width: 1.6; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sys-led-anim,
+    .sys-bar-anim,
+    .sys-graph-anim { display: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .sys-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(199, 214, 222, 0.14);
+    margin-top: 8px;
+  }
+  .sys-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .sys-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #c7d6de !important;
+  }
+  .sys-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: network topology animation (no text) ---------- */
+  .sys-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .sys-net-canvas {
+    width: 100%;
+    height: 130px;
+    background: #0c1014;
+    border: 1px solid rgba(95, 208, 255, 0.18);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sys-net-canvas svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* node pulse rings */
+  @keyframes sys-node-ring {
+    0%   { r: 7; opacity: 0.7; }
+    100% { r: 18; opacity: 0; }
+  }
+  /* link data dash flow */
+  @keyframes sys-dash-flow {
+    from { stroke-dashoffset: 200; }
+    to   { stroke-dashoffset: 0; }
+  }
+  /* particle travel along path */
+  @keyframes sys-particle-a {
+    0%   { offset-distance: 0%;   opacity: 1; }
+    90%  { opacity: 1; }
+    100% { offset-distance: 100%; opacity: 0; }
+  }
+  @keyframes sys-particle-b {
+    0%   { offset-distance: 100%; opacity: 1; }
+    90%  { opacity: 1; }
+    100% { offset-distance: 0%;   opacity: 0; }
+  }
+  /* shield pulse for the firewall node */
+  @keyframes sys-shield-pulse {
+    0%, 100% { opacity: 0.55; transform: scale(1);   }
+    50%       { opacity: 1;    transform: scale(1.12); }
+  }
+  /* core server glow */
+  @keyframes sys-core-glow {
+    0%, 100% { filter: drop-shadow(0 0 4px rgba(95,208,255,0.35)); }
+    50%       { filter: drop-shadow(0 0 11px rgba(95,208,255,0.80)); }
+  }
+  /* internet node orbit ring */
+  @keyframes sys-orbit {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sys-net-canvas * { animation: none !important; }
+  }
+
+  @media screen and (max-width: 767px) {
+    .sys-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram";
+    }
+    .sys-article-text-1 { padding: 24px 24px 0 24px; }
+    .sys-article-diagram { padding: 12px 24px; width: 100%; }
+    .sys-article-diagram svg { max-width: 210px; margin: 0 auto; }
+    .sys-article-bottom { padding: 4px 24px 8px 24px; }
+    .sys-article-bottom h3 { font-size: 16.5px !important; }
+    .sys-article-footer-trace { padding: 6px 24px 24px 24px; }
+    .sys-net-canvas { height: 110px; }
+  }
+</style>
+
+<div class="sys-article">
+  <div class="sys-article-inner">
+
+    <div class="sys-article-top">
+      <div class="sys-article-text-1">
+        <h2>Navigating the Systems Administrator Pathway in Australia</h2>
+        <p>
+          Building a career in network infrastructure management provides an exceptional advantage for long-term migration planning. As companies depend heavily on continuous system uptime, this technical role remains a highly sought-after skilled occupation. The profile is fully integrated into Australia's active skilled migration list, the immigration skills list, and the general skilled employment list.
+        </p>
+      </div>
+
+      <div class="sys-article-diagram">
+        <svg viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- uptime graph -->
+          <line class="sys-unit" x1="12" y1="34" x2="208" y2="34" />
+          <path class="sys-graph sys-graph-anim" d="M12,20 H120">
+            <animate attributeName="d" values="M12,20 H120;M12,20 H120" dur="6s" repeatCount="indefinite" />
+          </path>
+          <path class="sys-graph-drop sys-graph-anim" d="M120,20 L128,29 L136,20">
+            <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.62;0.68;0.8;0.86" dur="6s" repeatCount="indefinite" />
+          </path>
+          <path class="sys-graph sys-graph-anim" d="M136,20 H208" />
+          <text x="208" y="14" fill="#5fd0ff" font-size="9" font-family="Consolas, monospace" text-anchor="end"></text>
+
+          <!-- rack cabinet -->
+          <rect class="sys-rack" x="20" y="50" width="180" height="176" rx="6" />
+
+          <!-- server unit 1 -->
+          <rect class="sys-unit" x="32" y="64" width="156" height="26" rx="2" />
+          <circle class="sys-led sys-led-anim" cx="46" cy="77" r="3.2">
+            <animate attributeName="opacity" values="1;0.25;1" dur="1.6s" repeatCount="indefinite" />
+          </circle>
+          <line class="sys-unit" x1="58" y1="77" x2="150" y2="77" />
+
+          <!-- server unit 2: this is the one rolling through a patch/restart -->
+          <rect class="sys-unit" x="32" y="98" width="156" height="26" rx="2" />
+          <circle class="sys-led sys-led-anim" cx="46" cy="111" r="3.2">
+            <animate attributeName="fill" values="#5fd0ff;#5fd0ff;#f2b23d;#f2b23d;#5fd0ff" keyTimes="0;0.62;0.68;0.86;1" dur="6s" repeatCount="indefinite" />
+          </circle>
+          <rect class="sys-bar-track" x="58" y="107" width="92" height="8" rx="2" />
+          <rect class="sys-bar-fill sys-bar-anim" x="58" y="107" width="0" height="8" rx="2">
+            <animate attributeName="width" values="0;0;92;92;0" keyTimes="0;0.62;0.8;0.86;1" dur="6s" repeatCount="indefinite" />
+          </rect>
+
+          <!-- server unit 3 -->
+          <rect class="sys-unit" x="32" y="132" width="156" height="26" rx="2" />
+          <circle class="sys-led sys-led-anim" cx="46" cy="145" r="3.2">
+            <animate attributeName="opacity" values="1;0.25;1" dur="1.6s" begin="0.4s" repeatCount="indefinite" />
+          </circle>
+          <line class="sys-unit" x1="58" y1="145" x2="150" y2="145" />
+
+          <!-- server unit 4 -->
+          <rect class="sys-unit" x="32" y="166" width="156" height="26" rx="2" />
+          <circle class="sys-led sys-led-anim" cx="46" cy="179" r="3.2">
+            <animate attributeName="opacity" values="1;0.25;1" dur="1.6s" begin="0.8s" repeatCount="indefinite" />
+          </circle>
+          <line class="sys-unit" x1="58" y1="179" x2="150" y2="179" />
+
+          <!-- server unit 5 -->
+          <rect class="sys-unit" x="32" y="200" width="156" height="26" rx="2" />
+          <circle class="sys-led sys-led-anim" cx="46" cy="213" r="3.2">
+            <animate attributeName="opacity" values="1;0.25;1" dur="1.6s" begin="1.2s" repeatCount="indefinite" />
+          </circle>
+          <line class="sys-unit" x1="58" y1="213" x2="150" y2="213" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="sys-article-bottom">
+      <h3>Securing Your Skills Assessment for Migration Success</h3>
+      <p>
+        While spotting the position on the skilled occupation list is an excellent first step, advancing requires a formal validation process. Before you can lodge your formal visa application, your systems architecture credentials must be verified to satisfy mandatory visa requirements.
+      </p>
+      <p>
+        Depending on your background, preparing a tailored CDR for Systems Administrator may serve as the foundation of your review. This report details your system deployment, server optimization, and network troubleshooting to satisfy the criteria governing the skilled occupation list framework.
+      </p>
+      <p>
+        Ultimately, a robust technical portfolio is essential for navigating the complexities of Australian immigration, smoothing your path toward an approved Australia visa so you can legally live and work in Australia.
+      </p>
+    </div>
+
+    <div class="sys-article-footer-trace">
+      <div class="sys-net-canvas">
+        <svg viewBox="0 0 700 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <!-- gradient for links -->
+            <linearGradient id="lg-core" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#5fd0ff" stop-opacity="0.15"/>
+              <stop offset="50%" stop-color="#5fd0ff" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#5fd0ff" stop-opacity="0.15"/>
+            </linearGradient>
+            <linearGradient id="lg-warn" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#f2b23d" stop-opacity="0.15"/>
+              <stop offset="50%" stop-color="#f2b23d" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#f2b23d" stop-opacity="0.15"/>
+            </linearGradient>
+            <!-- clip so particles don't bleed out -->
+            <clipPath id="canvas-clip">
+              <rect width="700" height="130"/>
+            </clipPath>
+          </defs>
+
+          <g clip-path="url(#canvas-clip)">
+
+            <!-- ═══════════ LINKS (drawn under nodes) ═══════════ -->
+
+            <!-- Internet → Firewall -->
+            <line x1="90" y1="65" x2="210" y2="65"
+                  stroke="#5fd0ff" stroke-width="1.5" stroke-dasharray="8 5"
+                  stroke-opacity="0.35">
+              <animate attributeName="stroke-dashoffset"
+                from="200" to="0" dur="3s" repeatCount="indefinite"/>
+            </line>
+
+            <!-- Firewall → Core Server -->
+            <line x1="265" y1="65" x2="340" y2="65"
+                  stroke="#5fd0ff" stroke-width="1.8" stroke-dasharray="6 4"
+                  stroke-opacity="0.45">
+              <animate attributeName="stroke-dashoffset"
+                from="200" to="0" dur="2.4s" repeatCount="indefinite"/>
+            </line>
+
+            <!-- Core → DB node (down-right) -->
+            <line x1="365" y1="75" x2="430" y2="105"
+                  stroke="#5fd0ff" stroke-width="1.4" stroke-dasharray="5 4"
+                  stroke-opacity="0.38">
+              <animate attributeName="stroke-dashoffset"
+                from="150" to="0" dur="2.8s" repeatCount="indefinite"/>
+            </line>
+
+            <!-- Core → App node (up-right) -->
+            <line x1="365" y1="55" x2="430" y2="26"
+                  stroke="#5fd0ff" stroke-width="1.4" stroke-dasharray="5 4"
+                  stroke-opacity="0.38">
+              <animate attributeName="stroke-dashoffset"
+                from="150" to="0" dur="2.2s" repeatCount="indefinite"/>
+            </line>
+
+            <!-- Core → Monitoring (right) -->
+            <line x1="370" y1="65" x2="490" y2="65"
+                  stroke="#f2b23d" stroke-width="1.4" stroke-dasharray="5 5"
+                  stroke-opacity="0.40">
+              <animate attributeName="stroke-dashoffset"
+                from="200" to="0" dur="3.5s" repeatCount="indefinite"/>
+            </line>
+
+            <!-- Monitoring → Backup (far right) -->
+            <line x1="545" y1="65" x2="620" y2="65"
+                  stroke="#6fe89a" stroke-width="1.4" stroke-dasharray="5 5"
+                  stroke-opacity="0.40">
+              <animate attributeName="stroke-dashoffset"
+                from="200" to="0" dur="4s" repeatCount="indefinite"/>
+            </line>
+
+            <!-- ═══════════ DATA-FLOW PARTICLES ═══════════ -->
+
+            <!-- Particle: Internet → Firewall (right) -->
+            <circle r="3" fill="#5fd0ff" opacity="0">
+              <animateMotion dur="3s" repeatCount="indefinite" begin="0s"
+                path="M90,65 L210,65">
+                <mpath/>
+              </animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="3s" repeatCount="indefinite" begin="0s"/>
+            </circle>
+            <!-- Particle: Internet → Firewall (left, return) -->
+            <circle r="2.5" fill="#5fd0ff" opacity="0">
+              <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s"
+                path="M210,65 L90,65">
+                <mpath/>
+              </animateMotion>
+              <animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.1;0.85;1" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+            </circle>
+
+            <!-- Particle: Firewall → Core -->
+            <circle r="3" fill="#5fd0ff" opacity="0">
+              <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.3s"
+                path="M265,65 L340,65">
+                <mpath/>
+              </animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.4s" repeatCount="indefinite" begin="0.3s"/>
+            </circle>
+
+            <!-- Particle: Core → App -->
+            <circle r="2.5" fill="#5fd0ff" opacity="0">
+              <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.6s"
+                path="M365,55 L430,26">
+                <mpath/>
+              </animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.2s" repeatCount="indefinite" begin="0.6s"/>
+            </circle>
+
+            <!-- Particle: Core → DB -->
+            <circle r="2.5" fill="#5fd0ff" opacity="0">
+              <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.9s"
+                path="M365,75 L430,105">
+                <mpath/>
+              </animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.8s" repeatCount="indefinite" begin="0.9s"/>
+            </circle>
+
+            <!-- Particle: Core → Monitoring -->
+            <circle r="2.5" fill="#f2b23d" opacity="0">
+              <animateMotion dur="3.5s" repeatCount="indefinite" begin="1.2s"
+                path="M370,65 L490,65">
+                <mpath/>
+              </animateMotion>
+              <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.1;0.85;1" dur="3.5s" repeatCount="indefinite" begin="1.2s"/>
+            </circle>
+
+            <!-- Particle: Monitoring → Backup -->
+            <circle r="2.5" fill="#6fe89a" opacity="0">
+              <animateMotion dur="4s" repeatCount="indefinite" begin="0s"
+                path="M545,65 L620,65">
+                <mpath/>
+              </animateMotion>
+              <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.1;0.85;1" dur="4s" repeatCount="indefinite"/>
+            </circle>
+
+            <!-- ═══════════ NODES ═══════════ -->
+
+            <!-- NODE 1: Internet cloud (left) -->
+            <g transform="translate(65,65)">
+              <!-- orbit ring -->
+              <g style="transform-origin:0px 0px; animation: sys-orbit 8s linear infinite;">
+                <circle r="22" fill="none" stroke="#5fd0ff" stroke-width="0.8"
+                        stroke-dasharray="4 8" stroke-opacity="0.3"/>
+                <circle cx="22" cy="0" r="2.5" fill="#5fd0ff" opacity="0.7"/>
+              </g>
+              <!-- cloud arcs (no text) -->
+              <ellipse rx="18" ry="11" fill="#1a3a4a" stroke="#5fd0ff" stroke-width="1.4" stroke-opacity="0.7"/>
+              <circle cx="-9" cy="2" r="8" fill="#1a3a4a" stroke="#5fd0ff" stroke-width="1.2" stroke-opacity="0.6"/>
+              <circle cx="5" cy="0" r="10" fill="#1a3a4a" stroke="#5fd0ff" stroke-width="1.2" stroke-opacity="0.6"/>
+              <circle cx="16" cy="3" r="7" fill="#1a3a4a" stroke="#5fd0ff" stroke-width="1.2" stroke-opacity="0.6"/>
+            </g>
+
+            <!-- NODE 2: Firewall (shield icon) -->
+            <g transform="translate(237,65)">
+              <!-- pulse ring -->
+              <circle r="7" fill="none" stroke="#f2b23d" stroke-width="1.5" stroke-opacity="0">
+                <animate attributeName="r" values="7;22" dur="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="stroke-opacity" values="0.7;0" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+              <!-- shield shape -->
+              <path d="M0,-18 L15,-10 L15,4 Q15,14 0,20 Q-15,14 -15,4 L-15,-10 Z"
+                    fill="rgba(242,178,61,0.15)" stroke="#f2b23d" stroke-width="1.6"
+                    style="animation: sys-shield-pulse 3s ease-in-out infinite; transform-origin:0px 0px;"/>
+              <!-- keyhole -->
+              <circle cx="0" cy="-2" r="4" fill="none" stroke="#f2b23d" stroke-width="1.3"/>
+              <rect x="-2" y="2" width="4" height="6" rx="1" fill="#f2b23d" opacity="0.8"/>
+            </g>
+
+            <!-- NODE 3: Core Server (centre star) -->
+            <g transform="translate(352,65)"
+               style="animation: sys-core-glow 2.5s ease-in-out infinite; transform-origin:0px 0px;">
+              <!-- outer ring -->
+              <circle r="20" fill="rgba(95,208,255,0.08)" stroke="#5fd0ff" stroke-width="1.5" stroke-opacity="0.5"/>
+              <!-- inner filled circle -->
+              <circle r="12" fill="#142433" stroke="#5fd0ff" stroke-width="2" stroke-opacity="0.9"/>
+              <!-- CPU cross icon -->
+              <rect x="-5" y="-5" width="10" height="10" rx="2"
+                    fill="none" stroke="#5fd0ff" stroke-width="1.8"/>
+              <line x1="-9" y1="-3" x2="-5" y2="-3" stroke="#5fd0ff" stroke-width="1.3"/>
+              <line x1="-9" y1="3" x2="-5" y2="3" stroke="#5fd0ff" stroke-width="1.3"/>
+              <line x1="5" y1="-3" x2="9" y2="-3" stroke="#5fd0ff" stroke-width="1.3"/>
+              <line x1="5" y1="3" x2="9" y2="3" stroke="#5fd0ff" stroke-width="1.3"/>
+              <line x1="-3" y1="-9" x2="-3" y2="-5" stroke="#5fd0ff" stroke-width="1.3"/>
+              <line x1="3" y1="-9" x2="3" y2="-5" stroke="#5fd0ff" stroke-width="1.3"/>
+              <line x1="-3" y1="5" x2="-3" y2="9" stroke="#5fd0ff" stroke-width="1.3"/>
+              <line x1="3" y1="5" x2="3" y2="9" stroke="#5fd0ff" stroke-width="1.3"/>
+            </g>
+
+            <!-- NODE 4: App Server (top right) -->
+            <g transform="translate(448,26)">
+              <circle r="7" fill="none" stroke="#5fd0ff" stroke-width="1.2" stroke-opacity="0">
+                <animate attributeName="r" values="7;17" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+                <animate attributeName="stroke-opacity" values="0.6;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+              </circle>
+              <rect x="-14" y="-14" width="28" height="28" rx="4"
+                    fill="rgba(95,208,255,0.08)" stroke="#5fd0ff" stroke-width="1.5" stroke-opacity="0.7"/>
+              <!-- app/window icon -->
+              <rect x="-9" y="-9" width="18" height="4" rx="1" fill="#5fd0ff" opacity="0.5"/>
+              <line x1="-9" y1="-2" x2="9" y2="-2" stroke="#5fd0ff" stroke-width="1" stroke-opacity="0.4"/>
+              <line x1="-9" y1="2" x2="5" y2="2" stroke="#5fd0ff" stroke-width="1" stroke-opacity="0.4"/>
+              <line x1="-9" y1="6" x2="7" y2="6" stroke="#5fd0ff" stroke-width="1" stroke-opacity="0.4"/>
+            </g>
+
+            <!-- NODE 5: Database (bottom right) -->
+            <g transform="translate(448,105)">
+              <circle r="7" fill="none" stroke="#5fd0ff" stroke-width="1.2" stroke-opacity="0">
+                <animate attributeName="r" values="7;17" dur="3.5s" repeatCount="indefinite" begin="1s"/>
+                <animate attributeName="stroke-opacity" values="0.6;0" dur="3.5s" repeatCount="indefinite" begin="1s"/>
+              </circle>
+              <!-- cylinder top -->
+              <ellipse cx="0" cy="-12" rx="12" ry="5"
+                       fill="rgba(95,208,255,0.1)" stroke="#5fd0ff" stroke-width="1.4" stroke-opacity="0.7"/>
+              <!-- cylinder body -->
+              <rect x="-12" y="-12" width="24" height="22" rx="0"
+                    fill="rgba(95,208,255,0.05)" stroke="#5fd0ff" stroke-width="1.4" stroke-opacity="0.5"/>
+              <!-- cylinder bottom arc -->
+              <ellipse cx="0" cy="10" rx="12" ry="5"
+                       fill="rgba(95,208,255,0.1)" stroke="#5fd0ff" stroke-width="1.4" stroke-opacity="0.7"/>
+              <!-- LED blink -->
+              <circle cx="7" cy="-12" r="2.5" fill="#5fd0ff">
+                <animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite" begin="0.4s"/>
+              </circle>
+            </g>
+
+            <!-- NODE 6: Monitoring dashboard (right) -->
+            <g transform="translate(517,65)">
+              <circle r="7" fill="none" stroke="#f2b23d" stroke-width="1.2" stroke-opacity="0">
+                <animate attributeName="r" values="7;20" dur="4s" repeatCount="indefinite" begin="0.8s"/>
+                <animate attributeName="stroke-opacity" values="0.6;0" dur="4s" repeatCount="indefinite" begin="0.8s"/>
+              </circle>
+              <rect x="-16" y="-14" width="32" height="28" rx="4"
+                    fill="rgba(242,178,61,0.08)" stroke="#f2b23d" stroke-width="1.5" stroke-opacity="0.7"/>
+              <!-- sparkline bars -->
+              <rect x="-11" y="4" width="4" height="6" rx="1" fill="#f2b23d" opacity="0.7"/>
+              <rect x="-5" y="-2" width="4" height="12" rx="1" fill="#f2b23d" opacity="0.7"/>
+              <rect x="1" y="1" width="4" height="9" rx="1" fill="#f2b23d" opacity="0.7"/>
+              <rect x="7" y="-5" width="4" height="15" rx="1" fill="#f2b23d" opacity="0.7"/>
+              <!-- alert dot -->
+              <circle cx="13" cy="-10" r="3" fill="#cc1f29">
+                <animate attributeName="opacity" values="1;0;1" dur="1.4s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+
+            <!-- NODE 7: Backup (far right) -->
+            <g transform="translate(635,65)">
+              <circle r="7" fill="none" stroke="#6fe89a" stroke-width="1.2" stroke-opacity="0">
+                <animate attributeName="r" values="7;18" dur="4.5s" repeatCount="indefinite" begin="1.5s"/>
+                <animate attributeName="stroke-opacity" values="0.6;0" dur="4.5s" repeatCount="indefinite" begin="1.5s"/>
+              </circle>
+              <!-- hard-drive platter icon -->
+              <circle r="15" fill="rgba(111,232,154,0.07)" stroke="#6fe89a" stroke-width="1.4" stroke-opacity="0.7"/>
+              <circle r="7" fill="rgba(111,232,154,0.12)" stroke="#6fe89a" stroke-width="1.2" stroke-opacity="0.6"/>
+              <circle r="2.5" fill="#6fe89a" opacity="0.9"/>
+              <!-- arc scratches -->
+              <path d="M-14,0 A14,14 0 0,1 7,-12" fill="none" stroke="#6fe89a"
+                    stroke-width="1" stroke-opacity="0.4"/>
+              <path d="M8,13 A14,14 0 0,1 14,2" fill="none" stroke="#6fe89a"
+                    stroke-width="1" stroke-opacity="0.4"/>
+            </g>
+
+          </g>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</div>

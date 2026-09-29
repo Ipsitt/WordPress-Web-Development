@@ -1,21 +1,313 @@
-<div class="seo-card-container" style="background: #ffffff; padding: 35px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); font-family: inherit; color: #333333; line-height: 1.6;">
-    <h2 style="color: #222222; margin-top: 0; margin-bottom: 20px; font-size: 19px; font-weight: 700;">Navigating the ICT Managers NEC Pathway in Australia</h2>
+﻿<!-- The main design is an interconnected multi-node framework layout. It features a central rotating "hybrid management gear" emitting data pulses to four distinct peripheral nodes representing typical diverse IT realms (Servers/Ops, Network/Cloud, Strategy/Data, and Risk/Governance). -->
 
-    <p style="margin-bottom: 15px;">
-        Targeting a career in specialized technology management provides an exceptional advantage for long-term migration planning. As organizations require unique leadership to govern niche digital frameworks, this executive profile remains a prominent australia skilled occupation across the tech sector. The role is actively integrated into the australia skilled migration list, the australian immigration skills list, and the general skilled employment list, offering excellent strategic options across multiple territories.
-    </p>
+<!-- The foooter is a horizontally scrolling ticker with icons tailored to the NEC manager domains:
+An animated rotating Operations Gear.
+A Governance/Compliance Shield.
+A Service Delivery / Network Globe.
+A Strategic Planning Diamond. -->
 
-    <h3 style="color: #222222; font-size: 19px; margin-bottom: 15px; font-weight: 600;">Securing Your Skills Assessment for Migration Success</h3>
+<style>
+  .nec-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #1f1b14 0%, #0d0b08 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .nec-article * { box-sizing: border-box; }
 
-    <p style="margin-bottom: 15px;">
-        While identifying the position on the skill list australia or the broader australia skilled occupation list is an excellent initial step, advancing requires a formal validation process. Before you can lodge your formal visa application, your managerial credentials and technical background must be verified to satisfy mandatory visa requirements.
-    </p>
+  /* Faint hexagonal/mesh pattern representing complex integrated management */
+  .nec-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(30deg, rgba(230, 184, 124, 0.02) 12%, transparent 12.5%, transparent 87%, rgba(230, 184, 124, 0.02) 87.5%, rgba(230, 184, 124, 0.02)),
+      linear-gradient(150deg, rgba(230, 184, 124, 0.02) 12%, transparent 12.5%, transparent 87%, rgba(230, 184, 124, 0.02) 87.5%, rgba(230, 184, 124, 0.02)),
+      linear-gradient(30deg, rgba(230, 184, 124, 0.02) 12%, transparent 12.5%, transparent 87%, rgba(230, 184, 124, 0.02) 87.5%, rgba(230, 184, 124, 0.02)),
+      linear-gradient(150deg, rgba(230, 184, 124, 0.02) 12%, transparent 12.5%, transparent 87%, rgba(230, 184, 124, 0.02) 87.5%, rgba(230, 184, 124, 0.02)),
+      linear-gradient(60deg, rgba(230, 184, 124, 0.02) 25%, transparent 25.5%, transparent 75%, rgba(230, 184, 124, 0.02) 75%, rgba(230, 184, 124, 0.02)),
+      linear-gradient(60deg, rgba(230, 184, 124, 0.02) 25%, transparent 25.5%, transparent 75%, rgba(230, 184, 124, 0.02) 75%, rgba(230, 184, 124, 0.02));
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+    pointer-events: none;
+  }
 
-    <p style="margin-bottom: 15px;">
-        Depending on your specific pathway, a comprehensive CDR for ICT Manager NEC can serve as the core foundation of your technical submission. This documentation details your operational oversight, strategic infrastructure deployment, and technical leadership models within the skill occupation list australia framework.
-    </p>
+  .nec-article-inner { position: relative; }
 
-    <p style="margin-bottom: 0;">
-        Ultimately, a robust professional portfolio is essential for navigating the complexities of australia immigration, smoothing your path toward an approved australia visa so you can safely live and work australia visa streams.
-    </p>
+  .nec-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram" "text2 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .nec-article-text-1 { grid-area: text1; }
+  .nec-article-text-2 { grid-area: text2; }
+
+  .nec-article-text-1,
+  .nec-article-text-2 {
+    min-width: 0;
+    padding: 44px 12px 0 44px;
+  }
+  .nec-article-text-2 { padding: 0 12px 24px 44px; }
+
+  .nec-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .nec-article-text-1 p,
+  .nec-article-text-2 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #ebd7b9 !important;
+  }
+
+  .nec-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nec-article-diagram svg { width: 100%; height: auto; max-width: 280px; }
+
+  /* SVG elements */
+  .nec-box { fill: rgba(230, 184, 124, 0.05); stroke: #e6b87c; stroke-width: 1.5; }
+  .nec-line { fill: none; stroke: #c79a54; stroke-width: 1.5; }
+  .nec-line-dash { fill: none; stroke: #c79a54; stroke-width: 1.5; stroke-dasharray: 4 4; }
+  .nec-accent { fill: #e6b87c; }
+  .nec-glow { fill: rgba(230, 184, 124, 0.1); }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .nec-article animate,
+    .nec-article animateTransform,
+    .nec-article animateMotion { display: none; }
+  }
+
+  .nec-article-bottom {
+    padding: 4px 44px 16px 44px;
+    border-top: 1px solid rgba(230, 184, 124, 0.15);
+    margin-top: 8px;
+  }
+  .nec-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .nec-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #ebd7b9 !important;
+  }
+  .nec-article-bottom p:last-child { margin-bottom: 0; }
+
+  .nec-article-footer-trace {
+    padding: 8px 44px 16px 44px;
+    position: relative;
+  }
+  .nec-article-footer-trace svg { width: 100%; height: 34px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .nec-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram" "text2";
+    }
+    .nec-article-text-1 { padding: 24px 24px 0 24px; }
+    .nec-article-text-2 { padding: 8px 24px 8px 24px; }
+    .nec-article-diagram { padding: 12px 24px; width: 100%; }
+    .nec-article-diagram svg { max-width: 220px; margin: 0 auto; }
+    .nec-article-bottom { padding: 4px 24px 8px 24px; }
+    .nec-article-bottom h3 { font-size: 16.5px !important; }
+    .nec-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="nec-article">
+  <div class="nec-article-inner">
+
+    <div class="nec-article-top">
+      <div class="nec-article-text-1">
+        <h2>Navigating the ICT Managers NEC Pathway in Australia</h2>
+        <p>
+          Targeting a career in specialized technology management provides an exceptional advantage for long-term migration planning. As organizations require unique leadership to govern niche digital frameworks, this executive profile remains a prominent Australia skilled occupation across the tech sector. The role is actively integrated into the Australia skilled migration list, the Australian immigration skills list, and the general skilled employment list, offering excellent strategic options across multiple territories.
+        </p>
+      </div>
+
+      <div class="nec-article-diagram">
+        <svg viewBox="0 0 260 280" xmlns="http://www.w3.org/2000/svg">
+          <!-- Connectors between Center and Periphery -->
+          <line x1="56" y1="76" x2="108" y2="118" class="nec-line-dash" />
+          <line x1="204" y1="76" x2="152" y2="118" class="nec-line-dash" />
+          <line x1="56" y1="204" x2="108" y2="162" class="nec-line-dash" />
+          <line x1="204" y1="204" x2="152" y2="162" class="nec-line-dash" />
+
+          <!-- Pulses -->
+          <circle r="2" fill="#e6b87c"><animateMotion path="M 56,76 L 108,118" dur="2s" repeatCount="indefinite" /></circle>
+          <circle r="2" fill="#e6b87c"><animateMotion path="M 152,118 L 204,76" dur="2.5s" repeatCount="indefinite" /></circle>
+          <circle r="2" fill="#e6b87c"><animateMotion path="M 56,204 L 108,162" dur="1.8s" repeatCount="indefinite" /></circle>
+          <circle r="2" fill="#e6b87c"><animateMotion path="M 152,162 L 204,204" dur="2.2s" repeatCount="indefinite" /></circle>
+
+          <!-- Central Node: Specialized Management Core -->
+          <g transform="translate(130, 140)">
+            <circle cx="0" cy="0" r="30" fill="none" stroke="#e6b87c" stroke-dasharray="8 6" stroke-width="2">
+              <animateTransform attributeName="transform" type="rotate" values="0; 360" dur="15s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="0" cy="0" r="22" class="nec-glow" stroke="#c79a54" stroke-width="2" />
+            <circle cx="0" cy="0" r="14" class="nec-glow" />
+            <!-- Inner rotating gear -->
+            <path d="M 0,-8 L 2,-4 L 4,-2 L 8,0 L 4,2 L 2,4 L 0,8 L -2,4 L -4,2 L -8,0 L -4,-2 L -2,-4 Z" class="nec-accent">
+              <animateTransform attributeName="transform" type="rotate" values="360; 0" dur="8s" repeatCount="indefinite" />
+            </path>
+          </g>
+
+          <!-- Node 1 (Top Left): Server / Ops -->
+          <g transform="translate(20, 40)">
+            <rect x="0" y="0" width="40" height="40" rx="6" class="nec-box" />
+            <rect x="8" y="10" width="24" height="4" rx="1" fill="#c79a54" />
+            <rect x="8" y="18" width="24" height="4" rx="1" fill="#c79a54" />
+            <rect x="8" y="26" width="24" height="4" rx="1" fill="#c79a54" />
+            <circle cx="12" cy="12" r="1.5" class="nec-accent"><animate attributeName="opacity" values="1;0.2;1" dur="1s" repeatCount="indefinite"/></circle>
+            <circle cx="12" cy="20" r="1.5" class="nec-accent"><animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite"/></circle>
+            <circle cx="12" cy="28" r="1.5" class="nec-accent"><animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/></circle>
+          </g>
+
+          <!-- Node 2 (Top Right): Network / Cloud -->
+          <g transform="translate(200, 40)">
+            <rect x="0" y="0" width="40" height="40" rx="6" class="nec-box" />
+            <circle cx="20" cy="20" r="10" class="nec-line" />
+            <ellipse cx="20" cy="20" rx="4" ry="10" class="nec-line" />
+            <line x1="10" y1="20" x2="30" y2="20" class="nec-line" />
+            <circle cx="20" cy="10" r="2" class="nec-accent" />
+            <circle cx="10" cy="20" r="2" class="nec-accent" />
+          </g>
+
+          <!-- Node 3 (Bottom Left): Data / Strategy -->
+          <g transform="translate(20, 200)">
+            <rect x="0" y="0" width="40" height="40" rx="6" class="nec-box" />
+            <circle cx="20" cy="20" r="10" fill="none" stroke="#c79a54" stroke-width="4" stroke-dasharray="30 30" />
+            <circle cx="20" cy="20" r="10" fill="none" stroke="#e6b87c" stroke-width="4" stroke-dasharray="15 45" stroke-dashoffset="-15" />
+            <circle cx="20" cy="20" r="3" class="nec-accent" />
+          </g>
+
+          <!-- Node 4 (Bottom Right): Risk / Governance -->
+          <g transform="translate(200, 200)">
+            <rect x="0" y="0" width="40" height="40" rx="6" class="nec-box" />
+            <path d="M 20,8 L 30,12 L 30,22 Q 30,30 20,34 Q 10,30 10,22 L 10,12 Z" class="nec-line" />
+            <line x1="20" y1="14" x2="20" y2="22" class="nec-line" stroke-width="2" />
+            <circle cx="20" cy="26" r="1.5" class="nec-accent" />
+          </g>
+
+        </svg>
+      </div>
+
+      <div class="nec-article-text-2">
+        <p>
+          While identifying the position on the skill list Australia or the broader Australia skilled occupation list is an excellent initial step, advancing requires a formal validation process. Before you can lodge your formal visa application, your managerial credentials and technical background must be verified to satisfy mandatory visa requirements.
+        </p>
+      </div>
+    </div>
+
+    <div class="nec-article-bottom">
+      <h3>Securing Your Skills Assessment for Migration Success</h3>
+      <p>
+        Depending on your specific pathway, a comprehensive CDR for ICT Manager NEC can serve as the core foundation of your technical submission. This documentation details your operational oversight, strategic infrastructure deployment, and technical leadership models within the skill occupation list Australia framework.
+      </p>
+      <p>
+        Ultimately, a robust professional portfolio is essential for navigating the complexities of Australia immigration, smoothing your path toward an approved Australia visa so you can safely live and work in Australia.
+      </p>
+    </div>
+
+    <!-- FOOTER: Diverse Specialized IT Lifecycle Ticker -->
+    <div class="nec-article-footer-trace">
+      <svg width="100%" height="34" xmlns="http://www.w3.org/2000/svg">
+        
+        <!-- Core integration baseline -->
+        <line x1="0" y1="17" x2="100%" y2="17" stroke="#e6b87c" stroke-width="1.5" stroke-opacity="0.3" />
+        
+        <!-- Data pulses traveling along the baseline -->
+        <circle cy="17" r="2" fill="#ffffff"><animate attributeName="cx" values="-10; 3000" dur="25s" repeatCount="indefinite" begin="0s"/></circle>
+        <circle cy="17" r="2" fill="#ffffff"><animate attributeName="cx" values="-10; 3000" dur="25s" repeatCount="indefinite" begin="-5s"/></circle>
+        <circle cy="17" r="2" fill="#ffffff"><animate attributeName="cx" values="-10; 3000" dur="25s" repeatCount="indefinite" begin="-10s"/></circle>
+        <circle cy="17" r="2" fill="#ffffff"><animate attributeName="cx" values="-10; 3000" dur="25s" repeatCount="indefinite" begin="-15s"/></circle>
+        <circle cy="17" r="2" fill="#ffffff"><animate attributeName="cx" values="-10; 3000" dur="25s" repeatCount="indefinite" begin="-20s"/></circle>
+
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0,0; -600,0" dur="18s" repeatCount="indefinite" />
+          
+          <defs>
+            <g id="nec-footer-cycle">
+              
+              <!-- 1. Operations (Gear) -->
+              <g transform="translate(60, 7)">
+                <circle cx="10" cy="10" r="7" fill="#1f1b14" stroke="#c79a54" stroke-width="1.5" />
+                <circle cx="10" cy="10" r="3" fill="none" stroke="#e6b87c" stroke-width="1.5" />
+                <path d="M10,0 L10,3 M10,17 L10,20 M0,10 L3,10 M17,10 L20,10 M2.9,2.9 L5.1,5.1 M14.9,14.9 L17.1,17.1 M2.9,17.1 L5.1,14.9 M14.9,5.1 L17.1,2.9" stroke="#e6b87c" stroke-width="1.5" />
+                <!-- Subtle rotation -->
+                <animateTransform attributeName="transform" type="rotate" values="0 10 10; 360 10 10" dur="10s" repeatCount="indefinite" additive="sum" />
+              </g>
+
+              <!-- 2. Governance / Shield -->
+              <g transform="translate(210, 5)">
+                <path d="M 10,0 L 22,4 L 22,14 Q 22,24 10,28 Q -2,24 -2,14 L -2,4 Z" fill="rgba(230, 184, 124, 0.15)" stroke="#c79a54" stroke-width="1.5" />
+                <path d="M 4,14 L 8,18 L 16,8" fill="none" stroke="#e6b87c" stroke-width="2" />
+                <circle cx="10" cy="28" r="2.5" class="nec-accent"><animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/></circle>
+              </g>
+
+              <!-- 3. Service / Network Globe -->
+              <g transform="translate(360, 7)">
+                <circle cx="10" cy="10" r="9" fill="#1f1b14" stroke="#c79a54" stroke-width="1.5" />
+                <ellipse cx="10" cy="10" rx="4" ry="9" fill="none" stroke="#e6b87c" stroke-width="1.5" />
+                <line x1="1" y1="10" x2="19" y2="10" stroke="#e6b87c" stroke-width="1.5" />
+                <circle cx="10" cy="10" r="2.5" class="nec-accent"><animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite"/></circle>
+              </g>
+
+              <!-- 4. Strategy / Diamond -->
+              <g transform="translate(510, 7)">
+                <polygon points="10,0 20,10 10,20 0,10" fill="rgba(230, 184, 124, 0.15)" stroke="#c79a54" stroke-width="1.5" />
+                <polygon points="10,4 16,10 10,16 4,10" fill="none" stroke="#e6b87c" stroke-width="1.5" />
+                <circle cx="10" cy="10" r="2.5" class="nec-accent"><animate attributeName="opacity" values="1;0.2;1" dur="2.5s" repeatCount="indefinite"/></circle>
+              </g>
+              
+            </g>
+          </defs>
+
+          <!-- Seamless loop cycles for wide screens -->
+          <use href="#nec-footer-cycle" x="0" />
+          <use href="#nec-footer-cycle" x="600" />
+          <use href="#nec-footer-cycle" x="1200" />
+          <use href="#nec-footer-cycle" x="1800" />
+          <use href="#nec-footer-cycle" x="2400" />
+        </g>
+        
+        <!-- Edge fade overlays -->
+        <defs>
+          <linearGradient id="fade-left" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0d0b08" stop-opacity="1" />
+            <stop offset="100%" stop-color="#0d0b08" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="fade-right" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0d0b08" stop-opacity="0" />
+            <stop offset="100%" stop-color="#0d0b08" stop-opacity="1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="40" height="34" fill="url(#fade-left)" />
+        <rect x="100%" y="0" width="40" height="34" transform="translate(-40, 0)" fill="url(#fade-right)" />
+      </svg>
+    </div>
+
+  </div>
 </div>

@@ -1,8 +1,5 @@
 <style>
   /* Scoped CSS to prevent theme conflicts */
-  html {
-    scroll-behavior: smooth;
-  }
   .wpb-cdr-wrap {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     max-width: 1100px;
@@ -163,7 +160,7 @@
     color: #111111;
     margin: 0 0 15px 0;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-start; /* Aligns icon with the first line of text */
     gap: 12px;
   }
   .wpb-cdr-panel h3 svg {
@@ -171,7 +168,7 @@
     height: 24px;
     stroke: #dd3333;
     flex-shrink: 0;
-    margin-top: 3px;
+    margin-top: 3px; /* Fine-tunes vertical alignment with the first line cap-height */
   }
   .wpb-cdr-lead {
     font-size: 17px !important;
@@ -273,13 +270,6 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dd3333' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
-  }
-
-  /* Jump links styling for Tab 3 */
-  .wpb-cdr-jump-list li a {
-    display: block;
-    color: inherit;
-    text-decoration: none;
   }
 
   /* Responsive Design */
@@ -429,16 +419,16 @@
       <img class="wpb-cdr-card-img" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/Gemini_Generated_Image_1hvb5t1hvb5t1hvb.jpg" alt="What is included in CDR">
       <p class="wpb-cdr-lead">CDR Writers Australia provides the best CDR Report Writing Service. All the necessary requirements are included in our complete CDR Writing Service. We do all the work for you, leaving just the submission part to you.</p>
       <p><strong>Here are the included parts of our CDR Report Service:</strong></p>
-      <ul class="wpb-cdr-jump-list">
-        <li><a href="#sec-cpd">Continuing Professional Development</a></li>
-        <li><a href="#sec-career">Career Episodes</a></li>
-        <li><a href="#sec-summary">Summary Statement</a></li>
-        <li><a href="#sec-plagiarism">Plagiarism Check</a></li>
-        <li><a href="#sec-proofreading">Proof Reading</a></li>
+      <ul>
+        <li>Continuing Professional Development</li>
+        <li>Career Episodes</li>
+        <li>Summary Statement</li>
+        <li>Plagiarism Check</li>
+        <li>Proof Reading</li>
       </ul>
     </div>
 
-    <div class="wpb-cdr-card" id="sec-cpd">
+    <div class="wpb-cdr-card">
       <h3><svg viewBox="0 0 24 24" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 6 23 6 23 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What is Continuing Professional Development?</h3>
       <p>Continuing Professional Development (CPD) is the process that will keep you on trend with the recent happenings of engineering news after your undergraduate qualification. It is used for documenting your skills, knowledge, and experience gained in your training years.</p>
       <p><strong>CPD Report list should include the following:</strong></p>
@@ -451,7 +441,7 @@
       </ul>
     </div>
 
-    <div class="wpb-cdr-card" id="sec-career">
+    <div class="wpb-cdr-card">
       <h3><svg viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="22.08" x2="12" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What are Career Episodes in CDR?</h3>
       <p>Career Episodes are what explain your educational qualification and work experience in the field of engineering. All three Career episodes are based on three specific engineering projects done over a certain period of time. Career Episodes give detailed information on technical and other skills an engineer applied to the project described.</p>
       <p>Three Career Episodes in your CDR Report focus on a different element of your engineering career. Each career episode should be 1,000 to 2,500 words long and include any technical challenges you found and solved. This might be an engineering job you completed during your course.</p>
@@ -477,7 +467,7 @@
     </div>
 
     <!-- What is a Summary Statement Card with Top-Right Small Thumbnail -->
-    <div class="wpb-cdr-card wpb-cdr-card-side" id="sec-summary">
+    <div class="wpb-cdr-card wpb-cdr-card-side">
       <div class="wpb-cdr-card-body">
         <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="13" x2="8" y2="13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="17" x2="8" y2="17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What is a Summary Statement in CDR?</h3>
         <p>A Summary Statement is the most important and difficult part of any CDR. In this section, you need to analyze that you have illustrated all the competency elements for the nominated occupational category as described in the ANZSCO code. In the summary statement, you need to provide the cross-references of the paragraphs that you have written in each career episode. Only one Summary Statement (SS) is required for all three episodes.</p>
@@ -486,7 +476,7 @@
     </div>
 
     <!-- What is a Plagiarism Check Card with Top-Right Small Thumbnail -->
-    <div class="wpb-cdr-card wpb-cdr-card-side" id="sec-plagiarism">
+    <div class="wpb-cdr-card wpb-cdr-card-side">
       <div class="wpb-cdr-card-body">
         <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21l-4.35-4.35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What is a Plagiarism Check in CDR?</h3>
         <p>CDR Writers Australia ensures that the CDR Report will be 100% original, plagiarism-free work. So, there will be no chance of being claimed as plagiarized.</p>
@@ -495,7 +485,7 @@
     </div>
 
     <!-- What is Proofreading Card with Top-Right Small Thumbnail -->
-    <div class="wpb-cdr-card wpb-cdr-card-side" id="sec-proofreading">
+    <div class="wpb-cdr-card wpb-cdr-card-side">
       <div class="wpb-cdr-card-body">
         <h3><svg viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What is Proofreading in CDR?</h3>
         <p>Proofreading is the process of reviewing the final report to ensure consistency and accuracy in grammar, spelling, punctuation, and formatting. We correct all the minor errors in spelling, grammar, syntax, punctuation, and formatting and make a CDR easier to understand.</p>

@@ -94,7 +94,7 @@
     padding: 30px;
     box-shadow: 0 8px 25px rgba(221, 51, 51, 0.05);
     margin-bottom: 25px;
-    border: 1px solid #fee2e2;
+    border: 2px solid #fecaca;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -104,16 +104,8 @@
     box-shadow: 0 15px 35px rgba(221, 51, 51, 0.12);
     border-color: #fca5a5;
   }
-  .wpb-cdr-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #a81313 0%, #dd3333 50%, #ff5252 100%);
-    z-index: 2;
-  }
 
-  /* Integrated Card Images */
+  /* Top Banner Card Images */
   .wpb-cdr-card-img {
     width: calc(100% + 60px);
     max-width: none;
@@ -122,11 +114,37 @@
     max-height: 380px;
     object-fit: cover;
     display: block;
-    border-bottom: 1px solid #fee2e2;
+    border-bottom: 2px solid #fecaca;
     transition: transform 0.5s ease;
   }
   .wpb-cdr-card:hover .wpb-cdr-card-img {
     transform: scale(1.02);
+  }
+
+  /* Side Layout for Small Thumbnails on Top Right */
+  .wpb-cdr-card-side {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .wpb-cdr-card-side .wpb-cdr-card-body {
+    flex: 1;
+  }
+  .wpb-cdr-card-thumb {
+    width: 85px;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: transform 0.3s ease;
+  }
+  .wpb-cdr-card-side:hover .wpb-cdr-card-thumb {
+    transform: scale(1.08);
   }
 
   /* Typography & Elements */
@@ -142,7 +160,7 @@
     color: #111111;
     margin: 0 0 15px 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Aligns icon with the first line of text */
     gap: 12px;
   }
   .wpb-cdr-panel h3 svg {
@@ -150,6 +168,7 @@
     height: 24px;
     stroke: #dd3333;
     flex-shrink: 0;
+    margin-top: 3px; /* Fine-tunes vertical alignment with the first line cap-height */
   }
   .wpb-cdr-lead {
     font-size: 17px !important;
@@ -171,6 +190,7 @@
     border: 1px solid #fee2e2;
     border-radius: 10px;
     padding: 24px;
+    overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     transition: all 0.3s ease;
   }
@@ -178,6 +198,18 @@
     transform: translateY(-5px);
     box-shadow: 0 12px 28px rgba(221, 51, 51, 0.12);
     border-color: #fca5a5;
+  }
+  .wpb-cdr-cat-img {
+    width: calc(100% + 48px);
+    max-width: none;
+    margin: -24px -24px 16px -24px;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #fee2e2;
+    transition: transform 0.5s ease;
+  }
+  .wpb-cdr-category:hover .wpb-cdr-cat-img {
+    transform: scale(1.02);
   }
   .wpb-cdr-category .wpb-cat-icon {
     width: 44px;
@@ -243,7 +275,7 @@
   /* Responsive Design */
   @media screen and (max-width: 768px) {
     .wpb-category-grid {
-      grid-template-columns: 1fr; /* Stacks to 1 per row on mobile */
+      grid-template-columns: 1fr;
     }
   }
 
@@ -254,6 +286,20 @@
       width: calc(100% + 40px);
       margin: -20px -20px 20px -20px;
       max-height: 250px;
+    }
+    .wpb-cdr-cat-img {
+      width: calc(100% + 40px);
+      margin: -20px -20px 16px -20px;
+    }
+    .wpb-cdr-card-side {
+      flex-direction: column-reverse;
+      align-items: center;
+      text-align: center;
+    }
+    .wpb-cdr-card-thumb {
+      width: 75px;
+      margin-top: 0;
+      margin-bottom: 12px;
     }
   }
 </style>
@@ -292,16 +338,24 @@
       <p>Engineers Australia assesses the strengths and weaknesses of international students before inducting them. Once the CDR is assessed successfully, you can migrate to Australia.</p>
     </div>
 
-    <div class="wpb-cdr-card">
-      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Get Quality CDR Report for Engineers Australia</h3>
-      <p>We provide CDR for Australia that includes CDR Writing services like CDR Report Writing, KA02 Writing, ACS RPL Report Writing, IPENZ New Zealand, NER Australia, P.Eng Canada services for immigration for Engineers who are planning to migrate to Australia, New Zealand, Canada, etc.</p>
-      <p>Till today, we have helped thousands of engineers with our report writing services and have a successful 100% approval rate of acceptance by the respective bodies in different countries.</p>
+    <!-- Get Quality CDR Report Card with Top-Right Small Thumbnail -->
+    <div class="wpb-cdr-card wpb-cdr-card-side">
+      <div class="wpb-cdr-card-body">
+        <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Get Quality CDR Report for Engineers Australia</h3>
+        <p>We provide CDR for Australia that includes CDR Writing services like CDR Report Writing, KA02 Writing, ACS RPL Report Writing, IPENZ New Zealand, NER Australia, P.Eng Canada services for immigration for Engineers who are planning to migrate to Australia, New Zealand, Canada, etc.</p>
+        <p>Till today, we have helped thousands of engineers with our report writing services and have a successful 100% approval rate of acceptance by the respective bodies in different countries.</p>
+      </div>
+      <img class="wpb-cdr-card-thumb" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/files-removebg-preview.png" alt="Get Quality CDR Report">
     </div>
 
-    <div class="wpb-cdr-card">
-      <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21l-4.35-4.35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> How do we write the Best CDR Report?</h3>
-      <p>We at CDR Writers Australia provide scalable and cost-effective CDR services. Our Professional CDR Writers are available 24 hours in helping to assist you in preparing CDR for Engineers Australia. We have a team of experts who are well versed with all the guidelines and rules to make a CDR Report as defined by Engineers Australia. We have described some effective tips to follow while preparing your CDR report.</p>
-      <p>You can look at some of the CDR Samples written by our Professional Writers. Here are some tips for writing the best CDR report.</p>
+    <!-- How do we write Card with Top-Right Small Thumbnail -->
+    <div class="wpb-cdr-card wpb-cdr-card-side">
+      <div class="wpb-cdr-card-body">
+        <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21l-4.35-4.35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> How do we write the Best CDR Report?</h3>
+        <p>We at CDR Writers Australia provide scalable and cost-effective CDR services. Our Professional CDR Writers are available 24 hours in helping to assist you in preparing CDR for Engineers Australia. We have a team of experts who are well versed with all the guidelines and rules to make a CDR Report as defined by Engineers Australia. We have described some effective tips to follow while preparing your CDR report.</p>
+        <p>You can look at some of the CDR Samples written by our Professional Writers. Here are some tips for writing the best CDR report.</p>
+      </div>
+      <img class="wpb-cdr-card-thumb" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/trophy.png" alt="Best CDR Report">
     </div>
   </div>
 
@@ -315,27 +369,30 @@
       <p>Engineers Australia is the body of professional and knowledgeable Engineers. They approve CDR Reports only when they are written as per the guidelines provided by EA in the MSA Booklet. Also, your reports should grammatically correct and should not contain any plagiarism to be successfully approved by EA.</p>
       <p>The assessment by CDR Australia is largely focused on the applicant’s undergraduate qualification and graduate abilities. For Australian immigration, CDR EA recognizes four categories, each of which has a unique set of graduate competencies. They are as follows:</p>
       
-      <!-- Grid updated to 2 cards per row -->
       <div class="wpb-category-grid">
         <div class="wpb-cdr-category">
+          <img class="wpb-cdr-cat-img" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/Professional-Engineers.jpg" alt="Professional Engineers">
           <div class="wpb-cat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <strong>Professional Engineers</strong>
           <p>Professional Engineers are expected to manage engineering projects and programs that benefit society, business, and government as needed. They must be able to comprehend the project’s expenses, dangers, and limits, deal with the project’s many stakeholders, assure the reliable operation of all materials and technology linked to the system, and contribute to the overall endeavour. Professional Engineers are regarded as innovators, harbingers of change and progress, and undertake research work to advance science and technology because of their capacity to manage both technical and non-technical concerns in an integrated manner. In this category, all people who have finished four years of a Bachelor’s degree in Engineering can apply for immigration to Australia.</p>
         </div>
 
         <div class="wpb-cdr-category">
+          <img class="wpb-cdr-cat-img" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/Engineering-Technologist.jpg" alt="Engineering Technologist">
           <div class="wpb-cat-icon"><svg viewBox="0 0 24 24" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="2 17 12 22 22 17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="2 12 12 17 22 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <strong>Engineering Technologist</strong>
           <p>Engineering technologists are experts in a certain discipline of engineering technology or engineering-related technology. They must be up to date on current and developing technologies in their field and their most recent applications. They are not required to have the same breadth of vision as Professional Engineers, who are skilled in synthesizing diverse approaches to complicated engineering issues and circumstances and can manage duties such as system integration and stakeholder contact. Those with a three-year Bachelor’s degree/diploma in any Engineering Technology field are eligible to apply in this category.</p>
         </div>
 
         <div class="wpb-cdr-category">
+          <img class="wpb-cdr-cat-img" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/Engineering-Associate.jpg" alt="Engineering Associate">
           <div class="wpb-cat-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="9" x2="21" y2="9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="9" y1="21" x2="9" y2="9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <strong>Engineering Associate</strong>
           <p>Engineering Associates are commonly referred to as ‘paraprofessionals’ in Australia since they are intimately aware of standards and codes of practice, as well as the details of operating plants and equipment safely and cost-effectively. Their responsibilities in engineering companies range from feasibility study to design and development to resource and material sourcing and procurement to operations management and quality assurance. They must have a solid foundation in engineering science and concepts relevant to their area of specialization. Engineering Associates may start their businesses or advance to senior management positions where they employ Professional Engineers, Engineering Technologists, and other experts as needed. Those with a two-year diploma or degree in any engineering subject are eligible to apply in this category.</p>
         </div>
 
         <div class="wpb-cdr-category">
+          <img class="wpb-cdr-cat-img" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/Engineering-Manager.jpg" alt="Engineering Manager">
           <div class="wpb-cat-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <strong>Engineering Manager</strong>
           <p>Engineering managers develop engineering goals, policies, and plans, as well as supervise and review engineering activities inside a company. It is a senior executive post. Only applicants with seven years of experience as a Professional Engineer and at least three years of experience at the Engineering Manager level are eligible to apply for this position. It is also required that those reporting to such candidates be at the ‘Professional Engineer’ level.</p>
@@ -343,11 +400,15 @@
       </div>
     </div>
 
-    <div class="wpb-cdr-card">
-      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What’s included in our CDR Report Service?</h3>
-      <p>CDR is submitted by the graduate engineers who are willing to migrate to Australia for post-graduation courses or permanent residency purposes to Engineers Australia.</p>
-      <p>All engineering colleges will expect their students to be knowledgeable, intellectual and versatile. CDR will give an insight into the mindset, knowledge and understanding capacities of the international students.</p>
-      <p>Professional colleges which impart post-graduation courses in various engineering fields will be able to understand the skill-sets of the international students. Without CDR it will be tough for the EA to assess the knowledge and skills of the students.</p>
+    <!-- What's included Card with Top-Right Small Thumbnail -->
+    <div class="wpb-cdr-card wpb-cdr-card-side">
+      <div class="wpb-cdr-card-body">
+        <h3><svg viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What’s included in our CDR Report Service?</h3>
+        <p>CDR is submitted by the graduate engineers who are willing to migrate to Australia for post-graduation courses or permanent residency purposes to Engineers Australia.</p>
+        <p>All engineering colleges will expect their students to be knowledgeable, intellectual and versatile. CDR will give an insight into the mindset, knowledge and understanding capacities of the international students.</p>
+        <p>Professional colleges which impart post-graduation courses in various engineering fields will be able to understand the skill-sets of the international students. Without CDR it will be tough for the EA to assess the knowledge and skills of the students.</p>
+      </div>
+      <img class="wpb-cdr-card-thumb" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/download-1.png" alt="What's included in our CDR Report Service">
     </div>
   </div>
 
@@ -405,19 +466,31 @@
       <p>All of the competency aspects for your selected vocational category should be highlighted in your career episodes. You include cross-references to the specific paragraph of the Career Episode that highlights a specific aspect in the Summary statement.</p>
     </div>
 
-    <div class="wpb-cdr-card">
-      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="13" x2="8" y2="13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="17" x2="8" y2="17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What is a Summary Statement in CDR?</h3>
-      <p>A Summary Statement is the most important and difficult part of any CDR. In this section, you need to analyze that you have illustrated all the competency elements for the nominated occupational category as described in the ANZSCO code. In the summary statement, you need to provide the cross-references of the paragraphs that you have written in each career episode. Only one Summary Statement (SS) is required for all three episodes.</p>
+    <!-- What is a Summary Statement Card with Top-Right Small Thumbnail -->
+    <div class="wpb-cdr-card wpb-cdr-card-side">
+      <div class="wpb-cdr-card-body">
+        <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="13" x2="8" y2="13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="17" x2="8" y2="17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What is a Summary Statement in CDR?</h3>
+        <p>A Summary Statement is the most important and difficult part of any CDR. In this section, you need to analyze that you have illustrated all the competency elements for the nominated occupational category as described in the ANZSCO code. In the summary statement, you need to provide the cross-references of the paragraphs that you have written in each career episode. Only one Summary Statement (SS) is required for all three episodes.</p>
+      </div>
+      <img class="wpb-cdr-card-thumb" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/download-2.png" alt="What is a Summary Statement in CDR">
     </div>
 
-    <div class="wpb-cdr-card">
-      <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21l-4.35-4.35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What is a Plagiarism Check in CDR?</h3>
-      <p>CDR Writers Australia ensures that the CDR Report will be 100% original, plagiarism-free work. So, there will be no chance of being claimed as plagiarized.</p>
+    <!-- What is a Plagiarism Check Card with Top-Right Small Thumbnail -->
+    <div class="wpb-cdr-card wpb-cdr-card-side">
+      <div class="wpb-cdr-card-body">
+        <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21l-4.35-4.35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What is a Plagiarism Check in CDR?</h3>
+        <p>CDR Writers Australia ensures that the CDR Report will be 100% original, plagiarism-free work. So, there will be no chance of being claimed as plagiarized.</p>
+      </div>
+      <img class="wpb-cdr-card-thumb" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/18610170.png" alt="What is a Plagiarism Check in CDR">
     </div>
 
-    <div class="wpb-cdr-card">
-      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What is Proofreading in CDR?</h3>
-      <p>Proofreading is the process of reviewing the final report to ensure consistency and accuracy in grammar, spelling, punctuation, and formatting. We correct all the minor errors in spelling, grammar, syntax, punctuation, and formatting and make a CDR easier to understand.</p>
+    <!-- What is Proofreading Card with Top-Right Small Thumbnail -->
+    <div class="wpb-cdr-card wpb-cdr-card-side">
+      <div class="wpb-cdr-card-body">
+        <h3><svg viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> What is Proofreading in CDR?</h3>
+        <p>Proofreading is the process of reviewing the final report to ensure consistency and accuracy in grammar, spelling, punctuation, and formatting. We correct all the minor errors in spelling, grammar, syntax, punctuation, and formatting and make a CDR easier to understand.</p>
+      </div>
+      <img class="wpb-cdr-card-thumb" src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/3898046.png" alt="What is Proofreading in CDR">
     </div>
   </div>
 

@@ -1,0 +1,233 @@
+<style>
+  .supp-article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0;
+    background: linear-gradient(160deg, #10262a 0%, #061013 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .supp-article * { box-sizing: border-box; }
+
+  /* faint support-desk glow behind the screen, kept quiet */
+  .supp-article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse 55% 45% at 78% 50%, rgba(79, 209, 197, 0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .supp-article-inner { position: relative; }
+
+  /* ---------- top: heading + intro text, diagram ---------- */
+  .supp-article-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-areas: "text1 diagram";
+    align-items: center;
+    gap: 8px;
+  }
+
+  .supp-article-text-1 {
+    grid-area: text1;
+    min-width: 0;
+    padding: 44px 12px 24px 44px;
+  }
+
+  .supp-article-text-1 h2 {
+    margin: 0 0 20px 0 !important;
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .supp-article-text-1 p {
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #c3dcd8 !important;
+  }
+
+  .supp-article-diagram {
+    grid-area: diagram;
+    min-width: 0;
+    padding: 20px 30px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .supp-article-diagram svg { width: 100%; height: auto; max-width: 260px; }
+
+  .supp-line { fill: none; stroke: #a7d6d0; stroke-width: 1.8; }
+  .supp-line-soft { fill: none; stroke: #3e6560; stroke-width: 1.2; }
+  .supp-screen { fill: rgba(79, 209, 197, 0.06); stroke: #a7d6d0; stroke-width: 1.8; }
+  .supp-bar { fill: none; stroke: #3e6560; stroke-width: 3; stroke-linecap: round; }
+  .supp-fault { fill: rgba(204, 31, 41, 0.2); stroke: #ff5a66; stroke-width: 1.8; }
+  .supp-check { fill: none; stroke: #4fd1c5; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .supp-cursor { fill: #ffffff; stroke: #10262a; stroke-width: 1; }
+  .supp-ripple { fill: none; stroke: #4fd1c5; stroke-width: 1.6; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .supp-cursor-anim,
+    .supp-fault-anim,
+    .supp-check-anim,
+    .supp-ripple-anim,
+    .supp-ticket-anim { display: none; }
+  }
+
+  /* ---------- bottom: full-width continuation ---------- */
+  .supp-article-bottom {
+    padding: 4px 44px 44px 44px;
+    border-top: 1px solid rgba(167, 214, 208, 0.14);
+    margin-top: 8px;
+  }
+  .supp-article-bottom h3 {
+    margin: 28px 0 18px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.35 !important;
+  }
+  .supp-article-bottom p {
+    margin: 0 0 16px 0 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: #c3dcd8 !important;
+  }
+  .supp-article-bottom p:last-child { margin-bottom: 0 !important; }
+
+  /* ---------- footer: looping ticket pipeline ---------- */
+  .supp-article-footer-trace {
+    padding: 8px 44px 28px 44px;
+  }
+  .supp-footer-inner {
+    position: relative;
+  }
+  .supp-article-footer-trace svg { width: 100%; height: 36px; display: block; }
+
+  .supp-icon {
+    position: absolute;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    pointer-events: none;
+  }
+  .supp-icon svg { width: 20px; height: 20px; display: block; }
+
+  @media screen and (max-width: 767px) {
+    .supp-article-top {
+      grid-template-columns: 1fr;
+      grid-template-areas: "text1" "diagram";
+    }
+    .supp-article-text-1 { padding: 24px 24px 0 24px; }
+    .supp-article-diagram { padding: 12px 24px; width: 100%; }
+    .supp-article-diagram svg { max-width: 210px; margin: 0 auto; }
+    .supp-article-bottom { padding: 4px 24px 8px 24px; }
+    .supp-article-bottom h3 { font-size: 16.5px !important; }
+    .supp-article-footer-trace { padding: 6px 24px 24px 24px; }
+  }
+</style>
+
+<div class="supp-article">
+  <div class="supp-article-inner">
+
+    <div class="supp-article-top">
+      <div class="supp-article-text-1">
+        <h2>Navigating the ICT Support Engineer Pathway in Australia</h2>
+        <p>
+          Building a career in systems optimization and technical infrastructure administration provides a highly strategic advantage for long-term migration planning. As companies require continuous system integration and maintenance, this specialized technical role remains a critical skilled occupation across multiple commercial sectors. The profile is prominently featured on Australia's active skilled migration list, the immigration skills list, and the general skilled employment list.
+        </p>
+      </div>
+
+      <div class="supp-article-diagram">
+        <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- monitor -->
+          <rect class="supp-screen" x="20" y="20" width="180" height="120" rx="6" />
+          <line class="supp-line" x1="110" y1="140" x2="110" y2="158" />
+          <line class="supp-line" x1="80" y1="172" x2="140" y2="172" />
+
+          <!-- dashboard bars inside the screen -->
+          <line class="supp-bar" x1="36" y1="40" x2="90" y2="40" />
+          <line class="supp-bar" x1="36" y1="52" x2="70" y2="52" />
+          <line class="supp-bar" x1="36" y1="64" x2="100" y2="64" />
+
+          <!-- fault indicator, toggling with the resolved checkmark -->
+          <g class="supp-fault-anim">
+            <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.55;0.65;1" dur="4.5s" repeatCount="indefinite" />
+            <path class="supp-fault" d="M138,86 L152,110 H124 Z" />
+            <line class="supp-line" x1="138" y1="94" x2="138" y2="101" stroke="#ff5a66" />
+            <circle cx="138" cy="105" r="1.3" fill="#ff5a66" />
+          </g>
+          <g class="supp-check-anim" opacity="0">
+            <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.65;0.72;0.95;1" dur="4.5s" repeatCount="indefinite" />
+            <circle cx="138" cy="98" r="14" fill="rgba(79, 209, 197, 0.16)" stroke="#4fd1c5" stroke-width="1.8" />
+            <path class="supp-check" d="M131,98 L136,103 L146,91" />
+          </g>
+
+          <!-- click ripple at the moment of resolution -->
+          <circle class="supp-ripple supp-ripple-anim" cx="138" cy="98" r="0" opacity="0">
+            <animate attributeName="r" values="0;0;18;18" keyTimes="0;0.62;0.72;1" dur="4.5s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;0;0.8;0;0" keyTimes="0;0.62;0.66;0.75;1" dur="4.5s" repeatCount="indefinite" />
+          </circle>
+
+          <!-- remote cursor, moving in to resolve the fault and looping back out -->
+          <path class="supp-cursor supp-cursor-anim" d="M0,0 L0,13 L3.2,10 L5.4,15 L7.4,14 L5.3,9 L9,9 Z">
+            <animateMotion dur="4.5s" repeatCount="indefinite"
+                            keyPoints="0;0.62;0.62;1" keyTimes="0;0.62;0.7;1" calcMode="linear"
+                            path="M40,150 L138,98 L138,98 L40,150" />
+          </path>
+        </svg>
+      </div>
+    </div>
+
+    <div class="supp-article-bottom">
+      <h3>Securing Your Skills Assessment for Migration Success</h3>
+      <p>
+        While locating the profile on the skilled occupation list is an excellent first step, advancing your journey requires a formal validation process. Before you can lodge your formal visa application, your systems infrastructure credentials and diagnostic engineering portfolio must be verified against mandatory visa requirements.
+      </p>
+      <p>
+        Depending on your specific educational background and assessing authority guidelines, drafting a comprehensive CDR for Support Engineer can serve as the technical foundation of your migration strategy. This engineering and computing report demonstrates your infrastructure upgrades, systems troubleshooting, and operations management standards within the skilled occupation list framework.
+      </p>
+      <p>
+        Ultimately, a meticulously prepared technical report is essential for navigating the complexities of Australian immigration, smoothing your path toward securing an approved Australia visa so you can safely live and work in Australia.
+      </p>
+    </div>
+
+    <div class="supp-article-footer-trace">
+      <div class="supp-footer-inner">
+        <svg viewBox="0 0 600 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <!-- pipeline lanes -->
+          <rect class="supp-line-soft" x="10" y="2" width="176" height="26" rx="4" fill="none" />
+          <rect class="supp-line-soft" x="212" y="2" width="176" height="26" rx="4" fill="none" />
+          <rect class="supp-line-soft" x="414" y="2" width="176" height="26" rx="4" fill="none" />
+
+          <!-- a ticket, advancing through the lanes and changing colour as it goes -->
+          <rect class="supp-ticket-anim" x="0" y="0" width="34" height="16" rx="3" fill="rgba(255,90,102,0.25)" stroke="#ff5a66" stroke-width="1.4">
+            <animate attributeName="x" values="24;24;172;172;376;376;24" keyTimes="0;0.12;0.30;0.42;0.60;0.72;1" dur="7s" repeatCount="indefinite" />
+            <animate attributeName="fill" values="rgba(255,90,102,0.25);rgba(255,90,102,0.25);rgba(242,178,61,0.25);rgba(242,178,61,0.25);rgba(79,209,197,0.25);rgba(79,209,197,0.25);rgba(255,90,102,0.25)" keyTimes="0;0.12;0.30;0.42;0.60;0.72;1" dur="7s" repeatCount="indefinite" />
+            <animate attributeName="stroke" values="#ff5a66;#ff5a66;#f2b23d;#f2b23d;#4fd1c5;#4fd1c5;#ff5a66" keyTimes="0;0.12;0.30;0.42;0.60;0.72;1" dur="7s" repeatCount="indefinite" />
+            <animate attributeName="y" values="10;10;10;10;10;10;10" dur="7s" repeatCount="indefinite" />
+          </rect>
+        </svg>
+
+        <!-- lane icons overlaid as fixed-aspect elements, so they never stretch or go thin -->
+        <div class="supp-icon" style="left: 15%;">
+          <svg viewBox="0 0 20 20"><g class="supp-line-soft" fill="none"><path d="M4,4 L16,4 L16,12 L10,17 L4,12 Z" /><path d="M4,4 L8,9 M16,4 L12,9" /></g></svg>
+        </div>
+        <div class="supp-icon" style="left: 50%;">
+          <svg viewBox="0 0 20 20"><g class="supp-line-soft" fill="none"><circle cx="10" cy="10" r="3.4" /><path d="M10,3 V5.2 M10,14.8 V17 M3,10 H5.2 M14.8,10 H17 M5.1,5.1 L6.6,6.6 M13.4,13.4 L14.9,14.9 M14.9,5.1 L13.4,6.6 M6.6,13.4 L5.1,14.9" /></g></svg>
+        </div>
+        <div class="supp-icon" style="left: 84%;">
+          <svg viewBox="0 0 20 20"><path class="supp-check" d="M4,10 L8,15 L16,4" fill="none" /></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

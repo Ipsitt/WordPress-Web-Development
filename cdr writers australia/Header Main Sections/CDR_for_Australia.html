@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDR for Australia - Modern</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --primary: #4f46e5;
+    --primary-light: #e0e7ff;
+    --secondary: #06b6d4;
+    --accent: #e11d48;
+    --accent-light: #ffe4e6;
+    --ink: #0f172a;
+    --grey: #64748b;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --line: #e2e8f0;
+  }
+  
+  * { box-sizing: border-box; }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    padding: 60px 20px 100px 20px;
+    color: var(--ink);
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+
+  .cdr-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Decorative Background Blobs */
+  .cdr-wrap::before, .cdr-wrap::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(60px);
+    opacity: 0.4;
+  }
+  .cdr-wrap::before {
+    top: -50px; left: -100px;
+    width: 300px; height: 300px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+  }
+  .cdr-wrap::after {
+    bottom: 20%; right: -100px;
+    width: 250px; height: 250px;
+    background: linear-gradient(135deg, var(--accent), #fb923c);
+  }
+
+  .cdr-title {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0 0 40px 0;
+    background: linear-gradient(135deg, var(--ink) 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+  }
+
+  /* ---------- tab bar ---------- */
+  .cdr-tabbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .cdr-tab {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--grey);
+    padding: 12px 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cdr-tab svg { 
+    flex-shrink: 0; width: 22px; height: 22px; 
+    stroke: var(--grey); transition: all 0.3s ease; 
+  }
+  .cdr-tab.active { 
+    color: #ffffff; 
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-color: transparent;
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+    transform: translateY(-2px);
+  }
+  .cdr-tab.active svg { stroke: #ffffff; }
+  .cdr-tab:not(.active):hover { 
+    color: var(--primary); 
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
+  }
+  .cdr-tab:not(.active):hover svg { stroke: var(--primary); }
+
+  /* ---------- illustration banner ---------- */
+  .cdr-banner {
+    background: linear-gradient(120deg, #ffffff 0%, #f1f5f9 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    margin-bottom: 40px;
+    box-shadow: inset 0 2px 20px rgba(255,255,255,0.5), 0 20px 40px rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+  }
+  .cdr-banner::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.3;
+    z-index: 0;
+  }
+  
+  .cdr-illustration { 
+    display: none; 
+    position: relative;
+    z-index: 1;
+    width: 100%; 
+    max-width: 420px; 
+    height: auto; 
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.08));
+    animation: float 6s ease-in-out infinite;
+  }
+  .cdr-illustration.active { display: block; animation: cdr-scale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, float 6s ease-in-out infinite; }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  @keyframes cdr-scale {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); } 
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  /* ---------- content cards ---------- */
+  .cdr-panel { display: none; }
+  .cdr-panel.active { display: block; animation: cdr-fade 0.4s ease; }
+  @keyframes cdr-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .cdr-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    margin-bottom: 24px;
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .cdr-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    border-radius: 20px 0 0 20px;
+  }
+  
+  .cdr-card-accent::before { background: linear-gradient(to bottom, var(--accent), #fb923c); }
+  .cdr-card-teal::before { background: linear-gradient(to bottom, var(--secondary), #10b981); }
+
+  .cdr-panel p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #475569;
+    margin: 0 0 20px 0;
+  }
+  .cdr-lead {
+    font-size: 18px !important;
+    font-weight: 500;
+    color: var(--ink) !important;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 20px 0;
+  }
+  .section-header .icon-box {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .section-header .icon-box svg {
+    width: 24px; height: 24px;
+    stroke: var(--primary);
+  }
+  .cdr-card-accent .icon-box { background: var(--accent-light); }
+  .cdr-card-accent .icon-box svg { stroke: var(--accent); }
+  
+  .cdr-card-teal .icon-box { background: #ccfbf1; }
+  .cdr-card-teal .icon-box svg { stroke: #0d9488; }
+
+  .cdr-panel h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.5px;
+  }
+
+  /* Stylish Lists */
+  .cdr-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: grid;
+    gap: 12px;
+  }
+  .cdr-panel ul li {
+    position: relative;
+    padding-left: 36px;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: #475569;
+    background: #f8fafc;
+    padding: 16px 16px 16px 48px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    transition: transform 0.2s;
+  }
+  .cdr-panel ul li:hover { transform: translateX(5px); border-color: var(--primary-light); }
+  .cdr-panel ul li::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 18px;
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .cdr-panel a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+  }
+  .cdr-panel a::after {
+    content: '';
+    position: absolute;
+    width: 100%; height: 2px;
+    bottom: -2px; left: 0;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  .cdr-panel a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* Service Grid */
+  .cdr-service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 30px 0;
+  }
+  .cdr-service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 16px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+  }
+  .cdr-service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.1);
+    border-color: var(--primary-light);
+  }
+  .cdr-service-item .icon-circle {
+    width: 50px; height: 50px;
+    background: var(--primary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+  }
+  .cdr-service-item:hover .icon-circle {
+    background: var(--primary);
+  }
+  .cdr-service-item svg { 
+    width: 24px; height: 24px; 
+    stroke: var(--primary); 
+    transition: all 0.3s ease;
+  }
+  .cdr-service-item:hover svg { stroke: #fff; }
+
+  /* Layout Grids */
+  .grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+  }
+
+  .cdr-category {
+    background-color: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .cdr-category:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  }
+  .cdr-category .cat-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .cat-blue { background: #e0e7ff; color: #4f46e5; }
+  .cat-teal { background: #ccfbf1; color: #0d9488; }
+  .cat-rose { background: #ffe4e6; color: #e11d48; }
+  .cat-orange { background: #ffedd5; color: #ea580c; }
+  .cdr-category .cat-icon svg { width: 24px; height: 24px; stroke: currentColor; }
+
+  .cdr-category strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .cdr-category p { 
+    margin: 0; 
+    font-size: 14.5px; 
+    flex-grow: 1;
+  }
+
+  @media screen and (max-width: 900px) {
+    .grid-2-col { grid-template-columns: 1fr; }
+  }
+  @media screen and (max-width: 640px) {
+    .cdr-title { font-size: 32px; }
+    .cdr-tabbar { gap: 12px; }
+    .cdr-tab { font-size: 14px; padding: 10px 18px; width: 100%; justify-content: center;}
+    .cdr-banner { min-height: 240px; padding: 20px; border-radius: 16px; }
+    .cdr-card { padding: 24px; border-radius: 16px; }
+    .cdr-panel ul li { padding: 14px 14px 14px 44px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cdr-wrap">
+
+  <h1 class="cdr-title">CDR for Australia</h1>
+
+  <div class="cdr-tabbar">
+    <button class="cdr-tab active" data-tab="1" onclick="cdrShowTab(1)">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg>
+      CDR Report Writing
+    </button>
+    <button class="cdr-tab" data-tab="2" onclick="cdrShowTab(2)">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      What is CDR?
+    </button>
+    <button class="cdr-tab" data-tab="3" onclick="cdrShowTab(3)">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      What's Included?
+    </button>
+  </div>
+
+  <div class="cdr-banner">
+    <!-- Illustration 1: Changed to Indigo/Teal modern scheme -->
+    <svg class="cdr-illustration active" data-illustration="1" viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#c7d2fe;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <circle cx="180" cy="132" r="108" fill="url(#grad1)"/>
+      <ellipse cx="180" cy="224" rx="120" ry="10" fill="#e2e8f0"/>
+
+      <!-- desk -->
+      <rect x="70" y="178" width="200" height="10" rx="2" fill="#1e293b"/>
+      <rect x="86" y="188" width="10" height="34" fill="#1e293b"/>
+      <rect x="244" y="188" width="10" height="34" fill="#1e293b"/>
+
+      <!-- laptop -->
+      <rect x="128" y="150" width="100" height="66" rx="4" fill="#ffffff" stroke="#1e293b" stroke-width="2.5"/>
+      <rect x="136" y="158" width="84" height="50" rx="2" fill="#f8fafc"/>
+      <line x1="144" y1="168" x2="196" y2="168" stroke="#4f46e5" stroke-width="3" stroke-linecap="round"/>
+      <line x1="144" y1="180" x2="184" y2="180" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+      <line x1="144" y1="192" x2="204" y2="192" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+      <path d="M120,216 L128,150 M236,216 L228,150" stroke="#1e293b" stroke-width="2.5" fill="none"/>
+      <rect x="118" y="216" width="120" height="7" rx="3" fill="#06b6d4"/>
+
+      <!-- person -->
+      <path d="M158,178 C158,140 180,124 200,126 C224,128 236,150 234,178 Z" fill="#4f46e5"/>
+      <circle cx="196" cy="98" r="24" fill="#fcd34d"/>
+      <path d="M172,92 C172,68 220,68 220,92 C220,80 208,74 196,76 C186,78 172,82 172,92 Z" fill="#1e293b"/>
+      <circle cx="188" cy="100" r="2.6" fill="#1e293b"/>
+      <circle cx="206" cy="100" r="2.6" fill="#1e293b"/>
+      <path d="M190,110 Q198,116 206,110" stroke="#1e293b" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M172,150 Q150,158 150,178" stroke="#fcd34d" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <path d="M222,150 Q246,158 246,178" stroke="#fcd34d" stroke-width="14" fill="none" stroke-linecap="round"/>
+
+      <!-- thought bubble with idea icons -->
+      <circle cx="270" cy="66" r="8" fill="#ffffff" stroke="#4f46e5" stroke-width="2"/>
+      <circle cx="286" cy="52" r="12" fill="#ffffff" stroke="#4f46e5" stroke-width="2"/>
+      <rect x="248" y="18" width="96" height="60" rx="14" fill="#ffffff" stroke="#4f46e5" stroke-width="2.5"/>
+      <path d="M270,52 L262,60" stroke="#4f46e5" stroke-width="2.5"/>
+      <rect x="264" y="32" width="24" height="30" rx="2" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.8"/>
+      <line x1="269" y1="40" x2="283" y2="40" stroke="#4f46e5" stroke-width="2" stroke-linecap="round"/>
+      <line x1="269" y1="47" x2="279" y2="47" stroke="#4f46e5" stroke-width="2" stroke-linecap="round"/>
+      <path d="M300,32 L318,32 M300,42 L326,42 M300,52 L312,52" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/>
+
+      <!-- paper airplane -->
+      <path d="M40,40 L92,58 L64,66 L58,90 Z" fill="#06b6d4"/>
+      <path d="M40,40 L64,66 L58,90" stroke="#0891b2" stroke-width="1.6" fill="none"/>
+      <path d="M92,58 Q116,64 132,52" stroke="#06b6d4" stroke-width="2" fill="none" stroke-dasharray="4 5"/>
+    </svg>
+
+    <!-- Illustration 2: Changed to Vibrant Teal/Cyan scheme -->
+    <svg class="cdr-illustration" data-illustration="2" viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <circle cx="180" cy="132" r="108" fill="url(#grad2)"/>
+
+      <!-- stack of books -->
+      <rect x="112" y="176" width="136" height="18" rx="3" fill="#ffffff"/>
+      <rect x="120" y="160" width="120" height="18" rx="3" fill="#1e293b"/>
+      <rect x="112" y="144" width="136" height="18" rx="3" fill="#ffffff"/>
+
+      <!-- open report on top -->
+      <path d="M96,140 L180,116 L264,140 L264,150 L180,128 L96,150 Z" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+      <path d="M180,116 L180,128" stroke="#0f172a" stroke-width="1.6"/>
+      <line x1="112" y1="132" x2="160" y2="120" stroke="#06b6d4" stroke-width="3" stroke-linecap="round"/>
+      <line x1="200" y1="120" x2="248" y2="132" stroke="#06b6d4" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- magnifier with approval check -->
+      <circle cx="180" cy="82" r="30" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+      <line x1="201" y1="103" x2="216" y2="118" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+      <line x1="201" y1="103" x2="216" y2="118" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+      <path d="M166,82 L176,92 L196,68" stroke="#10b981" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- floating accent icons -->
+      <circle cx="70" cy="70" r="14" fill="#ffffff"/>
+      <path d="M64,70 L69,75 L77,64" stroke="#06b6d4" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="272" y="176" width="40" height="30" rx="4" fill="#ffffff"/>
+      <line x1="280" y1="186" x2="304" y2="186" stroke="#06b6d4" stroke-width="2.4" stroke-linecap="round"/>
+      <line x1="280" y1="194" x2="298" y2="194" stroke="#06b6d4" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M300,206 L312,206 L306,216 Z" fill="#ffffff"/>
+      <circle cx="52" cy="176" r="9" fill="#ffffff" opacity="0.85"/>
+      <circle cx="300" cy="52" r="6" fill="#ffffff" opacity="0.85"/>
+    </svg>
+
+    <!-- Illustration 3: Changed to Vibrant Rose/Pink Scheme -->
+    <svg class="cdr-illustration" data-illustration="3" viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#ffe4e6;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#fecdd3;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <circle cx="180" cy="132" r="108" fill="url(#grad3)"/>
+      <ellipse cx="180" cy="224" rx="110" ry="10" fill="#e2e8f0"/>
+
+      <!-- person -->
+      <path d="M148,222 C142,180 154,140 180,132 C208,140 220,180 214,222 Z" fill="#e11d48"/>
+      <circle cx="182" cy="94" r="26" fill="#fcd34d"/>
+      <path d="M156,90 C156,60 208,60 208,90 C208,76 196,70 182,72 C170,74 156,78 156,90 Z" fill="#1e293b"/>
+      <circle cx="174" cy="96" r="2.8" fill="#1e293b"/>
+      <circle cx="192" cy="96" r="2.8" fill="#1e293b"/>
+      <path d="M174,108 Q183,116 194,107" stroke="#1e293b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+      <!-- raised arm holding the certificate -->
+      <path d="M204,146 Q234,120 250,90" stroke="#e11d48" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <circle cx="252" cy="86" r="9" fill="#fcd34d"/>
+      <g transform="rotate(-18 260 60)">
+        <rect x="236" y="36" width="48" height="60" rx="4" fill="#ffffff" stroke="#9f1239" stroke-width="2.5"/>
+        <circle cx="260" cy="52" r="10" fill="#ffe4e6" stroke="#e11d48" stroke-width="2"/>
+        <path d="M255,52 L259,56 L266,47" stroke="#e11d48" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="244" y1="70" x2="276" y2="70" stroke="#94a3b8" stroke-width="2"/>
+        <line x1="244" y1="78" x2="268" y2="78" stroke="#94a3b8" stroke-width="2"/>
+      </g>
+
+      <!-- other arm -->
+      <path d="M158,150 Q134,156 126,180" stroke="#fcd34d" stroke-width="15" fill="none" stroke-linecap="round"/>
+
+      <!-- speech bubble: it's approved -->
+      <rect x="52" y="70" width="98" height="56" rx="14" fill="#ffffff" stroke="#e11d48" stroke-width="2.5"/>
+      <path d="M110,124 L118,138 L128,122 Z" fill="#ffffff" stroke="#e11d48" stroke-width="2.5"/>
+      <circle cx="80" cy="98" r="13" fill="#ffe4e6" stroke="#e11d48" stroke-width="1.8"/>
+      <path d="M74,98 L78,103 L87,92" stroke="#e11d48" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="100" y1="90" x2="132" y2="90" stroke="#cbd5e1" stroke-width="2.4" stroke-linecap="round"/>
+      <line x1="100" y1="102" x2="124" y2="102" stroke="#cbd5e1" stroke-width="2.4" stroke-linecap="round"/>
+
+      <!-- confetti -->
+      <circle cx="298" cy="150" r="4" fill="#e11d48"/>
+      <rect x="308" y="60" width="7" height="7" fill="#1e293b" transform="rotate(20 311 63)"/>
+      <circle cx="46" cy="178" r="5" fill="#e11d48" opacity="0.8"/>
+      <rect x="60" y="44" width="6" height="6" fill="#06b6d4" transform="rotate(35 63 47)"/>
+    </svg>
+  </div>
+
+  <!-- ============ TAB 1 CONTENT ============ -->
+  <div class="cdr-panel active" data-panel="1">
+    
+    <div class="cdr-card">
+      <p class="cdr-lead"><strong>CDR Writers Australia</strong> provides the best CDR Report Writing Service. All the necessary requirements are included in our complete CDR Writing Service. We do all the work for you, leaving just the submission part to you.</p>
+      
+      <div class="section-header" style="margin-top: 30px;">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Here are the included parts of our service:</h3>
+      </div>
+      
+      <div class="cdr-service-grid">
+        <div class="cdr-service-item">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M6 8l6-5 6 5"/></svg></div>
+          Continuing Professional Development
+        </div>
+        <div class="cdr-service-item">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg></div>
+          Career Episodes
+        </div>
+        <div class="cdr-service-item">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v3h3"/></svg></div>
+          Summary Statement
+        </div>
+        <div class="cdr-service-item">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+          Plagiarism Check
+        </div>
+        <div class="cdr-service-item">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+          Proof Reading
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2-col">
+      <div class="cdr-card cdr-card-accent">
+        <div class="section-header">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 6 23 6 23 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>What is CPD?</h3>
+        </div>
+        <p>Continuing Professional Development (CPD) is the process that will keep you on trend with the recent happenings of engineering news after your undergraduate qualification. It is used for documenting your skills, knowledge, and experience gained in your training years.</p>
+        <p><strong>CPD Report list should include:</strong></p>
+        <ul>
+          <li>Information on formal postgraduate study</li>
+          <li>Conferences you've attended (short courses, workshops, or seminars).</li>
+          <li>Content you've created and presented for symposia and gatherings.</li>
+          <li>Any volunteer or mentorship work related to your profession.</li>
+          <li>Books, magazines, and manuals you've reviewed.</li>
+        </ul>
+      </div>
+
+      <div class="cdr-card cdr-card-teal">
+        <div class="section-header">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="22.08" x2="12" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>What are Career Episodes?</h3>
+        </div>
+        <p><a href="https://cdrwritersaustralia.com/career-episodes-report-writing/">Career Episodes</a> explain your educational qualification and work experience in the field of engineering. All three are based on specific engineering projects done over a certain period of time.</p>
+        <p>They give detailed information on technical skills applied to the project described. Each should be 1,000 to 2,500 words long.</p>
+        <ul>
+          <li>A project you worked on</li>
+          <li>A specific position you performed in your firm</li>
+          <li>A specific engineering challenge you addressed</li>
+        </ul>
+        <p><strong>Format structure:</strong></p>
+        <ul>
+          <li>Introduction (100 words)</li>
+          <li>Background (200-500 words)</li>
+          <li>Engineering Activity (500-1000 words)</li>
+          <li>Summary (50-100 words)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cdr-card">
+       <div class="section-header">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="13" x2="8" y2="13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="17" x2="8" y2="17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10 9 9 9 8 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Summary Statement, Plagiarism & Proofreading</h3>
+      </div>
+      <p>A <a href="https://cdrwritersaustralia.com/summary-statement-report-writing/">Summary Statement</a> is the most important and difficult part of any CDR. You need to analyze that you have illustrated all the competency elements for the nominated occupational category as described in the ANZSCO code, providing cross-references to the career episodes.</p>
+      
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 24px;">
+        <div style="flex: 1; min-width: 250px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--line);">
+          <strong style="display:block; margin-bottom: 8px; color: var(--accent);">Plagiarism Check</strong>
+          <p style="margin:0; font-size: 14.5px;">CDR Writers Australia ensures that the CDR Report will be 100% original, plagiarism-free work. So, there will be no chance of being claimed as plagiarized.</p>
+        </div>
+        <div style="flex: 1; min-width: 250px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--line);">
+          <strong style="display:block; margin-bottom: 8px; color: var(--secondary);">Proofreading</strong>
+          <p style="margin:0; font-size: 14.5px;">We review the final report to ensure consistency and accuracy in grammar, spelling, punctuation, and formatting, making the CDR easier to understand.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TAB 2 CONTENT ============ -->
+  <div class="cdr-panel" data-panel="2">
+    <div class="cdr-card">
+      <div class="section-header">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="2"/><line x1="12" y1="16" x2="12" y2="12" stroke-width="2"/><line x1="12" y1="8" x2="12.01" y2="8" stroke-width="2"/></svg></div>
+        <h3>What is a CDR Report?</h3>
+      </div>
+      <p class="cdr-lead">Competency Demonstration Reports is a technical report which is submitted by students to Engineers Australia for their assessment and verification.</p>
+      <p>Engineers who are planning to migrate to Australia for education or career should write CDR and submit it to Engineers Australia for their skill and knowledge assessment. Engineers Australia is the body of professional and knowledgeable Engineers. They approve CDR Reports only when they are written as per the guidelines provided by EA in the MSA Booklet. Also, your reports should grammatically correct and should not contain any plagiarism to be successfully approved by EA.</p>
+      <p>The assessment by CDR Australia is largely focused on the applicant's undergraduate qualification and graduate abilities. For Australian immigration, CDR EA recognizes four categories:</p>
+
+      <div class="category-grid">
+        <div class="cdr-category">
+          <div class="cat-icon cat-blue"><svg viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <strong>Professional Engineers</strong>
+          <p>Expected to manage engineering projects that benefit society and business. Must comprehend project expenses, dangers, and limits, and ensure reliable operation of technology. Four years of a Bachelor's degree in Engineering is required.</p>
+        </div>
+
+        <div class="cdr-category">
+          <div class="cat-icon cat-teal"><svg viewBox="0 0 24 24" fill="none"><polygon points="12 2 2 7 12 12 22 7 12 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="2 17 12 22 22 17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="2 12 12 17 22 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <strong>Engineering Technologist</strong>
+          <p>Experts in a certain discipline of engineering technology. Must be up to date on current technologies but are not required to have the same breadth of vision as Professional Engineers. Three-year Bachelor's degree/diploma required.</p>
+        </div>
+
+        <div class="cdr-category">
+          <div class="cat-icon cat-rose"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="9" x2="21" y2="9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="9" y1="21" x2="9" y2="9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <strong>Engineering Associate</strong>
+          <p>Commonly referred to as 'paraprofessionals'. Intimately aware of standards, codes of practice, and safely operating plants/equipment. Responsibilities range from feasibility to procurement. Two-year diploma or degree required.</p>
+        </div>
+
+        <div class="cdr-category">
+          <div class="cat-icon cat-orange"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <strong>Engineering Manager</strong>
+          <p>Develop goals, policies, and plans, as well as supervise engineering activities. A senior executive post. Requires seven years of experience as a Professional Engineer and at least three years at the Engineering Manager level.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cdr-card cdr-card-accent">
+      <div class="section-header">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Why is it required?</h3>
+      </div>
+      <p>CDR is submitted by the graduate engineers who are willing to migrate to Australia for post-graduation courses or permanent residency purposes to Engineers Australia.</p>
+      <p>All engineering colleges will expect their students to be knowledgeable, intellectual and versatile. CDR will give an insight into the mindset, knowledge and understanding capacities of the international students. Professional colleges which impart post-graduation courses in various engineering fields will be able to understand the skill-sets of the international students. Without CDR it will be tough for the EA to assess the knowledge and skills of the students.</p>
+    </div>
+  </div>
+
+  <!-- ============ TAB 3 CONTENT ============ -->
+  <div class="cdr-panel" data-panel="3">
+    <!-- Uses the exact same modern structure as Tab 1 (as original content was identical) -->
+    <div class="cdr-card">
+      <p class="cdr-lead"><strong>CDR Writers Australia</strong> provides the best CDR Report Writing Service. All the necessary requirements are included in our complete CDR Writing Service. We do all the work for you, leaving just the submission part to you.</p>
+      
+      <div class="section-header" style="margin-top: 30px;">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Here are the included parts of our service:</h3>
+      </div>
+      
+      <div class="cdr-service-grid">
+        <div class="cdr-service-item">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M6 8l6-5 6 5"/></svg></div>
+          Continuing Professional Development
+        </div>
+        <div class="cdr-service-item">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg></div>
+          Career Episodes
+        </div>
+        <div class="cdr-service-item">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v3h3"/></svg></div>
+          Summary Statement
+        </div>
+        <div class="cdr-service-item">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+          Plagiarism Check
+        </div>
+        <div class="cdr-service-item">
+          <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+          Proof Reading
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2-col">
+      <div class="cdr-card cdr-card-accent">
+        <div class="section-header">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 6 23 6 23 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>What is CPD?</h3>
+        </div>
+        <p>Continuing Professional Development (CPD) is the process that will keep you on trend with the recent happenings of engineering news after your undergraduate qualification. It is used for documenting your skills, knowledge, and experience gained in your training years.</p>
+        <p><strong>CPD Report list should include:</strong></p>
+        <ul>
+          <li>Information on formal postgraduate study</li>
+          <li>Conferences you've attended (short courses, workshops, or seminars).</li>
+          <li>Content you've created and presented for symposia and gatherings.</li>
+          <li>Any volunteer or mentorship work related to your profession.</li>
+          <li>Books, magazines, and manuals you've reviewed.</li>
+        </ul>
+      </div>
+
+      <div class="cdr-card cdr-card-teal">
+        <div class="section-header">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="22.08" x2="12" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>What are Career Episodes?</h3>
+        </div>
+        <p><a href="https://cdrwritersaustralia.com/career-episodes-report-writing/">Career Episodes</a> explain your educational qualification and work experience in the field of engineering. All three are based on specific engineering projects done over a certain period of time.</p>
+        <p>They give detailed information on technical skills applied to the project described. Each should be 1,000 to 2,500 words long.</p>
+        <ul>
+          <li>A project you worked on</li>
+          <li>A specific position you performed in your firm</li>
+          <li>A specific engineering challenge you addressed</li>
+        </ul>
+        <p><strong>Format structure:</strong></p>
+        <ul>
+          <li>Introduction (100 words)</li>
+          <li>Background (200-500 words)</li>
+          <li>Engineering Activity (500-1000 words)</li>
+          <li>Summary (50-100 words)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cdr-card">
+       <div class="section-header">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="13" x2="8" y2="13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="17" x2="8" y2="17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10 9 9 9 8 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Summary Statement, Plagiarism & Proofreading</h3>
+      </div>
+      <p>A <a href="https://cdrwritersaustralia.com/summary-statement-report-writing/">Summary Statement</a> is the most important and difficult part of any CDR. You need to analyze that you have illustrated all the competency elements for the nominated occupational category as described in the ANZSCO code, providing cross-references to the career episodes.</p>
+      
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 24px;">
+        <div style="flex: 1; min-width: 250px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--line);">
+          <strong style="display:block; margin-bottom: 8px; color: var(--accent);">Plagiarism Check</strong>
+          <p style="margin:0; font-size: 14.5px;">CDR Writers Australia ensures that the CDR Report will be 100% original, plagiarism-free work. So, there will be no chance of being claimed as plagiarized.</p>
+        </div>
+        <div style="flex: 1; min-width: 250px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--line);">
+          <strong style="display:block; margin-bottom: 8px; color: var(--secondary);">Proofreading</strong>
+          <p style="margin:0; font-size: 14.5px;">We review the final report to ensure consistency and accuracy in grammar, spelling, punctuation, and formatting, making the CDR easier to understand.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function cdrShowTab(n) {
+    document.querySelectorAll('.cdr-tab').forEach(function(el) {
+      el.classList.toggle('active', el.getAttribute('data-tab') === String(n));
+    });
+    document.querySelectorAll('.cdr-panel').forEach(function(el) {
+      el.classList.toggle('active', el.getAttribute('data-panel') === String(n));
+    });
+    document.querySelectorAll('.cdr-illustration').forEach(function(el) {
+      el.classList.toggle('active', el.getAttribute('data-illustration') === String(n));
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,1 +1,239 @@
-IPENZ_NewZealand_tabs
+<style>
+  .wpb-nz-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    max-width: 1100px; margin: 0 auto; padding: 20px 10px;
+    color: #1a1a1a; box-sizing: border-box;
+  }
+  .wpb-nz-wrap * { box-sizing: border-box; }
+
+  .wpb-nz-title-wrap { text-align: center; margin-bottom: 35px; }
+  .wpb-nz-title {
+    font-size: 32px; font-weight: 800; margin: 0 0 10px 0;
+    color: #111111; text-transform: uppercase;
+  }
+  .wpb-nz-title-bar {
+    width: 80px; height: 4px; margin: 0 auto; border-radius: 2px;
+    background: linear-gradient(90deg, #dd3333 0%, #ff5252 100%);
+  }
+
+  /* Tabs */
+  .wpb-nz-tabbar {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px; margin-bottom: 35px;
+  }
+  .wpb-nz-wrap .wpb-nz-tab {
+    display: inline-flex !important; align-items: center; gap: 10px;
+    background: #ffffff !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    cursor: pointer; font-family: inherit;
+    font-size: 15px !important; font-weight: 700 !important;
+    line-height: 1.4 !important; letter-spacing: normal !important;
+    text-transform: none !important; text-decoration: none !important;
+    color: #2d3748 !important;
+    padding: 13px 24px !important; margin: 0 !important;
+    height: auto !important; min-height: 0 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04) !important;
+    transition: all 0.3s ease;
+    -webkit-appearance: none; appearance: none; outline: none;
+  }
+  .wpb-nz-wrap .wpb-nz-tab svg {
+    flex-shrink: 0; width: 20px; height: 20px;
+    stroke: #dd3333 !important; fill: none !important;
+    transition: all 0.3s ease;
+  }
+  .wpb-nz-wrap .wpb-nz-tab:not(.active):hover,
+  .wpb-nz-wrap .wpb-nz-tab:not(.active):focus,
+  .wpb-nz-wrap .wpb-nz-tab:not(.active):active {
+    background: #ffffff !important; color: #dd3333 !important;
+    border-color: #dd3333 !important; transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(221,51,51,0.15) !important;
+  }
+  .wpb-nz-wrap .wpb-nz-tab:not(.active):hover svg,
+  .wpb-nz-wrap .wpb-nz-tab:not(.active):focus svg { stroke: #dd3333 !important; }
+  .wpb-nz-wrap .wpb-nz-tab.active,
+  .wpb-nz-wrap .wpb-nz-tab.active:hover,
+  .wpb-nz-wrap .wpb-nz-tab.active:focus {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #dd3333 0%, #ff5252 100%) !important;
+    border-color: #dd3333 !important;
+    box-shadow: 0 6px 20px rgba(221,51,51,0.35) !important;
+    transform: translateY(-2px);
+  }
+  .wpb-nz-wrap .wpb-nz-tab.active svg,
+  .wpb-nz-wrap .wpb-nz-tab.active:hover svg { stroke: #ffffff !important; }
+
+  /* Panels */
+  .wpb-nz-panel { display: none; }
+  .wpb-nz-panel.active { display: block; animation: wpbNzFade 0.35s ease-in-out; }
+  @keyframes wpbNzFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cards */
+  .wpb-nz-card {
+    background: #ffffff; border-radius: 12px; padding: 30px;
+    box-shadow: 0 8px 25px rgba(221,51,51,0.05);
+    margin-bottom: 25px; border: 2px solid #fecaca;
+    transition: all 0.3s ease;
+  }
+  .wpb-nz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(221,51,51,0.12);
+    border-color: #fca5a5;
+  }
+
+  .wpb-nz-panel p {
+    font-size: 15.5px; line-height: 1.8; color: #4a5568; margin: 0 0 18px 0;
+  }
+  .wpb-nz-panel p:last-child { margin-bottom: 0; }
+  .wpb-nz-panel h3 {
+    font-size: 20px; font-weight: 800; color: #111111;
+    margin: 0 0 15px 0; display: flex; align-items: flex-start; gap: 12px;
+  }
+  .wpb-nz-panel h3 svg {
+    width: 24px; height: 24px; stroke: #dd3333; flex-shrink: 0; margin-top: 3px;
+  }
+  .wpb-nz-lead {
+    font-size: 17px !important; font-weight: 600; color: #1a202c !important;
+    border-left: 4px solid #dd3333; padding-left: 16px;
+  }
+  .wpb-nz-sub {
+    font-size: 16px; font-weight: 800; color: #111111; margin: 22px 0 12px 0;
+  }
+
+  /* Lists */
+  .wpb-nz-panel ul {
+    list-style: none; padding: 0; margin: 0 0 20px 0; display: grid; gap: 10px;
+  }
+  .wpb-nz-panel ul li {
+    position: relative; font-size: 15px; line-height: 1.6; color: #2d3748;
+    background: #fff5f5; padding: 12px 14px 12px 42px;
+    border-radius: 8px; border: 1px solid #fecaca; transition: all 0.2s ease;
+  }
+  .wpb-nz-panel ul li:hover {
+    transform: translateX(4px); background: #ffe3e3; border-color: #fca5a5;
+  }
+  .wpb-nz-panel ul li::before {
+    content: ''; position: absolute; left: 14px; top: 14px;
+    width: 18px; height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dd3333' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain; background-repeat: no-repeat;
+  }
+
+  @media screen and (max-width: 600px) {
+    .wpb-nz-wrap .wpb-nz-tab { width: 100%; justify-content: center; }
+    .wpb-nz-card { padding: 20px; }
+    .wpb-nz-title { font-size: 26px; }
+  }
+</style>
+
+<div class="wpb-nz-wrap">
+
+  <div class="wpb-nz-title-wrap">
+    <h1 class="wpb-nz-title">IPENZ New Zealand</h1>
+    <div class="wpb-nz-title-bar"></div>
+  </div>
+
+  <div class="wpb-nz-tabbar">
+    <button type="button" class="wpb-nz-tab active" data-tab="1" onclick="wpbNzShowTab(1)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      IPENZ Report Writing Service
+    </button>
+    <button type="button" class="wpb-nz-tab" data-tab="2" onclick="wpbNzShowTab(2)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      What is IPENZ?
+    </button>
+    <button type="button" class="wpb-nz-tab" data-tab="3" onclick="wpbNzShowTab(3)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Become Registered in NZ
+    </button>
+  </div>
+
+  <!-- TAB 1 -->
+  <div class="wpb-nz-panel active" data-panel="1">
+    <div class="wpb-nz-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> IPENZ Report Writing for New Zealand</h3>
+      <p class="wpb-nz-lead">CDRWritersAustralia provides services for the IPENZ report writing for immigration to New Zealand.</p>
+      <p>The IPENZ code of ethics, perhaps under the influence of Engineers for Social Responsibility, gives high priority to social and environmental responsibility; along with the Australian Institution of Professional Engineers, IPENZ was one of the first engineering societies to do so. While it would be incorrect to describe it as an activist organization, IPENZ has on occasion taken strong public stands on issues such as dam safety. IPENZ has been a part of the Engineering Community for 100 years. The number of engineering applicants for migrating to New Zealand has been increasing and thus the evaluation and assessment has become more critical. It is a technical challenge to write an IPENZ report and thus it is necessary to write it in a systematic manner.</p>
+      <p>We have professional and experienced writers having Engineering qualification with technology and expertise to provide IPENZ report and assessment. We are an independent organisation and hence have a professional team for guiding candidates for ICT skill assessment for migration to New Zealand. We provide the best service to all the candidates at very affordable prices. We help many Engineers from all around the world in immigration to New Zealand by providing 100% quality assessment services.</p>
+    </div>
+
+    <div class="wpb-nz-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Why choose us</h3>
+      <ul>
+        <li>Exceptionally Experienced ICT writers</li>
+        <li>97% Approval Rate</li>
+        <li>100% Original Content</li>
+        <li>On-time Delivery</li>
+        <li>Reasonable Prices</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TAB 2 -->
+  <div class="wpb-nz-panel" data-panel="2">
+    <div class="wpb-nz-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="2"/><line x1="12" y1="16" x2="12" y2="12" stroke-width="2"/><line x1="12" y1="8" x2="12.01" y2="8" stroke-width="2"/></svg> What is IPENZ?</h3>
+      <p class="wpb-nz-lead">The Institution of Professional Engineers New Zealand (IPENZ) is the professional body that represents professional engineers from all disciplines in New Zealand.</p>
+      <p>It acts as a prominent body of membership and plays a specific role in one of the most important businesses that the country New Zealand was involved in and has a part in. IPENZ New Zealand works as a team and plays a useful role in developing and improving the state in the field of Engineering. Hence their primary goal is to make engineering a competent and trustworthy profession.</p>
+    </div>
+
+    <div class="wpb-nz-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Based on Capability of Candidates, Membership is classified into three types:</h3>
+      <ul>
+        <li>Professional Member (MIPENZ)</li>
+        <li>Technical Member (TIPENZ)</li>
+        <li>Associate Member (AIPENZ)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TAB 3 -->
+  <div class="wpb-nz-panel" data-panel="3">
+    <div class="wpb-nz-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> How to Become Registered in NZ</h3>
+      <p>It is the most searched question by engineers in NZ. When the candidates complete his/her education and acquire the needed amount of experience, he/she is considered an eligible candidate to apply for the additional certification in the designation of an Engineer. This essential capability to meet all requirements for the name of a specialist is to produce a four year college education under any of the orders of designing subject to meet the prerequisites of Skilled Migrant Category Job Search.</p>
+    </div>
+
+    <div class="wpb-nz-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Membership Types in New Zealand</h3>
+      <p>There are different Membership Types in New Zealand mentioned below:</p>
+      <ul>
+        <li>Student</li>
+        <li>Emerging Professional</li>
+        <li>Member</li>
+        <li>Chartered</li>
+        <li>Fellow</li>
+        <li>Affiliate</li>
+      </ul>
+      <p>Subject to meeting the prerequisites of Skilled Migrant Category Job Search instructions, the vital candidates will be qualified for the award of a work visa to permit them to acquire a proposal of progressing work in New Zealand.</p>
+    </div>
+
+    <div class="wpb-nz-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="9" x2="21" y2="9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="9" y1="21" x2="9" y2="9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> National Register of IPENZ</h3>
+      <ul>
+        <li>Engineering Technologist (ETPract)</li>
+        <li>Professional Engineering Geologist (PEngGeol)</li>
+        <li>Certified Engineering Technician (certain)</li>
+        <li>Chartered Professional Engineer (CPEng)</li>
+      </ul>
+      <p>This registration and listing will help you in establishing and setting in NZ. It also proves that you are skilled there by your qualification and abilities. Consequently, it is viewed as essential and vital by the vast majority of the engineers in NZ. There are huge numbers and sort of registration and accreditations accessible in NZ. Along these lines, it is basic for the possibility to take into profoundly before applying to an association. The applicant must enquire adequately and afterwards apply to the association which must suit his/her profession, skills, path and objectives.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function wpbNzShowTab(n) {
+    var tabs = document.querySelectorAll('.wpb-nz-tab');
+    var panels = document.querySelectorAll('.wpb-nz-panel');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].classList.toggle('active', tabs[i].getAttribute('data-tab') === String(n));
+    }
+    for (var j = 0; j < panels.length; j++) {
+      panels[j].classList.toggle('active', panels[j].getAttribute('data-panel') === String(n));
+    }
+  }
+</script>

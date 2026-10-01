@@ -1,0 +1,186 @@
+<!-- Paste into WPBakery > Raw HTML element -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@600;700&display=swap');
+
+.ce{
+  --red:#d32f2f;
+  --red-dark:#b82727;
+  --tint:#fdecec;
+  --bg:#f4f4f2;
+  --dark:#2b2b2b;
+  --text:#4a4a4a;
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:48px;
+  align-items:center;
+  background:var(--bg);
+  padding:40px 24px;
+  font-family:'Inter',Arial,sans-serif;
+  box-sizing:border-box;
+}
+.ce *{box-sizing:border-box}
+.ce-left h2{
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:36px;
+  line-height:1.3;
+  color:var(--dark);
+  margin:0 0 24px;
+}
+.ce-left p{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--text);
+  margin:0 0 32px;
+  max-width:600px;
+}
+.ce-btn{
+  display:inline-block;
+  background:var(--red);
+  color:#fff !important;
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:17px;
+  padding:16px 30px;
+  border-radius:50px;
+  text-decoration:none !important;
+  box-shadow:0 8px 20px rgba(211,47,47,.28);
+  transition:background .2s, transform .2s, box-shadow .2s;
+}
+.ce-btn:hover,.ce-btn:focus-visible{
+  background:var(--red-dark);
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(211,47,47,.35);
+}
+
+.ce-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.ce-card{
+  background:#fff;
+  border-radius:16px;
+  padding:26px 24px 28px;
+  border:1px solid #ececea;
+  border-top:3px solid var(--red);
+  transition:transform .25s, box-shadow .25s;
+}
+.ce-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(0,0,0,.08);
+}
+.ce-icon{
+  width:56px;height:56px;
+  border-radius:14px;
+  background:var(--tint);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;
+}
+.ce-icon svg{
+  width:32px;height:32px;
+  fill:none;
+  stroke:var(--red);
+  stroke-width:2.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.ce-card h3{
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:20px;
+  line-height:1.3;
+  color:#111;
+  margin:0 0 10px;
+}
+.ce-card p{
+  font-size:15.5px;
+  line-height:1.65;
+  color:var(--text);
+  margin:0;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ce-card,.ce-btn{transition:none}
+  .ce-card:hover,.ce-btn:hover{transform:none}
+}
+
+/* Tablet */
+@media (max-width:991px){
+  .ce{grid-template-columns:1fr;gap:32px;padding:32px 20px}
+  .ce-left h2{font-size:30px}
+  .ce-left p{max-width:none}
+}
+/* Mobile */
+@media (max-width:600px){
+  .ce{padding:24px 16px;gap:28px}
+  .ce-left h2{font-size:26px;margin-bottom:16px}
+  .ce-left p{font-size:15px;margin-bottom:24px}
+  .ce-btn{display:block;text-align:center}
+  .ce-grid{grid-template-columns:1fr;gap:16px}
+  .ce-card{padding:22px 20px}
+}
+</style>
+
+<div class="ce">
+
+  <div class="ce-left">
+    <h2>A brief introduction to Career Episode Writing</h2>
+    <p>Career Episodes are based on your recent education qualification and employment period, with a total of three-part. Each part focuses on your engineering activity during your specific employment period. Each of these career episodes reflects on your skills and knowledge in the specified nominated anzsco field. A career episode should contain the following:</p>
+    <a class="ce-btn" href="#">Get Free Samples</a>
+  </div>
+
+  <div class="ce-grid">
+
+    <div class="ce-card">
+      <div class="ce-icon">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 4c-7 0-12 5-12 11.5 0 4 2 7 4.500 9.500 1.500 1.500 2 3 2 5V32h11v-2c0-2 .5-3.500 2-5C34 22.500 36 19.500 36 15.500 36 9 31 4 24 4z"/>
+          <path d="M19 38h10M21 43h6"/>
+          <path d="M27.500 13c-1-1-2.200-1.500-3.500-1.500-2 0-3.500 1-3.500 2.500s1.500 2.200 3.500 2.600 3.500 1 3.500 2.600-1.500 2.500-3.500 2.500c-1.300 0-2.500-.5-3.500-1.500M24 10v16"/>
+        </svg>
+      </div>
+      <h3>Academic</h3>
+      <p>Describing your innovative engineering activities performed during your educational years.</p>
+    </div>
+
+    <div class="ce-card">
+      <div class="ce-icon">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M6 44V16h14M20 44V6h22v38"/>
+          <path d="M2 44h44"/>
+          <path d="M13 24h2M13 32h2M27 14h2M35 14h2M27 22h2M35 22h2M27 30h2M35 30h2"/>
+          <path d="M24 44v-6"/>
+        </svg>
+      </div>
+      <h3>Projects</h3>
+      <p>Illustrating your fruitful works on projects related to the nominated field.</p>
+    </div>
+
+    <div class="ce-card">
+      <div class="ce-icon">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M3 18l8-5 8 3 6-3 8 4 8-3"/>
+          <path d="M3 18l9 12 6 4"/>
+          <path d="M45 17l-8 14-7 5"/>
+          <path d="M18 34l4 4c1.500 1 3 .5 4-1M22 30l4 4c1.500 1 3 .5 4-1"/>
+          <path d="M14 22l8 8 4-3 8-8"/>
+        </svg>
+      </div>
+      <h3>Employment</h3>
+      <p>Our Samples have helped many clients get postive results in their Skill Assessment Report.</p>
+    </div>
+
+    <div class="ce-card">
+      <div class="ce-icon">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="5" y="7" width="38" height="26" rx="2"/>
+          <path d="M24 33v6M15 41h18"/>
+        </svg>
+      </div>
+      <h3>Problem Solving</h3>
+      <p>Our samples are created exclusively by our experienced writers which cannot be found on the web.</p>
+    </div>
+
+  </div>
+</div>

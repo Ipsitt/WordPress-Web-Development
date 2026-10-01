@@ -1,0 +1,143 @@
+<!-- Paste into WPBakery > Raw HTML element (set the row to "Stretch row" if you want a full-width grey background) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@600;700&display=swap');
+
+.sf-wrap{
+  --sf-red:#d32f2f;
+  --sf-btn:#e03535;
+  --sf-bg:#f4f4f2;
+  --sf-dark:#2b2b2b;
+  --sf-text:#444;
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:40px;
+  align-items:start;
+  background:var(--sf-bg);
+  padding:20px 24px;
+  box-sizing:border-box;
+  font-family:'Inter',Arial,sans-serif;
+}
+.sf-wrap *{box-sizing:border-box}
+.sf-left h2{
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:34px;
+  line-height:1.3;
+  color:var(--sf-dark);
+  margin:0 0 28px;
+}
+.sf-left p{
+  font-size:16px;
+  line-height:1.65;
+  color:var(--sf-text);
+  margin:0 0 30px;
+  max-width:560px;
+}
+.sf-btn{
+  display:inline-block;
+  background:var(--sf-btn);
+  color:#fff !important;
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:17px;
+  padding:16px 24px;
+  border-radius:50px;
+  text-decoration:none !important;
+  transition:background .2s;
+}
+.sf-btn:hover,.sf-btn:focus-visible{background:#b82727}
+
+.sf-right{
+  background:#fff;
+  padding:24px 14px 28px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px 36px;
+  align-content:start;
+}
+.sf-item svg{
+  width:48px;height:48px;
+  stroke:var(--sf-red);
+  fill:none;
+  stroke-width:2.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  display:block;
+  margin-bottom:22px;
+}
+.sf-item h3{
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:19px;
+  line-height:1.5;
+  color:#111;
+  margin:0 0 12px;
+}
+.sf-item p{
+  font-size:17px;
+  line-height:1.6;
+  color:var(--sf-text);
+  margin:0;
+}
+
+/* Tablet */
+@media (max-width:991px){
+  .sf-wrap{grid-template-columns:1fr;gap:28px}
+  .sf-left h2{font-size:30px}
+}
+/* Mobile */
+@media (max-width:600px){
+  .sf-wrap{padding:16px}
+  .sf-left h2{font-size:26px;margin-bottom:18px}
+  .sf-left p{font-size:15px}
+  .sf-btn{display:block;text-align:center}
+  .sf-right{grid-template-columns:1fr;padding:22px 18px;gap:30px}
+  .sf-item p{font-size:16px}
+}
+</style>
+
+<div class="sf-wrap">
+
+  <div class="sf-left">
+    <h2>Features to Include for Preparing a Quality Summary Statement?</h2>
+    <p>While writing the Summary Statement for your report, it is very important that you make sure to include the following features in your Competency Element.</p>
+    <a class="sf-btn" href="#">Get Free Samples</a>
+  </div>
+
+  <div class="sf-right">
+
+    <div class="sf-item">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M24 4c-7 0-12 5-12 11.5 0 4 2 7 4.5 9.5 1.5 1.5 2 3 2 5V32h11v-2c0-2 .5-3.500 2-5C34 22.500 36 19.500 36 15.500 36 9 31 4 24 4z"/>
+        <path d="M19 38h10M21 43h6"/>
+        <path d="M27.500 13c-1-1-2.200-1.500-3.500-1.500-2 0-3.500 1-3.500 2.500s1.500 2.200 3.500 2.600 3.500 1 3.500 2.600-1.500 2.500-3.500 2.500c-1.300 0-2.500-.5-3.500-1.500M24 10v16"/>
+      </svg>
+      <h3>Knowledge and Skill Base</h3>
+      <p>This Competency Unit asks the candidate to provide a reference on the general knowledge in your specifies engineering field.</p>
+    </div>
+
+    <div class="sf-item">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M6 44V16h14M20 44V6h22v38"/>
+        <path d="M2 44h44"/>
+        <path d="M13 24h2M13 32h2M27 14h2M35 14h2M27 22h2M35 22h2M27 30h2M35 30h2"/>
+        <path d="M24 44v-6"/>
+      </svg>
+      <h3>Engineering Application Ability</h3>
+      <p>This section defines the engineering methods for problem solving within the domain technology.</p>
+    </div>
+
+    <div class="sf-item">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M3 18l8-5 8 3 6-3 8 4 8-3"/>
+        <path d="M3 18l9 12 6 4"/>
+        <path d="M45 17l-8 14-7 5"/>
+        <path d="M18 34l4 4c1.500 1 3 .5 4-1M22 30l4 4c1.500 1 3 .5 4-1"/>
+        <path d="M14 22l8 8 4-3 8-8"/>
+      </svg>
+      <h3>Professional and Personal Attributes</h3>
+      <p>This competency unit looks at aspects like communication, behavioural, social and leadership aspects, for example, ethics, team membership, creativity and team leadership etc.</p>
+    </div>
+
+  </div>
+</div>

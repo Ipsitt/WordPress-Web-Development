@@ -1,0 +1,185 @@
+<!-- Paste into WPBakery > Raw HTML element -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@600;700&display=swap');
+
+.ka{
+  --red:#d32f2f;
+  --red-dark:#b82727;
+  --tint:#fdecec;
+  --bg:#f4f4f2;
+  --dark:#2b2b2b;
+  --text:#4a4a4a;
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:48px;
+  align-items:center;
+  background:var(--bg);
+  padding:40px 24px;
+  font-family:'Inter',Arial,sans-serif;
+  box-sizing:border-box;
+}
+.ka *{box-sizing:border-box}
+.ka-left h2{
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:36px;
+  line-height:1.3;
+  color:var(--dark);
+  margin:0 0 24px;
+}
+.ka-left p{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--text);
+  margin:0 0 32px;
+  max-width:560px;
+}
+.ka-btn{
+  display:inline-block;
+  background:var(--red);
+  color:#fff !important;
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:17px;
+  padding:16px 30px;
+  border-radius:50px;
+  text-decoration:none !important;
+  box-shadow:0 8px 20px rgba(211,47,47,.28);
+  transition:background .2s, transform .2s, box-shadow .2s;
+}
+.ka-btn:hover,.ka-btn:focus-visible{
+  background:var(--red-dark);
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(211,47,47,.35);
+}
+
+.ka-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.ka-card{
+  background:#fff;
+  border-radius:16px;
+  padding:26px 24px 28px;
+  border:1px solid #ececea;
+  border-top:3px solid var(--red);
+  transition:transform .25s, box-shadow .25s;
+}
+.ka-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(0,0,0,.08);
+}
+.ka-icon{
+  width:56px;height:56px;
+  border-radius:14px;
+  background:var(--tint);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;
+}
+.ka-icon svg{
+  width:32px;height:32px;
+  fill:none;
+  stroke:var(--red);
+  stroke-width:2.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.ka-card h3{
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:20px;
+  line-height:1.3;
+  color:#111;
+  margin:0 0 10px;
+}
+.ka-card p{
+  font-size:15.5px;
+  line-height:1.65;
+  color:var(--text);
+  margin:0;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ka-card,.ka-btn{transition:none}
+  .ka-card:hover,.ka-btn:hover{transform:none}
+}
+
+/* Tablet */
+@media (max-width:991px){
+  .ka{grid-template-columns:1fr;gap:32px;padding:32px 20px}
+  .ka-left h2{font-size:30px}
+  .ka-left p{max-width:none}
+}
+/* Mobile */
+@media (max-width:600px){
+  .ka{padding:24px 16px;gap:28px}
+  .ka-left h2{font-size:26px;margin-bottom:16px}
+  .ka-left p{font-size:15px;margin-bottom:24px}
+  .ka-btn{display:block;text-align:center}
+  .ka-grid{grid-template-columns:1fr;gap:16px}
+  .ka-card{padding:22px 20px}
+}
+</style>
+
+<div class="ka">
+
+  <div class="ka-left">
+    <h2>Steps to follow while preparing your KA02 Report</h2>
+    <p>KA02 report assessment takes typically 6-8 weeks. However, it also depends on the content of the report. If they find mistakes, you will be asked to re-submit your report, which will delay your processing. So before submitting recheck your report correctly to avoid such errors and get your report result in no-time.</p>
+    <a class="ka-btn" href="#">Get Free Samples</a>
+  </div>
+
+  <div class="ka-grid">
+
+    <div class="ka-card">
+      <div class="ka-icon">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 4c-7 0-12 5-12 11.5 0 4 2 7 4.500 9.500 1.500 1.500 2 3 2 5V32h11v-2c0-2 .5-3.500 2-5C34 22.500 36 19.500 36 15.500 36 9 31 4 24 4z"/>
+          <path d="M19 38h10M21 43h6"/>
+          <path d="M27.500 13c-1-1-2.200-1.500-3.500-1.500-2 0-3.500 1-3.500 2.500s1.500 2.200 3.500 2.600 3.500 1 3.500 2.600-1.500 2.500-3.500 2.500c-1.300 0-2.500-.5-3.500-1.500M24 10v16"/>
+        </svg>
+      </div>
+      <h3>Know your objectives</h3>
+      <p>Initially, prepare a draft on how you will be writing your report. If possible, divide your reports into parts and deal with them one by one. This will clear your path and give you significant results.</p>
+    </div>
+
+    <div class="ka-card">
+      <div class="ka-icon">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M6 10h4M6 24h4M6 38h4"/>
+          <path d="M18 10h24M18 24h24M18 38h24"/>
+        </svg>
+      </div>
+      <h3>Learn the IPENZ guidelines</h3>
+      <p>IPENZ provides rules and steps for candidate to prepare their KA02 report. So make sure to go through the rule book and other references provided by the official body before finalizing.</p>
+    </div>
+
+    <div class="ka-card">
+      <div class="ka-icon">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M10 5h20l10 10v28H10z"/>
+          <path d="M30 5v10h10"/>
+          <path d="M17 26h14M17 34h14"/>
+        </svg>
+      </div>
+      <h3>Report writing</h3>
+      <p>The knowledge of report writing that you gained from educational years should be utilized in your report. Technical as well as grammatical aspects both should be covered along with simple vocabulary.</p>
+    </div>
+
+    <div class="ka-card">
+      <div class="ka-icon">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M3 18l8-5 8 3 6-3 8 4 8-3"/>
+          <path d="M3 18l9 12 6 4"/>
+          <path d="M45 17l-8 14-7 5"/>
+          <path d="M18 34l4 4c1.500 1 3 .5 4-1M22 30l4 4c1.500 1 3 .5 4-1"/>
+          <path d="M14 22l8 8 4-3 8-8"/>
+        </svg>
+      </div>
+      <h3>Opt for professional writers</h3>
+      <p>You can contact professional writers if you are confused. We provide you quality report writing services. If not, you can take the reference sample for the KA02 report.</p>
+    </div>
+
+  </div>
+</div>

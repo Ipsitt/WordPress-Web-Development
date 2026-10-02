@@ -1,12 +1,13 @@
 <!-- Paste into WPBakery > Raw HTML element -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap');
 
 .cc{
   --red:#d32f2f;
+  --red-dark:#b82727;
   --tint:#fdecec;
   --bg:#f4f4f2;
-  --dark:#2b2b2b;
+  --ink:#1c1c1e;
   --text:#4a4a4a;
   background:var(--bg);
   padding:48px 24px;
@@ -16,176 +17,256 @@
 .cc *{box-sizing:border-box}
 .cc-inner{max-width:1200px;margin:0 auto}
 
-/* ---------- Section 1 ---------- */
+/* ---------- Section 1: hero + steps ---------- */
 .cc-intro{
   display:grid;
   grid-template-columns:1fr 1.1fr;
-  gap:48px;
-  align-items:start;
-  margin-bottom:56px;
+  gap:24px;
+  margin-bottom:24px;
 }
-.cc-intro h2{
-  font-family:'Manrope',Arial,sans-serif;
-  font-weight:700;
-  font-size:36px;
-  line-height:1.3;
-  color:var(--dark);
-  margin:0 0 24px;
+.cc-hero{
+  background:linear-gradient(145deg,#1c1c1e 0%,#2d2d30 100%);
+  border-radius:20px;
+  padding:44px 40px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
-.cc-intro h2::after{
+.cc-hero::before{
   content:"";
-  display:block;
-  width:56px;height:4px;
+  position:absolute;
+  right:-70px;top:-70px;
+  width:220px;height:220px;
+  border-radius:50%;
   background:var(--red);
-  border-radius:4px;
-  margin-top:18px;
+  opacity:.9;
 }
-.cc-lead{
-  font-size:17px;
+.cc-hero::after{
+  content:"";
+  position:absolute;
+  right:40px;bottom:-60px;
+  width:120px;height:120px;
+  border-radius:50%;
+  border:18px solid rgba(255,255,255,.06);
+}
+.cc-hero h2{
+  position:relative;
+  z-index:1;
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:800;
+  font-size:36px;
+  line-height:1.2;
+  color:#fff;
+  margin:0 0 24px;
+  max-width:420px;
+}
+.cc-hero p{
+  position:relative;
+  z-index:1;
+  font-size:16px;
   line-height:1.75;
-  color:var(--text);
+  color:#d9d9dc;
   margin:0;
-  padding-left:18px;
-  border-left:3px solid var(--red);
+  padding:18px 20px;
+  background:rgba(255,255,255,.07);
+  border-left:4px solid var(--red);
+  border-radius:0 12px 12px 0;
 }
-.cc-body{
+
+.cc-steps{
+  display:grid;
+  gap:16px;
+  margin:0;padding:0;
+  list-style:none;
+}
+.cc-step{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
   background:#fff;
   border:1px solid var(--red);
   border-radius:16px;
-  padding:28px 28px 12px;
+  padding:22px 24px;
+  transition:transform .25s, box-shadow .25s;
 }
-.cc-body p{
-  font-size:15.5px;
-  line-height:1.75;
+.cc-step:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.08)}
+.cc-num{
+  flex:0 0 46px;
+  width:46px;height:46px;
+  border-radius:12px;
+  background:var(--red);
+  color:#fff;
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:800;
+  font-size:17px;
+  display:flex;align-items:center;justify-content:center;
+}
+.cc-step p{
+  font-size:15px;
+  line-height:1.7;
   color:var(--text);
-  margin:0 0 18px;
+  margin:0;
 }
 
-/* ---------- Section 2 ---------- */
+/* ---------- Section 2: panelled cards ---------- */
 .cc-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:24px;
   align-items:start;
 }
 .cc-card{
   background:#fff;
   border:1px solid var(--red);
   border-radius:16px;
-  padding:26px 24px 10px;
+  overflow:hidden;
   transition:transform .25s, box-shadow .25s;
 }
-.cc-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 30px rgba(0,0,0,.08);
+.cc-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.08)}
+.cc-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:var(--tint);
+  border-bottom:1px solid rgba(211,47,47,.25);
+  padding:16px 22px;
+}
+.cc-head::before{
+  content:"";
+  flex:0 0 10px;
+  width:10px;height:10px;
+  border-radius:3px;
+  background:var(--red);
 }
 .cc-card h3{
   font-family:'Manrope',Arial,sans-serif;
   font-weight:700;
-  font-size:21px;
+  font-size:18px;
   line-height:1.3;
-  color:#111;
-  margin:0 0 16px;
+  color:var(--ink);
+  margin:0;
 }
-.cc-card h3 + .cc-term,
-.cc-card h3 + p{margin-top:0}
-.cc-card .cc-sep{
-  padding-top:22px;
-  margin-top:6px;
-  border-top:1px dashed #e2e2e0;
+.cc-item{
+  padding:18px 22px;
+  border-bottom:1px solid #eee;
 }
+.cc-item:last-child{border-bottom:0}
 .cc-term{
-  display:inline-block;
-  font-size:12.5px;
-  font-weight:600;
-  letter-spacing:.2px;
+  display:block;
+  font-family:'Manrope',Arial,sans-serif;
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.6px;
   color:var(--red);
-  background:var(--tint);
-  padding:4px 12px;
-  border-radius:50px;
-  margin:0 0 10px;
+  margin:0 0 6px;
 }
-.cc-card p{
-  font-size:15px;
-  line-height:1.7;
+.cc-item p{
+  font-size:14.5px;
+  line-height:1.65;
   color:var(--text);
-  margin:0 0 18px;
+  margin:0;
 }
 
 @media (prefers-reduced-motion:reduce){
-  .cc-card{transition:none}
-  .cc-card:hover{transform:none}
+  .cc-card,.cc-step{transition:none}
+  .cc-card:hover,.cc-step:hover{transform:none}
 }
 
 /* Tablet */
 @media (max-width:991px){
   .cc{padding:36px 20px}
-  .cc-intro{grid-template-columns:1fr;gap:28px;margin-bottom:40px}
-  .cc-intro h2{font-size:30px}
+  .cc-intro{grid-template-columns:1fr}
+  .cc-hero{padding:36px 28px}
+  .cc-hero h2{font-size:30px;max-width:none}
   .cc-grid{grid-template-columns:1fr 1fr}
 }
 /* Mobile */
 @media (max-width:600px){
-  .cc{padding:28px 16px}
-  .cc-intro h2{font-size:26px;margin-bottom:18px}
-  .cc-lead{font-size:16px}
-  .cc-body{padding:22px 20px 6px}
+  .cc{padding:24px 14px}
+  .cc-hero{padding:28px 20px}
+  .cc-hero h2{font-size:26px}
+  .cc-hero::before{width:150px;height:150px;right:-60px;top:-60px}
+  .cc-step{padding:18px;gap:14px}
+  .cc-num{flex-basis:40px;width:40px;height:40px;font-size:15px}
   .cc-grid{grid-template-columns:1fr;gap:16px}
-  .cc-card{padding:22px 20px 6px}
-  .cc-card h3{font-size:20px}
 }
 </style>
 
 <div class="cc">
   <div class="cc-inner">
 
-    <!-- Section 1: How to become a Certified Chartered Engineer -->
+    <!-- Section 1 -->
     <div class="cc-intro">
-      <div>
+      <div class="cc-hero">
         <h2>How to become a Certified Chartered Engineer</h2>
-        <p class="cc-lead">Consider the guidelines required for registration as a Chartered Engineer by reading the significant area inside the UK-SPEC and choose whether these concerns (you ought to discuss this with your line manager or another registered engineer).</p>
+        <p>Consider the guidelines required for registration as a Chartered Engineer by reading the significant area inside the UK-SPEC and choose whether these concerns (you ought to discuss this with your line manager or another registered engineer).</p>
       </div>
-      <div class="cc-body">
-        <p>If you are prepared to apply, download our Applicants Short Guide to Registrations and Initial Application Form and follow the process illustrated in the guide. All applicants for registration as a Chartered Engineer must be members of a professional body, for example, the Institute of Water.</p>
-        <p>As part of your application you will be asked to produce a copy of your CPD record. Institute of Water members have exclusive access to our online CPD platform to support you in recording and presenting.</p>
-        <p>As a major aspect of your application, you will receive a copy of your CPD record. Institute of Water individuals have selected admittance to our online CPD stage to help you in the recording and presenting.</p>
-      </div>
+
+      <ol class="cc-steps">
+        <li class="cc-step">
+          <span class="cc-num">01</span>
+          <p>If you are prepared to apply, download our Applicants Short Guide to Registrations and Initial Application Form and follow the process illustrated in the guide. All applicants for registration as a Chartered Engineer must be members of a professional body, for example, the Institute of Water.</p>
+        </li>
+        <li class="cc-step">
+          <span class="cc-num">02</span>
+          <p>As part of your application you will be asked to produce a copy of your CPD record. Institute of Water members have exclusive access to our online CPD platform to support you in recording and presenting.</p>
+        </li>
+        <li class="cc-step">
+          <span class="cc-num">03</span>
+          <p>As a major aspect of your application, you will receive a copy of your CPD record. Institute of Water individuals have selected admittance to our online CPD stage to help you in the recording and presenting.</p>
+        </li>
+      </ol>
     </div>
 
-    <!-- Section 2: IMAREST membership -->
+    <!-- Section 2 -->
     <div class="cc-grid">
 
       <div class="cc-card">
-        <h3>Types of IMAREST Membership</h3>
-        <span class="cc-term">Fellow:</span>
-        <p>Fellows are the classification of the part who has been shown as per the general inclination of the board through the level of information, competency, and commitment to predominant obligation regarding the executives of work in a marine-related profession.</p>
-        <span class="cc-term">Member:</span>
-        <p>Members are classifications of individuals who are said to fulfill the chamber by accomplishing a situation in the marine part for 5 Years. The Professional conduct commits them.</p>
-        <span class="cc-term">Associate Member:</span>
-        <p>They are members who are said to fulfill the gathering by accomplishing the situation for a useful part in the marine sector. They should deliver a responsibility by the Institute’s code of professional conduct.</p>
+        <div class="cc-head"><h3>Types of IMAREST Membership</h3></div>
+        <div class="cc-item">
+          <span class="cc-term">Fellow:</span>
+          <p>Fellows are the classification of the part who has been shown as per the general inclination of the board through the level of information, competency, and commitment to predominant obligation regarding the executives of work in a marine-related profession.</p>
+        </div>
+        <div class="cc-item">
+          <span class="cc-term">Member:</span>
+          <p>Members are classifications of individuals who are said to fulfill the chamber by accomplishing a situation in the marine part for 5 Years. The Professional conduct commits them.</p>
+        </div>
+        <div class="cc-item">
+          <span class="cc-term">Associate Member:</span>
+          <p>They are members who are said to fulfill the gathering by accomplishing the situation for a useful part in the marine sector. They should deliver a responsibility by the Institute’s code of professional conduct.</p>
+        </div>
       </div>
 
       <div class="cc-card">
-        <h3>Types of Non-Corporate Membership</h3>
-        <span class="cc-term">Affiliate:</span>
-        <p>Affiliates are people who are interested in the activities of the Institute in the decisions of the council and also contribute to the technical services of the Institute.</p>
-        <span class="cc-term">Student:</span>
-        <p>Students are members who are enrolled in a Programme or recognized by the IMAREST.</p>
-        <div class="cc-sep">
-          <h3>Registration</h3>
+        <div class="cc-head"><h3>Types of Non-Corporate Membership</h3></div>
+        <div class="cc-item">
+          <span class="cc-term">Affiliate:</span>
+          <p>Affiliates are people who are interested in the activities of the Institute in the decisions of the council and also contribute to the technical services of the Institute.</p>
+        </div>
+        <div class="cc-item">
+          <span class="cc-term">Student:</span>
+          <p>Students are members who are enrolled in a Programme or recognized by the IMAREST.</p>
+        </div>
+        <div class="cc-head"><h3>Registration</h3></div>
+        <div class="cc-item">
           <p>In addition to the membership, IMAREST has a permit to give a scope of expert registers under the fields of Engineering, Science and Technology. Additionally, IMAREST invigorates the Institute to satisfy the particular needs of the marine profession.</p>
         </div>
       </div>
 
       <div class="cc-card">
-        <h3>Eligibility</h3>
-        <p>To remain qualified for CEng status, it is important to show a demo of professional competency and responsibility. There are different ways to meet the requirements.</p>
-        <div class="cc-sep">
-          <h3>Get ready for CENG</h3>
+        <div class="cc-head"><h3>Eligibility</h3></div>
+        <div class="cc-item">
+          <p>To remain qualified for CEng status, it is important to show a demo of professional competency and responsibility. There are different ways to meet the requirements.</p>
+        </div>
+        <div class="cc-head"><h3>Get ready for CENG</h3></div>
+        <div class="cc-item">
           <p>In the event that you are building up the abilities of CENG, you need to think about the Incorporated Engineer registration. This allows one to appreciate the advantages of registering for the career.</p>
         </div>
-        <div class="cc-sep">
-          <h3>Awards and qualifications</h3>
+        <div class="cc-head"><h3>Awards and qualifications</h3></div>
+        <div class="cc-item">
           <p>In the event that you become a member of IMAREST, you can appreciate different scopes of Professional improvement openings. You will go to instructional classes, gatherings to help your specialized information through the virtual library.</p>
         </div>
       </div>

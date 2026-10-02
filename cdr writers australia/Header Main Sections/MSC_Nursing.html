@@ -1,0 +1,395 @@
+<!-- Paste into WPBakery > Raw HTML element -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap');
+
+.ns{
+  --red:#d32f2f;
+  --tint:#fdecec;
+  --bg:#f4f4f2;
+  --ink:#1c1c1e;
+  --text:#4a4a4a;
+  background:var(--bg);
+  padding:48px 24px;
+  font-family:'Inter',Arial,sans-serif;
+  box-sizing:border-box;
+}
+.ns *{box-sizing:border-box}
+.ns-inner{max-width:1200px;margin:0 auto}
+
+/* ---------- Hero with ECG animation ---------- */
+.ns-hero{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  background:linear-gradient(145deg,#1c1c1e 0%,#2d2d30 100%);
+  border-radius:20px;
+  padding:44px 32px 110px;
+  margin-bottom:24px;
+}
+.ns-heart{
+  position:relative;
+  width:64px;height:64px;
+  margin:0 auto 18px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  background:var(--red);
+}
+.ns-heart::before,.ns-heart::after{
+  content:"";
+  position:absolute;inset:0;
+  border-radius:50%;
+  border:2px solid var(--red);
+  animation:ns-ring 2s ease-out infinite;
+}
+.ns-heart::after{animation-delay:1s}
+.ns-heart svg{
+  width:30px;height:30px;
+  fill:#fff;
+  animation:ns-beat 1.6s ease-in-out infinite;
+}
+.ns-hero h2{
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:800;
+  font-size:38px;
+  line-height:1.2;
+  color:#fff;
+  margin:0 0 16px;
+}
+.ns-hero p{
+  max-width:820px;
+  margin:0 auto;
+  font-size:16.5px;
+  line-height:1.75;
+  color:#d9d9dc;
+}
+.ns-ecg{
+  position:absolute;
+  left:0;bottom:18px;
+  width:100%;height:70px;
+}
+.ns-ecg path{
+  fill:none;
+  stroke-width:2.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+}
+.ns-ecg .track{stroke:rgba(255,255,255,.12)}
+.ns-ecg .pulse{
+  stroke:var(--red);
+  stroke-dasharray:22 78;
+  animation:ns-run 3.2s linear infinite;
+  filter:drop-shadow(0 0 4px rgba(211,47,47,.9));
+}
+@keyframes ns-run{from{stroke-dashoffset:22}to{stroke-dashoffset:-78}}
+@keyframes ns-beat{
+  0%,40%,100%{transform:scale(1)}
+  10%{transform:scale(1.22)}
+  22%{transform:scale(1)}
+  30%{transform:scale(1.14)}
+}
+@keyframes ns-ring{
+  0%{transform:scale(1);opacity:.7}
+  100%{transform:scale(1.9);opacity:0}
+}
+
+/* ---------- Layout ---------- */
+.ns-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:start;
+  margin-bottom:24px;
+}
+.ns-row:last-child{margin-bottom:0}
+
+.ns-card{
+  background:#fff;
+  border:1px solid var(--red);
+  border-radius:16px;
+  overflow:hidden;
+  transition:transform .25s, box-shadow .25s;
+}
+.ns-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.08)}
+.ns-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:var(--tint);
+  border-top:1px solid rgba(211,47,47,.25);
+  border-bottom:1px solid rgba(211,47,47,.25);
+  padding:15px 22px;
+}
+.ns-card > .ns-head:first-child{border-top:0}
+.ns-head::before{
+  content:"";
+  flex:0 0 10px;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--red);
+  animation:ns-dot 1.6s ease-in-out infinite;
+}
+@keyframes ns-dot{
+  0%,100%{box-shadow:0 0 0 0 rgba(211,47,47,.5)}
+  50%{box-shadow:0 0 0 6px rgba(211,47,47,0)}
+}
+.ns-card h3{
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:18px;
+  line-height:1.3;
+  color:var(--ink);
+  margin:0;
+}
+.ns-item{padding:18px 22px;border-bottom:1px solid #eee}
+.ns-item:last-child{border-bottom:0}
+.ns-item p{
+  font-size:14.5px;
+  line-height:1.7;
+  color:var(--text);
+  margin:0 0 12px;
+}
+.ns-item p:last-child{margin-bottom:0}
+.ns-term{
+  display:block;
+  font-family:'Manrope',Arial,sans-serif;
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  color:var(--red);
+  margin:0 0 6px;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ns-heart::before,.ns-heart::after,.ns-heart svg,.ns-head::before{animation:none}
+  .ns-ecg .pulse{animation:none;stroke-dasharray:none}
+  .ns-card{transition:none}
+  .ns-card:hover{transform:none}
+}
+
+
+/* ---------- Extra design layer ---------- */
+.ns{
+  background-color:var(--bg);
+  background-image:radial-gradient(rgba(211,47,47,.13) 1.2px,transparent 1.2px);
+  background-size:22px 22px;
+}
+.ns-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);
+  background-size:20px 20px;
+  pointer-events:none;
+}
+.ns-hero > *{position:relative;z-index:1}
+.ns-hero > .ns-ecg{position:absolute}
+.ns-hero h2::after{
+  content:"";
+  display:block;
+  height:4px;
+  width:60px;
+  margin:16px auto 0;
+  border-radius:4px;
+  background:var(--red);
+  animation:ns-bar 3s ease-in-out infinite;
+}
+@keyframes ns-bar{0%,100%{width:60px}50%{width:140px}}
+
+/* floating medical crosses */
+.ns-float{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.ns-float i{
+  position:absolute;
+  bottom:-30px;
+  width:var(--s);height:var(--s);
+  opacity:0;
+  animation:ns-rise var(--d) linear infinite;
+  animation-delay:var(--l);
+}
+.ns-float i::before,.ns-float i::after{
+  content:"";
+  position:absolute;
+  background:rgba(211,47,47,.55);
+  border-radius:2px;
+}
+.ns-float i::before{left:35%;top:0;width:30%;height:100%}
+.ns-float i::after{top:35%;left:0;height:30%;width:100%}
+@keyframes ns-rise{
+  0%{transform:translateY(0) rotate(0);opacity:0}
+  15%{opacity:.9}
+  85%{opacity:.5}
+  100%{transform:translateY(-330px) rotate(180deg);opacity:0}
+}
+
+/* heading icons */
+.ns-head::before{display:none}
+.ns-ico{
+  flex:0 0 36px;
+  width:36px;height:36px;
+  border-radius:10px;
+  background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 0 rgba(211,47,47,.45);
+  animation:ns-ico 2.4s ease-in-out infinite;
+  transition:transform .3s;
+}
+.ns-ico svg{
+  width:20px;height:20px;
+  fill:none;stroke:#fff;
+  stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.ns-card:hover .ns-ico{transform:rotate(-8deg) scale(1.08)}
+@keyframes ns-ico{
+  0%,100%{box-shadow:0 0 0 0 rgba(211,47,47,.4)}
+  50%{box-shadow:0 0 0 7px rgba(211,47,47,0)}
+}
+
+/* card watermark cross + left accent on body text */
+.ns-card{position:relative}
+.ns-card::after{
+  content:"";
+  position:absolute;
+  right:-26px;bottom:-26px;
+  width:120px;height:120px;
+  background:
+    linear-gradient(var(--red),var(--red)) center/34% 100% no-repeat,
+    linear-gradient(var(--red),var(--red)) center/100% 34% no-repeat;
+  opacity:.04;
+  pointer-events:none;
+  transform:rotate(12deg);
+}
+.ns-item{position:relative}
+.ns-item + .ns-item::before{
+  content:"";
+  position:absolute;
+  left:22px;top:-1px;
+  width:46px;height:2px;
+  background:var(--red);
+  border-radius:2px;
+}
+
+/* sweeping shine on hover */
+.ns-head{position:relative;overflow:hidden}
+.ns-head::after{
+  content:"";
+  position:absolute;
+  top:0;left:-60%;
+  width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);
+  transform:skewX(-20deg);
+}
+.ns-card:hover .ns-head::after{animation:ns-shine .9s ease}
+@keyframes ns-shine{to{left:130%}}
+
+@media (prefers-reduced-motion:reduce){
+  .ns-float,.ns-ico,.ns-hero h2::after,.ns-card:hover .ns-head::after{animation:none}
+  .ns-float{display:none}
+}
+@media (max-width:600px){
+  .ns-ico{flex-basis:32px;width:32px;height:32px}
+  .ns-item + .ns-item::before{left:18px}
+}
+
+/* Tablet */
+@media (max-width:991px){
+  .ns{padding:36px 20px}
+  .ns-hero{padding:36px 24px 100px}
+  .ns-hero h2{font-size:32px}
+  .ns-row{grid-template-columns:1fr}
+}
+/* Mobile */
+@media (max-width:600px){
+  .ns{padding:24px 14px}
+  .ns-hero{padding:28px 18px 90px;border-radius:16px}
+  .ns-hero h2{font-size:26px}
+  .ns-hero p{font-size:15px}
+  .ns-heart{width:56px;height:56px}
+  .ns-ecg{height:56px;bottom:14px}
+  .ns-row{gap:16px;margin-bottom:16px}
+  .ns-head{padding:14px 18px}
+  .ns-item{padding:16px 18px}
+}
+</style>
+
+<div class="ns">
+  <div class="ns-inner">
+
+    <!-- Hero -->
+    <div class="ns-hero">
+      <div class="ns-float" aria-hidden="true"><i style="left:6%;--s:16px;--d:9s;--l:0s"></i><i style="left:18%;--s:10px;--d:11s;--l:2s"></i><i style="left:30%;--s:14px;--d:8s;--l:4s"></i><i style="left:62%;--s:12px;--d:10s;--l:1s"></i><i style="left:74%;--s:18px;--d:12s;--l:3s"></i><i style="left:86%;--s:10px;--d:9s;--l:5s"></i><i style="left:94%;--s:14px;--d:11s;--l:0.5s"></i></div>
+      <div class="ns-heart" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.500-9.500-9C.8 8.500 3 5 6.500 5c2 0 3.500 1 5.500 3 2-2 3.500-3 5.500-3C21 5 23.200 8.500 21.500 12 19 16.500 12 21 12 21z"/></svg>
+      </div>
+      <h2>Assessment Details</h2>
+      <p>You will be required to provide evidence of your prior learning against the learning outcomes in Stage 1 of the BSc three year nursing programme. These have been summarized below:</p>
+      <svg class="ns-ecg" viewBox="0 0 600 70" preserveAspectRatio="none" aria-hidden="true">
+        <path class="track" pathLength="100" d="M0 38H120L132 38L142 14L154 62L166 6L178 38H300L312 38L322 14L334 62L346 6L358 38H480L492 38L502 14L514 62L526 6L538 38H600"/>
+        <path class="pulse" pathLength="100" d="M0 38H120L132 38L142 14L154 62L166 6L178 38H300L312 38L322 14L334 62L346 6L358 38H480L492 38L502 14L514 62L526 6L538 38H600"/>
+      </svg>
+    </div>
+
+    <!-- Row 1: BSc outcomes + MSc assessment -->
+    <div class="ns-row">
+
+      <div class="ns-card">
+        <div class="ns-head"><span class="ns-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.5 3 5 6.5 5c2 0 3.500 1 5.500 3 2-2 3.500-3 5.500-3C21 5 23.200 8.500 21.500 12 19 16.500 12 21 12 21z"/></svg></span><h3>Rationale</h3></div>
+        <div class="ns-item"><p>The supporting way of thinking of your nursing program is ‘personal Centered Care’ which is a perspective and giving medical care while seeing assistance clients as fundamental accomplices in planning, developing and monitoring care to guarantee that their needs are met and going about as an advocate when essential.</p></div>
+        <div class="ns-head"><span class="ns-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M4 21V5M9 8h6"/></svg></span><h3>Knowledge and Understanding</h3></div>
+        <div class="ns-item"><p>Basically assess factors that impact upon a person’s wellbeing over the life course and relate these to health advancement activities and proof informed rules for practice.</p></div>
+        <div class="ns-head"><span class="ns-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-11.500 7.200L3 21l1.800-6A8 8 0 1121 12z"/><path d="M8 11h8M8 14h5"/></svg></span><h3>Skills</h3></div>
+        <div class="ns-item"><p>Basically survey a scope of communication techniques that can empower the improvement of helpful connections</p></div>
+        <div class="ns-head"><span class="ns-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/><path d="M8.500 12l2.500 2.500L16 9.500"/></svg></span><h3>Values and Attitude</h3></div>
+        <div class="ns-item"><p>Effectively arrange and advocate for individuals to guarantee equivalent access to care and support.</p></div>
+      </div>
+
+      <div class="ns-card">
+        <div class="ns-head"><span class="ns-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.500V16c0 1.500 2.700 3 6 3s6-1.500 6-3v-4.500M22 9v6"/></svg></span><h3>MSc. Nursing Assessment</h3></div>
+        <div class="ns-item"><p>The MSc. Nursing Assessment will allow you to demonstrate your knowledge and understanding of 2 key issues: communication as it relates to advocacy and the factors that impact on an individual’s health across the life course and relate these to health promotion activities. The assessment has two parts. You must complete both parts of the assessments and include the coursework declaration sheet and feedback and results from with your submission.</p></div>
+        <div class="ns-head"><span class="ns-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.500"/><path d="M2.500 20c0-3.500 3-6 6.500-6s6.500 2.500 6.500 6"/><path d="M17 5.500a3.500 3.500 0 010 5M19.500 14c1.200.8 2 2.500 2 4.500"/></svg></span><h3>Part 1: Advocacy</h3></div>
+        <div class="ns-item">
+          <p>It is a skill that might be required when dealing with vulnerable people.</p>
+          <p>Write a 1000 – 1500 word essay using literature and theory to support the writing , to demonstrate understanding of advocacy and the communication strategy used within one of the three scenarios on the NMC safeguarding film that can be accessed from the link below. The communication strategy identified could be either positive or negative and you also need to discuss the importance of being aware of the potential need for advocacy within relationships in health care.</p>
+        </div>
+        <div class="ns-head"><span class="ns-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L17 4l3 3L8 19z"/><path d="M14 7l3 3"/></svg></span><h3>Part 2:</h3></div>
+        <div class="ns-item"><p>Using example from your own experience and using literature and theory to support your writing, write a 1000-1500 word essay to demonstrate your understanding of what factors may impact an individual’s health and relate these to health promotion activities.</p></div>
+      </div>
+
+    </div>
+
+    <!-- Row 2: Marking criteria + support -->
+    <div class="ns-row">
+
+      <div class="ns-card">
+        <div class="ns-head"><span class="ns-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3h6v3H9zM9 12l1.500 1.500L14 10M9 17h6"/></svg></span><h3>Marking Criteria</h3></div>
+        <div class="ns-item"><p>The following criteria will be used to identify whether you have meet the learning outcomes for the ANMAC claim</p></div>
+        <div class="ns-item">
+          <span class="ns-term">PART 1 – 1000-1500 words:</span>
+          <p>Discuss what is meant by advocacy and how the communication strategies used in your chosen scenario either support or present a barrier to the concept of advocacy being utilized. Discuss the importance of being aware of the potential need for advocacy within relationships in health care.</p>
+        </div>
+        <div class="ns-item">
+          <span class="ns-term">PART 2 – 1000-1500 words:</span>
+          <p>Discuss the definitions of health and health promotion. Identify and discuss the key issues that could impact on an individual’s health and consider what health promotion activities would be most effective. Identify examples from your own experience (not necessarily clinical experience) to support discussions.</p>
+        </div>
+        <div class="ns-item">
+          <span class="ns-term">Aspects for comment only and not identified as pass or fail criteria:</span>
+          <p>Produce an organized account that is clearly structured, grammatically correct and uses formal/academic language. Refer to the City, University of London citation guidelines on page 5 and use relevant references that reflect depth and breadth of reading.</p>
+        </div>
+      </div>
+
+      <div class="ns-card">
+        <div class="ns-head"><span class="ns-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span><h3>Additional support for Essay</h3></div>
+        <div class="ns-item">
+          <span class="ns-term">Coursework Declaration Sheet</span>
+          <p>You are needed to present a complete Coursework Declaration Sheet and present it as the FRONT PAGE of your accommodation. Dyslexia/Disability: Students who have specific needs corresponding to learning are urged to pronounce this on the Cover Sheet so their necessities can be taken into account.</p>
+        </div>
+        <div class="ns-item">
+          <span class="ns-term">Feedback and Result Form</span>
+          <p>Towards the end of these guidelines you will see a section entitled Feedback and Result Form. Please ensure you include this with your submission. This form will contain the feedback from the marker which will be returned to you after marking. The form itself is designed to provide you with feedback in relation to the assessment criteria that have been set for this work. The course work will be returned to you within four weeks of your submission via email.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

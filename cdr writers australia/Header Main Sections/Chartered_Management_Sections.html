@@ -1,4 +1,4 @@
-<!-- Paste into WPBakery > Raw HTML element -->
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap');
 
@@ -180,6 +180,41 @@
   .cm-card:hover,.cm-btn:hover{transform:none}
 }
 
+
+/* ---------- Clickable cards ---------- */
+.cm-card{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.cm-card:focus-visible{outline:3px solid rgba(211,47,47,.45);outline-offset:3px}
+
+.cm-go{
+  position:absolute;
+  top:18px;right:18px;
+  width:30px;height:30px;
+  border-radius:50%;
+  background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;
+  transform:translateY(-8px) scale(.8);
+  transition:opacity .25s, transform .25s;
+  pointer-events:none;
+}
+.cm-go svg{
+  width:16px;height:16px;
+  fill:none;stroke:#fff;
+  stroke-width:2.5;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.cm-card:hover .cm-go,
+.cm-card:focus-visible .cm-go{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.cm-card:hover .cm-go svg,
+.cm-card:focus-visible .cm-go svg{animation:cm-nudge 1.2s ease-in-out infinite}
+@keyframes cm-nudge{0%,100%{transform:translateY(-2px)}50%{transform:translateY(2px)}}
+@media (prefers-reduced-motion:reduce){
+  .cm-card:hover .cm-go svg,.cm-card:focus-visible .cm-go svg{animation:none}
+}
+
 /* Tablet */
 @media (max-width:991px){
   .cm{grid-template-columns:1fr;padding:32px 20px}
@@ -208,37 +243,43 @@
 
   <div class="cm-grid">
 
-    <div class="cm-card" data-n="1">
+    <div class="cm-card" data-n="1" role="button" tabindex="0" aria-label="View Section 1 details">
+      <span class="cm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
       <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
       <h3>Section 1</h3>
       <p>Advancing &amp; Enhancing Current Best Practice</p>
     </div>
 
-    <div class="cm-card" data-n="2">
+    <div class="cm-card" data-n="2" role="button" tabindex="0" aria-label="View Section 2 details">
+      <span class="cm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
       <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V5l9-2v18M13 8l7 2v11M2 21h20"/><path d="M8 8h1M8 12h1M8 16h1"/></svg></div>
       <h3>Section 2</h3>
       <p>Advancing and Enhancing Construction Management Knowledge</p>
     </div>
 
-    <div class="cm-card" data-n="3">
+    <div class="cm-card" data-n="3" role="button" tabindex="0" aria-label="View Section 3 details">
+      <span class="cm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
       <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M4 21V5M9 8h6"/></svg></div>
       <h3>Section 3</h3>
       <p>Advancing Learning &amp; Teaching (for lecturers, course developers and designers)</p>
     </div>
 
-    <div class="cm-card" data-n="4">
+    <div class="cm-card" data-n="4" role="button" tabindex="0" aria-label="View Section 4 details">
+      <span class="cm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
       <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.500V16c0 1.500 2.700 3 6 3s6-1.500 6-3v-4.500M22 9v6"/></svg></div>
       <h3>Section 4</h3>
       <p>Vocational Education &amp; Training (For NVQ Assessors and Training &amp; Development Managers)</p>
     </div>
 
-    <div class="cm-card" data-n="5">
+    <div class="cm-card" data-n="5" role="button" tabindex="0" aria-label="View Section 5 details">
+      <span class="cm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
       <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.500"/><path d="M2.500 20c0-3.500 3-6 6.500-6s6.500 2.500 6.500 6"/><path d="M17 5.500a3.500 3.500 0 010 5M19.500 14c1.200.8 2 2.500 2 4.500"/></svg></div>
       <h3>Section 5</h3>
       <p>Leadership and Management (for Program Leaders, Managers and Heads of Department)</p>
     </div>
 
-    <div class="cm-card" data-n="6">
+    <div class="cm-card" data-n="6" role="button" tabindex="0" aria-label="View Section 6 details">
+      <span class="cm-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span>
       <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/><path d="M8.500 12l2.500 2.500L16 9.500"/></svg></div>
       <h3>Section 6</h3>
       <p>Commitment to Professionalism (mandatory for all applicants via the academic route)</p>
@@ -246,3 +287,68 @@
 
   </div>
 </div>
+
+<script>
+(function(){
+  /* MANUAL CONTROL: set a number (px) to decide exactly how far from the top of the
+     screen the red line of the section card lands. Bigger = more space above it.
+     Example: var MANUAL_OFFSET = 150;
+     Leave as null to use automatic header detection instead. */
+  var MANUAL_OFFSET = 70;
+
+  /* Only used when MANUAL_OFFSET is null: */
+  var GAP = 12;               /* space under the detected header */
+  var FALLBACK_HEADER = 100;  /* used if no fixed/sticky header is found */
+
+  function headerBottom(){
+    var b = 0;
+    var els = document.querySelectorAll('header, #masthead, .site-header, [class*="header"]');
+    for (var i = 0; i < els.length; i++) {
+      var cs = window.getComputedStyle(els[i]);
+      if (cs.position === 'fixed' || cs.position === 'sticky') {
+        var r = els[i].getBoundingClientRect();
+        if (r.top <= 100 && r.height < 250) b = Math.max(b, r.bottom);
+      }
+    }
+    return b || FALLBACK_HEADER;
+  }
+
+  /* position from top of page, ignoring CSS transforms/animations */
+  function absTop(el){
+    var y = 0;
+    while (el) { y += el.offsetTop; el = el.offsetParent; }
+    return y;
+  }
+
+  function openSection(n){
+    if (!document.querySelector('.wpb-cm-wrap')) return;
+
+    if (typeof window.wpbCmShowTab === 'function') {
+      window.wpbCmShowTab(n);
+    } else {
+      var btn = document.querySelector('.wpb-cm-tab[data-tab="' + n + '"]');
+      if (btn) btn.click();
+    }
+
+    var card = document.querySelector('.wpb-cm-panel.active .wpb-cm-card') ||
+               document.querySelector('.wpb-cm-panel.active');
+    if (!card) return;
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var offset = (MANUAL_OFFSET !== null) ? MANUAL_OFFSET : (headerBottom() + GAP);
+    var y = absTop(card) - offset;
+    window.scrollTo({ top: Math.max(y, 0), behavior: reduce ? 'auto' : 'smooth' });
+  }
+
+  var cards = document.querySelectorAll('.cm-card[data-n]');
+  for (var i = 0; i < cards.length; i++) {
+    (function(card){
+      var n = card.getAttribute('data-n');
+      card.addEventListener('click', function(){ openSection(n); });
+      card.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSection(n); }
+      });
+    })(cards[i]);
+  }
+})();
+</script>

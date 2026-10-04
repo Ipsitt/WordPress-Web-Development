@@ -1,0 +1,260 @@
+<style>
+  .wpb-pg-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    max-width: 1100px; margin: 0 auto; padding: 20px 10px;
+    color: #1a1a1a; box-sizing: border-box;
+  }
+  .wpb-pg-wrap * { box-sizing: border-box; }
+
+  .wpb-pg-title-wrap { text-align: center; margin-bottom: 35px; }
+  .wpb-pg-title {
+    font-size: 32px; font-weight: 800; margin: 0 0 10px 0;
+    color: #111111; text-transform: uppercase; line-height: 1.25;
+  }
+  .wpb-pg-title-bar {
+    width: 80px; height: 4px; margin: 0 auto; border-radius: 2px;
+    background: linear-gradient(90deg, #dd3333 0%, #ff5252 100%);
+  }
+
+  /* Tabs */
+  .wpb-pg-tabbar {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px; margin-bottom: 35px;
+  }
+  .wpb-pg-wrap .wpb-pg-tab {
+    display: inline-flex !important; align-items: center; gap: 10px;
+    background: #ffffff !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    cursor: pointer; font-family: inherit;
+    font-size: 15px !important; font-weight: 700 !important;
+    line-height: 1.4 !important; letter-spacing: normal !important;
+    text-transform: none !important; text-decoration: none !important;
+    color: #2d3748 !important;
+    padding: 13px 24px !important; margin: 0 !important;
+    height: auto !important; min-height: 0 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04) !important;
+    transition: all 0.3s ease;
+    -webkit-appearance: none; appearance: none; outline: none;
+  }
+  .wpb-pg-wrap .wpb-pg-tab svg {
+    flex-shrink: 0; width: 20px; height: 20px;
+    stroke: #dd3333 !important; fill: none !important;
+    transition: all 0.3s ease;
+  }
+  .wpb-pg-wrap .wpb-pg-tab:not(.active):hover,
+  .wpb-pg-wrap .wpb-pg-tab:not(.active):focus,
+  .wpb-pg-wrap .wpb-pg-tab:not(.active):active {
+    background: #ffffff !important; color: #dd3333 !important;
+    border-color: #dd3333 !important; transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(221,51,51,0.15) !important;
+  }
+  .wpb-pg-wrap .wpb-pg-tab:not(.active):hover svg,
+  .wpb-pg-wrap .wpb-pg-tab:not(.active):focus svg { stroke: #dd3333 !important; }
+  .wpb-pg-wrap .wpb-pg-tab.active,
+  .wpb-pg-wrap .wpb-pg-tab.active:hover,
+  .wpb-pg-wrap .wpb-pg-tab.active:focus {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #dd3333 0%, #ff5252 100%) !important;
+    border-color: #dd3333 !important;
+    box-shadow: 0 6px 20px rgba(221,51,51,0.35) !important;
+    transform: translateY(-2px);
+  }
+  .wpb-pg-wrap .wpb-pg-tab.active svg,
+  .wpb-pg-wrap .wpb-pg-tab.active:hover svg { stroke: #ffffff !important; }
+
+  /* Panels */
+  .wpb-pg-panel { display: none; }
+  .wpb-pg-panel.active { display: block; animation: wpbPgFade 0.35s ease-in-out; }
+  @keyframes wpbPgFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cards */
+  .wpb-pg-card {
+    background: #ffffff; border-radius: 12px; padding: 30px;
+    box-shadow: 0 8px 25px rgba(221,51,51,0.05);
+    margin-bottom: 25px; border: 2px solid #fecaca;
+    transition: all 0.3s ease;
+  }
+  .wpb-pg-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(221,51,51,0.12);
+    border-color: #fca5a5;
+  }
+
+  .wpb-pg-panel p {
+    font-size: 15.5px; line-height: 1.8; color: #4a5568; margin: 0 0 18px 0;
+  }
+  .wpb-pg-panel p:last-child { margin-bottom: 0; }
+  .wpb-pg-panel h3 {
+    font-size: 20px; font-weight: 800; color: #111111;
+    margin: 0 0 15px 0; display: flex; align-items: flex-start; gap: 12px;
+  }
+  .wpb-pg-panel h3 svg {
+    width: 24px; height: 24px; stroke: #dd3333; flex-shrink: 0; margin-top: 3px;
+  }
+  .wpb-pg-lead {
+    font-size: 17px !important; font-weight: 600; color: #1a202c !important;
+    border-left: 4px solid #dd3333; padding-left: 16px;
+  }
+
+  /* Salary highlight */
+  .wpb-pg-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px;
+  }
+  .wpb-pg-stat {
+    background: #fff5f5; border: 1px solid #fecaca; border-radius: 10px;
+    padding: 16px; text-align: center;
+  }
+  .wpb-pg-stat strong {
+    display: block; font-size: 20px; font-weight: 800; color: #dd3333; margin-bottom: 4px;
+  }
+  .wpb-pg-stat span { font-size: 13.5px; color: #4a5568; }
+
+  /* Lists */
+  .wpb-pg-panel ul {
+    list-style: none; padding: 0; margin: 0 0 20px 0; display: grid; gap: 10px;
+  }
+  .wpb-pg-panel ul:last-child { margin-bottom: 0; }
+  .wpb-pg-panel ul li {
+    position: relative; font-size: 15px; line-height: 1.6; color: #2d3748;
+    background: #fff5f5; padding: 12px 14px 12px 42px;
+    border-radius: 8px; border: 1px solid #fecaca; transition: all 0.2s ease;
+  }
+  .wpb-pg-panel ul li:hover {
+    transform: translateX(4px); background: #ffe3e3; border-color: #fca5a5;
+  }
+  .wpb-pg-panel ul li::before {
+    content: ''; position: absolute; left: 14px; top: 14px;
+    width: 18px; height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dd3333' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain; background-repeat: no-repeat;
+  }
+
+  @media screen and (max-width: 768px) {
+    .wpb-pg-stats { grid-template-columns: 1fr; }
+  }
+  @media screen and (max-width: 600px) {
+    .wpb-pg-wrap .wpb-pg-tab { width: 100%; justify-content: center; }
+    .wpb-pg-card { padding: 20px; }
+    .wpb-pg-title { font-size: 25px; }
+  }
+</style>
+<div class="wpb-pg-wrap">
+
+  <div class="wpb-pg-title-wrap">
+    <h1 class="wpb-pg-title">IEPNG Papua New Guinea</h1>
+    <div class="wpb-pg-title-bar"></div>
+  </div>
+
+  <div class="wpb-pg-tabbar">
+    <button type="button" class="wpb-pg-tab active" data-tab="1" onclick="wpbPgShowTab(1)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg>
+      Competency-Based Assessment (CBA)
+    </button>
+    <button type="button" class="wpb-pg-tab" data-tab="2" onclick="wpbPgShowTab(2)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      How to Prepare CBA?
+    </button>
+    <button type="button" class="wpb-pg-tab" data-tab="3" onclick="wpbPgShowTab(3)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      Prerequisites of CDR
+    </button>
+  </div>
+
+  <div class="wpb-pg-panel active" data-panel="1">
+    <div class="wpb-pg-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Competency-Based Assessment (CBA) | IEPNG Papua New Guinea</h3>
+      <p>IEPNG is an Institution of Engineers (engineering body) in Papua New Guinea that conducts competency-based assessment (CBA). Presently, they don’t follow typical abilities appraisal instead of a competency-based assessment system (CBAS). So, there will be a lot of inquiries in your brain about what CBA is.. on the other hand, what is IEPNG? Try not to stress! Request help from CDR Writers Australia -A designing competency assessment report (ECR) composing specialist co-op to engineers in Papua New Guinea (PNG). We compose CBA (competency-based evaluation) according to given rules by the Institution of Engineers. They check the competency level of designers to determine whether they are fit or not as specialized officials and country or exile engineers. So before preparing this IEPNG evaluation application, you ought to know about the below queries.</p>
+    </div>
+    <div class="wpb-pg-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Questions You Should Know About</h3>
+      <ul>
+        <li>What is the validity period?</li>
+        <li>How to write a Competency-Based Assessment (CBA)?</li>
+        <li>Who will take up the Competency-Based Assessment?</li>
+        <li>What is a Competency-Based Assessment System (CBAS)?</li>
+        <li>What are the steps and processes that are involved with CBA?</li>
+      </ul>
+    </div>
+    <div class="wpb-pg-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> How Our Expert Helps in Preparing P.Eng Competency Assessment for Canada</h3>
+      <ul>
+        <li><strong>Evidence-Based:</strong> Here, it is checked proof given by the applicant against the standard. So it is being said that notice is just those which can be provided if an individual requests for the same.</li>
+        <li><strong>Participatory:</strong> Here candidate assessor discusses how and what can be collected to judge standard</li>
+        <li><strong>Criterion-referenced:</strong> In this section, candidates can be assessed based on criteria given or industry standards.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wpb-pg-panel" data-panel="2">
+    <div class="wpb-pg-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Competency-Based Assessment (CBA) | IEPNG Papua New Guinea</h3>
+      <p>IEPNG is an Institution of Engineers (engineering body) in Papua New Guinea that conducts competency-based assessment (CBA). Presently, they don’t follow typical abilities appraisal instead of a competency-based assessment system (CBAS). So, there will be a lot of inquiries in your brain about what CBA is.. on the other hand, what is IEPNG? Try not to stress! Request help from CDR Writers Australia -A designing competency assessment report (ECR) composing specialist co-op to engineers in Papua New Guinea (PNG). We compose CBA (competency-based evaluation) according to given rules by the Institution of Engineers. They check the competency level of designers to determine whether they are fit or not as specialized officials and country or exile engineers. So before preparing this IEPNG evaluation application, you ought to know about the below queries.</p>
+    </div>
+    <div class="wpb-pg-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Questions You Should Know About</h3>
+      <ul>
+        <li>What is the validity period?</li>
+        <li>How to write a Competency-Based Assessment (CBA)?</li>
+        <li>Who will take up the Competency-Based Assessment?</li>
+        <li>What is a Competency-Based Assessment System (CBAS)?</li>
+        <li>What are the steps and processes that are involved with CBA?</li>
+      </ul>
+    </div>
+    <div class="wpb-pg-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> How Our Expert Helps in Preparing P.Eng Competency Assessment for Canada</h3>
+      <ul>
+        <li><strong>Evidence-Based:</strong> Here, it is checked proof given by the applicant against the standard. So it is being said that notice is just those which can be provided if an individual requests for the same.</li>
+        <li><strong>Participatory:</strong> Here candidate assessor discusses how and what can be collected to judge standard</li>
+        <li><strong>Criterion-referenced:</strong> In this section, candidates can be assessed based on criteria given or industry standards.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wpb-pg-panel" data-panel="3">
+    <div class="wpb-pg-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> CDR Writers Australia provides CBA services to register in IEPNG</h3>
+      <p class="wpb-pg-lead">We work as per the CBA Competency-Based Assessment</p>
+      <ul>
+        <li><strong>Evidence-based CBA:</strong> In this type, the proof is checked against principles put against standards submitted by the competitor. Along these, refer to those which can be demonstrated when required by the authority.</li>
+        <li><strong>Participatory CBA:</strong> This type of CBA includes the candidate and evaluator for the conversation of information accumulated to decide on the analytical variability of the standard.</li>
+        <li><strong>Criterion-Referenced CBA:</strong> In this type, applicants are evaluated on the basis of the given criteria or standards of the industry.</li>
+      </ul>
+    </div>
+    <div class="wpb-pg-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 6 23 6 23 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Key Competencies Assessed</h3>
+      <ul>
+        <li>investigate and examine appropriate info utilizing quantifiable and top-quality techniques.</li>
+        <li>Recommend answers for the basic issues identified with engineering according to better proficient engineering practice.</li>
+        <li>Admits duty for his/ her activities of engineering.</li>
+        <li>Create schedules, arrange, and control the progress of the project to submit quantified consequences within the stipulated time period</li>
+        <li>Progresses management of risk policies and procedures to handle hazards and safety through construction and cycles of product life</li>
+        <li>Understand codes of ethics of IEPNG and/or CPEng</li>
+        <li>Deliberate and consider probable social, enlightening, and environmental influences and accesses where suitable</li>
+        <li>Grows identification and utilizes lively skills of listening when collaborating with others</li>
+        <li>Determines a function of our growing and evolving information and ability.</li>
+        <li>Accomplice recognizes his/her ability to take a shot at the total judgment of professional engineering.</li>
+        <li>Sustain the exchange of his or her familiarity and capabilities of professional engineering.</li>
+        <li>Understand and apply appropriate information on Engineering.</li>
+        <li>Follow the superior engineering needs suitably functioning inside the command in which they perform</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function wpbPgShowTab(n) {
+    var tabs = document.querySelectorAll('.wpb-pg-tab');
+    var panels = document.querySelectorAll('.wpb-pg-panel');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].classList.toggle('active', tabs[i].getAttribute('data-tab') === String(n));
+    }
+    for (var j = 0; j < panels.length; j++) {
+      panels[j].classList.toggle('active', panels[j].getAttribute('data-panel') === String(n));
+    }
+  }
+</script>

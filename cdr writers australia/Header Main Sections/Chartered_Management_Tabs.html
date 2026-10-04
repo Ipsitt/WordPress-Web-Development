@@ -1,127 +1,331 @@
-Section 1:
-Advancing & Enhancing Current Best Practice
-COMPETENCE 3.1.1 
+<style>
+  .wpb-cm-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    max-width: 1100px; margin: 0 auto; padding: 20px 10px;
+    color: #1a1a1a; box-sizing: border-box;
+  }
+  .wpb-cm-wrap * { box-sizing: border-box; }
 
-Advancing Industry Engagement in Education You should give instances of work you have done to promote industry engagement in education, improve abilities, and guarantee the skill and validity of the education program.
+  .wpb-cm-title-wrap { text-align: center; margin-bottom: 35px; }
+  .wpb-cm-title {
+    font-size: 32px; font-weight: 800; margin: 0 0 10px 0;
+    color: #111111; text-transform: uppercase;
+  }
+  .wpb-cm-title-bar {
+    width: 80px; height: 4px; margin: 0 auto; border-radius: 2px;
+    background: linear-gradient(90deg, #dd3333 0%, #ff5252 100%);
+  }
 
-COMPETENCE 3.1.2 
+  /* Tabs */
+  .wpb-cm-tabbar {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 12px; margin-bottom: 35px;
+  }
+  .wpb-cm-wrap .wpb-cm-tab {
+    display: inline-flex !important; align-items: center; gap: 10px;
+    background: #ffffff !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    cursor: pointer; font-family: inherit;
+    font-size: 14.5px !important; font-weight: 700 !important;
+    line-height: 1.4 !important; letter-spacing: normal !important;
+    text-transform: none !important; text-decoration: none !important;
+    color: #2d3748 !important;
+    padding: 12px 20px !important; margin: 0 !important;
+    height: auto !important; min-height: 0 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04) !important;
+    transition: all 0.3s ease;
+    -webkit-appearance: none; appearance: none; outline: none;
+  }
+  .wpb-cm-wrap .wpb-cm-tab .wpb-cm-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+    font-size: 12px; font-weight: 800;
+    background: #fee2e2; color: #dd3333; transition: all 0.3s ease;
+  }
+  .wpb-cm-wrap .wpb-cm-tab:not(.active):hover,
+  .wpb-cm-wrap .wpb-cm-tab:not(.active):focus,
+  .wpb-cm-wrap .wpb-cm-tab:not(.active):active {
+    background: #ffffff !important; color: #dd3333 !important;
+    border-color: #dd3333 !important; transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(221,51,51,0.15) !important;
+  }
+  .wpb-cm-wrap .wpb-cm-tab.active,
+  .wpb-cm-wrap .wpb-cm-tab.active:hover,
+  .wpb-cm-wrap .wpb-cm-tab.active:focus {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #dd3333 0%, #ff5252 100%) !important;
+    border-color: #dd3333 !important;
+    box-shadow: 0 6px 20px rgba(221,51,51,0.35) !important;
+    transform: translateY(-2px);
+  }
+  .wpb-cm-wrap .wpb-cm-tab.active .wpb-cm-num { background: #ffffff; color: #dd3333; }
 
-Applying Current Best Practice to the Design and Delivery of the Curriculum. Give data and instances of how you have applied industry – current best practices to the design, audit and delivery of the educational program to upgrade learning and develop skills.
+  /* Panels */
+  .wpb-cm-panel { display: none; }
+  .wpb-cm-panel.active { display: block; animation: wpbCmFade 0.35s ease-in-out; }
+  @keyframes wpbCmFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-This might be the incorporation of new techniques, the development of higher-level skills and abilities, or the establishment of information-movement associations. Specific consideration ought to be paid to current best
+  /* Cards */
+  .wpb-cm-card {
+    background: #ffffff; border-radius: 12px; padding: 30px;
+    box-shadow: 0 8px 25px rgba(221,51,51,0.05);
+    margin-bottom: 25px; border: 2px solid #fecaca;
+    transition: all 0.3s ease;
+  }
+  .wpb-cm-card:hover {
+    box-shadow: 0 15px 35px rgba(221,51,51,0.12);
+    border-color: #fca5a5;
+  }
+  .wpb-cm-panel h3 {
+    font-size: 21px; font-weight: 800; color: #111111;
+    margin: 0 0 6px 0; line-height: 1.35;
+  }
+  .wpb-cm-note {
+    font-size: 15px; line-height: 1.6; color: #dd3333; font-weight: 600;
+    margin: 0 0 22px 0;
+  }
+  .wpb-cm-head-gap { margin-bottom: 22px; }
 
-COMPETENCE 3.1.3 
+  /* Competence items */
+  .wpb-cm-item {
+    background: #fff5f5; border: 1px solid #fecaca;
+    border-left: 4px solid #dd3333; border-radius: 8px;
+    padding: 18px 20px; margin-bottom: 14px; transition: all 0.2s ease;
+  }
+  .wpb-cm-item:last-child { margin-bottom: 0; }
+  .wpb-cm-item:hover {
+    transform: translateX(4px); background: #ffe3e3; border-color: #fca5a5;
+    border-left-color: #dd3333;
+  }
+  .wpb-cm-badge {
+    display: inline-block; font-size: 11.5px; font-weight: 800;
+    letter-spacing: 0.6px; text-transform: uppercase; color: #ffffff;
+    background: linear-gradient(135deg, #dd3333 0%, #ff5252 100%);
+    padding: 4px 10px; border-radius: 20px; margin-bottom: 10px;
+  }
+  .wpb-cm-item h4 {
+    font-size: 16.5px; font-weight: 800; color: #111111;
+    margin: 0 0 8px 0; line-height: 1.4;
+  }
+  .wpb-cm-item p {
+    font-size: 15px; line-height: 1.75; color: #4a5568; margin: 0 0 12px 0;
+  }
+  .wpb-cm-item p:last-child { margin-bottom: 0; }
 
-Arranging and Undertaking Continuous Professional Development in Current Industry Best Practice. Give proof of your capacity to design and embrace CPD in current industry best practice. You may allude to association courses of action, participation at CPD occasions, industry positions or different activities which help to keep up with your subject knowledge.
+  @media screen and (max-width: 600px) {
+    .wpb-cm-wrap .wpb-cm-tab { width: 100%; justify-content: flex-start; }
+    .wpb-cm-card { padding: 20px; }
+    .wpb-cm-title { font-size: 26px; }
+  }
+</style>
 
-COMPETENCE 3.1.4
+<div class="wpb-cm-wrap">
 
-Promoting Ethical Practice Demonstrates your comprehension of the significance of morals in development. Provide examples of how you have promoted ethical practice to understudies and graduates in your work, including any work advancing the function of professional bodies and codes of training to students.
+  <div class="wpb-cm-title-wrap">
+    <h1 class="wpb-cm-title">Chartered Management Competences</h1>
+    <div class="wpb-cm-title-bar"></div>
+  </div>
 
-COMPETENCE 3.1.5 
+  <div class="wpb-cm-tabbar">
+    <button type="button" class="wpb-cm-tab active" data-tab="1" onclick="wpbCmShowTab(1)"><span class="wpb-cm-num">1</span>Best Practice</button>
+    <button type="button" class="wpb-cm-tab" data-tab="2" onclick="wpbCmShowTab(2)"><span class="wpb-cm-num">2</span>Construction Management Knowledge</button>
+    <button type="button" class="wpb-cm-tab" data-tab="3" onclick="wpbCmShowTab(3)"><span class="wpb-cm-num">3</span>Learning &amp; Teaching</button>
+    <button type="button" class="wpb-cm-tab" data-tab="4" onclick="wpbCmShowTab(4)"><span class="wpb-cm-num">4</span>Vocational Education &amp; Training</button>
+    <button type="button" class="wpb-cm-tab" data-tab="5" onclick="wpbCmShowTab(5)"><span class="wpb-cm-num">5</span>Leadership &amp; Management</button>
+    <button type="button" class="wpb-cm-tab" data-tab="6" onclick="wpbCmShowTab(6)"><span class="wpb-cm-num">6</span>Professionalism</button>
+  </div>
 
-Awareness of and Promotion of Innovation in Construction. Describe how you maintain knowledge of innovation in construction and give examples of any relevant projects you have been involved in. Describe how this informs your teaching practice or work.
+  <!-- SECTION 1 -->
+  <div class="wpb-cm-panel active" data-panel="1">
+    <div class="wpb-cm-card">
+      <h3>Section 1: Advancing &amp; Enhancing Current Best Practice</h3>
+      <div class="wpb-cm-head-gap"></div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.1.1</span>
+        <h4>Advancing Industry Engagement in Education</h4>
+        <p>You should give instances of work you have done to promote industry engagement in education, improve abilities, and guarantee the skill and validity of the education program.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.1.2</span>
+        <h4>Applying Current Best Practice to the Design and Delivery of the Curriculum</h4>
+        <p>Give data and instances of how you have applied industry – current best practices to the design, audit and delivery of the educational program to upgrade learning and develop skills.</p>
+        <p>This might be the incorporation of new techniques, the development of higher-level skills and abilities, or the establishment of information-movement associations. Specific consideration ought to be paid to current best</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.1.3</span>
+        <h4>Arranging and Undertaking Continuous Professional Development in Current Industry Best Practice</h4>
+        <p>Give proof of your capacity to design and embrace CPD in current industry best practice. You may allude to association courses of action, participation at CPD occasions, industry positions or different activities which help to keep up with your subject knowledge.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.1.4</span>
+        <h4>Promoting Ethical Practice</h4>
+        <p>Demonstrates your comprehension of the significance of morals in development. Provide examples of how you have promoted ethical practice to understudies and graduates in your work, including any work advancing the function of professional bodies and codes of training to students.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.1.5</span>
+        <h4>Awareness of and Promotion of Innovation in Construction</h4>
+        <p>Describe how you maintain knowledge of innovation in construction and give examples of any relevant projects you have been involved in. Describe how this informs your teaching practice or work.</p>
+        <h4>Attention to and Promotion of Innovation in Construction</h4>
+        <p>Portray how you keep up information on advancement in development and give instances of any important undertakings you have been associated with. Portray how this illuminates your practice or work.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.1.6</span>
+        <h4>Access to the Professions, Equality and Diversity</h4>
+        <p>Give proof of how you have access to calling and any work you have done to advance fairness and assorted diversity in the industry.</p>
+      </div>
+    </div>
+  </div>
 
-Attention to and Promotion of Innovation in Construction. Portray how you keep up information on advancement in development and give instances of any important undertakings you have been associated with. Portray how this illuminates your practice or work.
+  <!-- SECTION 2 -->
+  <div class="wpb-cm-panel" data-panel="2">
+    <div class="wpb-cm-card">
+      <h3>Section 2: Advancing and Enhancing Construction Management Knowledge</h3>
+      <div class="wpb-cm-head-gap"></div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.2.1</span>
+        <h4>Arranging and Producing Research Outputs</h4>
+        <p>You will confirm your capacities to plan design, and monitor your research activities including choosing proper strategies, drawing in partners and dispersing results.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.2.2</span>
+        <h4>Working together and Applying Research Outputs industry</h4>
+        <p>Provide Information and example of the use of research output in industry and the worth it has brought. Describe any cooperative plans or undertakings you have overseen and the worth these have brought to the collection of knowledge and information.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.2.3</span>
+        <h4>Applying Research Outputs to Learning and Teaching</h4>
+        <p>Provide data on research yields and how they have progressed or improved learning and teaching as well as the educational program and students commitment in research.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.2.4</span>
+        <h4>Understanding and Applying Ethics in Research</h4>
+        <p>Describe any moral choices, decisions you have made, and how you have applied any standards to the task.</p>
+      </div>
+    </div>
+  </div>
 
-COMPETENCE 3.1.6 
+  <!-- SECTION 3 -->
+  <div class="wpb-cm-panel" data-panel="3">
+    <div class="wpb-cm-card">
+      <h3>Section 3: Advancing Learning &amp; Teaching</h3>
+      <p class="wpb-cm-note">For lecturers, course developers and designers</p>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.3.1</span>
+        <h4>Communication (Engaging Stakeholders, the Community, International Partners)</h4>
+        <p>Give data on research and how they have progressed or improved learning and educating and the teaching program and student commitment in research.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.3.2</span>
+        <h4>Championing the Needs/Interests of Students</h4>
+        <p>Explain activities to improve the student experience including any feedback and discussions for connecting with students and graduates in the advancement of the program/programs.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.3.3</span>
+        <h4>Contributing Towards or Leading Program Design and Development</h4>
+        <p>Give data and instances of your capacity to lead or add to the plan as well as advancement of design and development. This may include arranging, resourcing and overseeing program development through to approval and connecting with applicable partners.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.3.4</span>
+        <h4>Contributing Towards Learning and Teaching Knowledge or Practice</h4>
+        <p>Provide data and examples of any work you have done including proficient advancement movement and examination that has contributed towards learning and teaching as well as practice.</p>
+      </div>
+    </div>
+  </div>
 
-Access to the Professions, Equality and Diversity. Give proof of how you have access to calling and any work you have done to advance fairness and assorted diversity in the industry.
+  <!-- SECTION 4 -->
+  <div class="wpb-cm-panel" data-panel="4">
+    <div class="wpb-cm-card">
+      <h3>Section 4: Vocational Education &amp; Training</h3>
+      <p class="wpb-cm-note">For NVQ Assessors and Training &amp; Development Managers</p>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.4.1</span>
+        <h4>Creating Professional Competence</h4>
+        <p>Give examples of how you create professional competency and practices in your students.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.4.2</span>
+        <h4>Accommodating Learning Needs and Learning Styles</h4>
+        <p>Give Example of how you tailor the delivery of projects to your learners/students including recognizing learning needs.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.4.3</span>
+        <h4>Promoting Reflection</h4>
+        <p>You need to show that how you promote practice in your students.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.4.4</span>
+        <h4>Promoting Lifelong Learning</h4>
+        <p>You will need to demonstrate how you promote lifelong learning through your delivery.</p>
+      </div>
+    </div>
+  </div>
 
+  <!-- SECTION 5 -->
+  <div class="wpb-cm-panel" data-panel="5">
+    <div class="wpb-cm-card">
+      <h3>Section 5: Leadership and Management</h3>
+      <p class="wpb-cm-note">For Programme Leaders, Managers and Heads of Department</p>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.5.1</span>
+        <h4>Leadership and Strategic Management/Financial Management</h4>
+        <p>You should show how you have created, or contributed towards the development of a plan arrangement for example, a quality improvement plan or tasks plan, and how you have observed and assessed the viability of the arrangement: Describe how you conveyed the arrangement through your own administration alluding to the given skills: Planning and Organizing, Managing Resources, Managing People, Managing Change, Monitoring a Plan and Evaluating the Effectiveness of a Plan.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.5.2</span>
+        <h4>Developing People or Teams</h4>
+        <p>Show your ability in regard to creating individuals or groups. Proof ought to incorporate reference to: Appraisal/Performance Management, Identify Learning or Professional Development Needs, Negotiate a Learning Plan, Create Team Relations, Experience of Professional Relations in the Workplace and Experience of Conflict and Dispute Resolution.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.5.3</span>
+        <h4>Managing Quality/Quality Assurance</h4>
+        <p>Describe how you have managed quality frameworks and implement upgrade measures to improve quality. You may cause reference to measures to improve the students understanding, benchmarking exercises or measures to keep up or improve quality or the validity of the educational plan.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.5.4</span>
+        <h4>Managing Information/Knowledge Transfer</h4>
+        <p>Show your capacity to manage data including information move giving models from you.</p>
+      </div>
+    </div>
+  </div>
 
-Section 2:
-Advancing and Enhancing Construction Management Knowledge
-COMPETENCE 3.2.1
+  <!-- SECTION 6 -->
+  <div class="wpb-cm-panel" data-panel="6">
+    <div class="wpb-cm-card">
+      <h3>Section 6: Commitment to Professionalism</h3>
+      <p class="wpb-cm-note">Mandatory for all applicants via the academic route</p>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.6.1</span>
+        <h4>Professional Judgement and Responsibility</h4>
+        <p>Exercise professional judgment inside their job. The motivation behind this part is to guarantee that individuals from the apply and advance proper principles of polished methodology to their obligations dependent on the CIOB Rules and Regulations of Professional Competence and Conduct, and their obligation of care.</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.6.2</span>
+        <h4>Commitment to abide by the Rules &amp; Regulations of Professional Competence &amp; Conduct</h4>
+        <p>It would be ideal if you allude to the accompanying connection for additional data to enable you to portray/assess the significance of the responsibility to keep the Rules and Regulations of Professional Competence and Conduct applicable to your job/understanding:</p>
+      </div>
+      <div class="wpb-cm-item">
+        <span class="wpb-cm-badge">Competence 3.6.3</span>
+        <h4>Continuing Professional Development (CPD)</h4>
+        <p>Applicants must show their understanding of the advantage of CPD. Candidates ought to exhibit a comprehension of the arranging, execution and assessment of CPD so as to meet current and future needs. It would be ideal if you allude to the Guidance notes for indicative examples.</p>
+      </div>
+    </div>
+  </div>
 
-Arranging and Producing Research Outputs, You will confirm your capacities to plan design, and monitor your research activities including choosing proper strategies, drawing in partners and dispersing results.
+</div>
 
-COMPETENCE 3.2.2 
-
-Working together and Applying Research Outputs industry Provide Information and example of the use of research output in industry and the worth it has brought. Describe any cooperative plans or undertakings you have overseen and the worth these have brought to the collection of knowledge and information.
-
-COMPETENCE 3.2.3 
-
-Applying Research Outputs to Learning and Teaching Provide data on research yields and how they have progressed or improved learning and teaching as well as the educational program and students commitment in research.
-
-COMPETENCE 3.2.4 
-
-Understanding and Applying Ethics in Research. Describe any moral choices, decisions you have made, and how you have applied any standards to the task.
-
-
-Section 3:
-Advancing Learning & Teaching (for lecturers, course developers and designers)
-COMPETENCE 3.3.1 
-
-Communication (Engaging Stakeholders, the Community, International Partners) 
-
-Give data on research and how they have progressed or improved learning and educating and the teaching program and student commitment in research.
-
-COMPETENCE 3.3.2 
-
-Championing the Needs/Interests of Students 
-
-explain activities to improve the student experience including any feedback and discussions for connecting with students and graduates in the advancement of the program/programs.
-
-COMPETENCE 3.3.3 
-
-Contributing Towards or Leading Program Design and Development 
-
-Give data and instances of your capacity to lead or add to the plan as well as advancement of design and development. This may include arranging, resourcing and overseeing program development  through to approval and connecting with applicable partners.
-
-COMPETENCE 3.3.4 Contributing Towards Learning and Teaching Knowledge or Practice 
-
-Provide data and examples of any work you have done including proficient advancement movement and examination that has contributed towards learning and teaching as well as practice.
-
-
-Section 4:
-Vocational Education & Training (For NVQ Assessors and Training & Development Managers)
-COMPETENCE 3.4.1 
-
-Creating Professional Competence. Give examples of how you create professional competency and practices in your students.
-
-COMPETENCE 3.4.2 
-
-Accommodating Learning Needs and Learning Styles. Give Example of how you tailor the delivery of projects to your learners/students including recognizing learning needs.
-
- 
-
-COMPETENCE 3.4.3 
-
-promoting Reflection. You need to show that how you promote practice in your students.
-
-COMPETENCE 3.4.4 
-
-Promoting Lifelong Learning. You will need to demonstrate how you promote lifelong learning through your delivery.
-
-Section 5:
-Leadership and Management (for Programme Leaders, Managers and Heads of Department)
-COMPETENCE 3.5.1 
-
-Leadership and Strategic Management/Financial Management. You should show how you have created, or contributed towards the development of a plan arrangement for example, a quality improvement plan or tasks plan, and how you have observed and assessed the viability of the arrangement: Describe how you conveyed the arrangement through your own administration alluding to the given skills: Planning and Organizing, Managing Resources, Managing People, Managing Change, Monitoring a Plan and Evaluating the Effectiveness of a Plan.
-
-COMPETENCE 3.5.2 
-
-Developing People or Teams. Show your ability in regard to creating individuals or groups. Proof ought to incorporate reference to: Appraisal/Performance Management, Identify Learning or Professional Development Needs, Negotiate a Learning Plan, Create Team Relations, Experience of Professional Relations in the Workplace and Experience of Conflict and Dispute Resolution.
-
- COMPETENCE 3.5.3
-
-Managing Quality/Quality Assurance. Describe how you have managed quality frameworks and implement upgrade measures to improve quality. You may cause reference to measures to improve the students understanding, benchmarking exercises or measures to keep up or improve quality or the validity of the educational plan.
-
- COMPETENCE 3.5.4 
-
-Managing Information/Knowledge Transfer. Show your capacity to manage data including information move giving models from you.
-
-
-Section 6:
-Commitment to Professionalism (mandatory for all applicants via the academic route)
-COMPETENCE 3.6.1 
-
-Professional Judgement and Responsibility. Exercise professional judgment inside their job. The motivation behind this part is to guarantee that individuals from the apply and advance proper principles of polished methodology to their obligations dependent on the CIOB Rules and Regulations of Professional Competence and Conduct, and their obligation of care. 
-
-COMPETENCE 3.6.2 
-
-Commitment to abide by the Rules & Regulations of Professional Competence & Conduct. It would be ideal if you allude to the accompanying connection for additional data to enable you to portray/assess the significance of the responsibility to keep the Rules and Regulations of Professional Competence and Conduct applicable to your job/understanding: 
-
-COMPETENCE 3.6.3
-
-Continuing Professional Development (CPD). Applicants must show their understanding of the advantage of CPD. Candidates ought to exhibit a comprehension of the arranging, execution and assessment of CPD so as to meet current and future needs. It would be ideal if you allude to the Guidance notes for indicative examples.
+<script>
+  function wpbCmShowTab(n) {
+    var tabs = document.querySelectorAll('.wpb-cm-tab');
+    var panels = document.querySelectorAll('.wpb-cm-panel');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].classList.toggle('active', tabs[i].getAttribute('data-tab') === String(n));
+    }
+    for (var j = 0; j < panels.length; j++) {
+      panels[j].classList.toggle('active', panels[j].getAttribute('data-panel') === String(n));
+    }
+  }
+</script>

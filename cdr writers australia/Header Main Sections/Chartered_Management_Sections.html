@@ -1,0 +1,248 @@
+<!-- Paste into WPBakery > Raw HTML element -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap');
+
+.cm{
+  --red:#d32f2f;
+  --red-dark:#b82727;
+  --tint:#fdecec;
+  --bg:#f4f4f2;
+  --ink:#1c1c1e;
+  --text:#4a4a4a;
+  display:grid;
+  grid-template-columns:1fr 1.25fr;
+  gap:24px;
+  align-items:stretch;
+  background-color:var(--bg);
+  background-image:radial-gradient(rgba(211,47,47,.13) 1.2px,transparent 1.2px);
+  background-size:22px 22px;
+  padding:40px 24px;
+  font-family:'Inter',Arial,sans-serif;
+  box-sizing:border-box;
+}
+.cm *{box-sizing:border-box}
+
+/* ---------- Hero panel ---------- */
+.cm-hero{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:linear-gradient(145deg,#1c1c1e 0%,#2d2d30 100%);
+  border-radius:20px;
+  padding:44px 38px;
+}
+.cm-hero::before{
+  content:"";
+  position:absolute;
+  right:-80px;top:-80px;
+  width:230px;height:230px;
+  border-radius:50%;
+  background:var(--red);
+  opacity:.92;
+  animation:cm-float 7s ease-in-out infinite;
+}
+.cm-hero::after{
+  content:"";
+  position:absolute;
+  left:-40px;bottom:-50px;
+  width:150px;height:150px;
+  border-radius:50%;
+  border:20px solid rgba(255,255,255,.06);
+  animation:cm-float 9s ease-in-out infinite reverse;
+}
+.cm-hero > *{position:relative;z-index:1}
+.cm-hero h2{
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:800;
+  font-size:34px;
+  line-height:1.25;
+  color:#fff;
+  margin:0 0 20px;
+}
+.cm-hero h2::after{
+  content:"";
+  display:block;
+  width:56px;height:4px;
+  margin-top:16px;
+  border-radius:4px;
+  background:var(--red);
+}
+.cm-hero p{
+  font-size:16px;
+  line-height:1.75;
+  color:#d9d9dc;
+  margin:0 0 30px;
+}
+.cm-btn{
+  align-self:flex-start;
+  display:inline-block;
+  background:var(--red);
+  color:#fff !important;
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:17px;
+  padding:16px 30px;
+  border-radius:50px;
+  text-decoration:none !important;
+  box-shadow:0 8px 20px rgba(211,47,47,.35);
+  transition:background .2s, transform .2s, box-shadow .2s;
+}
+.cm-btn:hover,.cm-btn:focus-visible{
+  background:var(--red-dark);
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(211,47,47,.45);
+}
+@keyframes cm-float{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(-14px,14px)}
+}
+
+/* ---------- Section cards ---------- */
+.cm-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.cm-card{
+  position:relative;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid var(--red);
+  border-radius:16px;
+  padding:24px 24px 26px;
+  transition:transform .25s, box-shadow .25s;
+}
+.cm-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.08)}
+.cm-card::after{
+  content:attr(data-n);
+  position:absolute;
+  right:14px;bottom:-18px;
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:800;
+  font-size:96px;
+  line-height:1;
+  color:var(--red);
+  opacity:.06;
+  pointer-events:none;
+}
+.cm-ico{
+  width:48px;height:48px;
+  border-radius:12px;
+  background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+  animation:cm-pulse 2.6s ease-in-out infinite;
+  transition:transform .3s;
+}
+.cm-card:hover .cm-ico{transform:rotate(-8deg) scale(1.08)}
+.cm-ico svg{
+  width:26px;height:26px;
+  fill:none;stroke:#fff;
+  stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+@keyframes cm-pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(211,47,47,.4)}
+  50%{box-shadow:0 0 0 8px rgba(211,47,47,0)}
+}
+.cm-card h3{
+  position:relative;
+  font-family:'Manrope',Arial,sans-serif;
+  font-weight:700;
+  font-size:20px;
+  line-height:1.3;
+  color:var(--ink);
+  margin:0 0 10px;
+}
+.cm-card h3::after{
+  content:"";
+  display:block;
+  width:34px;height:3px;
+  margin-top:10px;
+  border-radius:3px;
+  background:var(--red);
+  transition:width .3s;
+}
+.cm-card:hover h3::after{width:60px}
+.cm-card p{
+  position:relative;
+  font-size:15px;
+  line-height:1.65;
+  color:var(--text);
+  margin:0;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .cm-hero::before,.cm-hero::after,.cm-ico{animation:none}
+  .cm-card,.cm-btn{transition:none}
+  .cm-card:hover,.cm-btn:hover{transform:none}
+}
+
+/* Tablet */
+@media (max-width:991px){
+  .cm{grid-template-columns:1fr;padding:32px 20px}
+  .cm-hero{padding:36px 28px}
+  .cm-hero h2{font-size:30px}
+}
+/* Mobile */
+@media (max-width:600px){
+  .cm{padding:24px 14px;gap:16px}
+  .cm-hero{padding:28px 20px;border-radius:16px}
+  .cm-hero h2{font-size:26px}
+  .cm-hero p{font-size:15px}
+  .cm-btn{display:block;text-align:center;align-self:stretch}
+  .cm-grid{grid-template-columns:1fr;gap:16px}
+  .cm-card{padding:20px}
+}
+</style>
+
+<div class="cm">
+
+  <div class="cm-hero">
+    <h2>Competency Report Writing Service for Chartered Management – UK</h2>
+    <p>We have to show our competence in the outlined subject in Section 1 as suitable to the role. Its important to include your recent acheivements at work. You can also use your most recent experience if not employed.</p>
+    <a class="cm-btn" href="#">Get Free Samples</a>
+  </div>
+
+  <div class="cm-grid">
+
+    <div class="cm-card" data-n="1">
+      <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+      <h3>Section 1</h3>
+      <p>Advancing &amp; Enhancing Current Best Practice</p>
+    </div>
+
+    <div class="cm-card" data-n="2">
+      <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V5l9-2v18M13 8l7 2v11M2 21h20"/><path d="M8 8h1M8 12h1M8 16h1"/></svg></div>
+      <h3>Section 2</h3>
+      <p>Advancing and Enhancing Construction Management Knowledge</p>
+    </div>
+
+    <div class="cm-card" data-n="3">
+      <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M4 21V5M9 8h6"/></svg></div>
+      <h3>Section 3</h3>
+      <p>Advancing Learning &amp; Teaching (for lecturers, course developers and designers)</p>
+    </div>
+
+    <div class="cm-card" data-n="4">
+      <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.500V16c0 1.500 2.700 3 6 3s6-1.500 6-3v-4.500M22 9v6"/></svg></div>
+      <h3>Section 4</h3>
+      <p>Vocational Education &amp; Training (For NVQ Assessors and Training &amp; Development Managers)</p>
+    </div>
+
+    <div class="cm-card" data-n="5">
+      <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.500"/><path d="M2.500 20c0-3.500 3-6 6.500-6s6.500 2.500 6.500 6"/><path d="M17 5.500a3.500 3.500 0 010 5M19.500 14c1.200.8 2 2.500 2 4.500"/></svg></div>
+      <h3>Section 5</h3>
+      <p>Leadership and Management (for Program Leaders, Managers and Heads of Department)</p>
+    </div>
+
+    <div class="cm-card" data-n="6">
+      <div class="cm-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/><path d="M8.500 12l2.500 2.500L16 9.500"/></svg></div>
+      <h3>Section 6</h3>
+      <p>Commitment to Professionalism (mandatory for all applicants via the academic route)</p>
+    </div>
+
+  </div>
+</div>

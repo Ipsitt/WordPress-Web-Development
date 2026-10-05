@@ -1,0 +1,245 @@
+<style>
+  .wpb-s2-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    max-width: 1100px; margin: 0 auto; padding: 20px 10px;
+    color: #1a1a1a; box-sizing: border-box;
+  }
+  .wpb-s2-wrap * { box-sizing: border-box; }
+
+  .wpb-s2-title-wrap { text-align: center; margin-bottom: 35px; }
+  .wpb-s2-title {
+    font-size: 32px; font-weight: 800; margin: 0 0 10px 0;
+    color: #111111; text-transform: uppercase; line-height: 1.25;
+  }
+  .wpb-s2-title-bar {
+    width: 80px; height: 4px; margin: 0 auto; border-radius: 2px;
+    background: linear-gradient(90deg, #dd3333 0%, #ff5252 100%);
+  }
+
+  /* Tabs */
+  .wpb-s2-tabbar {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px; margin-bottom: 35px;
+  }
+  .wpb-s2-wrap .wpb-s2-tab {
+    display: inline-flex !important; align-items: center; gap: 10px;
+    background: #ffffff !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    cursor: pointer; font-family: inherit;
+    font-size: 15px !important; font-weight: 700 !important;
+    line-height: 1.4 !important; letter-spacing: normal !important;
+    text-transform: none !important; text-decoration: none !important;
+    color: #2d3748 !important;
+    padding: 13px 24px !important; margin: 0 !important;
+    height: auto !important; min-height: 0 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04) !important;
+    transition: all 0.3s ease;
+    -webkit-appearance: none; appearance: none; outline: none;
+  }
+  .wpb-s2-wrap .wpb-s2-tab svg {
+    flex-shrink: 0; width: 20px; height: 20px;
+    stroke: #dd3333 !important; fill: none !important;
+    transition: all 0.3s ease;
+  }
+  .wpb-s2-wrap .wpb-s2-tab:not(.active):hover,
+  .wpb-s2-wrap .wpb-s2-tab:not(.active):focus,
+  .wpb-s2-wrap .wpb-s2-tab:not(.active):active {
+    background: #ffffff !important; color: #dd3333 !important;
+    border-color: #dd3333 !important; transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(221,51,51,0.15) !important;
+  }
+  .wpb-s2-wrap .wpb-s2-tab:not(.active):hover svg,
+  .wpb-s2-wrap .wpb-s2-tab:not(.active):focus svg { stroke: #dd3333 !important; }
+  .wpb-s2-wrap .wpb-s2-tab.active,
+  .wpb-s2-wrap .wpb-s2-tab.active:hover,
+  .wpb-s2-wrap .wpb-s2-tab.active:focus {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #dd3333 0%, #ff5252 100%) !important;
+    border-color: #dd3333 !important;
+    box-shadow: 0 6px 20px rgba(221,51,51,0.35) !important;
+    transform: translateY(-2px);
+  }
+  .wpb-s2-wrap .wpb-s2-tab.active svg,
+  .wpb-s2-wrap .wpb-s2-tab.active:hover svg { stroke: #ffffff !important; }
+
+  /* Panels */
+  .wpb-s2-panel { display: none; }
+  .wpb-s2-panel.active { display: block; animation: wpbS2Fade 0.35s ease-in-out; }
+  @keyframes wpbS2Fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cards */
+  .wpb-s2-card {
+    background: #ffffff; border-radius: 12px; padding: 30px;
+    box-shadow: 0 8px 25px rgba(221,51,51,0.05);
+    margin-bottom: 25px; border: 2px solid #fecaca;
+    transition: all 0.3s ease;
+  }
+  .wpb-s2-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(221,51,51,0.12);
+    border-color: #fca5a5;
+  }
+
+  .wpb-s2-panel p {
+    font-size: 15.5px; line-height: 1.8; color: #4a5568; margin: 0 0 18px 0;
+  }
+  .wpb-s2-panel p:last-child { margin-bottom: 0; }
+  .wpb-s2-panel h3 {
+    font-size: 20px; font-weight: 800; color: #111111;
+    margin: 0 0 15px 0; display: flex; align-items: flex-start; gap: 12px;
+  }
+  .wpb-s2-panel h3 svg {
+    width: 24px; height: 24px; stroke: #dd3333; flex-shrink: 0; margin-top: 3px;
+  }
+  .wpb-s2-lead {
+    font-size: 17px !important; font-weight: 600; color: #1a202c !important;
+    border-left: 4px solid #dd3333; padding-left: 16px;
+  }
+
+  /* Salary highlight */
+  .wpb-s2-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px;
+  }
+  .wpb-s2-stat {
+    background: #fff5f5; border: 1px solid #fecaca; border-radius: 10px;
+    padding: 16px; text-align: center;
+  }
+  .wpb-s2-stat strong {
+    display: block; font-size: 20px; font-weight: 800; color: #dd3333; margin-bottom: 4px;
+  }
+  .wpb-s2-stat span { font-size: 13.5px; color: #4a5568; }
+
+  /* Lists */
+  .wpb-s2-panel ul {
+    list-style: none; padding: 0; margin: 0 0 20px 0; display: grid; gap: 10px;
+  }
+  .wpb-s2-panel ul:last-child { margin-bottom: 0; }
+  .wpb-s2-panel ul li {
+    position: relative; font-size: 15px; line-height: 1.6; color: #2d3748;
+    background: #fff5f5; padding: 12px 14px 12px 42px;
+    border-radius: 8px; border: 1px solid #fecaca; transition: all 0.2s ease;
+  }
+  .wpb-s2-panel ul li:hover {
+    transform: translateX(4px); background: #ffe3e3; border-color: #fca5a5;
+  }
+  .wpb-s2-panel ul li::before {
+    content: ''; position: absolute; left: 14px; top: 14px;
+    width: 18px; height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dd3333' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain; background-repeat: no-repeat;
+  }
+
+  @media screen and (max-width: 768px) {
+    .wpb-s2-stats { grid-template-columns: 1fr; }
+  }
+  @media screen and (max-width: 600px) {
+    .wpb-s2-wrap .wpb-s2-tab { width: 100%; justify-content: center; }
+    .wpb-s2-card { padding: 20px; }
+    .wpb-s2-title { font-size: 25px; }
+  }
+</style>
+<div class="wpb-s2-wrap">
+
+  <div class="wpb-s2-title-wrap">
+    <h1 class="wpb-s2-title">Engineers Australia Stage 2 Competencies</h1>
+    <div class="wpb-s2-title-bar"></div>
+  </div>
+
+  <div class="wpb-s2-tabbar">
+    <button type="button" class="wpb-s2-tab active" data-tab="1" onclick="wpbS2ShowTab(1)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Roles of Professional Engineers
+    </button>
+    <button type="button" class="wpb-s2-tab" data-tab="2" onclick="wpbS2ShowTab(2)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      What is Stage-2 Chartership?
+    </button>
+    <button type="button" class="wpb-s2-tab" data-tab="3" onclick="wpbS2ShowTab(3)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg>
+      Required Documentation
+    </button>
+  </div>
+
+  <div class="wpb-s2-panel active" data-panel="1">
+    <div class="wpb-s2-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Roles of Professional Engineers</h3>
+      <p class="wpb-s2-lead">Professional Engineers aspiring for CPEng are bound to demonstrate certain levels of competence in the practice area throughout their career.</p>
+      <p>They must also display the ability to effectively utilize such competence levels, and an ability to conduct themselves well in different scenarios. Amongst the Various Expectations from Experienced Professional Engineers, some are as follows:</p>
+    </div>
+    <div class="wpb-s2-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Expectations from Experienced Professional Engineers</h3>
+      <ul>
+        <li>Must understand explicit and implicit requirements shared by the clients; and expectations of all stakeholders (society involved)</li>
+        <li>Must optimize social, economic, and environmental outcomes over and beyond the full lifetime of the concerned project/program</li>
+        <li>Being an effective bridge between a multitude of disciplines, professional domains, and people</li>
+        <li>Interpreting technology-aided possibilities to business, society in general, and government</li>
+        <li>Integration of technical as well as non-technical considerations</li>
+        <li>Managing risks and dealing effectively with sustainability issues, amongst others</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wpb-s2-panel" data-panel="2">
+    <div class="wpb-s2-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Stage 2 Chartered Engineers</h3>
+      <p class="wpb-s2-lead">Chartership is given to those professional engineers who are recognized as talented, creative and innovative for the development of a nation. Being a Chartered professional Engineers implies their responsibility, experience and abilities and talent in the business of engineering.</p>
+      <p>Engineers Australia defines the Competency Standards Stage 2 as an assessment parameter to attain the Chartered Professional Engineer status. Wherein, the Chartered status is about attaining the certification of Professional Engineering. Chartered Professionals are expected to have reached the highest level of professional competence in the concerned domain, through years of experience and practice.</p>
+    </div>
+    <div class="wpb-s2-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 6 23 6 23 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Stage 2 Competency</h3>
+      <p>Stage 2 Competency assessment for Chartered membership, is a government requirement for professional credential recognition amongst business and the general public worldwide. Once you attain the CPEng, it is a binding obligation to maintain the same level of competence in the concerned domain.</p>
+      <p>The Competency Standards Stage 2 assessments for CPEng, for Professional Engineer, opens an opportunity to achieve Chartered membership of Engineers Australia (CEngT). Not limited to this, the individual also gets registered with the National Engineering Register (NER).</p>
+    </div>
+  </div>
+
+  <div class="wpb-s2-panel" data-panel="3">
+    <div class="wpb-s2-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Required Documentation</h3>
+      <p class="wpb-s2-lead">Engineers Australia, one of the most expert networks of engineers in Australia, allows its individuals to gain the title of Chartered Engineers in Opening countless entryways of chances for them through this internationally recognised process. This article gives data about the procedure to get Engineers Australia Chartered Status as a professional engineer.</p>
+      <p>While applying for CPEng towards Chartered Status recognition as a Professional Engineer, there are multiple documentation procedures. Each one of the required documents is used as evidence towards your claims about the engineering competency. Below mentioned are the submission items, required by the Engineers Australia, registration as a Chartered Professional Engineer.</p>
+      <ul>
+        <li>Engineering Competency Claims (ECCs)</li>
+        <li>Engineering Experience Record (EER)</li>
+        <li>Continuing Professional Development (CPD) Record</li>
+        <li>An up to date CV</li>
+      </ul>
+    </div>
+    <div class="wpb-s2-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Engineering Competency Claims (ECCs)</h3>
+      <p>As you chose the eChartered Pathway for submission, the total number of ECCs or engineering competency claims will lie between 11 to 16. Those opting for the Engineering Competency Report (or ECR pathway) will be required to submit 16 ECCs (engineering competency claims). Here, each of the ECC claims goes into great detail about the personal experience and exposure, in technical projects.</p>
+      <p>Wherein, Engineering Competency Claims defines how involved you have been at a personal level, in technical engineering projects. Professional writers and engineering experts at CDR Report strengthen your claims with their apt words. The Stage 2 Competency Standards focus on aspects like a commitment to service, demonstration of value at the workplace, ability to reflect technical proficiency, and obligation that one as an engineer has towards the community in general.</p>
+    </div>
+    <div class="wpb-s2-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Engineering Experience Record (EER)</h3>
+      <p>Engineering Experience Record (EER) collates a summary description of your employment background, encompassing all the roles experienced by you, in about 700 words. These submission items require a thorough understanding of the EA expectations and are pretty complex and time-consuming.</p>
+    </div>
+    <div class="wpb-s2-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="19" r="3" stroke-width="2"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="5" r="3" stroke-width="2"/></svg> Assessment Pathways</h3>
+      <p>The kind of submissions will further depend upon the choice of assessment pathway selected. You can choose an appropriate pathway towards the eChartered Competency Assessment.</p>
+      <ul>
+        <li>Professional Development Program (PDP)</li>
+        <li>Engineering Competency Report (ECR)</li>
+        <li>Mature Experience Engineer (MEE)</li>
+        <li>Mutual Recognition Agreement (MRA)</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function wpbS2ShowTab(n) {
+    var tabs = document.querySelectorAll('.wpb-s2-tab');
+    var panels = document.querySelectorAll('.wpb-s2-panel');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].classList.toggle('active', tabs[i].getAttribute('data-tab') === String(n));
+    }
+    for (var j = 0; j < panels.length; j++) {
+      panels[j].classList.toggle('active', panels[j].getAttribute('data-panel') === String(n));
+    }
+  }
+</script>

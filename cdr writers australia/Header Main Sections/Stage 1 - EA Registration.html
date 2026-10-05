@@ -1,0 +1,232 @@
+<style>
+  .wpb-s1-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    max-width: 1100px; margin: 0 auto; padding: 20px 10px;
+    color: #1a1a1a; box-sizing: border-box;
+  }
+  .wpb-s1-wrap * { box-sizing: border-box; }
+
+  .wpb-s1-title-wrap { text-align: center; margin-bottom: 35px; }
+  .wpb-s1-title {
+    font-size: 32px; font-weight: 800; margin: 0 0 10px 0;
+    color: #111111; text-transform: uppercase; line-height: 1.25;
+  }
+  .wpb-s1-title-bar {
+    width: 80px; height: 4px; margin: 0 auto; border-radius: 2px;
+    background: linear-gradient(90deg, #dd3333 0%, #ff5252 100%);
+  }
+
+  /* Tabs */
+  .wpb-s1-tabbar {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px; margin-bottom: 35px;
+  }
+  .wpb-s1-wrap .wpb-s1-tab {
+    display: inline-flex !important; align-items: center; gap: 10px;
+    background: #ffffff !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    cursor: pointer; font-family: inherit;
+    font-size: 15px !important; font-weight: 700 !important;
+    line-height: 1.4 !important; letter-spacing: normal !important;
+    text-transform: none !important; text-decoration: none !important;
+    color: #2d3748 !important;
+    padding: 13px 24px !important; margin: 0 !important;
+    height: auto !important; min-height: 0 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04) !important;
+    transition: all 0.3s ease;
+    -webkit-appearance: none; appearance: none; outline: none;
+  }
+  .wpb-s1-wrap .wpb-s1-tab svg {
+    flex-shrink: 0; width: 20px; height: 20px;
+    stroke: #dd3333 !important; fill: none !important;
+    transition: all 0.3s ease;
+  }
+  .wpb-s1-wrap .wpb-s1-tab:not(.active):hover,
+  .wpb-s1-wrap .wpb-s1-tab:not(.active):focus,
+  .wpb-s1-wrap .wpb-s1-tab:not(.active):active {
+    background: #ffffff !important; color: #dd3333 !important;
+    border-color: #dd3333 !important; transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(221,51,51,0.15) !important;
+  }
+  .wpb-s1-wrap .wpb-s1-tab:not(.active):hover svg,
+  .wpb-s1-wrap .wpb-s1-tab:not(.active):focus svg { stroke: #dd3333 !important; }
+  .wpb-s1-wrap .wpb-s1-tab.active,
+  .wpb-s1-wrap .wpb-s1-tab.active:hover,
+  .wpb-s1-wrap .wpb-s1-tab.active:focus {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #dd3333 0%, #ff5252 100%) !important;
+    border-color: #dd3333 !important;
+    box-shadow: 0 6px 20px rgba(221,51,51,0.35) !important;
+    transform: translateY(-2px);
+  }
+  .wpb-s1-wrap .wpb-s1-tab.active svg,
+  .wpb-s1-wrap .wpb-s1-tab.active:hover svg { stroke: #ffffff !important; }
+
+  /* Panels */
+  .wpb-s1-panel { display: none; }
+  .wpb-s1-panel.active { display: block; animation: wpbS1Fade 0.35s ease-in-out; }
+  @keyframes wpbS1Fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cards */
+  .wpb-s1-card {
+    background: #ffffff; border-radius: 12px; padding: 30px;
+    box-shadow: 0 8px 25px rgba(221,51,51,0.05);
+    margin-bottom: 25px; border: 2px solid #fecaca;
+    transition: all 0.3s ease;
+  }
+  .wpb-s1-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(221,51,51,0.12);
+    border-color: #fca5a5;
+  }
+
+  .wpb-s1-panel p {
+    font-size: 15.5px; line-height: 1.8; color: #4a5568; margin: 0 0 18px 0;
+  }
+  .wpb-s1-panel p:last-child { margin-bottom: 0; }
+  .wpb-s1-panel h3 {
+    font-size: 20px; font-weight: 800; color: #111111;
+    margin: 0 0 15px 0; display: flex; align-items: flex-start; gap: 12px;
+  }
+  .wpb-s1-panel h3 svg {
+    width: 24px; height: 24px; stroke: #dd3333; flex-shrink: 0; margin-top: 3px;
+  }
+  .wpb-s1-lead {
+    font-size: 17px !important; font-weight: 600; color: #1a202c !important;
+    border-left: 4px solid #dd3333; padding-left: 16px;
+  }
+
+  /* Salary highlight */
+  .wpb-s1-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px;
+  }
+  .wpb-s1-stat {
+    background: #fff5f5; border: 1px solid #fecaca; border-radius: 10px;
+    padding: 16px; text-align: center;
+  }
+  .wpb-s1-stat strong {
+    display: block; font-size: 20px; font-weight: 800; color: #dd3333; margin-bottom: 4px;
+  }
+  .wpb-s1-stat span { font-size: 13.5px; color: #4a5568; }
+
+  /* Lists */
+  .wpb-s1-panel ul {
+    list-style: none; padding: 0; margin: 0 0 20px 0; display: grid; gap: 10px;
+  }
+  .wpb-s1-panel ul:last-child { margin-bottom: 0; }
+  .wpb-s1-panel ul li {
+    position: relative; font-size: 15px; line-height: 1.6; color: #2d3748;
+    background: #fff5f5; padding: 12px 14px 12px 42px;
+    border-radius: 8px; border: 1px solid #fecaca; transition: all 0.2s ease;
+  }
+  .wpb-s1-panel ul li:hover {
+    transform: translateX(4px); background: #ffe3e3; border-color: #fca5a5;
+  }
+  .wpb-s1-panel ul li::before {
+    content: ''; position: absolute; left: 14px; top: 14px;
+    width: 18px; height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dd3333' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain; background-repeat: no-repeat;
+  }
+
+  @media screen and (max-width: 768px) {
+    .wpb-s1-stats { grid-template-columns: 1fr; }
+  }
+  @media screen and (max-width: 600px) {
+    .wpb-s1-wrap .wpb-s1-tab { width: 100%; justify-content: center; }
+    .wpb-s1-card { padding: 20px; }
+    .wpb-s1-title { font-size: 25px; }
+  }
+</style>
+<div class="wpb-s1-wrap">
+
+  <div class="wpb-s1-title-wrap">
+    <h1 class="wpb-s1-title">Expert Help</h1>
+    <div class="wpb-s1-title-bar"></div>
+  </div>
+
+  <div class="wpb-s1-tabbar">
+    <button type="button" class="wpb-s1-tab active" data-tab="1" onclick="wpbS1ShowTab(1)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Our Stage-I Services
+    </button>
+    <button type="button" class="wpb-s1-tab" data-tab="2" onclick="wpbS1ShowTab(2)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      Introduction
+    </button>
+    <button type="button" class="wpb-s1-tab" data-tab="3" onclick="wpbS1ShowTab(3)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg>
+      Required Documentation
+    </button>
+  </div>
+
+  <div class="wpb-s1-panel active" data-panel="1">
+    <div class="wpb-s1-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Our Stage-I Services</h3>
+      <p class="wpb-s1-lead">This stage 1 competency is for eligibility of membership. it is not for immigration resolution.</p>
+      <p>If you talk about fees structure then it’s costlier for the applicant lodged within Australia if it’s out of this country then it’s less costly compared to… but there is not a huge assessment fees difference for Engineers Australia. Normally time required is 28 days but it may be delayed if there is any workload. It is advised to migrant engineers to check it on a given time frame.</p>
+      <p>The following section provides you with a glance at some of our best features which will definitely convince you to use our services to complete your stage 1 competency assessment.</p>
+    </div>
+    <div class="wpb-s1-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Why Choose Our Services</h3>
+      <ul>
+        <li>Since writing a stage 1 competency assessment is not an easy task, we only hire experts who are highly experienced in their particular field for your help.</li>
+        <li>The content which we provide is trustworthy. Our service is something you can totally rely on. Our content is 100% plagiarism free and free of any errors.</li>
+        <li>We also provide numerous samples of the narratives, summary statements and CPD to our clients who want just a reference to help them in creating their own seminar. All our samples and examples are approved by the concerned authority.</li>
+        <li>We charge minimal fees from our clients. This is because we believe in growing our network and provide the best services at the lowest prices.</li>
+        <li>We are available 24/7. Every time you visit our site to seek some help regarding CDR, one of our team members will be there for you at the chat support to provide you with a quick guide.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wpb-s1-panel" data-panel="2">
+    <div class="wpb-s1-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="2"/><line x1="12" y1="16" x2="12" y2="12" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke-width="2" stroke-linecap="round"/></svg> Introduction to Stage 1 Competency Assessment</h3>
+      <p class="wpb-s1-lead">It is the first level of competency that ensures whether you are able to practice engineering in Australia or not. It should cover your education qualification and knowledge of relevant job positions such that you can become an eligible member.</p>
+      <p>In this context, you must know that your job posting will be based on four different occupational categories. This includes Engineering Technologist, Professional Engineer, Engineering Associate and Engineering Manager. For each of these posts, there is a specific requirement to be fulfilled. If you have read the instructions carefully and has the ability to apply for any of these posts, you must send your CDR report in the appropriate format.</p>
+    </div>
+    <div class="wpb-s1-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Stage 1 Competencies</h3>
+      <p>At first, your knowledge and professional qualifications will be assessed under Stage 1 Competency Assessment. Here it covers there Competencies that include-</p>
+      <ul>
+        <li>Knowledge Base</li>
+        <li>Engineering Ability</li>
+        <li>Professional Attributes</li>
+      </ul>
+      <p>Each of these Competencies covers a specific area and helps in determining the value of the candidate. If you are unaware of the elements of these things, you have to collect the necessary information. Or else, you should feel free to hire our experts. With this approach, there will be no need to spend your time preparing CDR. Our team of specialized experts will take care of the report and prepare it as per your needs. So, submit the details of your educational qualification and professional achievements. We will narrate the things and demonstrate them as per the guidelines in the report.</p>
+    </div>
+  </div>
+
+  <div class="wpb-s1-panel" data-panel="3">
+    <div class="wpb-s1-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Document Required for Stage 1 Competency Assessment</h3>
+      <p class="wpb-s1-lead">You have to upload the required file in pdf or doc but the preferred format is pdf by scanning all documents very clearly with a maximum of 10 Mb.</p>
+      <ul>
+        <li>Photo identification proof</li>
+        <li>Verified CV/Resume</li>
+        <li>English language competency report</li>
+        <li>Qualifications document</li>
+        <li>Three career episodes report</li>
+        <li>Summary statement</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function wpbS1ShowTab(n) {
+    var tabs = document.querySelectorAll('.wpb-s1-tab');
+    var panels = document.querySelectorAll('.wpb-s1-panel');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].classList.toggle('active', tabs[i].getAttribute('data-tab') === String(n));
+    }
+    for (var j = 0; j < panels.length; j++) {
+      panels[j].classList.toggle('active', panels[j].getAttribute('data-panel') === String(n));
+    }
+  }
+</script>

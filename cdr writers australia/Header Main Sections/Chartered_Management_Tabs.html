@@ -16,6 +16,11 @@
     background: linear-gradient(90deg, #dd3333 0%, #ff5252 100%);
   }
 
+  .wpb-cm-intro {
+    max-width: 760px; margin: 18px auto 0 auto; font-size: 16.5px;
+    line-height: 1.7; color: #4a5568;
+  }
+
   /* Tabs */
   .wpb-cm-tabbar {
     display: flex; flex-wrap: wrap; justify-content: center;
@@ -80,7 +85,7 @@
     box-shadow: 0 15px 35px rgba(221,51,51,0.12);
     border-color: #fca5a5;
   }
-  .wpb-cm-panel h3 {
+  .wpb-cm-card > :is(h3,h4,h5) {
     font-size: 21px; font-weight: 800; color: #111111;
     margin: 0 0 6px 0; line-height: 1.35;
   }
@@ -126,17 +131,18 @@
 <div class="wpb-cm-wrap">
 
   <div class="wpb-cm-title-wrap">
-    <h1 class="wpb-cm-title">Chartered Management Competences</h1>
+    <h2 class="wpb-cm-title">Core Competencies for Chartered Management</h2>
     <div class="wpb-cm-title-bar"></div>
+    <p class="wpb-cm-intro">The core competencies for the Chartered Management are divided into six different sections. They all are elaborated in the extended tabs below.</p>
   </div>
 
   <div class="wpb-cm-tabbar">
-    <button type="button" class="wpb-cm-tab active" data-tab="1" onclick="wpbCmShowTab(1)"><span class="wpb-cm-num">1</span>Best Practice</button>
-    <button type="button" class="wpb-cm-tab" data-tab="2" onclick="wpbCmShowTab(2)"><span class="wpb-cm-num">2</span>Construction Management Knowledge</button>
-    <button type="button" class="wpb-cm-tab" data-tab="3" onclick="wpbCmShowTab(3)"><span class="wpb-cm-num">3</span>Learning &amp; Teaching</button>
-    <button type="button" class="wpb-cm-tab" data-tab="4" onclick="wpbCmShowTab(4)"><span class="wpb-cm-num">4</span>Vocational Education &amp; Training</button>
-    <button type="button" class="wpb-cm-tab" data-tab="5" onclick="wpbCmShowTab(5)"><span class="wpb-cm-num">5</span>Leadership &amp; Management</button>
-    <button type="button" class="wpb-cm-tab" data-tab="6" onclick="wpbCmShowTab(6)"><span class="wpb-cm-num">6</span>Professionalism</button>
+    <button type="button" class="wpb-cm-tab active" data-tab="1" onclick="wpbCmShowTab(1)">Section 1</button>
+    <button type="button" class="wpb-cm-tab" data-tab="2" onclick="wpbCmShowTab(2)">Section 2</button>
+    <button type="button" class="wpb-cm-tab" data-tab="3" onclick="wpbCmShowTab(3)">Section 3</button>
+    <button type="button" class="wpb-cm-tab" data-tab="4" onclick="wpbCmShowTab(4)">Section 4</button>
+    <button type="button" class="wpb-cm-tab" data-tab="5" onclick="wpbCmShowTab(5)">Section 5</button>
+    <button type="button" class="wpb-cm-tab" data-tab="6" onclick="wpbCmShowTab(6)">Section 6</button>
   </div>
 
   <!-- SECTION 1 -->

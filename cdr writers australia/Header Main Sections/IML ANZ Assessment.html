@@ -1,0 +1,462 @@
+<style>
+  .wpb-iml-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    max-width: 1100px; margin: 0 auto; padding: 20px 10px;
+    color: #1a1a1a; box-sizing: border-box;
+  }
+  .wpb-iml-wrap * { box-sizing: border-box; }
+
+  .wpb-iml-title-wrap { text-align: center; margin-bottom: 35px; }
+  .wpb-iml-title {
+    font-size: 32px; font-weight: 800; margin: 0 0 10px 0;
+    color: #111111; text-transform: uppercase; line-height: 1.25;
+  }
+  .wpb-iml-title-bar {
+    width: 80px; height: 4px; margin: 0 auto; border-radius: 2px;
+    background: linear-gradient(90deg, #dd3333 0%, #ff5252 100%);
+  }
+
+  /* Tabs */
+  .wpb-iml-tabbar {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px; margin-bottom: 35px;
+  }
+  .wpb-iml-wrap .wpb-iml-tab {
+    display: inline-flex !important; align-items: center; gap: 10px;
+    background: #ffffff !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    cursor: pointer; font-family: inherit;
+    font-size: 15px !important; font-weight: 700 !important;
+    line-height: 1.4 !important; letter-spacing: normal !important;
+    text-transform: none !important; text-decoration: none !important;
+    color: #2d3748 !important;
+    padding: 13px 24px !important; margin: 0 !important;
+    height: auto !important; min-height: 0 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04) !important;
+    transition: all 0.3s ease;
+    -webkit-appearance: none; appearance: none; outline: none;
+  }
+  .wpb-iml-wrap .wpb-iml-tab svg {
+    flex-shrink: 0; width: 20px; height: 20px;
+    stroke: #dd3333 !important; fill: none !important;
+    transition: all 0.3s ease;
+  }
+  .wpb-iml-wrap .wpb-iml-tab:not(.active):hover,
+  .wpb-iml-wrap .wpb-iml-tab:not(.active):focus,
+  .wpb-iml-wrap .wpb-iml-tab:not(.active):active {
+    background: #ffffff !important; color: #dd3333 !important;
+    border-color: #dd3333 !important; transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(221,51,51,0.15) !important;
+  }
+  .wpb-iml-wrap .wpb-iml-tab:not(.active):hover svg,
+  .wpb-iml-wrap .wpb-iml-tab:not(.active):focus svg { stroke: #dd3333 !important; }
+  .wpb-iml-wrap .wpb-iml-tab.active,
+  .wpb-iml-wrap .wpb-iml-tab.active:hover,
+  .wpb-iml-wrap .wpb-iml-tab.active:focus {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #dd3333 0%, #ff5252 100%) !important;
+    border-color: #dd3333 !important;
+    box-shadow: 0 6px 20px rgba(221,51,51,0.35) !important;
+    transform: translateY(-2px);
+  }
+  .wpb-iml-wrap .wpb-iml-tab.active svg,
+  .wpb-iml-wrap .wpb-iml-tab.active:hover svg { stroke: #ffffff !important; }
+
+  /* Panels */
+  .wpb-iml-panel { display: none; }
+  .wpb-iml-panel.active { display: block; animation: wpbImlFade 0.35s ease-in-out; }
+  @keyframes wpbImlFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cards */
+  .wpb-iml-card {
+    background: #ffffff; border-radius: 12px; padding: 30px;
+    box-shadow: 0 8px 25px rgba(221,51,51,0.05);
+    margin-bottom: 25px; border: 2px solid #fecaca;
+    transition: all 0.3s ease;
+  }
+  .wpb-iml-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(221,51,51,0.12);
+    border-color: #fca5a5;
+  }
+
+  .wpb-iml-panel p {
+    font-size: 15.5px; line-height: 1.8; color: #4a5568; margin: 0 0 18px 0;
+  }
+  .wpb-iml-panel p:last-child { margin-bottom: 0; }
+  .wpb-iml-panel h2 {
+    font-size: 20px; font-weight: 800; color: #111111;
+    margin: 0 0 15px 0; display: flex; align-items: flex-start; gap: 12px;
+  }
+  .wpb-iml-panel h2 svg {
+    width: 24px; height: 24px; stroke: #dd3333; flex-shrink: 0; margin-top: 3px;
+  }
+  .wpb-iml-lead {
+    font-size: 17px !important; font-weight: 600; color: #1a202c !important;
+    border-left: 4px solid #dd3333; padding-left: 16px;
+  }
+
+  /* Salary highlight */
+  .wpb-iml-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px;
+  }
+  .wpb-iml-stat {
+    background: #fff5f5; border: 1px solid #fecaca; border-radius: 10px;
+    padding: 16px; text-align: center;
+  }
+  .wpb-iml-stat strong {
+    display: block; font-size: 20px; font-weight: 800; color: #dd3333; margin-bottom: 4px;
+  }
+  .wpb-iml-stat span { font-size: 13.5px; color: #4a5568; }
+
+  /* Lists */
+  .wpb-iml-panel ul {
+    list-style: none; padding: 0; margin: 0 0 20px 0; display: grid; gap: 10px;
+  }
+  .wpb-iml-panel ul:last-child { margin-bottom: 0; }
+  .wpb-iml-panel ul li {
+    position: relative; font-size: 15px; line-height: 1.6; color: #2d3748;
+    background: #fff5f5; padding: 12px 14px 12px 42px;
+    border-radius: 8px; border: 1px solid #fecaca; transition: all 0.2s ease;
+  }
+  .wpb-iml-panel ul li:hover {
+    transform: translateX(4px); background: #ffe3e3; border-color: #fca5a5;
+  }
+  .wpb-iml-panel ul li::before {
+    content: ''; position: absolute; left: 14px; top: 14px;
+    width: 18px; height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dd3333' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain; background-repeat: no-repeat;
+  }
+
+  @media screen and (max-width: 768px) {
+    .wpb-iml-stats { grid-template-columns: 1fr; }
+  }
+  @media screen and (max-width: 600px) {
+    .wpb-iml-wrap .wpb-iml-tab { width: 100%; justify-content: center; }
+    .wpb-iml-card { padding: 20px; }
+    .wpb-iml-title { font-size: 25px; }
+  }
+
+  /* Sub-blocks */
+  .wpb-iml-item {
+    background: #fff5f5; border: 1px solid #fecaca;
+    border-left: 4px solid #dd3333; border-radius: 8px;
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .wpb-iml-item:last-child { margin-bottom: 0; }
+  .wpb-iml-item h3 {
+    font-size: 16.5px; font-weight: 800; color: #111111; margin: 0 0 12px 0; line-height: 1.4;
+  }
+  .wpb-iml-item ul li { background: #ffffff; }
+  .wpb-iml-item ul li:hover { background: #ffe3e3; }
+  .wpb-iml-item ul:last-child { margin-bottom: 0; }
+  .wpb-iml-step {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    font-size: 15px; font-weight: 800; color: #ffffff;
+    background: linear-gradient(135deg, #dd3333 0%, #ff5252 100%);
+  }
+  .wpb-iml-panel h2 { align-items: center; }
+  .wpb-iml-guide {
+    background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+    border-radius: 8px; padding: 14px 18px; margin-top: 4px;
+    font-size: 14.5px; line-height: 1.7; color: #4a5568;
+  }
+  .wpb-iml-guide strong { color: #92400e; }
+  .wpb-iml-item .wpb-iml-guide { background: #fffbeb; }
+</style>
+<div class="wpb-iml-wrap">
+
+  <div class="wpb-iml-title-wrap">
+    <h1 class="wpb-iml-title">IML ANZ Services</h1>
+    <div class="wpb-iml-title-bar"></div>
+  </div>
+
+  <div class="wpb-iml-tabbar">
+    <button type="button" class="wpb-iml-tab active" data-tab="1" onclick="wpbImlShowTab(1)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      IMLANZ Assessment Service
+    </button>
+    <button type="button" class="wpb-iml-tab" data-tab="2" onclick="wpbImlShowTab(2)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      What is IMLANZ?
+    </button>
+    <button type="button" class="wpb-iml-tab" data-tab="3" onclick="wpbImlShowTab(3)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      IMLANZ Guidelines and Format
+    </button>
+  </div>
+
+  <div class="wpb-iml-panel active" data-panel="1">
+    <div class="wpb-iml-card">
+      <h2><svg viewBox="0 0 24 24" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> IML ANZ Assessment Services for Australia and New Zealand</h2>
+      <p class="wpb-iml-lead">CDRwritersAustralia offers specialized skill assessment assistance services for professionals seeking recognition from the Institute of Managers and Leaders Australia &amp; New Zealand (IML ANZ). This service is particularly valuable for managers and leaders aiming to demonstrate their competencies and secure professional recognition.</p>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="2"/><line x1="12" y1="16" x2="12" y2="12" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke-width="2" stroke-linecap="round"/></svg> Overview of the Skill Assessment Assistance Service</h2>
+      <p>The skill assessment process by IML ANZ is designed to evaluate an individual’s management and leadership capabilities against established standards. CDRwritersAustralia’s assistance service supports professionals throughout this comprehensive assessment process, ensuring they meet the required criteria and present their skills effectively.</p>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Key Features of the Service</h2>
+      <div class="wpb-iml-item">
+        <h3>Personalized Guidance and Support</h3>
+        <ul>
+        <li><strong>Expert Consultation:</strong> Our team provides one-on-one consultations to understand the professional background, experience, and specific goals of each client. This tailored approach ensures that the assistance provided aligns with the individual’s unique career aspirations and competencies.</li>
+        <li><strong>Comprehensive Skill Mapping:</strong> We help clients map their skills and experiences against IML ANZ’s competency framework. This involves identifying key areas of expertise, significant achievements, and leadership qualities that align with the standards set by the institute.</li>
+      </ul>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>Document Preparation and Review</h3>
+        <ul>
+        <li><strong>Resume and Portfolio Development:</strong> Our experts assist in crafting a professional resume and portfolio that highlight managerial experience, leadership roles, and achievements. This documentation is crucial for the skill assessment process as it provides evidence of the applicant’s capabilities.</li>
+        <li><strong>Statement of Purpose (SOP) Guidance:</strong> CDRwritersAustralia provides guidance on writing a compelling Statement of Purpose that reflects the client’s leadership philosophy, career goals, and reasons for seeking professional recognition from IML ANZ.</li>
+      </ul>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>Application Support</h3>
+        <ul>
+        <li><strong>Competency Demonstration Reports (CDRs):</strong> We provide support in preparing Competency Demonstration Reports, which are a core component of the skill assessment process. Our experts ensure that these reports comprehensively demonstrate the client’s management and leadership skills, adhering to the guidelines set by IML ANZ.</li>
+        <li><strong>Evidence Compilation:</strong> We assist in compiling relevant evidence, such as professional references, project reports, and other supporting documents that substantiate the client’s claims of experience and expertise.</li>
+      </ul>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>Review and Feedback</h3>
+        <ul>
+        <li><strong>Thorough Review Process:</strong> CDRwritersAustralia conducts a meticulous review of all documentation to ensure completeness, accuracy, and alignment with IML ANZ requirements.</li>
+        <li><strong>Constructive Feedback:</strong> We provide detailed feedback on draft submissions, suggesting improvements and enhancements to maximize the chances of a successful assessment outcome.</li>
+      </ul>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>Compliance with IML ANZ Standards</h3>
+        <ul>
+        <li><strong>Adherence to Guidelines:</strong> Our team is well-versed in the specific requirements and standards of IML ANZ. We ensure that all submissions comply with these guidelines, reducing the risk of delays or rejections.</li>
+        <li><strong>Up-to-Date Knowledge:</strong> As requirements and standards may evolve, CDRwritersAustralia stays updated with the latest changes in IML ANZ’s assessment criteria to provide accurate and relevant assistance.</li>
+      </ul>
+      </div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><svg viewBox="0 0 24 24" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 6 23 6 23 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Benefits of Using CDRwritersAustralia’s Skill Assessment Assistance</h2>
+      <ul>
+        <li><strong>Increased Success Rate:</strong> With expert guidance and thorough preparation, our clients have a higher success rate in obtaining positive skill assessment outcomes from IML ANZ.</li>
+        <li><strong>Time and Effort Savings:</strong> We streamline the entire process, helping clients save time and effort while ensuring that their submissions are of the highest quality.</li>
+        <li><strong>Professional Recognition:</strong> Achieving a positive skill assessment result can enhance career prospects, provide access to networking opportunities, and open doors to new professional avenues.</li>
+        <li><strong>Confidence and Assurance:</strong> Our clients benefit from the confidence and peace of mind that comes from knowing their application is in expert hands.</li>
+      </ul>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> We CDRWritersAustralia.com help and support through</h2>
+      <ul>
+        <li>Exceptionally Experienced Experts</li>
+        <li>97% Approval Rate</li>
+        <li>100% Original Content</li>
+        <li>On-time Delivery</li>
+        <li>Reasonable Prices</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wpb-iml-panel" data-panel="2">
+    <div class="wpb-iml-card">
+      <h2><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="2"/><line x1="12" y1="16" x2="12" y2="12" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke-width="2" stroke-linecap="round"/></svg> Institute of Managers and Leaders Australia &amp; New Zealand (IML ANZ)</h2>
+      <p class="wpb-iml-lead">The Institute of Managers and Leaders Australia &amp; New Zealand (IML ANZ) is a professional membership organization dedicated to promoting and enhancing the standards of management and leadership. It was established to support managers and leaders across various sectors in their professional development and to recognize and uphold the high standards of leadership and management practice.</p>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Key Features of IML ANZ</h2>
+      <ul>
+        <li><strong>Professional Development:</strong> IML ANZ provides a range of resources, training programs, certifications, and workshops designed to enhance the skills and knowledge of managers and leaders. These programs often focus on various aspects of leadership, strategic thinking, communication, decision-making, and other essential managerial skills.</li>
+        <li><strong>Membership Network:</strong> The institute offers a platform for networking among its members, which includes managers and leaders from different industries and sectors across Australia and New Zealand. Members can share experiences, knowledge, and best practices.</li>
+        <li><strong>Certification and Recognition:</strong> IML ANZ provides professional certifications such as the Chartered Manager (CMgr) designation, which is recognized internationally. This certification is designed to recognize and validate the skills and competencies of effective managers.</li>
+        <li><strong>Research and Insights:</strong> The institute conducts and publishes research on leadership and management trends, challenges, and best practices. These insights help inform the members and the broader business community about the evolving landscape of leadership and management.</li>
+        <li><strong>Advocacy:</strong> IML ANZ plays a role in advocating for the importance of good management and leadership practices. It aims to influence policy and promote a greater understanding of effective leadership’s impact on organizational performance and employee well-being.</li>
+        <li><strong>Ethics and Standards:</strong> The institute is committed to promoting ethical leadership and management standards. It provides guidance on ethical practices and aims to foster a culture of integrity and professionalism among its members.</li>
+      </ul>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> History and Background</h2>
+      <p>IML ANZ has a long history dating back to its origins as the Australian Institute of Management (AIM). It underwent a rebranding and restructuring to better reflect its commitment to professional management and leadership across Australia and New Zealand. The institute continues to evolve, focusing on contemporary leadership challenges and supporting the development of management and leadership capabilities in a rapidly changing world.</p>
+    </div>
+  </div>
+
+  <div class="wpb-iml-panel" data-panel="3">
+    <div class="wpb-iml-card">
+      <h2><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Step-by-Step Report Format for IML ANZ Skill Assessment</h2>
+      <p class="wpb-iml-lead">Here is a detailed step-by-step report format for the IML ANZ skill assessment, including guidelines to ensure you meet their requirements effectively:</p>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><span class="wpb-iml-step">1</span> Title Page</h2>
+      <ul>
+        <li><strong>Title:</strong> “IML ANZ Skill Assessment Report”</li>
+        <li><strong>Your Name:</strong> Include your full name.</li>
+        <li><strong>Date:</strong> The date of submission.</li>
+        <li><strong>Contact Information:</strong> Your email address and phone number.</li>
+        <li><strong>Membership Number:</strong> Include your IML ANZ membership number, if applicable.</li>
+      </ul>
+      <div class="wpb-iml-guide"><strong>Guidelines:</strong> Ensure all information is accurate and clearly presented. Use a professional format with appropriate font size and style.</div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><span class="wpb-iml-step">2</span> Table of Contents</h2>
+      <ul>
+        <li>List all major sections and sub-sections with corresponding page numbers.</li>
+      </ul>
+      <div class="wpb-iml-guide"><strong>Guidelines:</strong> Use a consistent format and ensure it matches the headings in your report. This helps the assessor easily navigate through your submission.</div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><span class="wpb-iml-step">3</span> Executive Summary</h2>
+      <ul>
+        <li>A brief overview of the report’s content (approximately 200-300 words).</li>
+        <li>Summarize your professional background, key competencies demonstrated, and main achievements.</li>
+      </ul>
+      <div class="wpb-iml-guide"><strong>Guidelines:</strong> Keep it concise and to the point. Highlight the most relevant aspects of your experience that align with the IML ANZ competencies.</div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><span class="wpb-iml-step">4</span> Introduction</h2>
+      <ul>
+        <li><strong>Purpose of the Report:</strong> Explain the objective of your submission, e.g., applying for Chartered Manager accreditation.</li>
+        <li><strong>Professional Background Overview:</strong> Provide a brief introduction to your professional experience, current role, and relevant industry experience.</li>
+      </ul>
+      <div class="wpb-iml-guide"><strong>Guidelines:</strong> Use clear, concise language. Focus on relevant experiences that align with the competencies being assessed.</div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><span class="wpb-iml-step">5</span> Competency Framework Overview</h2>
+      <ul>
+        <li>Provide an overview of the IML ANZ competency framework you will be addressing in your report.</li>
+        <li>List each competency area (e.g., Leading and Managing People, Managing Activities and Resources, etc.).</li>
+      </ul>
+      <div class="wpb-iml-guide"><strong>Guidelines:</strong> Ensure you are familiar with the IML ANZ competency framework. This section should clarify the competencies you will demonstrate in the report.</div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><span class="wpb-iml-step">6</span> Competency Sections</h2>
+      <p>For each competency area, use the following format:</p>
+      <div class="wpb-iml-item">
+        <h3>a. Competency Title</h3>
+        <p>e.g., “Leading and Managing People”</p>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>b. Introduction to Competency</h3>
+        <ul>
+        <li>Briefly describe the importance of this competency in management and leadership.</li>
+      </ul>
+        <div class="wpb-iml-guide"><strong>Guidelines:</strong> Clearly articulate why this competency is crucial for effective leadership. Relate it to your professional context.</div>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>c. Case Study or Example 1</h3>
+        <ul>
+        <li><strong>Situation:</strong> Provide the context or background of the example.</li>
+        <li><strong>Task:</strong> Describe the specific task or challenge faced.</li>
+        <li><strong>Action:</strong> Detail the actions you took to address the task or challenge.</li>
+        <li><strong>Result:</strong> Explain the outcome of your actions, including measurable results where possible.</li>
+        <li><strong>Reflection:</strong> Reflect on what you learned from this experience and how it has influenced your approach to leadership.</li>
+      </ul>
+        <div class="wpb-iml-guide"><strong>Guidelines:</strong> Be specific and use real-life examples that demonstrate your ability to apply the competency in practice. Use the STAR method (Situation, Task, Action, Result) to structure your examples clearly.</div>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>d. Case Study or Example 2 (if applicable)</h3>
+        <ul>
+        <li>Repeat the same structure as above (Situation, Task, Action, Result, Reflection).</li>
+      </ul>
+        <div class="wpb-iml-guide"><strong>Guidelines:</strong> Provide a variety of examples that showcase your skills in different contexts. Ensure each example is distinct and demonstrates a different aspect of the competency.</div>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>e. Summary of Competency</h3>
+        <ul>
+        <li>Summarize how the examples demonstrate your skills and competencies in this area.</li>
+        <li>Highlight any additional skills or knowledge gained and how they align with IML ANZ’s standards.</li>
+      </ul>
+        <div class="wpb-iml-guide"><strong>Guidelines:</strong> Summarize key points clearly and concisely. Reinforce how your experience aligns with the competency framework.</div>
+      </div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><span class="wpb-iml-step">7</span> Professional Development Log</h2>
+      <ul>
+        <li>Include a detailed log of your continuing professional development (CPD) activities.</li>
+        <li>For each activity, include: Date: When the activity took place.</li>
+        <li>Activity: Description of the CPD activity (e.g., workshop, webinar, course).</li>
+        <li>Provider: The organization or institution that provided the training.</li>
+        <li>Learning Outcomes: What you learned from the activity and how it has contributed to your professional development.</li>
+        <li>Reflect on how each CPD activity has enhanced your management and leadership skills.</li>
+      </ul>
+      <div class="wpb-iml-guide"><strong>Guidelines:</strong> Make sure the CPD log is detailed and comprehensive. Reflect on each activity’s impact on your professional growth.</div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><span class="wpb-iml-step">8</span> Conclusion</h2>
+      <ul>
+        <li>Summarize the key points discussed in the report.</li>
+        <li>Reinforce your readiness for the accreditation or assessment based on your competencies and experience.</li>
+      </ul>
+      <div class="wpb-iml-guide"><strong>Guidelines:</strong> Keep the conclusion concise. Summarize how your skills and experiences meet the IML ANZ standards.</div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><span class="wpb-iml-step">9</span> Appendices (if needed)</h2>
+      <ul>
+        <li>Include any additional documents or evidence that support your report (e.g., certificates, reference letters, detailed project reports).</li>
+      </ul>
+      <div class="wpb-iml-guide"><strong>Guidelines:</strong> Clearly label and reference each appendix in the main body of the report. Ensure that all appendices are relevant and provide value to your submission.</div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><span class="wpb-iml-step">10</span> References</h2>
+      <ul>
+        <li>List any sources or references used in the preparation of your report.</li>
+      </ul>
+      <div class="wpb-iml-guide"><strong>Guidelines:</strong> Use a consistent referencing style as per IML ANZ guidelines (if specified). Ensure all sources are credible and relevant.</div>
+    </div>
+    <div class="wpb-iml-card">
+      <h2><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> General Guidelines for the Report</h2>
+      <div class="wpb-iml-item">
+        <h3>Format and Presentation</h3>
+        <ul>
+        <li>Use a professional font (e.g., Arial, Times New Roman) in 11 or 12-point size.</li>
+        <li>Use consistent headings and subheadings to organize your content.</li>
+        <li>Maintain a clean and professional layout with adequate spacing and margins.</li>
+      </ul>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>Length and Detail</h3>
+        <ul>
+        <li>Ensure your report is comprehensive but concise. Avoid unnecessary detail or filler content.</li>
+        <li>Be mindful of any word or page limits specified by IML ANZ.</li>
+      </ul>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>Evidence and Examples</h3>
+        <ul>
+        <li>Use real-life examples to demonstrate your competencies. The more specific and detailed, the better.</li>
+        <li>Ensure all evidence provided is authentic and verifiable.</li>
+      </ul>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>Language and Tone</h3>
+        <ul>
+        <li>Use clear, concise language. Avoid jargon unless it is industry-standard and well-explained.</li>
+        <li>Maintain a professional and positive tone throughout the report.</li>
+      </ul>
+      </div>
+      <div class="wpb-iml-item">
+        <h3>Proofreading and Review</h3>
+        <ul>
+        <li>Proofread your report multiple times to ensure there are no errors in grammar, spelling, or formatting.</li>
+        <li>Consider having a colleague or mentor review your report before submission.</li>
+      </ul>
+      </div>
+      <p>By following these guidelines and using the structured format provided, you can effectively demonstrate your skills and competencies to meet the IML ANZ assessment requirements.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function wpbImlShowTab(n) {
+    var tabs = document.querySelectorAll('.wpb-iml-tab');
+    var panels = document.querySelectorAll('.wpb-iml-panel');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].classList.toggle('active', tabs[i].getAttribute('data-tab') === String(n));
+    }
+    for (var j = 0; j < panels.length; j++) {
+      panels[j].classList.toggle('active', panels[j].getAttribute('data-panel') === String(n));
+    }
+  }
+</script>

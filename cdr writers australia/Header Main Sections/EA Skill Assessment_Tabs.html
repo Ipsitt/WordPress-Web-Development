@@ -1,0 +1,248 @@
+<style>
+  .wpb-ea-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    max-width: 1100px; margin: 0 auto; padding: 20px 10px;
+    color: #1a1a1a; box-sizing: border-box;
+  }
+  .wpb-ea-wrap * { box-sizing: border-box; }
+
+  .wpb-ea-title-wrap { text-align: center; margin-bottom: 35px; }
+  .wpb-ea-title {
+    font-size: 32px; font-weight: 800; margin: 0 0 10px 0;
+    color: #111111; text-transform: uppercase; line-height: 1.25;
+  }
+  .wpb-ea-title-bar {
+    width: 80px; height: 4px; margin: 0 auto; border-radius: 2px;
+    background: linear-gradient(90deg, #dd3333 0%, #ff5252 100%);
+  }
+
+  /* Tabs */
+  .wpb-ea-tabbar {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px; margin-bottom: 35px;
+  }
+  .wpb-ea-wrap .wpb-ea-tab {
+    display: inline-flex !important; align-items: center; gap: 10px;
+    background: #ffffff !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    cursor: pointer; font-family: inherit;
+    font-size: 15px !important; font-weight: 700 !important;
+    line-height: 1.4 !important; letter-spacing: normal !important;
+    text-transform: none !important; text-decoration: none !important;
+    color: #2d3748 !important;
+    padding: 13px 24px !important; margin: 0 !important;
+    height: auto !important; min-height: 0 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04) !important;
+    transition: all 0.3s ease;
+    -webkit-appearance: none; appearance: none; outline: none;
+  }
+  .wpb-ea-wrap .wpb-ea-tab svg {
+    flex-shrink: 0; width: 20px; height: 20px;
+    stroke: #dd3333 !important; fill: none !important;
+    transition: all 0.3s ease;
+  }
+  .wpb-ea-wrap .wpb-ea-tab:not(.active):hover,
+  .wpb-ea-wrap .wpb-ea-tab:not(.active):focus,
+  .wpb-ea-wrap .wpb-ea-tab:not(.active):active {
+    background: #ffffff !important; color: #dd3333 !important;
+    border-color: #dd3333 !important; transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(221,51,51,0.15) !important;
+  }
+  .wpb-ea-wrap .wpb-ea-tab:not(.active):hover svg,
+  .wpb-ea-wrap .wpb-ea-tab:not(.active):focus svg { stroke: #dd3333 !important; }
+  .wpb-ea-wrap .wpb-ea-tab.active,
+  .wpb-ea-wrap .wpb-ea-tab.active:hover,
+  .wpb-ea-wrap .wpb-ea-tab.active:focus {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #dd3333 0%, #ff5252 100%) !important;
+    border-color: #dd3333 !important;
+    box-shadow: 0 6px 20px rgba(221,51,51,0.35) !important;
+    transform: translateY(-2px);
+  }
+  .wpb-ea-wrap .wpb-ea-tab.active svg,
+  .wpb-ea-wrap .wpb-ea-tab.active:hover svg { stroke: #ffffff !important; }
+
+  /* Panels */
+  .wpb-ea-panel { display: none; }
+  .wpb-ea-panel.active { display: block; animation: wpbEaFade 0.35s ease-in-out; }
+  @keyframes wpbEaFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cards */
+  .wpb-ea-card {
+    background: #ffffff; border-radius: 12px; padding: 30px;
+    box-shadow: 0 8px 25px rgba(221,51,51,0.05);
+    margin-bottom: 25px; border: 2px solid #fecaca;
+    transition: all 0.3s ease;
+  }
+  .wpb-ea-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(221,51,51,0.12);
+    border-color: #fca5a5;
+  }
+
+  .wpb-ea-panel p {
+    font-size: 15.5px; line-height: 1.8; color: #4a5568; margin: 0 0 18px 0;
+  }
+  .wpb-ea-panel p:last-child { margin-bottom: 0; }
+  .wpb-ea-card > :is(h3,h4,h5) {
+    font-size: 20px; font-weight: 800; color: #111111;
+    margin: 0 0 15px 0; display: flex; align-items: flex-start; gap: 12px;
+  }
+  .wpb-ea-card > :is(h3,h4,h5) svg {
+    width: 24px; height: 24px; stroke: #dd3333; flex-shrink: 0; margin-top: 3px;
+  }
+  .wpb-ea-lead {
+    font-size: 17px !important; font-weight: 600; color: #1a202c !important;
+    border-left: 4px solid #dd3333; padding-left: 16px;
+  }
+
+  /* Salary highlight */
+  .wpb-ea-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px;
+  }
+  .wpb-ea-stat {
+    background: #fff5f5; border: 1px solid #fecaca; border-radius: 10px;
+    padding: 16px; text-align: center;
+  }
+  .wpb-ea-stat strong {
+    display: block; font-size: 20px; font-weight: 800; color: #dd3333; margin-bottom: 4px;
+  }
+  .wpb-ea-stat span { font-size: 13.5px; color: #4a5568; }
+
+  /* Lists */
+  .wpb-ea-panel ul {
+    list-style: none; padding: 0; margin: 0 0 20px 0; display: grid; gap: 10px;
+  }
+  .wpb-ea-panel ul:last-child { margin-bottom: 0; }
+  .wpb-ea-panel ul li {
+    position: relative; font-size: 15px; line-height: 1.6; color: #2d3748;
+    background: #fff5f5; padding: 12px 14px 12px 42px;
+    border-radius: 8px; border: 1px solid #fecaca; transition: all 0.2s ease;
+  }
+  .wpb-ea-panel ul li:hover {
+    transform: translateX(4px); background: #ffe3e3; border-color: #fca5a5;
+  }
+  .wpb-ea-panel ul li::before {
+    content: ''; position: absolute; left: 14px; top: 14px;
+    width: 18px; height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dd3333' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain; background-repeat: no-repeat;
+  }
+
+  @media screen and (max-width: 768px) {
+    .wpb-ea-stats { grid-template-columns: 1fr; }
+  }
+  @media screen and (max-width: 600px) {
+    .wpb-ea-wrap .wpb-ea-tab { width: 100%; justify-content: center; }
+    .wpb-ea-card { padding: 20px; }
+    .wpb-ea-title { font-size: 25px; }
+  }
+
+  .wpb-ea-intro {
+    max-width: 760px; margin: 18px auto 0 auto; font-size: 16.5px;
+    line-height: 1.7; color: #4a5568;
+  }
+  .wpb-ea-note {
+    margin-top: 22px; padding: 14px 18px; border-radius: 8px;
+    background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b;
+    font-size: 14.5px; line-height: 1.7; color: #4a5568;
+  }
+</style>
+<div class="wpb-ea-wrap">
+
+  <div class="wpb-ea-title-wrap">
+    <h2 class="wpb-ea-title">EA Application Format &amp; Requirements</h2>
+    <div class="wpb-ea-title-bar"></div>
+    <p class="wpb-ea-intro">The Engineers Australia assessment process generally involves reviewing:</p>
+  </div>
+
+  <div class="wpb-ea-tabbar">
+    <button type="button" class="wpb-ea-tab active" data-tab="1" onclick="wpbEaShowTab(1)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>
+      Eligibility Pathway
+    </button>
+    <button type="button" class="wpb-ea-tab" data-tab="2" onclick="wpbEaShowTab(2)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      Competency Demonstration (if applicable)
+    </button>
+    <button type="button" class="wpb-ea-tab" data-tab="3" onclick="wpbEaShowTab(3)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      Employment &amp; Qualification Review
+    </button>
+    <button type="button" class="wpb-ea-tab" data-tab="4" onclick="wpbEaShowTab(4)">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg>
+      Key Documents Typically Required
+    </button>
+  </div>
+
+  <div class="wpb-ea-panel active" data-panel="1">
+    <div class="wpb-ea-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="19" r="3" stroke-width="2"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="5" r="3" stroke-width="2"/></svg> Eligibility Pathway</h3>
+      <ul>
+        <li>Accredited qualification pathway (Washington, Sydney, or Dublin Accord)</li>
+        <li>Non-accredited qualification pathway (CDR required)</li>
+      </ul>
+      <div class="wpb-ea-note">We provide guidance to ensure your documentation aligns with Engineers Australia competency standards.</div>
+    </div>
+  </div>
+
+  <div class="wpb-ea-panel" data-panel="2">
+    <div class="wpb-ea-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Competency Demonstration (if applicable)</h3>
+      <ul>
+        <li>Three Career Episodes</li>
+        <li>Summary Statement</li>
+        <li>Continuing Professional Development (CPD) list</li>
+      </ul>
+      <div class="wpb-ea-note">We provide guidance to ensure your documentation aligns with Engineers Australia competency standards.</div>
+    </div>
+  </div>
+
+  <div class="wpb-ea-panel" data-panel="3">
+    <div class="wpb-ea-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Employment &amp; Qualification Review</h3>
+      <ul>
+        <li>Relevant engineering degree</li>
+        <li>Post-qualification employment experience (if applicable)</li>
+        <li>Duties aligned with ANZSCO occupation description</li>
+      </ul>
+      <div class="wpb-ea-note">We provide guidance to ensure your documentation aligns with Engineers Australia competency standards.</div>
+    </div>
+  </div>
+
+  <div class="wpb-ea-panel" data-panel="4">
+    <div class="wpb-ea-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Key Documents Typically Required</h3>
+      <ul>
+        <li>Academic degree certificate</li>
+        <li>Academic transcripts</li>
+        <li>English language test results (if required)</li>
+        <li>Career Episodes (for CDR pathway)</li>
+        <li>Summary Statement</li>
+        <li>CPD list</li>
+        <li>Employment reference letters</li>
+        <li>Resume/CV</li>
+        <li>Identity documents</li>
+      </ul>
+      <div class="wpb-ea-note">We provide guidance to ensure your documentation aligns with Engineers Australia competency standards.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function wpbEaShowTab(n) {
+    var tabs = document.querySelectorAll('.wpb-ea-tab');
+    var panels = document.querySelectorAll('.wpb-ea-panel');
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].classList.toggle('active', tabs[i].getAttribute('data-tab') === String(n));
+    }
+    for (var j = 0; j < panels.length; j++) {
+      panels[j].classList.toggle('active', panels[j].getAttribute('data-panel') === String(n));
+    }
+  }
+</script>

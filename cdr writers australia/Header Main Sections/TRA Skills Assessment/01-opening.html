@@ -1,33 +1,33 @@
-<!-- Opening | paste into an HTML widget/block. Self-contained, no JavaScript. Brand colours are CSS variables at the top of the style block (.tra{--red ...}). -->
-<style>.tra{--red:#d9272e;--red-d:#b81d24;--navy:#2f3347;--ink:#1c2230;--muted:#5b6475;--pink:#fdecec;--line:#e6e9f1;
+<!-- Opening | paste into an HTML widget/block. Self-contained, no JavaScript. Brand colours are CSS variables at the top of the style block (.tra.tra{--red ...}). -->
+<style>.tra.tra{--red:#d9272e;--red-d:#b81d24;--navy:#2f3347;--ink:#1c2230;--muted:#5b6475;--pink:#fdecec;--line:#e6e9f1;
 font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
-.tra *,.tra *:before,.tra *:after{box-sizing:border-box}
-.tra :where(h2,h3,h4,p,ul,ol){margin:0;padding:0}
-.tra :where(ul,ol){list-style:none}
-.tra p+p{margin-top:12px}
-.tra .tra-h+p:not(.tra-sub){margin-top:4px}
-.tra a{text-decoration:none}
-.tra-wrap{max-width:none;margin:0;padding:64px 0}
-.tra-navy .tra-wrap{padding-left:28px;padding-right:28px}
-.tra-navy{background:var(--navy);color:#fff}
-.tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
-.tra-h.left{text-align:left}
-.tra-eyebrow{display:inline-block;background:var(--pink);color:var(--red);font-weight:600;font-size:13px;letter-spacing:.8px;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:16px}
-.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:600;font-size:15px;line-height:1;padding:15px 30px;border-radius:7px;box-shadow:0 6px 16px rgba(217,39,46,.28);transition:transform .15s,background .15s}
-.tra a.tra-btn:hover{background:var(--red-d);transform:translateY(-2px);color:#fff}
-.tra a.tra-btn.ghost{background:transparent;border:2px solid #fff;box-shadow:none;padding:13px 28px}
-.tra a.tra-btn.ghost:hover{background:#fff;color:var(--navy)}
-.tra-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:28px}
-.tra-btns.left{justify-content:flex-start}
-.tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
-.tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
-.tra-card p{color:var(--muted);font-size:15.5px}
-.tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block}
-.tra-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center}
-@media(max-width:600px){.tra-wrap{padding:48px 0}
-.tra-navy .tra-wrap{padding-left:16px;padding-right:16px}
-.tra-card{padding:22px 18px}
-.tra a.tra-btn{width:100%;text-align:center}}</style>
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-navy .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-navy{background:var(--navy);color:#fff}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-h.left{text-align:left}
+.tra.tra .tra-eyebrow{display:inline-block;background:var(--pink);color:var(--red);font-weight:600;font-size:13px;letter-spacing:.8px;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:16px}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:600;font-size:15px;line-height:1;padding:15px 30px;border-radius:7px;box-shadow:0 6px 16px rgba(217,39,46,.28);transition:transform .15s,background .15s}
+.tra.tra a.tra-btn:hover{background:var(--red-d);transform:translateY(-2px);color:#fff}
+.tra.tra a.tra-btn.ghost{background:transparent;border:2px solid #fff;box-shadow:none;padding:13px 28px}
+.tra.tra a.tra-btn.ghost:hover{background:#fff;color:var(--navy)}
+.tra.tra .tra-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:28px}
+.tra.tra .tra-btns.left{justify-content:flex-start}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block}
+.tra.tra .tra-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center}
+@media(max-width:600px){.tra.tra .tra-wrap{padding:48px 0}
+.tra.tra .tra-navy .tra-wrap{padding-left:16px;padding-right:16px}
+.tra.tra .tra-card{padding:22px 18px}
+.tra.tra a.tra-btn{width:100%;text-align:center}}</style>
 <section class="tra tra-01-opening" aria-label="Opening">
 
 <div class="tra-navy"><div class="tra-wrap">
@@ -36,7 +36,7 @@ font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:
       <span class="tra-eyebrow">TRA Skills Assessment</span>
       <h2 class="tra-h left" style="color:#fff">Get your TRA paperwork right from the start</h2>
       <p style="color:#e3e6f2;font-size:17px">For overseas tradespeople, the TRA skills assessment often sets the pace of the entire migration. Many applicants lose weeks because they only learn what TRA expects once a request for more evidence arrives. Assembling the right documents up front protects your time, your fee and your peace of mind.</p>
-      <div class="tra-btns left"></div>
+      <div class="tra-btns left"><a class="tra-btn" href="https://api.whatsapp.com/send/?phone=%2B61482085705&text&type=phone_number&app_absent=0">Get Free Consultation</a><a class="tra-btn ghost" href="tel:+61468072490">Call Us Now</a></div>
     </div>
     <div class="tra-card" style="color:var(--ink)">
       <svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>

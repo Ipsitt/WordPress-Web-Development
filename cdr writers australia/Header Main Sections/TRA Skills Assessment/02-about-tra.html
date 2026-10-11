@@ -1,90 +1,22 @@
-<!-- About TRA | paste into an HTML widget/block. Self-contained, no JavaScript. Brand colours are CSS variables at the top of the style block (.tra{--red ...}). -->
-<style>
-.tra{--red:#d9272e;--red-d:#b81d24;--navy:#2f3347;--slate:#4a4a68;--ink:#1c2230;--muted:#5b6475;--pink:#fdecec;--pink-line:#f4c6c6;--paper:#f6f7fb;--line:#e6e9f1;--gold:#fff7dd;--gold-line:#ecd98a;
+
+<style>.tra{--red:#d9272e;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;
 font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
 .tra *,.tra *:before,.tra *:after{box-sizing:border-box}
 .tra :where(h2,h3,h4,p,ul,ol){margin:0;padding:0}
 .tra :where(ul,ol){list-style:none}
 .tra p+p{margin-top:12px}
 .tra .tra-h+p:not(.tra-sub){margin-top:4px}
-.tra a{text-decoration:none}
-.tra-wrap{max-width:1140px;margin:0 auto;padding:64px 20px}
-.tra-narrow{max-width:820px;margin:0 auto}
-.tra-white{background:#fff}.tra-paper{background:var(--paper)}
-.tra-navy{background:var(--navy);color:#fff}.tra-slate{background:var(--slate);color:#fff}
-.tra-navy .tra-sub,.tra-slate .tra-sub{color:#e3e6f2}
+.tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra-narrow{max-width:none;margin:0}
+.tra-white{background:var(--page)}
 .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
-.tra-h.up{text-transform:uppercase;font-size:clamp(22px,2.6vw,30px);letter-spacing:.3px}
-.tra-h.left{text-align:left}
-.tra-sub{text-align:center;color:var(--muted);max-width:720px;margin:0 auto 38px;font-size:17px}
-.tra-sub.left{text-align:left;margin-left:0}
-.tra-eyebrow{display:inline-block;background:var(--pink);color:var(--red);font-weight:600;font-size:13px;letter-spacing:.8px;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:16px}
+.tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
 .tra-center{text-align:center}
-.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:600;font-size:15px;line-height:1;padding:15px 30px;border-radius:7px;box-shadow:0 6px 16px rgba(217,39,46,.28);transition:transform .15s,background .15s}
-.tra a.tra-btn:hover{background:var(--red-d);transform:translateY(-2px);color:#fff}
-.tra a.tra-btn.ghost{background:transparent;border:2px solid #fff;box-shadow:none;padding:13px 28px}
-.tra a.tra-btn.ghost:hover{background:#fff;color:var(--navy)}
-.tra-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:28px}
-.tra-btns.left{justify-content:flex-start}
 .tra-grid{display:grid;gap:22px}
-.tra-g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.tra-g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.tra-g4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
-.tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
-.tra-card p{color:var(--muted);font-size:15.5px}
 .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block}
-.tra-ico.w{stroke:#fff}
-.tra-feat{border-radius:10px;padding:34px 26px;text-align:center;color:#fff;height:100%}
-.tra-feat.r{background:var(--red)}.tra-feat.n{background:var(--navy)}
-.tra-feat .tra-ico{margin:0 auto 14px;width:54px;height:54px;stroke:#fff}
-.tra-feat h3{font-size:19px;font-weight:700;margin-bottom:10px}
-.tra-feat p{font-size:15.5px;opacity:.95}
 .tra-stat{background:#fff;border-radius:14px;padding:24px 20px;text-align:center;border:1px solid var(--line);box-shadow:0 10px 30px rgba(30,40,80,.07)}
-.tra-stat b{display:block;font-size:clamp(30px,4vw,42px);font-weight:800;color:var(--red);line-height:1.1}
 .tra-stat span{display:block;margin-top:8px;color:var(--muted);font-size:14.5px}
-.tra-slate .tra-stat,.tra-navy .tra-stat{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);box-shadow:none}
-.tra-slate .tra-stat b,.tra-navy .tra-stat b{color:#fff}
-.tra-slate .tra-stat span,.tra-navy .tra-stat span{color:#dfe3f3}
-.tra-check li{display:flex;gap:14px;align-items:flex-start;background:var(--pink);border:1px solid var(--pink-line);border-radius:8px;padding:14px 18px;margin-bottom:10px}
-.tra-check li svg{flex:0 0 22px;width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:3px}
-.tra-check li div{font-size:15.5px}.tra-check li b{display:block;font-size:16px}
-.tra-panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
-.tra-panel h3{font-size:19px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.tra-panel h3 svg{width:24px;height:24px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.tra-note{background:var(--gold);border:1px solid var(--gold-line);border-radius:8px;padding:14px 18px;font-size:15px;color:#4a3f10;margin-top:14px}
-.tra-tablewrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(30,40,80,.07);background:#fff}
-.tra table{border-collapse:collapse;width:100%;min-width:560px}
-.tra th{background:var(--red);color:#fff;text-align:left;padding:16px 20px;font-size:14.5px;letter-spacing:.4px;text-transform:uppercase}
-.tra td{padding:15px 20px;border-bottom:1px solid var(--line);font-size:15.5px}
-.tra tr:nth-child(even) td{background:#fafbfe}
-.tra tr:last-child td{border-bottom:0}
-.tra td.code{font-weight:700;color:var(--red);font-variant-numeric:tabular-nums}
-.tra-pill{display:inline-block;background:var(--pink);color:var(--red-d);border-radius:20px;padding:3px 12px;font-size:13.5px;font-weight:600}
-.tra-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;counter-reset:s}
-.tra-step{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:26px 20px;position:relative}
-.tra-step:before{counter-increment:s;content:counter(s);display:flex;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;font-size:18px;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
-.tra-step h3{font-size:18px;font-weight:700;margin-bottom:8px}
-.tra-step p{font-size:15px;color:#e6e9f6}
-.tra-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center}
-.tra-list li{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
-.tra-list li svg{flex:0 0 40px;width:40px;height:40px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.tra-list b{display:block;font-size:17px}
-.tra-list span{color:var(--muted);font-size:15.5px}
-.tra-callout{border-radius:14px;padding:28px;height:100%}
-.tra-callout.red{background:var(--red);color:#fff}
-.tra-callout.pale{background:var(--pink);border:1px solid var(--pink-line)}
-.tra-callout h3{font-size:19px;font-weight:700;margin-bottom:10px}
-.tra-faq details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:12px;box-shadow:0 6px 18px rgba(30,40,80,.06)}
-.tra-faq summary{cursor:pointer;list-style:none;padding:18px 54px 18px 22px;font-weight:600;font-size:16.5px;position:relative}
-.tra-faq summary::-webkit-details-marker{display:none}
-.tra-faq summary:after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:26px;color:var(--red);font-weight:400;line-height:1}
-.tra-faq details[open] summary:after{content:"\2212"}
-.tra-faq details[open] summary{color:var(--red)}
-.tra-faq .a{padding:0 22px 20px;color:var(--muted);font-size:15.5px}
-.tra-banner{background:linear-gradient(135deg,var(--navy) 0%,var(--slate) 100%);color:#fff;border-radius:20px;padding:48px 34px;text-align:center}
-@media(max-width:600px){.tra-wrap{padding:48px 16px}.tra-card,.tra-panel{padding:22px 18px}.tra a.tra-btn{width:100%;text-align:center}}
-</style>
+@media(max-width:600px){.tra-wrap{padding:48px 0}}</style>
 <section class="tra tra-02-about-tra" aria-label="About TRA">
 
 <div class="tra-white"><div class="tra-wrap">

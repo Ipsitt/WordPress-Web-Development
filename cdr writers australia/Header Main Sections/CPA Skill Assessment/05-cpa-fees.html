@@ -1,0 +1,53 @@
+<!-- CPA fees | paste into an HTML widget/block. Self-contained, no JavaScript. Brand colours are CSS variables at the top of the style block (.tra.tra{--red ...}). -->
+<style>.tra.tra{--red:#d9272e;--ink:#1c2230;--muted:#5b6475;--pink:#fdecec;--pink-line:#f4c6c6;--page:#f5f5f3;--line:#e6e9f1;
+font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra table,.tra.tra th,.tra.tra td,.tra.tra tr{border:0;background:none;margin:0}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.tra.tra .tra-tablewrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(30,40,80,.07);background:#fff}
+.tra.tra table{border-collapse:collapse;width:100%;min-width:560px}
+.tra.tra th{background:var(--red);color:#fff;text-align:left;padding:16px 20px;font-size:14.5px;letter-spacing:.4px;text-transform:uppercase}
+.tra.tra td{padding:15px 20px;border-bottom:1px solid var(--line);font-size:15.5px}
+.tra.tra tr:nth-child(even) td{background:#fafbfe}
+.tra.tra tr:last-child td{border-bottom:0}
+.tra.tra .tra-callout{border-radius:14px;padding:28px;height:100%}
+.tra.tra .tra-callout.red{background:var(--red);color:#fff}
+.tra.tra .tra-callout.pale{background:var(--pink);border:1px solid var(--pink-line)}
+.tra.tra .tra-callout h3{font-size:19px;font-weight:700;margin-bottom:10px}
+@media(max-width:600px){.tra.tra .tra-wrap{padding:48px 0}}
+.tra.tra .tra-chip{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-weight:600;font-size:15.5px;box-shadow:0 6px 18px rgba(30,40,80,.06);height:100%}
+.tra.tra .tra-chip svg{width:24px;height:24px;flex:0 0 24px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;font-size:inherit;font-family:inherit;line-height:inherit;letter-spacing:inherit;text-transform:none}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra th.num,.tra.tra td.num{text-align:center}
+.tra.tra td.num{font-weight:600;font-variant-numeric:tabular-nums}</style>
+<section class="tra tra-05-cpa-fees" aria-label="CPA fees">
+
+<div class="tra-white"><div class="tra-wrap">
+  <h2 class="tra-h">CPA Australia skills assessment fee for onshore and offshore applicants</h2>
+  <p class="tra-sub">Fees are in Australian dollars and depend on where you apply from.</p>
+  <div class="tra-tablewrap"><table style="min-width:680px">
+    <thead><tr><th>Application type</th><th class="num">Onshore</th><th class="num">Offshore</th><th class="num">Singapore</th></tr></thead>
+    <tbody><tr><td><b>Qualification assessment</b></td><td class="num">$565</td><td class="num">$514</td><td class="num">$560</td></tr><tr><td><b>Fast Track qualification assessment</b></td><td class="num">$675</td><td class="num">$614</td><td class="num">$669</td></tr><tr><td><b>Combined assessment (qualification and skilled employment)</b></td><td class="num">$620</td><td class="num">$564</td><td class="num">$615</td></tr><tr><td><b>Qualification assessment, additional ANZSCO code</b></td><td class="num">$260</td><td class="num">$236</td><td class="num">$257</td></tr><tr><td><b>Fast Track qualification assessment, additional ANZSCO code</b></td><td class="num">$310</td><td class="num">$282</td><td class="num">$307</td></tr><tr><td><b>Skilled employment assessment</b></td><td class="num">$260</td><td class="num">$236</td><td class="num">$257</td></tr><tr><td><b>Combined assessment, additional ANZSCO code</b></td><td class="num">$350</td><td class="num">$318</td><td class="num">$347</td></tr><tr><td><b>Qualification assessment update</b></td><td class="num">$185</td><td class="num">$168</td><td class="num">$183</td></tr><tr><td><b>Skilled employment assessment update</b></td><td class="num">$185</td><td class="num">$168</td><td class="num">$183</td></tr><tr><td><b>Review</b></td><td class="num">$185</td><td class="num">$168</td><td class="num">$183</td></tr><tr><td><b>Administration fee (on withdrawal)</b></td><td class="num">$85</td><td class="num">$77</td><td class="num">$84</td></tr></tbody>
+  </table></div>
+  <div class="tra-grid tra-g2" style="margin-top:26px">
+    <div class="tra-callout red"><h3>Who you pay</h3><p>The assessment fee is paid to CPA Australia, the assessing authority, through its online application portal using an account in the applicant's own name. A migration agent can manage the application from their own CPA account, but the assessment fee still goes to CPA. Any fee from a consultancy for preparing your documents is separate.</p></div>
+    <div class="tra-callout pale"><h3>Withdrawals and refunds</h3><p>If you withdraw before any work begins, an administration fee applies ($85 onshore, $77 offshore, $84 Singapore). Once preliminary work has started, the assessment fee is not refunded.</p></div>
+  </div>
+  <div class="tra-grid tra-g2" style="margin-top:22px">
+    <div class="tra-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.2a2.6 2 0 0 0-2.5-1.4c-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2a2.6 2 0 0 1-2.5-1.4M12 6v1.8M12 16.2V18"/></svg><span>Singapore payments from 1 January 2024 carry an extra 9% GST</span></div>
+    <div class="tra-chip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span>Fast Track fee difference may be refunded if CPA misses its timeframe</span></div>
+  </div>
+  <p class="tra-small">Official source: <a class="tra-link" href="https://www.cpaaustralia.com.au/migration-services/migration-to-australia/how-to-apply-for-a-migration-skill-assessment" target="_blank" rel="noopener noreferrer">CPA Australia how to apply and fees</a>. Details checked 12 October 2026, so confirm current figures with CPA Australia before you apply.</p>
+</div></div>
+</section>

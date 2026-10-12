@@ -1,0 +1,51 @@
+<!-- CPA outcome and validity | paste into an HTML widget/block. Self-contained, no JavaScript. Brand colours are CSS variables at the top of the style block (.tra.tra{--red ...}). -->
+<style>.tra.tra{--red:#d9272e;--navy:#2f3347;--ink:#1c2230;--muted:#5b6475;--line:#e6e9f1;
+font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-navy .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-navy{background:var(--navy);color:#fff}
+.tra.tra .tra-navy .tra-sub{color:#e3e6f2}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-stat{background:#fff;border-radius:14px;padding:24px 20px;text-align:center;border:1px solid var(--line);box-shadow:0 10px 30px rgba(30,40,80,.07)}
+.tra.tra .tra-stat b{display:block;font-size:clamp(30px,4vw,42px);font-weight:800;color:var(--red);line-height:1.1}
+.tra.tra .tra-stat span{display:block;margin-top:8px;color:var(--muted);font-size:14.5px}
+.tra.tra .tra-navy .tra-stat{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);box-shadow:none}
+.tra.tra .tra-navy .tra-stat b{color:#fff}
+.tra.tra .tra-navy .tra-stat span{color:#dfe3f3}
+.tra.tra .tra-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;counter-reset:s}
+.tra.tra .tra-step{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:26px 20px;position:relative}
+.tra.tra .tra-step:before{counter-increment:s;content:counter(s);display:flex;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;font-size:18px;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.tra.tra .tra-step h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.tra.tra .tra-step p{font-size:15px;color:#e6e9f6}
+@media(max-width:900px){.tra.tra .tra-g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3{grid-template-columns:minmax(0,1fr)}
+.tra.tra .tra-wrap{padding:48px 0}
+.tra.tra .tra-navy .tra-wrap{padding-left:16px;padding-right:16px}}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;font-size:inherit;font-family:inherit;line-height:inherit;letter-spacing:inherit;text-transform:none}
+.tra.tra .tra-navy a.tra-link{color:#fff}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-navy .tra-small{color:#dfe3f3}</style>
+<section class="tra tra-10-cpa-outcome-validity" aria-label="CPA outcome and validity">
+
+<div class="tra-navy"><div class="tra-wrap">
+  <h2 class="tra-h" style="color:#fff">After your CPA assessment outcome: validity, further study, update and review</h2>
+  <p class="tra-sub">Your outcome letter is the start of the next stage, not the end of the process.</p>
+  <div class="tra-steps" style="margin-bottom:30px"><div class="tra-step"><h3>Know your validity</h3><p>Your application is valid for three years from the date of your first outcome. Updates, extra ANZSCO codes, employment assessments and reviews do not extend it. After expiry, you start a new application.</p></div><div class="tra-step"><h3>Close any study gap</h3><p>If the outcome says further study is needed, complete the missing areas through CPA Program foundation exams or accredited courses from other providers, then apply for a qualification update.</p></div><div class="tra-step"><h3>Update or add codes</h3><p>Within the validity period you can update your file with new study, a new English test or extra work experience, or add further ANZSCO codes.</p></div><div class="tra-step"><h3>Request a review</h3><p>If you believe the outcome is wrong, ask for a review within 12 months of the outcome date. A review uses only your original documents. New documents make it an update.</p></div></div>
+  <div class="tra-grid tra-g3">
+    <div class="tra-stat"><b>3 years</b><span>outcome validity from the first outcome date</span></div>
+    <div class="tra-stat"><b>12 months</b><span>to sit a foundation exam after enrolling</span></div>
+    <div class="tra-stat"><b>12 months</b><span>to request a review of your outcome</span></div>
+  </div>
+  <p class="tra-small">CPA Australia does not award visa points. Contact the Department of Home Affairs for visa guidance.</p>
+  <p class="tra-small">Official source: <a class="tra-link" href="https://www.cpaaustralia.com.au/migration-services/migration-to-australia/australia-migration-assessment-outcome-and-advice" target="_blank" rel="noopener noreferrer">CPA Australia assessment outcome and advice</a>. Details checked 12 October 2026, so confirm current figures with CPA Australia before you apply.</p>
+</div></div>
+</section>

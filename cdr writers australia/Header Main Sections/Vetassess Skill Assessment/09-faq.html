@@ -1,0 +1,48 @@
+<style>.tra.tra{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-slate{background:var(--slate);color:#fff}
+.tra.tra .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-slate .tra-h{color:#fff}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra a.tra-link:hover{opacity:.75}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra .tra-g3,.tra.tra .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3,.tra.tra .tra-g4,.tra.tra .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-wrap{padding:48px 0}.tra.tra .tra-card{padding:22px 18px}.tra.tra .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-q{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;box-shadow:0 6px 18px rgba(30,40,80,.05);transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease}
+.tra.tra .tra-q:hover{border-color:var(--red);box-shadow:0 12px 26px rgba(30,40,80,.13);transform:translateY(-2px)}
+.tra.tra .tra-q summary{cursor:pointer;padding:18px 22px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:14px}
+.tra.tra .tra-q summary::-webkit-details-marker{display:none}
+.tra.tra .tra-q summary:after{content:"+";font-size:26px;line-height:1;color:var(--red);transition:transform .3s ease}
+.tra.tra .tra-q[open] summary:after{transform:rotate(45deg)}
+.tra.tra .tra-q div{padding:0 22px 18px;color:var(--muted);font-size:15.5px}
+.tra.tra .tra-narrow{max-width:880px;margin:0 auto}
+</style>
+<section class="tra tra-09-faq" aria-label="VETASSESS FAQs">
+<div class="tra-white"><div class="tra-wrap"><div class="tra-narrow"><h2 class="tra-h">VETASSESS skills assessment FAQs</h2><p class="tra-sub">Quick answers about the VETASSESS skill assessment, VETASSESS fees and VETASSESS login.</p><details class="tra-q" open><summary>Does VETASSESS deduct experience?</summary><div>It sets a Date Deemed Skilled. The qualifying period of highly relevant work needed to pass the assessment is not counted again as skilled employment for points test advice, so only employment after that date earns points. Your actual work history is unchanged.</div></details><details class="tra-q"><summary>How long does a VETASSESS application take for trades?</summary><div>Trade timeframes depend on the specific program and on whether all evidence is supplied, so check the guidelines for your occupation. For professional occupations, VETASSESS currently quotes about 7 weeks.</div></details><details class="tra-q"><summary>What is a VETASSESS skill assessment?</summary><div>It is an assessment of your qualifications and employment against the criteria for a nominated occupation. Qualifications are compared with the AQF, and employment is checked for relevance and skill level.</div></details><details class="tra-q"><summary>Does VETASSESS expire?</summary><div>Yes. Assessments are currently valid for three years from the issue date for skilled migration. You can renew within three years; after that a full new application is needed.</div></details><details class="tra-q"><summary>How long does a skills assessment for migration with VETASSESS take?</summary><div>Standard professional assessments take about 7 weeks. Priority Processing targets 10 business days once accepted. Missing documents or integrity concerns can extend this, and you normally get 28 days to supply outstanding items.</div></details><details class="tra-q"><summary>How much are VETASSESS fees?</summary><div>A full professional skills assessment is $1,260.60 including GST for applicants in Australia, or $1,146.00 excluding GST for non-residents. Priority Processing is an extra charge; see the fee table.</div></details><details class="tra-q"><summary>Where do I use my VETASSESS login?</summary><div>The VETASSESS login on the VETASSESS website lets you lodge, track progress, download your declaration page and access your outcome letter.</div></details><details class="tra-q"><summary>Can a statutory declaration replace employer documents?</summary><div>No. It can support your claims or explain missing records, but it cannot be the only basis for an assessment or prove dates and pay.</div></details></div></div></div>
+</section>

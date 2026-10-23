@@ -1,0 +1,62 @@
+
+<style>.tra.tra{--red:#d9272e;--ink:#1c2230;--muted:#5b6475;--pink:#fdecec;--pink-line:#f4c6c6;--paper:#f6f7fb;--line:#e6e9f1;
+font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-narrow{max-width:none;margin:0}
+.tra.tra .tra-paper{background:var(--paper)}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-h.up{text-transform:uppercase;font-size:clamp(22px,2.6vw,30px);letter-spacing:.3px}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-stat{background:#fff;border-radius:14px;padding:24px 20px;text-align:center;border:1px solid var(--line);box-shadow:0 10px 30px rgba(30,40,80,.07)}
+.tra.tra .tra-stat b{display:block;font-size:clamp(30px,4vw,42px);font-weight:800;color:var(--red);line-height:1.1}
+.tra.tra .tra-stat span{display:block;margin-top:8px;color:var(--muted);font-size:14.5px}
+.tra.tra .tra-check li{display:flex;gap:14px;align-items:flex-start;background:var(--pink);border:1px solid var(--pink-line);border-radius:8px;padding:14px 18px;margin-bottom:10px}
+.tra.tra .tra-check li svg{flex:0 0 22px;width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:3px}
+.tra.tra .tra-check li div{font-size:15.5px}
+.tra.tra .tra-check li b{display:block;font-size:16px}
+@media(max-width:600px){.tra.tra .tra-wrap{padding:48px 0}}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-gc{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.tra.tra .tra-gc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-gc{grid-template-columns:minmax(0,1fr)}}
+.tra.tra .tra-stat,.tra.tra .tra-check li{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
+.tra.tra .tra-stat:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 34px rgba(30,40,80,.18)}
+.tra.tra .tra-check li:hover{transform:translateX(6px);border-color:var(--red);box-shadow:0 8px 20px rgba(217,39,46,.14)}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}
+.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-toggle{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 20px}
+.tra.tra button.tra-pillbtn{font-family:inherit;font-size:14.5px;font-weight:600;line-height:1.2;letter-spacing:normal;text-transform:none;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 20px;border-radius:999px;margin:0;box-shadow:none;transition:background-color .2s ease,color .2s ease,transform .2s ease,box-shadow .2s ease}
+.tra.tra button.tra-pillbtn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(30,40,80,.14);border-color:var(--red)}
+.tra.tra button.tra-pillbtn.on{background:var(--red);color:#fff;border-color:var(--red)}
+.tra.tra .tra-tabpanel{animation:traFade .45s ease}
+.tra.tra .tra-tabpanel.off{display:none}
+@media(prefers-reduced-motion:reduce){.tra.tra .tra-tabpanel{animation:none}}</style>
+<section class="tra tra-02-peng-regulators" aria-label="P.Eng provincial regulators">
+
+<div class="tra-paper"><div class="tra-wrap" data-tabs>
+  <h2 class="tra-h up">P.Eng requirements in Canada by province: PEO, EGBC, APEGA and PEGNL compared</h2>
+  <p class="tra-sub">Choose a regulator to see its experience minimum, competency count, validator rules and Canadian experience position.</p>
+  <div class="tra-toggle" data-tabbar><button type="button" class="tra-pillbtn on" data-v="peo">Ontario (PEO)</button><button type="button" class="tra-pillbtn" data-v="egbc">British Columbia (EGBC)</button><button type="button" class="tra-pillbtn" data-v="apega">Alberta (APEGA)</button><button type="button" class="tra-pillbtn" data-v="pegnl">Newfoundland and Labrador (PEGNL)</button></div>
+  <div class="tra-tabpanel" data-panel="peo"><div class="tra-gc" style="margin-bottom:22px"><div class="tra-stat"><b>2 years</b><span>minimum experience from 1 July 2026, down from 4</span></div><div class="tra-stat"><b>34 / 7</b><span>competencies and categories</span></div><div class="tra-stat"><b>None</b><span>Canadian experience required</span></div><div class="tra-stat"><b>3 to 4 years</b><span>typically needed to show every competency</span></div></div><div class="tra-narrow"><ul class="tra-check"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>The two years are counted from the date your recognised four-year engineering degree is conferred.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Undergraduate co-op does not count toward the two-year minimum, but it can support your competency examples.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Experience gained during graduate study can count toward both the minimum and your CBA, but a graduate degree alone earns no credit.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Graduates of programs outside Canada and the USA need a course-by-course report from World Education Services (WES).</div></li></ul></div></div><div class="tra-tabpanel off" data-panel="egbc"><div class="tra-gc" style="margin-bottom:22px"><div class="tra-stat"><b>4 years</b><span>minimum engineering experience</span></div><div class="tra-stat"><b>34 / 7</b><span>competencies and categories</span></div><div class="tra-stat"><b>4 or more</b><span>validators, covering at least four years</span></div><div class="tra-stat"><b>About 6 months</b><span>review once your file is complete</span></div></div><div class="tra-narrow"><ul class="tra-check"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Up to one year of supervised pre-graduation or co-op experience can count, and postgraduate study can earn credit (up to one year for a thesis master's and two for a PhD).</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Canadian work experience is not required, but you must meet eight Canadian environment competencies.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>One validator must be a supervisor in the same or a related discipline.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>EGBC calls using AI or a third party to create or embellish your examples strictly prohibited.</div></li></ul></div></div><div class="tra-tabpanel off" data-panel="apega"><div class="tra-gc" style="margin-bottom:22px"><div class="tra-stat"><b>48 months</b><span>minimum professional experience</span></div><div class="tra-stat"><b>22 / 6</b><span>competencies and categories</span></div><div class="tra-stat"><b>3 or more</b><span>validators</span></div><div class="tra-stat"><b>18 July 2026</b><span>revised CBA process now required</span></div></div><div class="tra-narrow"><ul class="tra-check"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>From 18 July 2026, eight Canadian work environment equivalencies are built into the 22 competencies, which removes the need for one year of Canadian work experience.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Gaps in your history should be no longer than seven years, or you may be assessed for extra experience.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Pay your application fee within 90 days of starting, then submit all forms and records within 90 days of paying.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Applications already in progress continue under the rules in force when they were lodged.</div></li></ul></div></div><div class="tra-tabpanel off" data-panel="pegnl"><div class="tra-gc" style="margin-bottom:22px"><div class="tra-stat"><b>48 months</b><span>required experience</span></div><div class="tra-stat"><b>34 / 7</b><span>competencies and categories</span></div><div class="tra-stat"><b>0 to 5</b><span>self-rating scale</span></div><div class="tra-stat"><b>Subset</b><span>Canadian environment competencies assessed</span></div></div><div class="tra-narrow"><ul class="tra-check"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>You choose your own validators, and they comment on your overall readiness for licensure.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>International experience can count toward the Canadian environment requirement if you show how it is equivalent.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Volunteer assessors review your whole record and make a recommendation to PEGNL.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>PEGNL also runs a 29-competency, 4-category process for geoscientists.</div></li></ul></div></div>
+
+</div></div>
+<script>
+(function(){
+  document.querySelectorAll("[data-tabs]").forEach(function(box){
+    var bar=box.querySelector("[data-tabbar]"); if(!bar)return;
+    var btns=bar.querySelectorAll("button"), panels=box.querySelectorAll("[data-panel]");
+    function show(id){
+      panels.forEach(function(p){p.classList.toggle("off",p.getAttribute("data-panel")!==id);});
+      btns.forEach(function(b){b.classList.toggle("on",b.getAttribute("data-v")===id);});
+    }
+    btns.forEach(function(b){b.addEventListener("click",function(){show(b.getAttribute("data-v"));});});
+    if(btns.length)show(btns[0].getAttribute("data-v"));
+  });
+})();
+</script>
+</section>

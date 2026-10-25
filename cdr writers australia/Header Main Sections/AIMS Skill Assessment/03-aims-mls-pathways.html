@@ -1,0 +1,40 @@
+
+<style>.tra.tra{--red:#d9272e;--red-d:#b81d24;--ink:#1c2230;--muted:#5b6475;--pink:#fdecec;--pink-line:#f4c6c6;--page:#f5f5f3;--line:#e6e9f1;--gold:#fff7dd;--gold-line:#ecd98a;
+font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-note{background:var(--gold);border:1px solid var(--gold-line);border-radius:8px;padding:14px 18px;font-size:15px;color:#4a3f10;margin-top:14px}
+@media(max-width:900px){.tra.tra .tra-g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3{grid-template-columns:minmax(0,1fr)}
+.tra.tra .tra-wrap{padding:48px 0}
+.tra.tra .tra-card{padding:22px 18px}}
+.tra.tra .tra-card,.tra.tra .tra-note{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}
+.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-reveal{max-height:0;opacity:0;overflow:hidden;transition:max-height .6s cubic-bezier(.22,1,.36,1),opacity .5s ease,margin .6s cubic-bezier(.22,1,.36,1);margin-top:0}
+.tra.tra .tra-card:hover .tra-reveal{max-height:160px;opacity:1;margin-top:10px}
+.tra.tra .tra-tag{display:inline-block;background:var(--pink);color:var(--red-d);border:1px solid var(--pink-line);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;margin-bottom:12px}
+@media(hover:none){.tra.tra .tra-reveal{max-height:none;opacity:1;margin-top:10px}}
+@media(prefers-reduced-motion:reduce){.tra.tra .tra-reveal{max-height:none;opacity:1;margin-top:10px}}</style>
+<section class="tra tra-03-aims-mls-pathways" aria-label="AIMS MLS pathways">
+
+<div class="tra-white"><div class="tra-wrap">
+  <h2 class="tra-h">Medical Laboratory Scientist skills assessment: three AIMS pathways (ANZSCO 234611)</h2>
+  <p class="tra-sub">Your degree decides which route you take.</p>
+  <div class="tra-grid tra-g3"><div class="tra-card"><span class="tra-tag">Option 1</span><h3>AIMS accredited degree</h3><p>Graduates of an AIMS accredited degree are classified as MLS without sitting the professional examination, and postgraduate experience is not required. You must confirm your subjects meet AIMS's accredited subject pathway.</p><p class="tra-reveal"><b>Experience:</b> Best case: no exam and no experience requirement, but your subjects must match.</p></div><div class="tra-card"><span class="tra-tag">Option 2</span><h3>Acceptable science degree</h3><p>Stage 1 is a document assessment and Stage 2 is the AIMS MLS Professional Examination. The degree must be AQF level 7, 8 or 9, or a combination.</p><p class="tra-reveal"><b>Experience:</b> Needs at least two years full-time (or part-time equivalent) postgraduate experience in a medical pathology laboratory, with one year in the five years before you apply.</p></div><div class="tra-card"><span class="tra-tag">Option 3</span><h3>Postgraduate study plus laboratory experience</h3><p>Stage 1 is a document assessment and Stage 2 is the AIMS MLS Special Professional Examination. You need a science degree plus a Master's with a pathology laboratory research project, a professional doctorate or a PhD.</p><p class="tra-reveal"><b>Experience:</b> Needs two years of relevant post-doctoral work in a medical pathology laboratory, one year within the last five. Research-only employment is not looked on favourably.</p></div></div>
+  <div class="tra-note" style="margin-top:26px"><b>What counts as experience:</b> AIMS only counts experience gained in a recognised medical pathology laboratory after you complete your degree or diploma. Medical graduates have separate requirements in the guidelines.</div>
+</div></div>
+</section>

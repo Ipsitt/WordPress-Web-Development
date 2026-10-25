@@ -1,0 +1,78 @@
+
+<style>.tra.tra{--red:#d9272e;--ink:#1c2230;--muted:#5b6475;--paper:#f5f5f3;--line:#e6e9f1;
+font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-paper{background:var(--paper)}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-h.up{text-transform:uppercase;font-size:clamp(22px,2.6vw,30px);letter-spacing:.3px}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block}
+.tra.tra .tra-stat{background:#fff;border-radius:14px;padding:24px 20px;text-align:center;border:1px solid var(--line);box-shadow:0 10px 30px rgba(30,40,80,.07)}
+.tra.tra .tra-stat b{display:block;font-size:clamp(30px,4vw,42px);font-weight:800;color:var(--red);line-height:1.1}
+.tra.tra .tra-stat span{display:block;margin-top:8px;color:var(--muted);font-size:14.5px}
+@media(max-width:900px){.tra.tra .tra-g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3{grid-template-columns:minmax(0,1fr)}
+.tra.tra .tra-wrap{padding:48px 0}
+.tra.tra .tra-card{padding:22px 18px}}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-gc{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.tra.tra .tra-gc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-gc{grid-template-columns:minmax(0,1fr)}}
+.tra.tra .tra-card,.tra.tra .tra-stat{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-stat:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 34px rgba(30,40,80,.18)}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}
+.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-ico{transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra .tra-bars{display:grid;gap:18px}
+.tra.tra .tra-barrow{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;box-shadow:0 10px 30px rgba(30,40,80,.07);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.tra.tra .tra-barrow:hover{transform:translateX(6px);box-shadow:0 14px 34px rgba(30,40,80,.14);border-color:var(--red)}
+.tra.tra .tra-barhead b{color:var(--ink)}
+.tra.tra .tra-barhead{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:10px;font-weight:700;font-size:16px}
+.tra.tra .tra-barhead span{color:var(--red);font-size:15px;white-space:nowrap}
+.tra.tra .tra-bar{height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.tra.tra .tra-bar i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--red),#ff6b6b);border-radius:inherit;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+@media(prefers-reduced-motion:reduce){.tra.tra .tra-bar i{transition:none}}
+@media(max-width:640px){.tra.tra .tra-barhead{flex-direction:column;gap:2px}
+.tra.tra .tra-barhead span{white-space:normal}}</style>
+<section class="tra tra-08-aims-exams" aria-label="AIMS professional examinations">
+
+<div class="tra-paper"><div class="tra-wrap">
+  <h2 class="tra-h up">AIMS professional examination: format, disciplines and pass rules for Medical Laboratory Scientists</h2>
+  <p class="tra-sub">Exams run twice a year, in March and September, online with remote proctoring.</p>
+  <div class="tra-gc" style="margin-bottom:26px">
+    <div class="tra-stat"><b>150</b><span>single-response multiple-choice questions</span></div>
+    <div class="tra-stat"><b>3 hours</b><span>MLS Professional Examination</span></div>
+    <div class="tra-stat"><b>75</b><span>questions you must answer correctly overall</span></div>
+    <div class="tra-stat"><b>Mar and Sep</b><span>exam sittings each year</span></div>
+  </div>
+  <div class="tra-bars"><div class="tra-barrow"><div class="tra-barhead"><b style="color:var(--ink)">Chemical Pathology</b><span>30 questions · 50% needed: must pass</span></div><div class="tra-bar"><i style="--w:100%"></i></div></div><div class="tra-barrow"><div class="tra-barhead"><b style="color:var(--ink)">Haematology</b><span>30 questions · 50% needed: must pass</span></div><div class="tra-bar"><i style="--w:100%"></i></div></div><div class="tra-barrow"><div class="tra-barhead"><b style="color:var(--ink)">Medical Microbiology</b><span>26 questions · 50% needed: must pass</span></div><div class="tra-bar"><i style="--w:87%"></i></div></div><div class="tra-barrow"><div class="tra-barhead"><b style="color:var(--ink)">Transfusion Science</b><span>20 questions · 50% needed: must pass</span></div><div class="tra-bar"><i style="--w:67%"></i></div></div><div class="tra-barrow"><div class="tra-barhead"><b style="color:var(--ink)">Genomic Pathology</b><span>16 questions · 50% needed: pass this or Immunopathology</span></div><div class="tra-bar"><i style="--w:53%"></i></div></div><div class="tra-barrow"><div class="tra-barhead"><b style="color:var(--ink)">Anatomical Pathology</b><span>14 questions · 50% needed: must pass</span></div><div class="tra-bar"><i style="--w:47%"></i></div></div><div class="tra-barrow"><div class="tra-barhead"><b style="color:var(--ink)">Immunopathology</b><span>14 questions · 50% needed: pass this or Genomic</span></div><div class="tra-bar"><i style="--w:47%"></i></div></div></div>
+  <div class="tra-grid tra-g3" style="margin-top:28px">
+    <div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg><h3>Special Professional Exam</h3><p>For Option 3 applicants. It is an essay and short-answer paper of two hours with a 50% pass mark, covering topics such as laboratory accreditation, quality control, regulations and ethics.</p></div>
+    <div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg><h3>IVF and collector exams</h3><p>The IVF Embryologist exam has 80 multiple-choice questions over two hours. The Pathology Collector paper is 1.5 hours with a 50% pass mark.</p></div>
+    <div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Enrolment timing</h3><p>AIMS notifies enrolled candidates of their exam date by the second week of February or August. Contact AIMS if you have heard nothing by 15 February or 15 August.</p></div>
+  </div>
+  <p class="tra-small">You need a webcam, a mobile phone and reliable internet. A practice trial exam is usually held within two weeks before the official one. All MLS questions must be attempted.</p>
+</div></div>
+<script>
+(function(){
+  var boxes=document.querySelectorAll(".tra-bars");
+  if(!boxes.length||!("IntersectionObserver" in window))return;
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  boxes.forEach(function(b){b.querySelectorAll(".tra-bar i").forEach(function(i){i.style.width="0";});});
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){setTimeout(function(){e.target.querySelectorAll(".tra-bar i").forEach(function(i){i.style.width="";});},120);io.unobserve(e.target);}});},{threshold:.3});
+  boxes.forEach(function(b){io.observe(b);});
+})();
+</script>
+</section>

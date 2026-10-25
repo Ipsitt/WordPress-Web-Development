@@ -1,4 +1,4 @@
-
+<!-- AIMS pathways by occupation | paste into an HTML widget/block. Self-contained, no JavaScript. Brand colours are CSS variables at the top of the style block (.tra.tra{--red ...}). -->
 <style>.tra.tra{--red:#d9272e;--red-d:#b81d24;--ink:#1c2230;--muted:#5b6475;--pink:#fdecec;--pink-line:#f4c6c6;--page:#f5f5f3;--line:#e6e9f1;--gold:#fff7dd;--gold-line:#ecd98a;
 font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
 .tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
@@ -7,6 +7,7 @@ font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:
 .tra.tra p+p{margin-top:12px}
 .tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
 .tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-narrow{max-width:none;margin:0}
 .tra.tra .tra-white{background:var(--page)}
 .tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
 .tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
@@ -15,26 +16,59 @@ font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:
 .tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
 .tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
 .tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-stat{background:#fff;border-radius:14px;padding:24px 20px;text-align:center;border:1px solid var(--line);box-shadow:0 10px 30px rgba(30,40,80,.07)}
+.tra.tra .tra-stat b{display:block;font-size:clamp(30px,4vw,42px);font-weight:800;color:var(--red);line-height:1.1}
+.tra.tra .tra-stat span{display:block;margin-top:8px;color:var(--muted);font-size:14.5px}
+.tra.tra .tra-check li{display:flex;gap:14px;align-items:flex-start;background:var(--pink);border:1px solid var(--pink-line);border-radius:8px;padding:14px 18px;margin-bottom:10px}
+.tra.tra .tra-check li svg{flex:0 0 22px;width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:3px}
+.tra.tra .tra-check li div{font-size:15.5px}
+.tra.tra .tra-check li b{display:block;font-size:16px}
 .tra.tra .tra-note{background:var(--gold);border:1px solid var(--gold-line);border-radius:8px;padding:14px 18px;font-size:15px;color:#4a3f10;margin-top:14px}
 @media(max-width:900px){.tra.tra .tra-g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.tra.tra .tra-g3{grid-template-columns:minmax(0,1fr)}
 .tra.tra .tra-wrap{padding:48px 0}
 .tra.tra .tra-card{padding:22px 18px}}
-.tra.tra .tra-card,.tra.tra .tra-note{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
+.tra.tra .tra-gc{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.tra.tra .tra-gc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-gc{grid-template-columns:minmax(0,1fr)}}
+.tra.tra .tra-card,.tra.tra .tra-stat,.tra.tra .tra-check li,.tra.tra .tra-note{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
 .tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-stat:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 34px rgba(30,40,80,.18)}
+.tra.tra .tra-check li:hover{transform:translateX(6px);border-color:var(--red);box-shadow:0 8px 20px rgba(217,39,46,.14)}
 @media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}
 .tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-toggle{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 20px}
+.tra.tra button.tra-pillbtn{font-family:inherit;font-size:14.5px;font-weight:600;line-height:1.2;letter-spacing:normal;text-transform:none;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 20px;border-radius:999px;margin:0;box-shadow:none;transition:background-color .2s ease,color .2s ease,transform .2s ease,box-shadow .2s ease}
+.tra.tra button.tra-pillbtn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(30,40,80,.14);border-color:var(--red)}
+.tra.tra button.tra-pillbtn.on{background:var(--red);color:#fff;border-color:var(--red)}
 .tra.tra .tra-reveal{max-height:0;opacity:0;overflow:hidden;transition:max-height .6s cubic-bezier(.22,1,.36,1),opacity .5s ease,margin .6s cubic-bezier(.22,1,.36,1);margin-top:0}
 .tra.tra .tra-card:hover .tra-reveal{max-height:160px;opacity:1;margin-top:10px}
 .tra.tra .tra-tag{display:inline-block;background:var(--pink);color:var(--red-d);border:1px solid var(--pink-line);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;margin-bottom:12px}
 @media(hover:none){.tra.tra .tra-reveal{max-height:none;opacity:1;margin-top:10px}}
-@media(prefers-reduced-motion:reduce){.tra.tra .tra-reveal{max-height:none;opacity:1;margin-top:10px}}</style>
-<section class="tra tra-03-aims-mls-pathways" aria-label="AIMS MLS pathways">
+@media(prefers-reduced-motion:reduce){.tra.tra .tra-reveal{max-height:none;opacity:1;margin-top:10px}}
+.tra.tra .tra-tabpanel{animation:traFade .45s ease}
+.tra.tra .tra-tabpanel.off{display:none}
+@media(prefers-reduced-motion:reduce){.tra.tra .tra-tabpanel{animation:none}}</style>
+<section class="tra tra-03-aims-pathways" aria-label="AIMS pathways by occupation">
 
-<div class="tra-white"><div class="tra-wrap">
-  <h2 class="tra-h">Medical Laboratory Scientist skills assessment: three AIMS pathways (ANZSCO 234611)</h2>
-  <p class="tra-sub">Your degree decides which route you take.</p>
-  <div class="tra-grid tra-g3"><div class="tra-card"><span class="tra-tag">Option 1</span><h3>AIMS accredited degree</h3><p>Graduates of an AIMS accredited degree are classified as MLS without sitting the professional examination, and postgraduate experience is not required. You must confirm your subjects meet AIMS's accredited subject pathway.</p><p class="tra-reveal"><b>Experience:</b> Best case: no exam and no experience requirement, but your subjects must match.</p></div><div class="tra-card"><span class="tra-tag">Option 2</span><h3>Acceptable science degree</h3><p>Stage 1 is a document assessment and Stage 2 is the AIMS MLS Professional Examination. The degree must be AQF level 7, 8 or 9, or a combination.</p><p class="tra-reveal"><b>Experience:</b> Needs at least two years full-time (or part-time equivalent) postgraduate experience in a medical pathology laboratory, with one year in the five years before you apply.</p></div><div class="tra-card"><span class="tra-tag">Option 3</span><h3>Postgraduate study plus laboratory experience</h3><p>Stage 1 is a document assessment and Stage 2 is the AIMS MLS Special Professional Examination. You need a science degree plus a Master's with a pathology laboratory research project, a professional doctorate or a PhD.</p><p class="tra-reveal"><b>Experience:</b> Needs two years of relevant post-doctoral work in a medical pathology laboratory, one year within the last five. Research-only employment is not looked on favourably.</p></div></div>
-  <div class="tra-note" style="margin-top:26px"><b>What counts as experience:</b> AIMS only counts experience gained in a recognised medical pathology laboratory after you complete your degree or diploma. Medical graduates have separate requirements in the guidelines.</div>
+<div class="tra-white"><div class="tra-wrap" data-tabs>
+  <h2 class="tra-h">AIMS Assessment Pathways by Occupation</h2>
+  <p class="tra-sub">Choose an occupation to see its qualification, experience and exam rules.</p>
+  <div class="tra-toggle" data-tabbar style="margin-bottom:22px"><button type="button" class="tra-pillbtn on" data-v="mls">Medical Laboratory Scientist</button><button type="button" class="tra-pillbtn" data-v="mlt">Medical Laboratory Technician</button><button type="button" class="tra-pillbtn" data-v="pc">Pathology Collector / Phlebotomist</button><button type="button" class="tra-pillbtn" data-v="ivf">IVF Embryologist</button></div>
+  <div class="tra-tabpanel" data-panel="mls"><div class="tra-grid tra-g3"><div class="tra-card"><span class="tra-tag">Option 1</span><h3>AIMS accredited degree</h3><p>Graduates of an AIMS accredited degree are classified as MLS without sitting the professional examination, and postgraduate experience is not required. You must confirm your subjects meet AIMS's accredited subject pathway.</p><p class="tra-reveal"><b>Experience:</b> Best case: no exam and no experience requirement, but your subjects must match.</p></div><div class="tra-card"><span class="tra-tag">Option 2</span><h3>Acceptable science degree</h3><p>Stage 1 is a document assessment and Stage 2 is the AIMS MLS Professional Examination. The degree must be AQF level 7, 8 or 9, or a combination.</p><p class="tra-reveal"><b>Experience:</b> Needs at least two years full-time (or part-time equivalent) postgraduate experience in a medical pathology laboratory, with one year in the five years before you apply.</p></div><div class="tra-card"><span class="tra-tag">Option 3</span><h3>Postgraduate study plus laboratory experience</h3><p>Stage 1 is a document assessment and Stage 2 is the AIMS MLS Special Professional Examination. You need a science degree plus a Master's with a pathology laboratory research project, a professional doctorate or a PhD.</p><p class="tra-reveal"><b>Experience:</b> Needs two years of relevant post-doctoral work in a medical pathology laboratory, one year within the last five. Research-only employment is not looked on favourably.</p></div></div><div class="tra-note" style="margin-top:22px"><b>What counts as experience:</b> AIMS only counts experience gained in a recognised medical pathology laboratory after you complete your degree or diploma. Medical graduates have separate requirements in the guidelines. Hover over a card to see its experience rule.</div></div><div class="tra-tabpanel off" data-panel="mlt"><div class="tra-gc" style="margin-bottom:22px"><div class="tra-stat"><b>311213</b><span>ANZSCO code</span></div><div class="tra-stat"><b>AQF 5</b><span>diploma-level comparability</span></div><div class="tra-stat"><b>2 years</b><span>diagnostic pathology experience</span></div><div class="tra-stat"><b>5 years</b><span>window for that experience</span></div></div><div class="tra-narrow"><ul class="tra-check"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Option 1: a medical laboratory science qualification assessed as comparable to an Australian diploma (at least AQF level 5), with relevant pathology subjects.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Option 1 also needs two years full-time (or part-time equivalent) diagnostic pathology experience within the five years before you apply.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Option 2: current full (not provisional) registration with the Medical Sciences Council of New Zealand as a Medical Laboratory Technician.</div></li></ul></div></div><div class="tra-tabpanel off" data-panel="pc"><div class="tra-gc" style="margin-bottom:22px"><div class="tra-stat"><b>311216</b><span>ANZSCO code</span></div><div class="tra-stat"><b>Cert III</b><span>comparable to HLT37215</span></div><div class="tra-stat"><b>2 years</b><span>experience in the last 5 years</span></div><div class="tra-stat"><b>HLTAID010</b><span>first aid certificate needed</span></div></div><div class="tra-narrow"><ul class="tra-check"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>All three criteria apply: a pathology practice award comparable to the Australian HLT37215 Certificate III, two years full-time (or equivalent) experience within five years, and a current first aid certificate equivalent to HLTAID010.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Experience counts only if it was gained in a recognised medical pathology laboratory after your qualification.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>AIMS also assesses relevant experience from the last ten years, which can matter for visa points.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>The Pathology Collector exam is a 1.5-hour multiple-choice paper, and you need 50% or more to pass.</div></li></ul></div></div><div class="tra-tabpanel off" data-panel="ivf"><div class="tra-gc" style="margin-bottom:22px"><div class="tra-stat"><b>234611</b><span>ANZSCO code</span></div><div class="tra-stat"><b>80</b><span>multiple-choice exam questions</span></div><div class="tra-stat"><b>2 hours</b><span>IVF professional exam</span></div><div class="tra-stat"><b>10 business days</b><span>to issue a reference number and invoice</span></div></div><div class="tra-narrow"><ul class="tra-check"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>IVF Embryologist is a specialisation of Medical Laboratory Scientist, with its own AIMS guidelines and application.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>If you hold a specialised postgraduate degree in clinical embryology or reproductive biology, your institution must complete AIMS's Course Information Form.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Only applicants assessed as eligible receive a Professional Examination Invitation Letter and application form.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>AIMS says it issues your lodgement reference number and fee invoice within ten business days. Confirm the experience rules in the current IVF guidelines.</div></li></ul></div></div>
 </div></div>
+<script>
+(function(){
+  document.querySelectorAll("[data-tabs]").forEach(function(box){
+    var bar=box.querySelector("[data-tabbar]"); if(!bar)return;
+    var btns=bar.querySelectorAll("button"), panels=box.querySelectorAll("[data-panel]");
+    function show(id){
+      panels.forEach(function(p){p.classList.toggle("off",p.getAttribute("data-panel")!==id);});
+      btns.forEach(function(b){b.classList.toggle("on",b.getAttribute("data-v")===id);});
+    }
+    btns.forEach(function(b){b.addEventListener("click",function(){show(b.getAttribute("data-v"));});});
+    if(btns.length)show(btns[0].getAttribute("data-v"));
+  });
+})();
+</script>
 </section>

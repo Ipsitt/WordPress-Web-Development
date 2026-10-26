@@ -1,0 +1,74 @@
+<style>.tra.tra{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-slate{background:var(--slate);color:#fff}
+.tra.tra .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-slate .tra-h{color:#fff}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra a.tra-link:hover{opacity:.75}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra .tra-g3,.tra.tra .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3,.tra.tra .tra-g4,.tra.tra .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-wrap{padding:48px 0}.tra.tra .tra-card{padding:22px 18px}.tra.tra .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-tbs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.tra.tra .tra-tb{border:2px solid var(--red);background:#fff;color:var(--red);font:inherit;font-weight:700;padding:11px 26px;border-radius:10px;cursor:pointer;transition:transform .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
+.tra.tra .tra-tb:hover,.tra.tra .tra-tb.on{background:var(--red);color:#fff;transform:translateY(-2px);box-shadow:0 10px 22px rgba(217,39,46,.28)}
+.tra.tra .tra-tabs.tra-js .tra-tp{display:none}.tra.tra .tra-tabs.tra-js .tra-tp.on{display:block;animation:trf .4s ease}
+@keyframes trf{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tra.tra .tra-lvl{padding:30px 26px 34px}
+.tra.tra .tra-lvl:before{content:"";position:absolute;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--red),var(--slate));transition:width .45s ease}
+.tra.tra .tra-lvl:hover:before{width:100%}
+.tra.tra .tra-lvl:after{content:attr(data-n);position:absolute;right:16px;bottom:-34px;font-size:150px;line-height:1;font-weight:800;color:#eef0f5;transition:color .35s ease,transform .45s ease;pointer-events:none}
+.tra.tra .tra-lvl:hover:after{color:#fbdadc;transform:translateY(-12px) scale(1.06)}
+.tra.tra .tra-lvl h3,.tra.tra .tra-lvl p{position:relative;z-index:1}
+.tra.tra .tra-lvl h3{margin:0 0 10px;font-size:21px}
+.tra.tra .tra-lvl p{max-width:86%}
+.tra.tra .tra-pill{display:inline-block;background:#fdecee;color:var(--red);font-weight:700;font-size:13.5px;border-radius:50px;padding:3px 13px}
+.tra.tra .tra-tw{overflow-x:auto;border-radius:14px;box-shadow:0 10px 30px rgba(30,40,80,.09);border:1px solid var(--line)}
+.tra.tra .tra-t{width:100%;border-collapse:collapse;background:#fff;min-width:560px}
+.tra.tra .tra-t th{background:var(--slate);color:#fff;text-align:left;padding:14px 16px;font-weight:700}
+.tra.tra .tra-t td{padding:13px 16px;border-bottom:1px solid var(--line);transition:background-color .2s ease}
+.tra.tra .tra-t tr:hover td{background:#fdecee}
+.tra.tra .tra-t td:first-child{font-weight:600}
+@property --p{syntax:'<number>';inherits:false;initial-value:0}
+.tra.tra .tra-rg{display:grid;gap:22px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-rc{text-align:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 16px;box-shadow:0 10px 30px rgba(30,40,80,.07);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-rc:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-ring{--t:58;--p:var(--t);width:132px;height:132px;margin:0 auto 14px;border-radius:50%;background:conic-gradient(var(--red) calc(var(--p)*1%),#e6e9f1 0);display:grid;place-items:center;position:relative;animation:trRing 6s ease-in-out infinite}
+.tra.tra .tra-ring:before{content:"";position:absolute;top:11px;left:11px;right:11px;bottom:11px;border-radius:50%;background:#fff}
+.tra.tra .tra-ring b{position:relative;font-size:21px;font-weight:800;line-height:1.1;text-align:center}
+@keyframes trRing{0%{--p:0}45%,85%{--p:var(--t)}100%{--p:0}}
+.tra.tra .tra-rc h3{font-size:17px;font-weight:700;margin-bottom:4px}
+.tra.tra .tra-rc p{color:var(--muted);font-size:14.5px}
+@media(max-width:900px){.tra.tra .tra-rg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.tra.tra .tra-rg{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.tra.tra .tra-ring{animation:none!important}}
+</style>
+<section class="tra tra-aaca-08" aria-label="AACA fees and timeframes">
+<div class="tra-white"><div class="tra-wrap tra-fee"><h2 class="tra-h">AACA skills assessment fee</h2><p class="tra-sub">Current AACA fees in Australian dollars. They include all processing and administration costs, with nothing added at checkout.</p><div class="tra-tbs"><button class="tra-tb on" data-c="au">Australian card</button><button class="tra-tb" data-c="os">Overseas card</button></div><div class="tra-tw"><table class="tra-t"><tr><th>Assessment</th><th>Fee (AUD)</th></tr><tr><td>OQA, new applicants</td><td data-au="4,973.01" data-os="5,042.10">$4,973.01</td></tr><tr><td>OQA, Stage 2 only*</td><td data-au="3,044.70" data-os="3,087.00">$3,044.70</td></tr><tr><td>Second Competency Assessment Interview</td><td data-au="1,217.88" data-os="1,234.80">$1,217.88</td></tr><tr><td>Renewal of Skilled Migration Assessment</td><td data-au="446.56" data-os="452.76">$446.56</td></tr><tr><td>Verification of accredited Australian qualification</td><td data-au="446.56" data-os="452.76">$446.56</td></tr><tr><td>Experienced Practitioner Assessment, local</td><td data-au="3,704.38" data-os="3,755.85">$3,704.38</td></tr><tr><td>Experienced Practitioner Assessment, overseas</td><td data-au="5,064.35" data-os="5,134.71">$5,064.35</td></tr><tr><td>Experienced Practitioner Assessment, overseas modified</td><td data-au="3,836.32" data-os="3,889.62">$3,836.32</td></tr></table></div><p class="tra-small">*Stage 2 only is for applicants with a successful Stage 1 outcome issued before 1 March 2022. AACA accepts online Visa and Mastercard payments only. Paid priority processing ended on 18 March 2024, though AACA can expedite documented extenuating cases at no extra cost.</p></div></div><div class="tra-white" style="padding-bottom:0"><div class="tra-wrap" style="padding-top:0"><h2 class="tra-h">AACA migration skills assessment timeframes and validity</h2><p class="tra-sub">Times start from lodgement of a complete application.</p><div class="tra-rg"><div class="tra-rc"><div class="tra-ring" style="--t:58"><b>7<br>weeks</b></div><h3>Complete application</h3><p>Typical finalisation time</p></div><div class="tra-rc"><div class="tra-ring" style="--t:100"><b>12<br>weeks</b></div><h3>Incomplete documents</h3><p>Generally assessed within this time</p></div><div class="tra-rc"><div class="tra-ring" style="--t:17"><b>10<br>days</b></div><h3>Renewal</h3><p>Approximately 10 working days</p></div><div class="tra-rc"><div class="tra-ring" style="--t:100"><b>3<br>years</b></div><h3>Validity</h3><p>From the date of issue</p></div></div><p class="tra-small">The first three rings are drawn relative to 12 weeks. Timeframes exclude interview scheduling and can lengthen in peak periods and holiday shutdowns.</p></div></div>
+<script>(function(){document.querySelectorAll(".tra-fee").forEach(function(w){var b=w.querySelectorAll(".tra-tb"),c=w.querySelectorAll("[data-au]");b.forEach(function(x){x.addEventListener("click",function(){b.forEach(function(y){y.classList.remove("on")});x.classList.add("on");var k=x.getAttribute("data-c");c.forEach(function(e){e.textContent="$"+e.getAttribute("data-"+k)})})})})})();</script>
+</section>

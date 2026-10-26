@@ -1,0 +1,75 @@
+
+<style>.tra.tra{--red:#d9272e;--ink:#1c2230;--muted:#5b6475;--pink:#fdecec;--pink-line:#f4c6c6;--paper:#f6f7fb;--line:#e6e9f1;
+font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-narrow{max-width:none;margin:0}
+.tra.tra .tra-paper{background:var(--paper)}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-h.up{text-transform:uppercase;font-size:clamp(22px,2.6vw,30px);letter-spacing:.3px}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block}
+.tra.tra .tra-stat{background:#fff;border-radius:14px;padding:24px 20px;text-align:center;border:1px solid var(--line);box-shadow:0 10px 30px rgba(30,40,80,.07)}
+.tra.tra .tra-stat b{display:block;font-size:clamp(30px,4vw,42px);font-weight:800;color:var(--red);line-height:1.1}
+.tra.tra .tra-stat span{display:block;margin-top:8px;color:var(--muted);font-size:14.5px}
+.tra.tra .tra-check li{display:flex;gap:14px;align-items:flex-start;background:var(--pink);border:1px solid var(--pink-line);border-radius:8px;padding:14px 18px;margin-bottom:10px}
+.tra.tra .tra-check li svg{flex:0 0 22px;width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:3px}
+.tra.tra .tra-check li div{font-size:15.5px}
+.tra.tra .tra-check li b{display:block;font-size:16px}
+@media(max-width:900px){.tra.tra .tra-g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3{grid-template-columns:minmax(0,1fr)}
+.tra.tra .tra-wrap{padding:48px 0}
+.tra.tra .tra-card{padding:22px 18px}}
+.tra.tra .tra-gc{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.tra.tra .tra-gc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-gc{grid-template-columns:minmax(0,1fr)}}
+.tra.tra .tra-card,.tra.tra .tra-stat,.tra.tra .tra-check li{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-stat:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 34px rgba(30,40,80,.18)}
+.tra.tra .tra-check li:hover{transform:translateX(6px);border-color:var(--red);box-shadow:0 8px 20px rgba(217,39,46,.14)}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}
+.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-ico{transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra .tra-toggle{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 20px}
+.tra.tra button.tra-pillbtn{font-family:inherit;font-size:14.5px;font-weight:600;line-height:1.2;letter-spacing:normal;text-transform:none;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 20px;border-radius:999px;margin:0;box-shadow:none;transition:background-color .2s ease,color .2s ease,transform .2s ease,box-shadow .2s ease}
+.tra.tra button.tra-pillbtn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(30,40,80,.14);border-color:var(--red)}
+.tra.tra button.tra-pillbtn.on{background:var(--red);color:#fff;border-color:var(--red)}
+.tra.tra .tra-tabpanel{animation:traFade .45s ease}
+.tra.tra .tra-tabpanel.off{display:none}
+@keyframes traFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.tra.tra .tra-tabpanel{animation:none}}</style>
+<section class="tra tra-05-acwa-experience" aria-label="ACWA experience and currency">
+
+<div class="tra-paper"><div class="tra-wrap" data-tabs>
+  <h2 class="tra-h up">ACWA work experience and industry currency requirements by occupation</h2>
+  <p class="tra-sub">Experience must be paid direct service work, completed after your qualification and within the last four years. Full-time means 30 hours or more per week.</p>
+  <div class="tra-toggle" data-tabbar style="margin-bottom:22px"><button type="button" class="tra-pillbtn on" data-v="cw">Community Worker</button><button type="button" class="tra-pillbtn" data-v="dso">Disability Services Officer</button><button type="button" class="tra-pillbtn" data-v="yw">Youth Worker</button></div>
+  <div class="tra-tabpanel" data-panel="cw"><div class="tra-gc" style="margin-bottom:22px"><div class="tra-stat"><b>411711</b><span>ANZSCO code</span></div><div class="tra-stat"><b>1 year</b><span>experience with a relevant diploma</span></div><div class="tra-stat"><b>4 years</b><span>window for that experience</span></div><div class="tra-stat"><b>AQF 5</b><span>skill level of the role</span></div></div><div class="tra-narrow"><ul class="tra-check"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>With a CWA accredited or recognised qualification, field placements are treated as meeting the experience requirement.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>With a relevant diploma or higher, you need at least one year of full-time (or part-time equivalent) industry experience within the last four years.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Roles that only need an AQF level 3 or 4 certificate do not count.</div></li></ul></div></div><div class="tra-tabpanel off" data-panel="dso"><div class="tra-gc" style="margin-bottom:22px"><div class="tra-stat"><b>411712</b><span>ANZSCO code</span></div><div class="tra-stat"><b>12 months</b><span>with a specialised diploma</span></div><div class="tra-stat"><b>2 years</b><span>with a non-specialised qualification</span></div><div class="tra-stat"><b>4 years</b><span>window for that experience</span></div></div><div class="tra-narrow"><ul class="tra-check"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Employment must be paid, direct service to people with disability, post-qualification and at AQF level 5 skill level.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>A relevant specialised diploma or higher needs at least 12 months full-time (or equivalent).</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>A CWA accredited specialised diploma or higher is deemed to meet the requirement through field placement.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>A non-specialised relevant community services qualification needs at least two years full-time (or equivalent).</div></li></ul></div></div><div class="tra-tabpanel off" data-panel="yw"><div class="tra-gc" style="margin-bottom:22px"><div class="tra-stat"><b>411716</b><span>ANZSCO code</span></div><div class="tra-stat"><b>1 year</b><span>with a specialised youth work diploma</span></div><div class="tra-stat"><b>2 years</b><span>with a non-specialised qualification</span></div><div class="tra-stat"><b>400 hours</b><span>fieldwork for a recognised qualification</span></div></div><div class="tra-narrow"><ul class="tra-check"><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>Accredited or recognised youth work qualifications are deemed to meet the experience requirement through practicum.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>A specialised youth work diploma needs at least one year of full-time youth services employment at the required skill level.</div></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><div>A non-specialised qualification at AQF level 5 or higher needs two years.</div></li></ul></div></div>
+  <h3 class="tra-h" style="margin-top:36px;font-size:24px">Industry currency: meet any one of these</h3>
+  <div class="tra-grid tra-g3"><div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Qualification under 4 years old</h3><p>Your qualification was completed less than four years ago.</p></div><div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg><h3>3 months of current work</h3><p>At least three months of full-time (or equivalent) relevant employment in a current role at the required skill level.</p></div><div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><h3>6 months in 18 months</h3><p>At least six months of relevant employment at the required skill level within the last 18 months.</p></div></div>
+</div></div>
+<script>
+(function(){
+  document.querySelectorAll("[data-tabs]").forEach(function(box){
+    var bar=box.querySelector("[data-tabbar]"); if(!bar)return;
+    var btns=bar.querySelectorAll("button"), panels=box.querySelectorAll("[data-panel]");
+    function show(id){
+      panels.forEach(function(p){p.classList.toggle("off",p.getAttribute("data-panel")!==id);});
+      btns.forEach(function(b){b.classList.toggle("on",b.getAttribute("data-v")===id);});
+    }
+    btns.forEach(function(b){b.addEventListener("click",function(){show(b.getAttribute("data-v"));});});
+    if(btns.length)show(btns[0].getAttribute("data-v"));
+  });
+})();
+</script>
+</section>

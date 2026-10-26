@@ -1,0 +1,79 @@
+<style>.tra.tra{--red:#d9272e;--ink:#1c2230;--muted:#5b6475;--pink:#fdecec;--page:#f5f5f3;--line:#e6e9f1;
+font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra table,.tra.tra table thead,.tra.tra table tbody,.tra.tra table tr,.tra.tra table th,.tra.tra table td{border:0;background:none;margin:0;padding:0;box-shadow:none;float:none;text-align:left;vertical-align:middle;color:inherit;font-family:inherit;font-style:normal;font-weight:inherit;text-transform:none;letter-spacing:normal;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-h.up{text-transform:uppercase;font-size:clamp(22px,2.6vw,30px);letter-spacing:.3px}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block}
+.tra.tra .tra-tablewrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(30,40,80,.07);background:#fff}
+.tra.tra table{border-collapse:collapse;width:100%;min-width:560px}
+.tra.tra table th{background:var(--red);color:#fff;text-align:left;vertical-align:middle;padding:16px 20px;font-size:14.5px;font-weight:700;line-height:1.4;letter-spacing:.4px;text-transform:uppercase}
+.tra.tra table td{padding:15px 20px;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5;color:var(--ink);text-align:left;vertical-align:middle}
+.tra.tra table tr:nth-child(even) td{background:#fafbfe}
+.tra.tra table tr:last-child td{border-bottom:0}
+.tra.tra table td.code{font-weight:700;color:var(--red);font-variant-numeric:tabular-nums}
+@media(max-width:900px){.tra.tra .tra-g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3{grid-template-columns:minmax(0,1fr)}
+.tra.tra .tra-wrap{padding:48px 0}
+.tra.tra .tra-card{padding:22px 18px}}
+.tra.tra .tra-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra table tbody tr{transition:background-color .2s ease}
+.tra.tra table tbody tr:hover td{background:var(--pink)}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}
+.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-ico{transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}</style>
+
+<section class="tra tra-02-acwa-occupations" aria-label="ACWA occupations">
+
+<div class="tra-white"><div class="tra-wrap">
+  <h2 class="tra-h up">Occupations covered by an ACWA skills assessment, with ANZSCO codes</h2>
+  <p class="tra-sub">Community Work Australia assesses these welfare support occupations. The pathway shows which visa program each one can use.</p>
+  <div class="tra-tablewrap"><table style="min-width:620px"><thead><tr><th>Occupation</th><th>ANZSCO code</th><th>Assessment pathway</th></tr></thead><tbody><tr><td><b>Community Worker</b></td><td class="code">411711</td><td>General skilled pathway and DAMA</td></tr><tr><td><b>Disability Services Officer</b></td><td class="code">411712</td><td>General skilled pathway and DAMA</td></tr><tr><td><b>Youth Worker</b></td><td class="code">411716</td><td>General skilled pathway and DAMA</td></tr><tr><td><b>Family Support Worker</b></td><td class="code">411713</td><td>DAMA (Western Australia)</td></tr><tr><td><b>Parole or Probation Officer</b></td><td class="code">411714</td><td>DAMA only</td></tr><tr><td><b>Residential Care Officer</b></td><td class="code">411715</td><td>DAMA (Western Australia)</td></tr></tbody></table></div>
+  <div class="tra-grid tra-g3" style="margin-top:26px">
+    <div class="tra-card">
+      <!-- Cleaned up Hand in Heart icon -->
+      <svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A4.5 4.5 0 0 0 17.5 4c-1.8 0-3.05.9-3.75 2.14C13.05 4.9 11.8 4 10 4A4.5 4.5 0 0 0 5.5 8.5c0 2.29 1.51 4.04 3 5.5l5.5 5.5z"/>
+      </svg>
+      <h3>Also assessed for labour agreements</h3>
+      <p>CWA also assesses Welfare Worker, Refuge Worker, Aged or Disabled Carer and Child or Youth Residential Care Assistant for labour agreement programs.</p>
+    </div>
+    
+    <div class="tra-card">
+      <!-- User / Redirection Arrow icon -->
+      <svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M17 8l4 4m0 0l-4 4m4-4H13"/>
+      </svg>
+      <h3>Social Workers go elsewhere</h3>
+      <p>Social Worker is not on CWA's list of assessed occupations. Social Workers apply to the Australian Association of Social Workers (AASW).</p>
+    </div>
+
+    <div class="tra-card">
+      <!-- File List Check / Verification icon -->
+      <svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <path d="m9 15 2 2 4-4"/>
+      </svg>
+      <h3>Check the visa list yourself</h3>
+      <p>Which visas an occupation can support changes, so check the Department of Home Affairs skilled occupation list before you lodge.</p>
+    </div>
+  </div>
+</div></div>
+</section>

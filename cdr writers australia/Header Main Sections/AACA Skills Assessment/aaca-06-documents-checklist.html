@@ -1,0 +1,62 @@
+<style>.tra.tra{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-slate{background:var(--slate);color:#fff}
+.tra.tra .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-slate .tra-h{color:#fff}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra a.tra-link:hover{opacity:.75}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra .tra-g3,.tra.tra .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3,.tra.tra .tra-g4,.tra.tra .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-wrap{padding:48px 0}.tra.tra .tra-card{padding:22px 18px}.tra.tra .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-ck label{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:10px;cursor:pointer;color:var(--muted);font-size:15.5px;transition:background-color .2s ease}
+.tra.tra .tra-ck label:hover{background:#fdecee;color:var(--ink)}
+.tra.tra .tra-ck input{margin-top:5px;accent-color:var(--red);width:18px;height:18px;flex:none}
+.tra.tra .tra-bar{height:10px;background:var(--line);border-radius:10px;overflow:hidden;margin:6px 0 8px}
+.tra.tra .tra-bar span{display:block;height:100%;width:0;background:var(--red);transition:width .4s ease}
+.tra.tra .tra-pct{font-weight:700;color:var(--red);margin-bottom:8px}
+.tra.tra .tra-cmp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;position:relative}
+.tra.tra .tra-cmp .tra-card{padding:0;overflow:hidden}
+.tra.tra .tra-ch{padding:20px 26px;color:#fff;font-weight:700;font-size:19px;display:flex;align-items:center;gap:12px}
+.tra.tra .tra-ch.s{background:var(--slate)}.tra.tra .tra-ch.r{background:var(--red)}
+.tra.tra .tra-ch .tra-ico{stroke:#fff;width:30px;height:30px}
+.tra.tra .tra-ul{padding:10px 26px 22px}
+.tra.tra .tra-ul li{position:relative;padding:11px 0 11px 26px;border-bottom:1px solid var(--line);color:var(--muted);font-size:15.5px;transition:color .2s ease,padding-left .2s ease}
+.tra.tra .tra-ul li:last-child{border-bottom:0}
+.tra.tra .tra-ul li:before{content:"";position:absolute;left:0;top:19px;width:10px;height:10px;border-radius:50%;background:var(--red);transition:transform .2s ease}
+.tra.tra .tra-ul li:hover{color:var(--ink);padding-left:32px}
+.tra.tra .tra-ul li:hover:before{transform:scale(1.4)}
+.tra.tra .tra-ne{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:#fff;border:3px solid var(--red);color:var(--red);font-weight:800;font-size:26px;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.tra.tra .tra-cmp .tra-card:hover{transform:none}
+.tra.tra .tra-nt{background:#fff7dd;border:1px solid #ecd98a;border-radius:10px;padding:14px 18px;font-size:15px;color:#4a3f10;margin-top:22px}
+@media(max-width:800px){.tra.tra .tra-cmp{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-ne{display:none}}
+</style>
+<section class="tra tra-aaca-06" aria-label="AACA documents checklist">
+<div class="tra-white"><div class="tra-wrap"><h2 class="tra-h">AACA skills assessment documents checklist</h2><p class="tra-sub">AACA needs a complete application on day one. It does not accept missing documents later.</p><div class="tra-grid tra-g2"><div class="tra-card tra-ck"><h3 style="margin-top:0">Your readiness</h3><div class="tra-bar"><span></span></div><p class="tra-pct"></p><label><input type="checkbox"><span>I have read the OQA Applicants Guide</span></label><label><input type="checkbox"><span>Architecture degree certificate and full transcripts</span></label><label><input type="checkbox"><span>Subject outlines showing unit content (confirm the exact list in the Guide)</span></label><label><input type="checkbox"><span>Portfolio of 3 to 4 projects, including one complex project</span></label><label><input type="checkbox"><span>NSCA Summary Statements covering all 13 topic areas</span></label><label><input type="checkbox"><span>Project Summary Proformas completed</span></label><label><input type="checkbox"><span>Detailed work experience reference letter</span></label><label><input type="checkbox"><span>English language evidence, if required</span></label><label><input type="checkbox"><span>Declaration form (overseas) or statutory declaration (in Australia)</span></label></div><div class="tra-card"><h3 style="margin-top:0">Forms to download from AACA</h3><p>Use AACA's own templates so your submission matches what assessors expect.</p><ul class="tra-ul" style="padding:10px 0 0"><li><a class="tra-link" href="https://aaca.org.au/wp-content/uploads/OQA-Guide-for-Applicants-1.pdf" target="_blank" rel="noopener noreferrer">OQA Applicants Guide</a></li><li><a class="tra-link" href="https://aaca.org.au/wp-content/uploads/OQA-NSCA-Statements.docx" target="_blank" rel="noopener noreferrer">NSCA Summary Statements template</a></li><li><a class="tra-link" href="https://aaca.org.au/wp-content/uploads/OQA-Project-Summaries.pdf" target="_blank" rel="noopener noreferrer">Project Summary Proformas</a></li><li><a class="tra-link" href="https://aaca.org.au/wp-content/uploads/OQA-Overseas-Applicants-Declaration.pdf" target="_blank" rel="noopener noreferrer">Declaration form (overseas-based applicants)</a></li><li><a class="tra-link" href="https://aaca.org.au/wp-content/uploads/OQA-Statutory-Declaration.pdf" target="_blank" rel="noopener noreferrer">Statutory declaration (Australian-based applicants)</a></li><li><a class="tra-link" href="https://aaca.org.au/wp-content/uploads/OQA_Checklist-for-Applicants.docx" target="_blank" rel="noopener noreferrer">Submission checklist</a></li></ul></div></div></div></div>
+<script>(function(){document.querySelectorAll(".tra-ck").forEach(function(w){var c=w.querySelectorAll("input"),bar=w.querySelector(".tra-bar span"),pc=w.querySelector(".tra-pct");function u(){var k=0;c.forEach(function(i){if(i.checked)k++});bar.style.width=Math.round(k/c.length*100)+"%";pc.textContent=k+" of "+c.length+" ready"}c.forEach(function(i){i.addEventListener("change",u)});u()})})();</script>
+</section>

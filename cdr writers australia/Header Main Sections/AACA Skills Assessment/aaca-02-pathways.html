@@ -1,0 +1,65 @@
+<style>.tra.tra{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-slate{background:var(--slate);color:#fff}
+.tra.tra .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-slate .tra-h{color:#fff}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra a.tra-link:hover{opacity:.75}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra .tra-g3,.tra.tra .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3,.tra.tra .tra-g4,.tra.tra .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-wrap{padding:48px 0}.tra.tra .tra-card{padding:22px 18px}.tra.tra .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-tbs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.tra.tra .tra-tb{border:2px solid var(--red);background:#fff;color:var(--red);font:inherit;font-weight:700;padding:11px 26px;border-radius:10px;cursor:pointer;transition:transform .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
+.tra.tra .tra-tb:hover,.tra.tra .tra-tb.on{background:var(--red);color:#fff;transform:translateY(-2px);box-shadow:0 10px 22px rgba(217,39,46,.28)}
+.tra.tra .tra-tabs.tra-js .tra-tp{display:none}.tra.tra .tra-tabs.tra-js .tra-tp.on{display:block;animation:trf .4s ease}
+@keyframes trf{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tra.tra .tra-lvl{padding:30px 26px 34px}
+.tra.tra .tra-lvl:before{content:"";position:absolute;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--red),var(--slate));transition:width .45s ease}
+.tra.tra .tra-lvl:hover:before{width:100%}
+.tra.tra .tra-lvl:after{content:attr(data-n);position:absolute;right:16px;bottom:-34px;font-size:150px;line-height:1;font-weight:800;color:#eef0f5;transition:color .35s ease,transform .45s ease;pointer-events:none}
+.tra.tra .tra-lvl:hover:after{color:#fbdadc;transform:translateY(-12px) scale(1.06)}
+.tra.tra .tra-lvl h3,.tra.tra .tra-lvl p{position:relative;z-index:1}
+.tra.tra .tra-lvl h3{margin:0 0 10px;font-size:21px}
+.tra.tra .tra-lvl p{max-width:86%}
+.tra.tra .tra-pill{display:inline-block;background:#fdecee;color:var(--red);font-weight:700;font-size:13.5px;border-radius:50px;padding:3px 13px}
+.tra.tra .tra-vt{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px;align-items:start}
+.tra.tra .tra-vt .tra-tbs{flex-direction:column;align-items:stretch;justify-content:flex-start;margin:0;gap:12px}
+.tra.tra .tra-vt .tra-tb{text-align:left;border-radius:12px;padding:16px 18px;border-width:1px}
+.tra.tra .tra-vt .tra-tb:hover,.tra.tra .tra-vt .tra-tb.on{transform:translateX(8px)}
+.tra.tra .tra-panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 14px 34px rgba(30,40,80,.1)}
+.tra.tra .tra-panel h3{font-size:22px;font-weight:700;margin-bottom:10px}
+.tra.tra .tra-panel p{color:var(--muted)}
+.tra.tra .tra-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.tra.tra .tra-chips span{background:#fdecee;color:var(--red);border-radius:50px;padding:6px 14px;font-weight:600;font-size:14px}
+@media(max-width:800px){.tra.tra .tra-vt{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section class="tra tra-aaca-02" aria-label="AACA pathways">
+<div class="tra-white"><div class="tra-wrap"><h2 class="tra-h">Which AACA skill assessment pathway fits you?</h2><p class="tra-sub">Your qualification decides which AACA skills assessment route applies. Pick the one that matches yours.</p><div class="tra-tabs tra-vt"><div class="tra-tbs"><button class="tra-tb on" data-t="t1">Overseas architecture degree</button><button class="tra-tb" data-t="t2">Accredited Master of Architecture</button><button class="tra-tb" data-t="t3">Experienced practitioner</button><button class="tra-tb" data-t="t4">Completed Stage 1 earlier</button></div><div><div class="tra-tp on" id="t1"><div class="tra-panel"><h3>Overseas Qualifications Assessment (OQA)</h3><p>If your architecture qualification was awarded outside Australia, the OQA is the main route. Since March 2022, new applicants complete the qualification check and the competency assessment in one application. A Suitable outcome also gives you a Skilled Migration Assessment on request.</p><div class="tra-chips"><span>One combined application</span><span>Portfolio + statements + interview</span><span>Migration letter on request</span></div></div></div><div class="tra-tp" id="t2"><div class="tra-panel"><h3>Verification of an accredited qualification</h3><p>If you hold an accredited Master of Architecture from Australia, New Zealand or Hong Kong, you do not need an OQA. You can apply for a Verification of Australian Accredited Architecture Qualification to obtain your Skilled Migration Assessment. Check AACA's accredited list first.</p><div class="tra-chips"><span>No OQA needed</span><span>Lower fee</span><span>Check the accredited list</span></div></div></div><div class="tra-tp" id="t3"><div class="tra-panel"><h3>Experienced Practitioner Assessment (EPA)</h3><p>The EPA is the alternative to the OQA for an overseas-qualified architect seeking a Skilled Migration Assessment. AACA publishes separate fees for local, overseas and modified overseas applicants, so confirm eligibility on its EPA page before you choose.</p><div class="tra-chips"><span>Alternative to OQA</span><span>Three fee categories</span><span>Strict eligibility</span></div></div></div><div class="tra-tp" id="t4"><div class="tra-panel"><h3>OQA Stage 2 only</h3><p>Applicants with a successful OQA Stage 1 outcome issued before 1 March 2022 can apply for Stage 2 only, and must submit evidence of that outcome. Without it, a new application is needed to obtain a Skilled Migration Assessment.</p><div class="tra-chips"><span>Stage 1 evidence required</span><span>Lower fee</span><span>Pre-March 2022 outcomes</span></div></div></div></div></div><p class="tra-small">AACA also runs mutual recognition agreements with several countries. These mainly concern registration, so check AACA before assuming they replace a migration assessment.</p></div></div>
+<script>(function(){document.querySelectorAll(".tra-tabs").forEach(function(w){w.classList.add("tra-js");var b=w.querySelectorAll(".tra-tb"),p=w.querySelectorAll(".tra-tp");b.forEach(function(x){x.addEventListener("click",function(){b.forEach(function(y){y.classList.remove("on")});p.forEach(function(y){y.classList.remove("on")});x.classList.add("on");w.querySelector("#"+x.getAttribute("data-t")).classList.add("on")})})})})();</script>
+</section>

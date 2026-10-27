@@ -1,0 +1,62 @@
+
+<style>.tra.tra{--red:#d9272e;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;
+font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block}
+@media(max-width:600px){.tra.tra .tra-wrap{padding:48px 0}
+.tra.tra .tra-card{padding:22px 18px}}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}
+.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-ico{transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra .tra-bars{display:grid;gap:18px}
+.tra.tra .tra-barrow{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;box-shadow:0 10px 30px rgba(30,40,80,.07);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.tra.tra .tra-barrow:hover{transform:translateX(6px);box-shadow:0 14px 34px rgba(30,40,80,.14);border-color:var(--red)}
+.tra.tra .tra-barhead b{color:var(--ink)}
+.tra.tra .tra-barhead{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:10px;font-weight:700;font-size:16px}
+.tra.tra .tra-barhead span{color:var(--red);font-size:15px;white-space:nowrap}
+.tra.tra .tra-bar{height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.tra.tra .tra-bar i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--red),#ff6b6b);border-radius:inherit;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+@media(prefers-reduced-motion:reduce){.tra.tra .tra-bar i{transition:none}}
+@media(max-width:640px){.tra.tra .tra-barhead{flex-direction:column;gap:2px}
+.tra.tra .tra-barhead span{white-space:normal}}</style>
+<section class="tra tra-09-acwa-dama-acila" aria-label="ACWA DAMA and ACILA pathways">
+
+<div class="tra-white"><div class="tra-wrap">
+  <h2 class="tra-h">ACWA DAMA and ACILA skills assessments: labour agreement pathways</h2>
+  <p class="tra-sub">Employer-sponsored programs use separate pathways, with different fees, timeframes and experience rules.</p>
+  <div class="tra-grid tra-g2" style="margin-bottom:28px">
+    <div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4"/></svg><h3>DAMA (Western Australia)</h3><p>CWA is the approved assessing authority for Western Australia's DAMA occupations. You first need employment, or an offer, with an employer that has a labour agreement. The fee is AUD 965 and the target is 6 to 8 weeks.</p></div>
+    <div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg><h3>ACILA (aged care)</h3><p>The Aged Care Industry Labour Agreement pathway covers Aged or Disabled Carer. The fee is AUD 595 and the target is 4 to 6 weeks.</p></div>
+  </div>
+  <h3 class="tra-h" style="font-size:24px">Extra experience for WA DAMA, by visa program</h3>
+  <div class="tra-bars" style="margin-top:18px"><div class="tra-barrow"><div class="tra-barhead"><b style="color:var(--ink)">Skills in Demand (SID)</b><span>1 year of additional experience</span></div><div class="tra-bar"><i style="--w:33%"></i></div></div><div class="tra-barrow"><div class="tra-barhead"><b style="color:var(--ink)">SESR and ENS, regional Western Australia</b><span>2 years of additional experience</span></div><div class="tra-bar"><i style="--w:67%"></i></div></div><div class="tra-barrow"><div class="tra-barhead"><b style="color:var(--ink)">SESR and ENS, metropolitan Perth</b><span>3 years of additional experience</span></div><div class="tra-bar"><i style="--w:100%"></i></div></div></div>
+  <p class="tra-small">Experience is counted at 30 hours a week or the part-time equivalent. Applicants for other DAMA regions should contact that region's assessing authority.</p>
+</div></div>
+<script>
+(function(){
+  var boxes=document.querySelectorAll(".tra-bars");
+  if(!boxes.length||!("IntersectionObserver" in window))return;
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  boxes.forEach(function(b){b.querySelectorAll(".tra-bar i").forEach(function(i){i.style.width="0";});});
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){setTimeout(function(){e.target.querySelectorAll(".tra-bar i").forEach(function(i){i.style.width="";});},120);io.unobserve(e.target);}});},{threshold:.3});
+  boxes.forEach(function(b){io.observe(b);});
+})();
+</script>
+</section>

@@ -1,0 +1,50 @@
+
+<style>.tra.tra{--red:#d9272e;--red-d:#b81d24;--ink:#1c2230;--muted:#5b6475;--pink:#fdecec;--pink-line:#f4c6c6;--paper:#f6f7fb;--line:#e6e9f1;
+font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-paper{background:var(--paper)}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block}
+@media(max-width:900px){.tra.tra .tra-g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3{grid-template-columns:minmax(0,1fr)}
+.tra.tra .tra-wrap{padding:48px 0}
+.tra.tra .tra-card{padding:22px 18px}}
+.tra.tra .tra-gc{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.tra.tra .tra-gc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-gc{grid-template-columns:minmax(0,1fr)}}
+.tra.tra .tra-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}
+.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-ico{transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra .tra-reveal{max-height:0;opacity:0;overflow:hidden;transition:max-height .6s cubic-bezier(.22,1,.36,1),opacity .5s ease,margin .6s cubic-bezier(.22,1,.36,1);margin-top:0}
+.tra.tra .tra-card:hover .tra-reveal{max-height:160px;opacity:1;margin-top:10px}
+.tra.tra .tra-tag{display:inline-block;background:var(--pink);color:var(--red-d);border:1px solid var(--pink-line);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;margin-bottom:12px}
+@media(hover:none){.tra.tra .tra-reveal{max-height:none;opacity:1;margin-top:10px}}
+@media(prefers-reduced-motion:reduce){.tra.tra .tra-reveal{max-height:none;opacity:1;margin-top:10px}}</style>
+<section class="tra tra-03-acwa-qualifications" aria-label="ACWA qualification pathways">
+
+<div class="tra-paper"><div class="tra-wrap">
+  <h2 class="tra-h">ACWA qualification requirements: three routes at AQF level 5 or higher</h2>
+  <p class="tra-sub">Your qualification decides how much employment evidence you need. Hover over a card to see its experience rule.</p>
+  <div class="tra-grid tra-g3"><div class="tra-card"><span class="tra-tag">Route 1</span><h3>CWA accredited diploma or higher</h3><p>A diploma or higher accredited by Community Work Australia. Field placements in the course are treated as meeting the industry experience requirement.</p><p class="tra-reveal"><b>Experience:</b> Because the placement counts as experience, no separate employment evidence is needed for this part of the assessment.</p></div><div class="tra-card"><span class="tra-tag">Route 2</span><h3>Recognised relevant qualification</h3><p>A bachelor's degree or higher with a community and human services focus, professionally accredited by a body whose standards match CWA's.</p><p class="tra-reveal"><b>Experience:</b> Field placement or practicum is treated as sufficient industry experience, as with an accredited qualification.</p></div><div class="tra-card"><span class="tra-tag">Route 3</span><h3>Relevant diploma or higher</h3><p>A diploma or higher related to community services that is not accredited or professionally recognised.</p><p class="tra-reveal"><b>Experience:</b> You must add post-qualification industry experience, with the required length depending on your occupation.</p></div></div>
+  <div class="tra-gc" style="margin-top:26px">
+    <div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg><h3>RPL is capped at 40%</h3><p>Recognition of prior learning can count for no more than 40% of your qualification, and CWA may reject RPL based on unsuitable experience or study.</p></div>
+    <div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><h3>Graduate certificates</h3><p>A graduate certificate or graduate diploma must follow a relevant undergraduate or related qualification.</p></div>
+    <div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Unduly short courses</h3><p>CWA does not accept qualifications it considers unduly short for the occupation.</p></div>
+    <div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17.5v.5"/></svg><h3>Youth Worker detail</h3><p>For Youth Worker, a recognised youth work qualification needs at least 400 hours of fieldwork in a youth setting.</p></div>
+  </div>
+</div></div>
+</section>

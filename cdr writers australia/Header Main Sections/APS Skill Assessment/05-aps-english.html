@@ -1,0 +1,66 @@
+<style>
+.tra.tra{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-slate{background:var(--slate);color:#fff}
+.tra.tra .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-slate .tra-h{color:#fff}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra a.tra-link:hover{opacity:.75}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra .tra-g3,.tra.tra .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3,.tra.tra .tra-g4,.tra.tra .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-wrap{padding:48px 0}.tra.tra .tra-card{padding:22px 18px}.tra.tra .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-fr{position:relative;background:#fff;padding:36px 28px 30px;border:1px solid var(--line);height:100%;transition:transform .25s ease,box-shadow .25s ease}
+.tra.tra .tra-fr:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.14)}
+.tra.tra .tra-fr:before,.tra.tra .tra-fr:after{content:"";position:absolute;width:28px;height:28px;border:3px solid var(--red);pointer-events:none;transition:width .45s ease,height .45s ease}
+.tra.tra .tra-fr:before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.tra.tra .tra-fr:after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.tra.tra .tra-fr:hover:before,.tra.tra .tra-fr:hover:after{width:calc(100% + 2px);height:calc(100% + 2px)}
+.tra.tra .tra-fr .n{position:absolute;top:14px;right:20px;font-size:44px;font-weight:800;color:#eef0f5;line-height:1}
+.tra.tra .tra-fr h3{font-size:19px;font-weight:700;margin-bottom:8px;position:relative}
+.tra.tra .tra-fr p{color:var(--muted);font-size:15.5px;position:relative}
+.tra.tra .tra-cmp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;position:relative}
+.tra.tra .tra-cmp .tra-card{padding:0;overflow:hidden}
+.tra.tra .tra-ch{padding:20px 26px;color:#fff;font-weight:700;font-size:19px;display:flex;align-items:center;gap:12px}
+.tra.tra .tra-ch.s{background:var(--slate)}.tra.tra .tra-ch.r{background:var(--red)}
+.tra.tra .tra-ch .tra-ico{stroke:#fff;width:30px;height:30px}
+.tra.tra .tra-ul{padding:10px 26px 22px}
+.tra.tra .tra-ul li{position:relative;padding:11px 0 11px 26px;border-bottom:1px solid var(--line);color:var(--muted);font-size:15.5px;transition:color .2s ease,padding-left .2s ease}
+.tra.tra .tra-ul li:last-child{border-bottom:0}
+.tra.tra .tra-ul li:before{content:"";position:absolute;left:0;top:19px;width:10px;height:10px;border-radius:50%;background:var(--red);transition:transform .2s ease}
+.tra.tra .tra-ul li:hover{color:var(--ink);padding-left:32px}
+.tra.tra .tra-ul li:hover:before{transform:scale(1.4)}
+.tra.tra .tra-ne{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:#fff;border:3px solid var(--red);color:var(--red);font-weight:800;font-size:26px;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.tra.tra .tra-cmp .tra-card:hover{transform:none}
+.tra.tra .tra-nt{background:#fff7dd;border:1px solid #ecd98a;border-radius:10px;padding:14px 18px;font-size:15px;color:#4a3f10;margin-top:22px}
+@media(max-width:800px){.tra.tra .tra-cmp{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-ne{display:none}}
+</style>
+<section class="tra tra-aps-05" aria-label="APS English requirements">
+<div class="tra-white"><div class="tra-wrap"><h2 class="tra-h">APS English language requirements for the psychology skills assessment</h2><p class="tra-sub">English proof is part of every APS skilled migration application unless you qualify for an exemption.</p><div class="tra-grid tra-g2"><div class="tra-fr"><span class="n">01</span><h3>IELTS Academic</h3><p>Overall 7, with 7 in listening, reading and speaking and 6.5 in writing.</p></div><div class="tra-fr"><span class="n">02</span><h3>PTE Academic</h3><p>Overall 63, with 58 in listening, 59 in reading, 60 in writing and 76 in speaking.</p></div><div class="tra-fr"><span class="n">03</span><h3>Two-year window</h3><p>Test results must be obtained within two years before you lodge your application.</p></div><div class="tra-fr"><span class="n">04</span><h3>Exemption</h3><p>Applicants who completed all psychology training in English at a tertiary institution in Australia, New Zealand, Ireland, the UK, Canada or the USA.</p></div></div><div class="tra-cmp" style="margin-top:30px"><div class="tra-card"><div class="tra-ch s"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Accepted</div><ul class="tra-ul"><li>IELTS Academic or PTE Academic score reports as colour scans.</li><li>Two sittings within six months, if each meets the overall minimum and the combined scores meet every component.</li><li>IELTS One Skill Retake for APS skilled migration applications.</li></ul></div><div class="tra-card"><div class="tra-ch r"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg>Not accepted</div><ul class="tra-ul"><li>At-home or online tests such as IELTS Online, PTE Academic Online and TOEFL iBT Home Edition.</li><li>OET@Home and the IELTS Indicator.</li><li>Component scores below 6.5 in IELTS, or below 53, 54, 60 and 66 in PTE for two-sitting results.</li></ul></div></div></div></div>
+
+</section>

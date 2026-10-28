@@ -1,0 +1,79 @@
+<style>
+.tra.tra{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-slate{background:var(--slate);color:#fff}
+.tra.tra .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-slate .tra-h{color:#fff}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra a.tra-link:hover{opacity:.75}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra .tra-g3,.tra.tra .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3,.tra.tra .tra-g4,.tra.tra .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-wrap{padding:48px 0}.tra.tra .tra-card{padding:22px 18px}.tra.tra .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-tbs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.tra.tra .tra-tb{border:2px solid var(--red);background:#fff;color:var(--red);font:inherit;font-weight:700;padding:11px 26px;border-radius:10px;cursor:pointer;transition:transform .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
+.tra.tra .tra-tb:hover,.tra.tra .tra-tb.on{background:var(--red);color:#fff;transform:translateY(-2px);box-shadow:0 10px 22px rgba(217,39,46,.28)}
+.tra.tra .tra-tabs.tra-js .tra-tp{display:none}.tra.tra .tra-tabs.tra-js .tra-tp.on{display:block;animation:trf .4s ease}
+@keyframes trf{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tra.tra .tra-lvl{padding:30px 26px 34px}
+.tra.tra .tra-lvl:before{content:"";position:absolute;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--red),var(--slate));transition:width .45s ease}
+.tra.tra .tra-lvl:hover:before{width:100%}
+.tra.tra .tra-lvl:after{content:attr(data-n);position:absolute;right:16px;bottom:-34px;font-size:150px;line-height:1;font-weight:800;color:#eef0f5;transition:color .35s ease,transform .45s ease;pointer-events:none}
+.tra.tra .tra-lvl:hover:after{color:#fbdadc;transform:translateY(-12px) scale(1.06)}
+.tra.tra .tra-lvl h3,.tra.tra .tra-lvl p{position:relative;z-index:1}
+.tra.tra .tra-lvl h3{margin:0 0 10px;font-size:21px}
+.tra.tra .tra-lvl p{max-width:86%}
+.tra.tra .tra-pill{display:inline-block;background:#fdecee;color:var(--red);font-weight:700;font-size:13.5px;border-radius:50px;padding:3px 13px}
+.tra.tra .tra-vt{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px;align-items:start}
+.tra.tra .tra-vt .tra-tbs{flex-direction:column;align-items:stretch;justify-content:flex-start;margin:0;gap:12px}
+.tra.tra .tra-vt .tra-tb{text-align:left;border-radius:12px;padding:16px 18px;border-width:1px}
+.tra.tra .tra-vt .tra-tb:hover,.tra.tra .tra-vt .tra-tb.on{transform:translateX(8px)}
+.tra.tra .tra-panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 14px 34px rgba(30,40,80,.1)}
+.tra.tra .tra-panel h3{font-size:22px;font-weight:700;margin-bottom:10px}
+.tra.tra .tra-panel p{color:var(--muted)}
+.tra.tra .tra-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.tra.tra .tra-chips span{background:#fdecee;color:var(--red);border-radius:50px;padding:6px 14px;font-weight:600;font-size:14px}
+@media(max-width:800px){.tra.tra .tra-vt{grid-template-columns:minmax(0,1fr)}}
+.tra.tra .tra-dim{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-dim:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-dl{display:flex;align-items:center;gap:12px;color:var(--red);font-weight:800;font-size:26px;margin-bottom:12px;transition:color .25s ease}
+.tra.tra .tra-dl i{flex:1;height:2px;background:currentColor;position:relative}
+.tra.tra .tra-dl i:before,.tra.tra .tra-dl i:after{content:"";position:absolute;top:-5px;width:2px;height:12px;background:currentColor}
+.tra.tra .tra-dl i:first-child:before{left:0}.tra.tra .tra-dl i:last-child:after{right:0}
+.tra.tra .tra-dim:hover .tra-dl{color:var(--slate)}
+.tra.tra .tra-dim p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-dim h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.tra.tra .tra-chips2{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tra.tra .tra-chips2 span{background:#fff;border:1px solid var(--line);border-radius:50px;padding:9px 18px;font-weight:600;font-size:15px;transition:transform .2s ease,background-color .2s ease,color .2s ease,border-color .2s ease}
+.tra.tra .tra-chips2 span:hover{background:var(--red);color:#fff;border-color:var(--red);transform:translateY(-3px)}
+.tra.tra .tra-lvl{position:relative;overflow:hidden}
+</style>
+<section class="tra tra-aps-11" aria-label="APS mistakes">
+<div class="tra-white"><div class="tra-wrap"><h2 class="tra-h">Common reasons APS applications stall, and when reassessment applies</h2><p class="tra-sub">Six avoidable mistakes, then the four situations where you can ask for a reassessment.</p><div class="tra-grid tra-g3"><div class="tra-card tra-lvl" data-n="1"><h3>Assuming six years is enough</h3><p>Duration alone does not decide the result. APS reviews content, structure and demonstrated competencies.</p></div><div class="tra-card tra-lvl" data-n="2"><h3>Claiming a code without endorsement</h3><p>Without the matching AHPRA endorsement, APS confirms suitability under Psychologist nec (272399).</p></div><div class="tra-card tra-lvl" data-n="3"><h3>Sending certified copies</h3><p>APS wants colour scans of originals, so certified copies are not what it asks for.</p></div><div class="tra-card tra-lvl" data-n="4"><h3>Using expired English results</h3><p>Test results must be obtained within two years before you lodge.</p></div><div class="tra-card tra-lvl" data-n="5"><h3>Applying before your PhD is conferred</h3><p>A PhD under examination cannot be assessed until the degree is conferred.</p></div><div class="tra-card tra-lvl" data-n="6"><h3>Submitting an incomplete file</h3><p>APS cannot hold an application, so incomplete files are withdrawn and AUD 300 is kept.</p></div></div><h3 style="text-align:center;font-size:21px;font-weight:700;margin:44px 0 18px">You can request a reassessment if</h3><div class="tra-chips2"><span>You gained unconditional general AHPRA registration after your assessment.</span><span>You completed more qualifications within the last 10 years.</span><span>The Department of Home Affairs asked for an updated outcome statement.</span><span>You disagree with the outcome and have new official evidence that was not in your original file.</span></div><p class="tra-small">Reassessment costs AUD 300, non-refundable, and takes about 12 weeks. Include a cover letter explaining how the new evidence addresses the APAC competency that was not shown before.</p></div></div>
+
+</section>

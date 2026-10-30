@@ -1,0 +1,70 @@
+<style>
+.trdls{font-family:inherit;line-height:1.65;font-size:16px;box-sizing:border-box;width:100%;background:transparent}
+.trdls *,.trdls *:before,.trdls *:after{box-sizing:border-box}
+.trdls .trdls-wrap{max-width:none;margin:0;padding:64px 0;background:transparent;text-align:center}
+.trdls .trdls-h{margin:0 0 12px;padding:0;font-family:inherit;font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;letter-spacing:-.2px;text-transform:none;color:#fff!important}
+.trdls .trdls-sub{max-width:720px;margin:0 auto 34px;padding:0;font-family:inherit;font-size:17px;font-weight:400;line-height:1.65;text-transform:none;color:#fff!important}
+.trdls .trdls-fig{position:relative;max-width:560px;margin:0 auto 36px}
+.trdls .trdls-fig>img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #e6e9f1;box-shadow:0 18px 44px rgba(30,40,80,.18);background:#fff}
+.trdls .trdls-lk{position:absolute;left:50%;top:50%;width:clamp(90px,26%,150px);height:auto;aspect-ratio:1/1;transform:translate(-50%,-50%);padding:0!important;margin:0!important;border:0!important;background:none!important;box-shadow:none!important;border-radius:0!important;cursor:pointer;-webkit-appearance:none;appearance:none;line-height:0}
+.trdls .trdls-lk img{display:block;width:100%;height:100%;transform-origin:50% 55%;filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
+.trdls .trdls-lk img.shake{animation:trdlsShake .9s ease-in-out}
+@keyframes trdlsShake{0%,100%{transform:rotate(0)}12%{transform:rotate(13deg)}28%{transform:rotate(-13deg)}44%{transform:rotate(13deg)}60%{transform:rotate(-13deg)}78%{transform:rotate(5deg)}}
+.trdls .trdls-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;overflow:hidden;cursor:pointer;-webkit-appearance:none;appearance:none;margin:0!important;padding:18px 38px!important;border-radius:999px!important;color:#fff!important;font-family:inherit;font-size:18px!important;font-weight:700!important;line-height:1.2!important;text-transform:none!important;letter-spacing:0!important;background:linear-gradient(135deg,#ff5a61 0%,#d9272e 45%,#a5131a 100%)!important;border:1px solid rgba(255,255,255,.35)!important;box-shadow:none!important;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.trdls .trdls-btn:hover,.trdls .trdls-btn:focus{transform:translateY(-6px) scale(1.025);outline:0}
+.trdls .trdls-btn>span,.trdls .trdls-btn>svg{position:relative;z-index:1}
+.trdls .trdls-btn svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.trdls .trdls-shine{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:inherit;pointer-events:none;opacity:0;background:linear-gradient(135deg,transparent 38%,rgba(255,255,255,.18) 44%,rgba(255,255,255,.6) 50%,rgba(255,255,255,.18) 56%,transparent 62%);background-size:300% 300%;background-position:100% 100%;background-repeat:no-repeat}
+.trdls .trdls-btn:hover .trdls-shine,.trdls .trdls-btn:focus .trdls-shine{opacity:1;animation:trdlsSweep 1s cubic-bezier(.4,0,.2,1) 1}
+@keyframes trdlsSweep{from{background-position:100% 100%}to{background-position:0 0}}
+@media(max-width:600px){.trdls .trdls-wrap{padding:48px 0}.trdls .trdls-btn{padding:16px 28px!important;font-size:17px!important}}
+@media(prefers-reduced-motion:reduce){.trdls .trdls-btn:hover .trdls-shine,.trdls .trdls-lk img.shake{animation:none}.trdls .trdls-btn:hover{transform:none}}
+.trdls-modal{position:fixed;top:0;right:0;bottom:0;left:0;z-index:999999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(15,20,40,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+.trdls-modal.open{opacity:1;visibility:visible}
+.trdls-mwrap{position:relative;width:min(440px,100%);transform:translateY(18px) scale(.97);transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.trdls-modal.open .trdls-mwrap{transform:none}
+.trdls-box{position:relative;width:100%;max-height:92vh;overflow:auto;background:#fff;border-radius:18px;padding:10px 10px 22px;box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.trdls-box>[class^="elfsight-app"]{display:block;width:100%;margin:0 auto}
+.trdls-x{position:absolute;z-index:50;top:10px;right:10px;box-sizing:border-box!important;width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;padding:0!important;margin:0!important;border-radius:50%!important;border:0!important;background:#f1f2f6!important;color:#1c2230!important;font-size:22px!important;line-height:1!important;display:flex!important;align-items:center;justify-content:center;cursor:pointer;-webkit-appearance:none;appearance:none;transition:background-color .2s ease,color .2s ease,transform .2s ease}
+.trdls-x:hover{background:#d9272e!important;color:#fff!important;transform:rotate(90deg)}
+</style>
+<section class="trdls" aria-label="Download free sample">
+<div class="trdls-wrap">
+  <h2 class="trdls-h">Download Free Sample</h2>
+  <p class="trdls-sub">Avoid costly nomination delays: Download our free approved sample to benchmark your organizational chart, financial proof, and duty breakdowns.</p>
+  <div class="trdls-fig">
+    <img src="https://cdrwritersaustralia.com/wp-content/uploads/2026/10/Career_Episode_Sample.jpg" alt="Preview of an approved sample career episode" loading="lazy" decoding="async">
+    <button type="button" class="trdls-lk" aria-label="Unlock the free sample"><img src="https://cdrwritersaustralia.com/wp-content/uploads/2026/10/cdrwritersaustraliaLock.png" alt="" width="512" height="512" decoding="async"></button>
+  </div>
+  <button type="button" class="trdls-btn"><i class="trdls-shine"></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg><span>Download Free Sample</span></button>
+
+  <div class="trdls-modal" role="dialog" aria-modal="true" aria-label="Download free sample form" aria-hidden="true">
+    <div class="trdls-mwrap">
+      <div class="trdls-box">
+        <!-- Elfsight Form Builder | Download Free Sample - cdrwritersaustralia -->
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-7f8abc24-b18e-46c6-843b-9cfd3d9a64b7" data-elfsight-app-lazy></div>
+      </div>
+      <button type="button" class="trdls-x" aria-label="Close">&times;</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var sec=document.querySelector(".trdls");if(!sec)return;
+  var modal=sec.querySelector(".trdls-modal");document.body.appendChild(modal);
+  var closeBtn=modal.querySelector(".trdls-x"),last=null,timer;
+  function open(){last=document.activeElement;modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.documentElement.style.overflow="hidden";closeBtn.focus()}
+  function close(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.documentElement.style.overflow="";if(last&&last.focus)last.focus()}
+  var lock=sec.querySelector(".trdls-lk"),img=lock.querySelector("img");
+  function shake(){img.classList.remove("shake");void img.offsetWidth;img.classList.add("shake")}
+  img.addEventListener("animationend",function(){img.classList.remove("shake")});
+  lock.addEventListener("mouseenter",shake);
+  lock.addEventListener("click",function(){shake();clearTimeout(timer);timer=setTimeout(open,550)});
+  sec.querySelector(".trdls-btn").addEventListener("click",open);
+  closeBtn.addEventListener("click",close);
+  modal.addEventListener("click",function(e){if(e.target===modal)close()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&modal.classList.contains("open"))close()});
+})();
+</script>
+</section>

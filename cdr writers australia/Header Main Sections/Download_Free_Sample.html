@@ -1,11 +1,15 @@
 <style>
 .trdls{font-family:inherit;line-height:1.65;font-size:16px;box-sizing:border-box;width:100%;background:transparent}
 .trdls *,.trdls *:before,.trdls *:after{box-sizing:border-box}
-.trdls .trdls-wrap{max-width:none;margin:0;padding:64px 0;background:transparent;text-align:center}
-.trdls .trdls-h{margin:0 0 12px;padding:0;font-family:inherit;font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;letter-spacing:-.2px;text-transform:none;color:#fff!important}
-.trdls .trdls-sub{max-width:720px;margin:0 auto 34px;padding:0;font-family:inherit;font-size:17px;font-weight:400;line-height:1.65;text-transform:none;color:#fff!important}
-.trdls .trdls-fig{position:relative;max-width:560px;margin:0 auto 36px}
-.trdls .trdls-fig>img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #e6e9f1;box-shadow:0 18px 44px rgba(30,40,80,.18);background:#fff}
+.trdls .trdls-wrap{max-width:none;margin:0;padding:64px 0;background:transparent;text-align:left}
+.trdls .trdls-grid{display:grid;grid-template-columns:minmax(0,640px) minmax(0,373px);grid-template-areas:"txt fig" "btn fig";justify-content:center;column-gap:72px;align-content:center;align-items:center}
+.trdls .trdls-txt{grid-area:txt;align-self:end}
+.trdls .trdls-btnbox{grid-area:btn;align-self:start}
+.trdls .trdls-h{margin:0 0 12px;padding:0;font-family:inherit;font-size:clamp(26px,3.4vw,42px);font-weight:700;line-height:1.22;letter-spacing:-.2px;text-transform:none;color:#fff!important}
+.trdls .trdls-sub{max-width:640px;margin:0 0 30px;padding:0;font-family:inherit;font-size:19px;font-weight:400;line-height:1.65;text-transform:none;color:#fff!important}
+.trdls .trdls-fig{grid-area:fig;position:relative;width:100%;max-width:373px;margin:0 auto}
+.trdls .trdls-fig>img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid #e6e9f1;box-shadow:0 18px 44px rgba(30,40,80,.18);background:#fff;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s ease}
+.trdls .trdls-fig:hover>img{transform:scale(1.02);box-shadow:0 26px 56px rgba(30,40,80,.28)}
 .trdls .trdls-lk{position:absolute;left:50%;top:50%;width:clamp(90px,26%,150px);height:auto;aspect-ratio:1/1;transform:translate(-50%,-50%);padding:0!important;margin:0!important;border:0!important;background:none!important;box-shadow:none!important;border-radius:0!important;cursor:pointer;-webkit-appearance:none;appearance:none;line-height:0}
 .trdls .trdls-lk img{display:block;width:100%;height:100%;transform-origin:50% 55%;filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
 .trdls .trdls-lk img.shake{animation:trdlsShake .9s ease-in-out}
@@ -17,8 +21,9 @@
 .trdls .trdls-shine{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:inherit;pointer-events:none;opacity:0;background:linear-gradient(135deg,transparent 38%,rgba(255,255,255,.18) 44%,rgba(255,255,255,.6) 50%,rgba(255,255,255,.18) 56%,transparent 62%);background-size:300% 300%;background-position:100% 100%;background-repeat:no-repeat}
 .trdls .trdls-btn:hover .trdls-shine,.trdls .trdls-btn:focus .trdls-shine{opacity:1;animation:trdlsSweep 1s cubic-bezier(.4,0,.2,1) 1}
 @keyframes trdlsSweep{from{background-position:100% 100%}to{background-position:0 0}}
+@media(max-width:860px){.trdls .trdls-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"txt" "fig" "btn";row-gap:28px}.trdls .trdls-txt,.trdls .trdls-btnbox{align-self:auto}.trdls .trdls-sub{margin-bottom:0}}
 @media(max-width:600px){.trdls .trdls-wrap{padding:48px 0}.trdls .trdls-btn{padding:16px 28px!important;font-size:17px!important}}
-@media(prefers-reduced-motion:reduce){.trdls .trdls-btn:hover .trdls-shine,.trdls .trdls-lk img.shake{animation:none}.trdls .trdls-btn:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.trdls .trdls-btn:hover .trdls-shine,.trdls .trdls-lk img.shake{animation:none}.trdls .trdls-btn:hover,.trdls .trdls-fig:hover>img{transform:none}}
 .trdls-modal{position:fixed;top:0;right:0;bottom:0;left:0;z-index:999999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(15,20,40,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
 .trdls-modal.open{opacity:1;visibility:visible}
 .trdls-mwrap{position:relative;width:min(440px,100%);transform:translateY(18px) scale(.97);transition:transform .3s cubic-bezier(.22,1,.36,1)}
@@ -30,13 +35,17 @@
 </style>
 <section class="trdls" aria-label="Download free sample">
 <div class="trdls-wrap">
+  <div class="trdls-grid">
+  <div class="trdls-txt">
   <h2 class="trdls-h">Download Free Sample</h2>
   <p class="trdls-sub">Avoid costly nomination delays: Download our free approved sample to benchmark your organizational chart, financial proof, and duty breakdowns.</p>
+  </div>
   <div class="trdls-fig">
     <img src="https://cdrwritersaustralia.com/wp-content/uploads/2026/10/Career_Episode_Sample.jpg" alt="Preview of an approved sample career episode" loading="lazy" decoding="async">
     <button type="button" class="trdls-lk" aria-label="Unlock the free sample"><img src="https://cdrwritersaustralia.com/wp-content/uploads/2026/10/cdrwritersaustraliaLock.png" alt="" width="512" height="512" decoding="async"></button>
   </div>
-  <button type="button" class="trdls-btn"><i class="trdls-shine"></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg><span>Download Free Sample</span></button>
+  <div class="trdls-btnbox"><button type="button" class="trdls-btn"><i class="trdls-shine"></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg><span>Download Free Sample</span></button></div>
+  </div>
 
   <div class="trdls-modal" role="dialog" aria-modal="true" aria-label="Download free sample form" aria-hidden="true">
     <div class="trdls-mwrap">

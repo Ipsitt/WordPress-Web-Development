@@ -1,0 +1,55 @@
+<style>.tra.tra{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-slate{background:var(--slate);color:#fff}
+.tra.tra .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-slate .tra-h{color:#fff}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra a.tra-link:hover{opacity:.75}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra .tra-g3,.tra.tra .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3,.tra.tra .tra-g4,.tra.tra .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-wrap{padding:48px 0}.tra.tra .tra-card{padding:22px 18px}.tra.tra .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-ann{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:34px;align-items:start}
+.tra.tra .tra-paper{position:relative;background:#fff;border:1px solid var(--line);border-radius:6px 28px 6px 6px;padding:34px 30px;box-shadow:0 18px 44px rgba(30,40,80,.14)}
+.tra.tra .tra-paper:before{content:"";position:absolute;top:0;right:0;width:34px;height:34px;background:linear-gradient(225deg,var(--page) 50%,#dfe3ee 50%);border-radius:0 0 0 10px}
+.tra.tra .tra-ln{display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:8px;margin-bottom:6px;transition:background-color .25s ease,transform .25s ease}
+.tra.tra .tra-ln i{display:block;height:9px;border-radius:6px;background:#e3e6ef;flex:1}
+.tra.tra .tra-ln span{font-size:13px;font-weight:700;color:var(--muted);min-width:118px}
+.tra.tra .tra-ln.hl{background:#fdecee;transform:translateX(6px)}
+.tra.tra .tra-ln.hl i{background:var(--red)}
+.tra.tra .tra-ln.hl span{color:var(--red)}
+.tra.tra .tra-al li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px;outline:none;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.tra.tra .tra-al li b{display:block;font-size:16px}
+.tra.tra .tra-al li span{color:var(--muted);font-size:15px}
+.tra.tra .tra-al li.hl,.tra.tra .tra-al li:hover{border-color:var(--red);box-shadow:0 10px 24px rgba(217,39,46,.14);transform:translateX(6px)}
+@media(max-width:860px){.tra.tra .tra-ann{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section class="tra tra-aiqs-07" aria-label="AIQS reference letters">
+<div class="tra-white"><div class="tra-wrap"><h2 class="tra-h">Anatomy of an AIQS reference letter</h2><p class="tra-sub">Hover over a point to see where it belongs in the letter.</p><div class="tra-ann"><div class="tra-paper"><div class="tra-ln" data-k="k1"><span>Company letterhead</span><i></i></div><div class="tra-ln" data-k="k2"><span>Date signed</span><i></i></div><div class="tra-ln" data-k="k3"><span>Role</span><i></i></div><div class="tra-ln" data-k="k4"><span>Start</span><i></i></div><div class="tra-ln" data-k="k5"><span>Referrer contact details</span><i></i></div><div class="tra-ln" data-k="k6"><span>Qualifications</span><i></i></div><div class="tra-ln" data-k="k7"><span>Written uniquely</span><i></i></div></div><div><ul class="tra-al"><li data-k="k1"><b>Company letterhead</b><span>Use company letterhead. A supervisor who has moved may use their new letterhead and name the company where you worked together.</span></li><li data-k="k2"><b>Date signed</b><span>Include the date the letter was signed.</span></li><li data-k="k3"><b>Role and main duties</b><span>Describe your role and the main duties you performed.</span></li><li data-k="k4"><b>Start and end dates</b><span>State the exact commencement and end dates of your role.</span></li><li data-k="k5"><b>Referrer contact details</b><span>Give the referrer’s contact details.</span></li><li data-k="k6"><b>Qualifications and postnominals</b><span>The signer’s qualifications, such as BSc QS or MRICS, with colour copies of each.</span></li><li data-k="k7"><b>Written uniquely</b><span>Each letter must be written individually, with nothing copied from other letters.</span></li></ul></div></div><div class="tra-grid tra-g2" style="margin-top:34px"><div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.5-4 3-6 6.5-6s6 2 6.5 6"/><path d="M16 5a3.5 3.5 0 0 1 0 7M18 14c2 .7 3.2 2.5 3.5 6"/></svg><h3>Who can sign</h3><p>A direct supervisor who is a practising quantity surveyor and either holds a Bachelor’s degree in quantity surveying at AQF Level 7 or higher, or is a financial Voting member of AIQS or a recognised body. HR and professional managers do not qualify.</p></div><div class="tra-card"><svg class="tra-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg><h3>What the evidence must show</h3><p>Skills across at least two of the three core competencies and one specialist competency in the AIQS Competency Standards for Quantity Surveyors, Construction Economists and Cost Engineers.</p></div></div></div></div>
+<script>(function(){document.querySelectorAll(".tra-ann").forEach(function(w){var all=w.querySelectorAll("[data-k]");function on(k){all.forEach(function(e){e.classList.toggle("hl",e.getAttribute("data-k")===k)})}w.querySelectorAll(".tra-al li").forEach(function(li){li.tabIndex=0;["mouseenter","focus"].forEach(function(ev){li.addEventListener(ev,function(){on(li.getAttribute("data-k"))})})});on("k1")})})();</script>
+</section>

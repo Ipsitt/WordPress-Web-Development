@@ -1,0 +1,54 @@
+<style>.tra.tra{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-slate{background:var(--slate);color:#fff}
+.tra.tra .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-slate .tra-h{color:#fff}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra a.tra-link:hover{opacity:.75}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra .tra-g3,.tra.tra .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3,.tra.tra .tra-g4,.tra.tra .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-wrap{padding:48px 0}.tra.tra .tra-card{padding:22px 18px}.tra.tra .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-sc{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 4px 22px;scrollbar-width:thin}
+.tra.tra .tra-rt{flex:0 0 min(310px,84%);scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(30,40,80,.08);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.tra.tra .tra-rt:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(30,40,80,.18);border-color:var(--red)}
+.tra.tra .tra-rt .hd{background:var(--slate);color:#fff;padding:18px 22px;font-weight:700;font-size:19px;transition:background-color .25s ease}
+.tra.tra .tra-rt:hover .hd{background:var(--red)}
+.tra.tra .tra-rt .hd small{display:block;font-weight:500;font-size:13.5px;opacity:.85}
+.tra.tra .tra-rt ul{padding:8px 22px 20px}
+.tra.tra .tra-rt li{padding:11px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}
+.tra.tra .tra-rt li:last-child{border:0}
+.tra.tra .tra-rt li b{display:block;color:var(--ink);font-size:13px;text-transform:uppercase;letter-spacing:.6px}
+.tra.tra .tra-scb{display:flex;gap:10px;justify-content:center;margin-top:6px}
+.tra.tra .tra-scb button{width:46px;height:46px;border-radius:50%;border:2px solid var(--red);background:#fff;color:var(--red);font-size:22px;cursor:pointer;transition:background-color .2s ease,color .2s ease,transform .2s ease}
+.tra.tra .tra-scb button:hover{background:var(--red);color:#fff;transform:scale(1.08)}
+</style>
+<section class="tra tra-aiqs-02" aria-label="AIQS routes">
+<div class="tra-white tra-scw"><div class="tra-wrap"><h2 class="tra-h">The five AIQS assessment routes</h2><p class="tra-sub">Your degree and membership decide the route. Scroll through all five before you choose.</p><div class="tra-sc"><div class="tra-rt"><div class="hd">Qualifications Only<small>Degree recognition</small></div><ul><li><b>Qualification</b>AIQS-accredited Australian Bachelor’s or postgraduate degree</li><li><b>Experience</b>Not assessed</li><li><b>Good to know</b>Recognises your degree only. It cannot support a permanent residency application on its own.</li></ul></div><div class="tra-rt"><div class="hd">Pathway 1<small>Accredited Australian degree</small></div><ul><li><b>Qualification</b>AIQS-accredited degree obtained in Australia</li><li><b>Experience</b>At least 1 year full-time, after your degree</li><li><b>Good to know</b>Overseas degrees never qualify here, even if listed in the Accredited Program Guide.</li></ul></div><div class="tra-rt"><div class="hd">Pathway 2<small>Non-accredited Australian degree</small></div><ul><li><b>Qualification</b>Quantity surveying degree from a CRICOS-recognised Australian course</li><li><b>Experience</b>At least 2 years full-time, after your degree</li><li><b>Good to know</b>AIQS does not assess this route with only one year of experience.</li></ul></div><div class="tra-rt"><div class="hd">Pathway 3<small>Overseas-qualified</small></div><ul><li><b>Qualification</b>Approved overseas degree comparable to AQF Level 7 in Quantity Surveying or Construction Management and Economics</li><li><b>Experience</b>At least 2 years full-time, after your degree</li><li><b>Good to know</b>Needs an approved English test unless exempt. One year of experience is not assessed.</li></ul></div><div class="tra-rt"><div class="hd">Pathway 4<small>Voting member</small></div><ul><li><b>Qualification</b>Bachelor’s degree plus current financial Voting membership of AIQS or a recognised body</li><li><b>Experience</b>At least 12 months full-time, after joining</li><li><b>Good to know</b>CPD-compliant members only. You still lodge a full application with all documents.</li></ul></div></div><div class="tra-scb"><button aria-label="Previous routes">&lsaquo;</button><button aria-label="Next routes">&rsaquo;</button></div></div></div>
+<script>(function(){document.querySelectorAll(".tra-scw").forEach(function(w){var s=w.querySelector(".tra-sc"),b=w.querySelectorAll(".tra-scb button");b[0].addEventListener("click",function(){s.scrollBy({left:-330,behavior:"smooth"})});b[1].addEventListener("click",function(){s.scrollBy({left:330,behavior:"smooth"})})})})();</script>
+</section>

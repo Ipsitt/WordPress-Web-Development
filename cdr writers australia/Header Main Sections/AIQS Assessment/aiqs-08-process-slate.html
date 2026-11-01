@@ -1,0 +1,53 @@
+<style>.tra.tra{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-slate{background:var(--slate);color:#fff}
+.tra.tra .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-slate .tra-h{color:#fff}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra a.tra-link:hover{opacity:.75}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra .tra-g3,.tra.tra .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3,.tra.tra .tra-g4,.tra.tra .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-wrap{padding:48px 0}.tra.tra .tra-card{padding:22px 18px}.tra.tra .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-zz{position:relative;max-width:940px;margin:0 auto}
+.tra.tra .tra-zz:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;margin-left:-1px;background:rgba(255,255,255,.28)}
+.tra.tra .tra-zi{position:relative;width:50%;padding:0 38px 24px 0;text-align:right}
+.tra.tra .tra-zi:nth-child(even){margin-left:50%;padding:0 0 24px 38px;text-align:left}
+.tra.tra .tra-zc{display:inline-block;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:18px 20px;transition:transform .25s ease,background-color .25s ease,border-color .25s ease}
+.tra.tra .tra-zc:hover{transform:translateY(-5px);background:rgba(255,255,255,.17);border-color:rgba(255,255,255,.5)}
+.tra.tra .tra-zc h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.tra.tra .tra-zc p{font-size:15px;color:#e6e9f6}
+.tra.tra .tra-nd{position:absolute;top:10px;right:-21px;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.3);animation:trNd 14s ease-in-out infinite;animation-delay:calc(var(--i)*2s)}
+.tra.tra .tra-zi:nth-child(even) .tra-nd{right:auto;left:-21px}
+@keyframes trNd{0%,16%,100%{box-shadow:0 4px 12px rgba(0,0,0,.3);transform:scale(1)}6%{box-shadow:0 0 0 10px rgba(217,39,46,.35),0 0 24px var(--red);transform:scale(1.18)}}
+@media(max-width:700px){.tra.tra .tra-zz:before{left:20px}.tra.tra .tra-zi,.tra.tra .tra-zi:nth-child(even){width:100%;margin-left:0;padding:0 0 20px 62px;text-align:left}.tra.tra .tra-nd,.tra.tra .tra-zi:nth-child(even) .tra-nd{left:0;right:auto}}
+@media(prefers-reduced-motion:reduce){.tra.tra .tra-nd{animation:none!important}}
+</style>
+<section class="tra tra-aiqs-08" aria-label="AIQS process">
+<div class="tra-slate"><div class="tra-wrap"><h2 class="tra-h">The AIQS application process, step by step</h2><p class="tra-sub">Seven steps from checking your visa to receiving your outcome letter.</p><div class="tra-zz"><div class="tra-zi" style="--i:0"><span class="tra-nd">1</span><div class="tra-zc"><h3>Check your visa needs</h3><p>Confirm with Home Affairs that your visa requires an AIQS assessment. AIQS cannot give visa advice.</p></div></div><div class="tra-zi" style="--i:1"><span class="tra-nd">2</span><div class="tra-zc"><h3>Choose your route</h3><p>Match your degree and membership to Qualifications Only or Pathways 1 to 4.</p></div></div><div class="tra-zi" style="--i:2"><span class="tra-nd">3</span><div class="tra-zc"><h3>Gather certified copies</h3><p>Prepare colour PDFs, certified within the last 12 months.</p></div></div><div class="tra-zi" style="--i:3"><span class="tra-nd">4</span><div class="tra-zc"><h3>Apply and pay</h3><p>Complete the application form and pay the fee in Australian dollars.</p></div></div><div class="tra-zi" style="--i:4"><span class="tra-nd">5</span><div class="tra-zc"><h3>Documentation review</h3><p>AIQS checks compliance first, which can take up to three months. Deficiencies are emailed to you.</p></div></div><div class="tra-zi" style="--i:5"><span class="tra-nd">6</span><div class="tra-zc"><h3>Assessment</h3><p>Your file goes to assessors, who aim to finish within two months of receiving it.</p></div></div><div class="tra-zi" style="--i:6"><span class="tra-nd">7</span><div class="tra-zc"><h3>Outcome letter</h3><p>You receive a suitable or not suitable result. There is no partial outcome.</p></div></div></div></div></div>
+</section>

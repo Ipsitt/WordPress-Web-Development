@@ -1,0 +1,46 @@
+<style>.tra.tra{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra *,.tra.tra *:before,.tra.tra *:after{box-sizing:border-box}
+.tra.tra :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra p+p{margin-top:12px}
+.tra.tra .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra a{text-decoration:none}
+.tra.tra .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra .tra-white{background:var(--page)}
+.tra.tra .tra-slate{background:var(--slate);color:#fff}
+.tra.tra .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra .tra-slate .tra-h{color:#fff}
+.tra.tra .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra .tra-grid{display:grid;gap:22px}
+.tra.tra .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra a.tra-link:hover{opacity:.75}
+.tra.tra .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra .tra-g3,.tra.tra .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra .tra-g3,.tra.tra .tra-g4,.tra.tra .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra .tra-wrap{padding:48px 0}.tra.tra .tra-card{padding:22px 18px}.tra.tra .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra *{transition:none!important}.tra.tra *:hover{transform:none!important}}
+.tra.tra .tra-fd{position:relative;background:#fff;border:1px solid var(--line);border-radius:0 14px 14px 14px;padding:26px 24px 22px;margin-top:34px;box-shadow:0 10px 26px rgba(30,40,80,.07);height:calc(100% - 34px);transition:transform .25s ease,box-shadow .25s ease}
+.tra.tra .tra-fd:before{content:attr(data-t);position:absolute;top:-31px;left:-1px;background:var(--slate);color:#fff;padding:6px 18px;font-size:13px;font-weight:700;border-radius:10px 10px 0 0;transition:background-color .25s ease}
+.tra.tra .tra-fd:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(30,40,80,.16)}
+.tra.tra .tra-fd:hover:before{background:var(--red)}
+.tra.tra .tra-fd h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.tra.tra .tra-fd p{color:var(--muted);font-size:15.5px}
+</style>
+<section class="tra tra-aiqs-05" aria-label="AIQS document standards">
+<div class="tra-white"><div class="tra-wrap"><h2 class="tra-h">Document standards AIQS checks before assessing</h2><p class="tra-sub">Many applications stall on formatting, not on the facts.</p><div class="tra-grid tra-g3"><div class="tra-fd" data-t="Certified"><h3>Certified colour copies</h3><p>An authorised person, such as a Justice of the Peace, legal practitioner or police officer, certifies each page. Certification must be dated within 12 months of submission, and every file is uploaded as a PDF.</p></div><div class="tra-fd" data-t="Translated"><h3>Non-English documents</h3><p>Provide certified colour copies of both the original and an English translation by a NAATI-authorised translator.</p></div><div class="tra-fd" data-t="Transcripts"><h3>Course content is checked</h3><p>Transcripts must be on university letterhead and show subjects, semester, course and grade for every year, including any prior learning. Australian transcripts and testamurs must be certified online through My eQuals.</p></div><div class="tra-fd" data-t="Photo"><h3>Passport-size photo</h3><p>A clear colour photo taken within the last four weeks, with a signed declaration that it is a true likeness and the date.</p></div><div class="tra-fd" data-t="Identity"><h3>Passport plus two more</h3><p>A certified colour bio page, plus at least two of: birth certificate, Australian visa or ImmiCard, another official photo ID, or an ID card.</p></div><div class="tra-fd" data-t="No originals"><h3>Keep your originals</h3><p>AIQS cannot return originals, so send copies only.</p></div></div></div></div>
+</section>

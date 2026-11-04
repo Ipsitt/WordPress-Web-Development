@@ -1,0 +1,642 @@
+<style>
+.tra.tra.tra-ka-01{--red:#d9272e;--slate:#2f3347;--ink:#1c2230;--muted:#5b6475;--page:#f5f5f3;--line:#e6e9f1;font-family:inherit;color:var(--ink);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
+.tra.tra.tra-ka-01 *,.tra.tra.tra-ka-01 *:before,.tra.tra.tra-ka-01 *:after{box-sizing:border-box}
+.tra.tra.tra-ka-01 :where(h2,h3,h4,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.tra.tra.tra-ka-01 :where(h2,h3,h4,p,li){color:inherit;font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;font-size:inherit;font-weight:inherit;line-height:inherit}
+.tra.tra.tra-ka-01 p+p{margin-top:12px}
+.tra.tra.tra-ka-01 .tra-h+p:not(.tra-sub){margin-top:4px}
+.tra.tra.tra-ka-01 a{text-decoration:none}
+.tra.tra.tra-ka-01 .tra-wrap{max-width:none;margin:0;padding:64px 0}
+.tra.tra.tra-ka-01 .tra-white{background:var(--page)}
+.tra.tra.tra-ka-01 .tra-slate{background:var(--slate);color:#fff}
+.tra.tra.tra-ka-01 .tra-slate .tra-wrap{padding-left:28px;padding-right:28px}
+.tra.tra.tra-ka-01 .tra-h{font-size:clamp(25px,3.1vw,36px);font-weight:700;line-height:1.22;text-align:center;margin-bottom:12px;letter-spacing:-.2px}
+.tra.tra.tra-ka-01 .tra-slate .tra-h{color:#fff}
+.tra.tra.tra-ka-01 .tra-sub{text-align:center;color:var(--muted);max-width:none;margin:0 0 38px;font-size:17px}
+.tra.tra.tra-ka-01 .tra-slate .tra-sub{color:#e3e6f2}
+.tra.tra.tra-ka-01 .tra-grid{display:grid;gap:22px}
+.tra.tra.tra-ka-01 .tra-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tra.tra.tra-ka-01 .tra-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tra.tra.tra-ka-01 .tra-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tra.tra.tra-ka-01 .tra-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 26px;box-shadow:0 10px 30px rgba(30,40,80,.07);height:100%;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tra.tra.tra-ka-01 .tra-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,40,80,.16);border-color:var(--red)}
+.tra.tra.tra-ka-01 .tra-card h3{font-size:19px;font-weight:700;line-height:1.3;margin:14px 0 8px}
+.tra.tra.tra-ka-01 .tra-card p{color:var(--muted);font-size:15.5px}
+.tra.tra.tra-ka-01 .tra-ico{width:46px;height:46px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block;transition:transform .3s ease}
+.tra.tra.tra-ka-01 .tra-card:hover .tra-ico{transform:scale(1.14) rotate(-7deg)}
+.tra.tra.tra-ka-01 a.tra-link{color:var(--red);font-weight:600;text-decoration:underline;transition:opacity .2s ease}
+.tra.tra.tra-ka-01 a.tra-link:hover{opacity:.75}
+.tra.tra.tra-ka-01 .tra-small{font-size:14px;color:var(--muted);text-align:center;margin-top:18px}
+.tra.tra.tra-ka-01 .tra-slate .tra-small{color:#dfe3f3}
+.tra.tra.tra-ka-01 a.tra-btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;margin:6px;border:2px solid var(--red);transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease,color .22s ease}
+.tra.tra.tra-ka-01 a.tra-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(217,39,46,.35);background:#b81f25;border-color:#b81f25}
+.tra.tra.tra-ka-01 a.tra-btn.o{background:transparent;border-color:#fff}
+.tra.tra.tra-ka-01 a.tra-btn.o:hover{background:#fff;color:var(--red);border-color:#fff}
+@media(max-width:900px){.tra.tra.tra-ka-01 .tra-g3,.tra.tra.tra-ka-01 .tra-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.tra.tra.tra-ka-01 .tra-g3,.tra.tra.tra-ka-01 .tra-g4,.tra.tra.tra-ka-01 .tra-g2{grid-template-columns:minmax(0,1fr)}.tra.tra.tra-ka-01 .tra-wrap{padding:48px 0}.tra.tra.tra-ka-01 .tra-card{padding:22px 18px}.tra.tra.tra-ka-01 .tra-slate .tra-wrap{padding-left:16px;padding-right:16px}}
+@media(prefers-reduced-motion:reduce){.tra.tra.tra-ka-01 *{transition:none!important}.tra.tra.tra-ka-01 *:hover{transform:none!important}}
+.tra.tra.tra-ka-01 .tra-gc{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.tra.tra.tra-ka-01 .tra-stat{background:#fff;border-radius:14px;padding:24px 20px;text-align:center;border:1px solid var(--line);box-shadow:0 10px 30px rgba(30,40,80,.07)}
+.tra.tra.tra-ka-01 .tra-stat b{display:block;font-size:clamp(26px,3.4vw,36px);font-weight:800;color:var(--red);line-height:1.1}
+.tra.tra.tra-ka-01 .tra-stat span{display:block;margin-top:8px;color:var(--muted);font-size:14.5px}
+.tra.tra.tra-ka-01 .tra-slate .tra-stat{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);box-shadow:none}
+.tra.tra.tra-ka-01 .tra-slate .tra-stat b{color:#fff}
+.tra.tra.tra-ka-01 .tra-slate .tra-stat span{color:#dfe3f3}
+.tra.tra.tra-ka-01 .tra-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;counter-reset:s}
+.tra.tra.tra-ka-01 .tra-step{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:26px 20px;position:relative}
+.tra.tra.tra-ka-01 .tra-step:before{counter-increment:s;content:counter(s);display:flex;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;font-size:18px;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.tra.tra.tra-ka-01 .tra-step h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.tra.tra.tra-ka-01 .tra-step p{font-size:15px;color:#e6e9f6}
+.tra.tra.tra-ka-01 .tra-glass{position:relative;transform-style:preserve-3d;transform:perspective(900px) rotateX(0) rotateY(0);transition:transform .45s cubic-bezier(.2,.8,.2,1),background-color .35s ease,border-color .35s ease,box-shadow .45s ease;will-change:transform}
+.tra.tra.tra-ka-01 .tra-glass.tra-glass:hover{z-index:3;transition:transform .12s ease-out,background-color .35s ease,border-color .35s ease,box-shadow .45s ease;transform:perspective(900px) rotateX(var(--rx,6deg)) rotateY(var(--ry,-8deg)) translateY(-8px) scale(1.04);background:rgba(255,255,255,.17);border-color:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(12px) saturate(1.6);backdrop-filter:blur(12px) saturate(1.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),var(--sx,-14px) var(--sy,24px) 40px rgba(10,14,40,.45)}
+.tra.tra.tra-ka-01 .tra-glass>*{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.tra.tra.tra-ka-01 .tra-glass:hover>h3,.tra.tra.tra-ka-01 .tra-glass:hover>b{transform:translateZ(34px)}
+.tra.tra.tra-ka-01 .tra-glass:hover>p,.tra.tra.tra-ka-01 .tra-glass:hover>span{transform:translateZ(20px)}
+.tra.tra.tra-ka-01 .tra-sheen{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:inherit;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .3s ease;background:radial-gradient(circle at var(--mx,30%) var(--my,20%),rgba(255,255,255,.16) 0,rgba(255,255,255,.05) 35%,rgba(255,255,255,0) 60%)}
+.tra.tra.tra-ka-01 .tra-glass:hover>.tra-sheen{opacity:1}
+@media(prefers-reduced-motion:reduce){.tra.tra.tra-ka-01 .tra-glass.tra-glass:hover{transform:none!important}.tra.tra.tra-ka-01 .tra-glass:hover>*{transform:none!important}.tra.tra.tra-ka-01 .tra-sheen{display:none}}
+
+/* OVERRIDDEN WPBakery-Safe Grid Background Rule */
+body .vc_row .tra.tra.tra-ka-01 .tra-bcard,
+.tra.tra.tra-ka-01 .tra-bcard {
+    border-radius: 24px !important;
+    padding: 48px 44px !important;
+    background-color: var(--slate) !important;
+    background-image: linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px) !important;
+    background-size: 34px 34px !important;
+    box-shadow: 0 24px 54px rgba(30,40,80,.28) !important;
+}
+
+@media(max-width:600px){
+    body .vc_row .tra.tra.tra-ka-01 .tra-bcard,
+    .tra.tra.tra-ka-01 .tra-bcard {
+        padding: 30px 18px !important;
+        border-radius: 18px !important;
+    }
+}
+
+.tra.tra.tra-ka-01 .tra-w2{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;margin-bottom:36px}
+.tra.tra.tra-ka-01 .tra-w2 .tra-h{text-align:left}
+.tra.tra.tra-ka-01 .tra-w2 p{color:#e6e9f6;font-size:17px}
+.tra.tra.tra-ka-01 .tra-draw{width:100%;max-width:420px;margin:0 auto;display:block}
+.tra.tra.tra-ka-01 .tra-draw path{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:trDrawA01 10s ease-in-out infinite}
+.tra.tra.tra-ka-01 .tra-draw .a{stroke:var(--red);stroke-width:3.5}
+.tra.tra.tra-ka-01 .tra-draw .d2{animation-delay:.4s}.tra.tra.tra-ka-01 .tra-draw .d3{animation-delay:.8s}.tra.tra.tra-ka-01 .tra-draw .d4{animation-delay:1.2s}.tra.tra.tra-ka-01 .tra-draw .d5{animation-delay:1.5s}.tra.tra.tra-ka-01 .tra-draw .d6{animation-delay:1.9s}
+@keyframes trDrawA01{0%{stroke-dashoffset:1}35%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
+@media(max-width:900px){.tra.tra.tra-ka-01 .tra-w2{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.tra.tra.tra-ka-01 .tra-draw path{animation:none!important;stroke-dashoffset:0}}
+.tra.tra.tra-ka-01 .tra-gc{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.tra.tra.tra-ka-01 .tra-gc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.tra.tra.tra-ka-01 .tra-gc{grid-template-columns:minmax(0,1fr)}}
+.tra.tra.tra-ka-01 .tra-sky{width:auto;height:430px;max-width:100%;display:block;margin:0 auto;overflow:visible}
+.tra.tra.tra-ka-01 .tra-sky path,.tra.tra.tra-ka-01 .tra-sky ellipse{fill:none;stroke-dasharray:1;stroke-dashoffset:1;animation:skyDrawA01 9s ease-in-out infinite;animation-delay:var(--d,0s)}
+.tra.tra.tra-ka-01 .tra-sky .sg{animation-delay:var(--d,0s)}
+.tra.tra.tra-ka-01 .tra-sky g.sg path,.tra.tra.tra-ka-01 .tra-sky g.sg ellipse{animation-delay:inherit}
+.tra.tra.tra-ka-01 .tra-sky .bk{fill:var(--red);stroke:none;animation:skyBeaconA01 2.2s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
+.tra.tra.tra-ka-01 .tra-sky:hover path,.tra.tra.tra-ka-01 .tra-sky:hover ellipse{filter:drop-shadow(0 0 3px rgba(255,255,255,.6))}
+@keyframes skyDrawA01{0%{stroke-dashoffset:1}38%,86%{stroke-dashoffset:0}100%{stroke-dashoffset:-1}}
+@keyframes skyBeaconA01{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:1;transform:scale(1.9)}}
+@media(max-width:900px){.tra.tra.tra-ka-01 .tra-sky{height:360px}}
+@media(prefers-reduced-motion:reduce){.tra.tra.tra-ka-01 .tra-sky path,.tra.tra.tra-ka-01 .tra-sky ellipse{animation:none!important;stroke-dashoffset:0}.tra.tra.tra-ka-01 .tra-sky .bk{animation:none}}
+</style>
+<section class="tra tra-ka-01" aria-label="KA02 overview">
+<div class="tra-white"><div class="tra-wrap"><div class="tra-slate tra-bcard"><div class="tra-w2"><div><h2 class="tra-h">KA02 Report Writing</h2><p>Knowledge Assessment (KA02) is a report prepared by the candidates willing to migrate to New Zealand. Engineering New Zealand, formerly called IPENZ, runs a knowledge assessment for engineers whose qualification is not recognised under the Washington Accord. Applicants and agents often call it the KA02, the KA02 report or the IPENZ KA02. It is not an Engineers Australia document, and it is not a CDR.</p><p>Whether you are looking for a KA02 report sample, KA02 report template, or KA02 report example, the goal is always the same: finding a clear way to organize your engineering work so an assessor can easily evaluate your knowledge. Engineering NZ publishes its own guidance and checklist, so the safest approach is to learn the structure and then write about your own projects.</p></div><svg class="tra-sky" viewBox="290 15 440 980" aria-hidden="true" focusable="false">
+
+  
+
+  <defs>
+    <!-- Keeps the tower and buildings behind the foliage. -->
+    <clipPath id="kaSkyClip" clipPathUnits="userSpaceOnUse">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="
+        M0 0 H1024 V1024 H0 Z
+
+        M302 977
+        C298 971 301 961 308 959
+        C311 958 314 959 316 960
+        C310 954 311 947 316 944
+        C312 939 313 932 318 929
+        C323 925 331 928 335 932
+        C334 923 339 915 347 915
+        C355 913 362 918 364 925
+        C369 919 377 920 381 926
+        C385 920 393 920 398 925
+        C402 929 403 933 403 937
+        C408 929 415 927 422 929
+        C425 920 432 916 439 918
+        C447 920 450 927 448 934
+        C454 930 460 933 460 940
+        C464 941 466 946 465 950
+        C470 947 477 949 480 954
+        C485 952 491 956 492 962
+        C499 959 505 961 507 967
+        C514 963 522 964 527 968
+        C528 962 534 958 540 959
+        C544 953 552 952 557 956
+        C559 950 565 947 571 950
+        C568 943 570 937 576 934
+        C571 929 570 922 575 917
+        C573 910 577 902 584 900
+        C590 896 597 900 599 906
+        C606 903 614 908 615 915
+        C621 911 628 912 632 917
+        C637 912 645 914 648 920
+        C654 916 662 918 665 924
+        C672 921 678 925 679 931
+        C685 928 692 932 692 938
+        C700 937 706 942 705 949
+        C713 948 718 954 715 961
+        C722 964 722 972 718 977
+        C632 986 390 989 303 978 Z"/>
+    </clipPath>
+  </defs>
+
+  <g fill="none"
+     stroke="#ffffff"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <g clip-path="url(#kaSkyClip)">
+
+      <!-- Skyline -->
+      <g class="sg" style="--d:0.25s" stroke-width="2">
+        <path pathLength="1" d="
+          M333 946 V887 H343 V881 H356 V887 H365 V946
+          M365 946 V833 H372 V828 H378 V824
+          H391 V828 H397 V833 H402 V946
+          M402 946 V886 H423 V946
+          M418 886 V863 H423 V858 H439 V863
+          H446 V881 H454 V946
+
+          M565 946 V881 H575 V871 H589 V946
+          M589 946 V839 H616 V946
+          M616 946 V818 L633 805 L652 818 V874
+          M633 805 V784
+          M640 946 V874 H666 V880 H675 V946"/>
+      </g>
+
+      <g class="sg" style="--d:0.50s" stroke-width="1.3">
+        <!-- Left buildings -->
+        <path pathLength="1" d="
+          M337 894 H360 M337 903 H360
+          M337 912 H360 M337 921 H360
+
+          M369 841 H398 M369 851 H398
+          M369 861 H398 M369 871 H398
+          M369 881 H398 M369 891 H398
+          M369 901 H398 M369 911 H398
+          M369 921 H398 M369 931 H398
+
+          M405 894 H420 M405 904 H420
+          M405 914 H420 M405 924 H420
+          M439 864 V927 M446 883 V927"/>
+
+        <!-- Right buildings -->
+        <path pathLength="1" d="
+          M569 886 H585 M569 895 H585
+          M569 904 H585 M569 913 H585
+          M569 922 H585
+
+          M594 845 H612 M594 854 H612
+          M594 863 H612 M594 872 H612
+          M594 881 H612 M594 890 H612
+          M594 899 H612 M594 908 H612
+          M594 917 H612
+
+          M621 818 H648
+          M622 822 V930 M630 822 V930
+          M638 822 V874 M645 822 V874
+
+          M644 882 H662 M644 891 H662
+          M644 900 H662 M644 909 H662
+          M644 918 H662 M644 927 H662
+          M667 882 V934"/>
+      </g>
+
+      <!-- Antenna -->
+      <g class="sg" style="--d:0.75s" stroke-width="3">
+        <path pathLength="1" d="
+          M508.5 64 L509.7 29
+          C509.8 25 512.2 25 512.3 29
+          L513.5 64"/>
+
+        <ellipse pathLength="1" cx="511" cy="66.5" rx="5.3" ry="2.8"/>
+
+        <path pathLength="1" d="
+          M507.9 69.3 L506.7 100
+          M514.1 69.3 L515.3 100
+
+          M503 101
+          C506 99 516 99 519 101
+          C522 102.5 521 105 518.5 106.2
+          C515 107.5 507 107.5 503.5 106.2
+          C501 105 500 102.5 503 101 Z
+
+          M505 107 L504 140
+          M517 107 L518 140
+
+          M501 141
+          C505 139 517 139 521 141
+          C524 142.5 523 145.5 520 147
+          C515 145 507 145 502 147
+          C499 145.5 498 142.5 501 141 Z
+
+          M503 147 L500 227
+          M519 147 L522 227
+
+          M495 228
+          C499 226.3 505 225.5 511 225.5
+          C517 225.5 523 226.3 527 228
+          C532 229.5 533 233 528 235
+          C523 233.5 499 233.5 494 235
+          C489 233 490 229.5 495 228 Z
+
+          M496 235 L490.5 264
+          M526 235 L531.5 264"/>
+      </g>
+
+      <g class="sg" style="--d:1.00s" stroke-width="1.25">
+        <path pathLength="1" d="
+          M511 34 V62
+          M505.5 117 H516.5
+          M505 128 H517
+          M502.6 158 H519.4
+          M502.2 174 H519.8
+          M501.7 190 H520.3
+          M501.2 206 H520.8
+          M500.7 221 H521.3
+          M506 148 L504 226
+          M516 148 L518 226
+          M502 238 L498 263
+          M520 238 L524 263"/>
+      </g>
+
+      <!-- Upper crown -->
+      <g class="sg" style="--d:1.25s" stroke-width="3">
+        <path pathLength="1" d="
+          M477 268.5
+          C482 264.5 495 263 511 263
+          C527 263 540 264.5 545 268.5
+          C551 271.5 548 275.5 542 278
+          C526 274.5 496 274.5 480 278
+          C474 275.5 471 271.5 477 268.5 Z
+
+          M481 278 L482 289
+          M541 278 L540 289
+          M482 289 Q511 283 540 289
+
+          M484 289 L478 325
+          M538 289 L544 325
+
+          M462 330 Q511 317 560 330
+          L558 335 Q511 327 464 335 Z
+
+          M444 341 Q511 324 578 341
+          L574 347 Q511 332 448 347 Z"/>
+      </g>
+
+      <g class="sg" style="--d:1.50s" stroke-width="1.35">
+        <path pathLength="1" d="
+          M479 270
+          C489 267 500 266.5 511 266.5
+          C522 266.5 533 267 543 270
+
+          M482 284 Q511 278 540 284
+          M482 300 Q511 295 540 300
+          M480 311 Q511 306 542 311
+          M493 290 L489 325
+          M529 290 L533 325"/>
+      </g>
+
+      <!-- Observation deck -->
+      <g class="sg" style="--d:1.75s" stroke-width="3">
+        <path pathLength="1" d="
+          M443 348
+          C462 342 486 339 511 339
+          C536 339 560 342 579 348
+          C586 350 589 353 587 357
+          C586 359 584 361 581 362
+          C561 355 537 352 511 352
+          C485 352 461 355 441 362
+          C438 361 436 359 436 357
+          C435 353 437 350 443 348 Z
+
+          M441 362 L448 383
+          M581 362 L574 383
+
+          M448 383
+          C466 376 488 373 511 373
+          C534 373 556 376 574 383
+          C580 385 580 390 576 393
+          C557 387 534 384 511 384
+          C488 384 465 387 446 393
+          C442 390 442 385 448 383 Z
+
+          M446 393 C447 400 456 404 468 406
+          M576 393 C575 400 566 404 554 406"/>
+      </g>
+
+      <g class="sg" style="--d:2.00s" stroke-width="1.5">
+        <path pathLength="1" d="
+          M440 355
+          C462 347 487 344 511 344
+          C535 344 560 347 582 355
+
+          M451 359 L455 380
+          M463 357 L466.5 377
+          M475 355 L477.5 375.5
+          M487 353.5 L488.5 374.5
+          M499 352.4 L500 373.4
+          M511 352 V373
+          M523 352.4 L522 373.4
+          M535 353.5 L533.5 374.5
+          M547 355 L544.5 375.5
+          M559 357 L555.5 377
+          M571 359 L567 380
+
+          M446 389
+          C466 382 488 379 511 379
+          C534 379 556 382 576 389"/>
+      </g>
+
+      <!-- Tower head -->
+      <g class="sg" style="--d:2.25s" stroke-width="3">
+        <path pathLength="1" d="
+          M468 400
+          C482 396 497 394 511 394
+          C525 394 540 396 554 400
+          L546 488
+          C546 492 543 495 539 495
+          H483
+          C479 495 477 492 477 488 Z
+
+          M472 422 Q511 415 552 422
+          L549 454 Q511 448 475 454 Z
+
+          M476 478 Q511 473 547 478
+          M477 487 Q511 481 546 487"/>
+      </g>
+
+      <!-- Upper windows -->
+      <g class="sg" style="--d:2.50s" stroke-width="1.6">
+        <path pathLength="1" d="
+          M474 401 L483 399 L484 410 L475 412 Z
+          M488 398 L498 397 L499 408 L489 410 Z
+          M503 396 H512 V408 H503 Z
+          M517 396 L527 397 L526 409 L517 408 Z
+          M532 398 L541 400 L540 411 L531 409 Z
+          M545 401 L551 403 L550 413 L544 412 Z
+
+          M471 415 Q511 407 551 415
+
+          M481 421 L483 452
+          M492 419.5 L493 450.5
+          M503 419 L504 449.8
+          M515 418.7 L515 449.8
+          M526 419.5 L525.5 450.5
+          M537 420.5 L535.5 451.5
+          M547 422 L545 453"/>
+      </g>
+
+      <!-- Neck and shaft -->
+      <g class="sg" style="--d:2.75s" stroke-width="3">
+        <path pathLength="1" d="
+          M481 495 C484 510 487 526 488 543
+          M541 495 C538 510 535 526 534 543
+          M488 543 H534
+
+          M488 543
+          C488 605 487 680 486 744
+          C485 817 475 885 455 945
+
+          M534 543
+          C534 605 535 680 536 744
+          C537 817 547 885 567 945"/>
+      </g>
+
+      <g class="sg" style="--d:3.00s" stroke-width="1.8">
+        <path pathLength="1" d="
+          M490 495 L496 542
+          M502 495 V542
+          M520 495 V542
+          M532 495 L526 542
+
+          M497 510 H501 V534 H497 Z
+          M521 510 H525 V534 H521 Z"/>
+      </g>
+
+      <!-- Shaft windows -->
+      <g class="sg" style="--d:3.25s" stroke-width="1.4">
+        <path pathLength="1" d="
+          M496 554 H500 V582 H496 Z
+          M496 596 H500 V623 H496 Z
+          M496 638 H500 V666 H496 Z
+          M496 680 H500 V707 H496 Z
+          M496 723 H500 V752 H496 Z
+          M496 765 H500 V795 H496 Z"/>
+      </g>
+
+      <!-- Concrete panel joints -->
+      <g class="sg" style="--d:3.50s" stroke-width="1.1">
+        <path pathLength="1" d="
+          M511 544 V812
+
+          M488 565 H496 M500 565 H534
+          M488 589 H534
+          M488 613 H496 M500 613 H534
+          M488 638 H496 M500 638 H534
+          M488 664 H496 M500 664 H534
+          M487 689 H496 M500 689 H535
+          M487 714 H535
+          M487 739 H496 M500 739 H535
+          M486 763 H536
+          M484 788 H496 M500 788 H538
+          M482 812 H540"/>
+      </g>
+
+      <!-- Flared base and structural ribs -->
+      <g class="sg" style="--d:3.75s" stroke-width="2.5">
+        <path pathLength="1" d="
+          M483 814 C480 855 475 904 468 943
+          M500 814 L493 943
+          M522 814 L529 943
+          M539 814 C542 855 547 904 554 943
+
+          M477 893 L492 893 L489 942 L469 945 Z
+          M502 893 H520 L523 942 H499 Z
+          M530 893 H545 L553 945 L533 942 Z"/>
+      </g>
+
+      <g class="sg" style="--d:4.00s" stroke-width="1.3">
+        <path pathLength="1" d="
+          M511 813 V889
+          M476 889 Q511 885 546 889"/>
+      </g>
+
+      <!-- Footing -->
+      <g class="sg" style="--d:4.25s" stroke-width="3">
+        <path pathLength="1" d="
+          M455 945 Q511 939 567 945
+          L567 953 Q511 947 455 953 Z
+
+          M461 953 V966
+          Q511 960 561 966
+          V953
+
+          M477 952 V965
+          M499 950 V963
+          M524 950 V963
+          M546 952 V965"/>
+      </g>
+
+      <path pathLength="1" class="sg" style="--d:5.2s" stroke-width="1.3"
+            d="M456 949 Q511 943 566 949"/>
+
+    </g>
+
+    <!-- Foliage silhouette -->
+    <path pathLength="1" class="sg fo" style="--d:5.6s" stroke-width="3" d="
+      M302 977
+      C298 971 301 961 308 959
+      C311 958 314 959 316 960
+      C310 954 311 947 316 944
+      C312 939 313 932 318 929
+      C323 925 331 928 335 932
+      C334 923 339 915 347 915
+      C355 913 362 918 364 925
+      C369 919 377 920 381 926
+      C385 920 393 920 398 925
+      C402 929 403 933 403 937
+      C408 929 415 927 422 929
+      C425 920 432 916 439 918
+      C447 920 450 927 448 934
+      C454 930 460 933 460 940
+      C464 941 466 946 465 950
+      C470 947 477 949 480 954
+      C485 952 491 956 492 962
+      C499 959 505 961 507 967
+      C514 963 522 964 527 968
+      C528 962 534 958 540 959
+      C544 953 552 952 557 956
+      C559 950 565 947 571 950
+      C568 943 570 937 576 934
+      C571 929 570 922 575 917
+      C573 910 577 902 584 900
+      C590 896 597 900 599 906
+      C606 903 614 908 615 915
+      C621 911 628 912 632 917
+      C637 912 645 914 648 920
+      C654 916 662 918 665 924
+      C672 921 678 925 679 931
+      C685 928 692 932 692 938
+      C700 937 706 942 705 949
+      C713 948 718 954 715 961
+      C722 964 722 972 718 977
+      C632 986 390 989 303 978 Z"/>
+
+    <!-- Individual bushes -->
+    <g class="sg" style="--d:4.50s" stroke-width="2.1">
+      <path pathLength="1" d="
+        M315 959
+        C312 953 314 947 320 945
+        C324 943 329 945 331 949
+        C333 941 339 938 345 940
+        C350 941 353 944 354 949
+        C358 944 365 945 368 951
+
+        M369 946
+        C368 940 372 934 378 934
+        C382 933 386 936 388 940
+        C390 934 396 932 401 935
+        C405 937 407 941 407 945
+
+        M406 948
+        C404 942 407 936 413 935
+        C417 934 421 936 423 939
+        C425 933 432 931 437 934
+        C442 936 443 940 443 945
+        C448 942 453 945 455 949
+
+        M307 976
+        C305 970 309 964 315 963
+        C319 961 323 963 325 966
+        C326 959 332 955 338 956
+        C343 957 346 960 347 965
+        C351 959 357 958 362 962
+        C366 958 373 960 375 965
+        C382 962 388 966 389 972
+
+        M333 981
+        C331 975 334 970 340 969
+        C342 964 348 963 352 966
+        C357 960 364 961 367 967
+        C373 963 379 966 381 972
+        C386 968 392 971 394 977
+
+        M399 981
+        C397 975 401 969 407 969
+        C408 962 414 958 420 960
+        C423 955 430 954 435 958
+        C441 957 446 961 446 967
+        C452 964 459 968 459 974
+        C464 971 470 974 471 980"/>
+
+      <path pathLength="1" d="
+        M576 934
+        C577 928 582 925 587 927
+        C589 920 595 918 601 921
+        C606 921 609 925 609 930
+        C614 926 620 927 623 932
+
+        M571 951
+        C570 945 574 940 580 940
+        C584 939 588 942 590 946
+        C591 938 598 935 604 938
+        C607 940 609 944 609 948
+        C614 944 621 945 624 950
+
+        M610 956
+        C608 949 612 944 618 944
+        C620 937 626 934 632 938
+        C637 934 644 937 645 943
+        C651 939 658 942 660 948
+        C666 945 672 949 673 954
+
+        M647 965
+        C644 959 648 953 654 952
+        C656 946 663 944 668 948
+        C673 944 680 946 682 952
+        C689 950 695 955 693 961
+        C700 959 705 964 705 970
+
+        M529 982
+        C527 976 530 971 536 970
+        C537 964 543 962 548 966
+        C552 960 559 960 562 966
+        C568 963 574 966 575 972
+        C581 969 587 972 588 978
+
+        M580 983
+        C578 977 582 972 588 971
+        C590 965 597 963 602 967
+        C608 962 615 965 617 971
+        C623 968 630 972 630 978
+
+        M639 983
+        C638 977 642 972 648 972
+        C650 966 656 964 661 968
+        C666 963 673 966 675 972
+        C681 969 687 973 688 979"/>
+    </g>
+
+  </g>
+<circle class="bk" cx="511" cy="22" r="4"/></svg></div><div class="tra-gc"><div class="tra-stat tra-glass"><i class="tra-sheen"></i><b>7-10</b><span>working days for a credential check once payment is received</span></div><div class="tra-stat tra-glass"><i class="tra-sheen"></i><b>$0</b><span>credential check cost for financial Engineering NZ members</span></div><div class="tra-stat tra-glass"><i class="tra-sheen"></i><b>2</b><span>pathways for a knowledge assessment: standard and fast track</span></div><div class="tra-stat tra-glass"><i class="tra-sheen"></i><b>0</b><span>knowledge assessments needed with a Washington Accord qualification</span></div></div></div></div></div>
+<script>
+(function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;var MAX=14;
+document.querySelectorAll(".tra-glass").forEach(function(el){if(el.getAttribute("data-tilt"))return;el.setAttribute("data-tilt","1");var raf=0,ev=null;
+function apply(){raf=0;var r=el.getBoundingClientRect();if(!r.width||!r.height||!ev)return;var px=(ev.clientX-r.left)/r.width*2-1,py=(ev.clientY-r.top)/r.height*2-1;px=Math.max(-1,Math.min(1,px));py=Math.max(-1,Math.min(1,py));
+el.style.setProperty("--ry",(px*MAX).toFixed(2)+"deg");el.style.setProperty("--rx",(-py*MAX).toFixed(2)+"deg");el.style.setProperty("--mx",((px+1)*50).toFixed(1)+"%");el.style.setProperty("--my",((py+1)*50).toFixed(1)+"%");el.style.setProperty("--sx",(-px*22).toFixed(1)+"px");el.style.setProperty("--sy",(18-py*10).toFixed(1)+"px")}
+function move(e){if(e.pointerType==="touch")return;ev=e;if(!raf)raf=requestAnimationFrame(apply)}
+el.addEventListener("pointerenter",move);el.addEventListener("pointermove",move)})})();
+</script>
+</section>

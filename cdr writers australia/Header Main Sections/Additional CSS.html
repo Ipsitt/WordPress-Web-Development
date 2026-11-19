@@ -935,29 +935,58 @@ a.tm-button.tm-pricing-button.style-flat::after {
 
 
 /* WhatsApp icon in the header chat button */
+/* Header chat button icon: fixed-size box, anchor layout left to the theme */
 #page-header a[href*="api.whatsapp.com"]::before {
   content: "";
   display: inline-block;
+  flex: none;
   width: 18px;
   height: 18px;
   margin-right: 8px;
   vertical-align: -4px;
   background: url("https://cdrwritersaustralia.com/wp-content/uploads/2026/10/whatsapp.png") center / contain no-repeat;
 }
-
-
-
-/* Trim the contact strip without forcing a fixed height */
-.page-top-bar.top-bar-02 { line-height: 1.35 !important; }
-.page-top-bar.top-bar-02 .top-bar-wrap { min-height: 35px !important; }
-
-/* Reduce the gap immediately below the header */
-#page-header { margin-bottom: -10px !important; }
-
-/* Slightly shorten the desktop navigation row and its sticky spacer */
-@media (min-width: 1200px) {
-  #page-header-inner { height: 58px !important; }
-  .page-header-place-holder { height: 58px !important; }
+/* Header is boxed from first paint, matching the theme's late JS swap */
+#page-header-inner > .container-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+  width: 100%;
 }
+@media (min-width: 768px)  { #page-header-inner > .container-fluid { max-width: 750px; } }
+@media (min-width: 992px)  { #page-header-inner > .container-fluid { max-width: 970px; } }
+@media (min-width: 1200px) { #page-header-inner > .container-fluid { max-width: 1170px; } }
+@media (min-width: 1400px) { #page-header-inner > .container-fluid { max-width: 1310px !important; } }
+
+/*
+// Trim the contact strip without forcing a fixed height
+.page-top-bar.top-bar-02 {
+  line-height: 1.35 !important;
+}
+.page-top-bar.top-bar-02 .top-bar-wrap {
+  min-height: 35px !important;
+}
+
+// Reduce the gap immediately below the header
+#page-header {
+  margin-bottom: -10px !important;
+}
+
+// Slightly shorten the desktop navigation row and its sticky spacer
+@media (min-width: 1200px) {
+  #page-header-inner {
+    height: 58px !important;
+  }
+  .page-header-place-holder {
+    height: 58px !important;
+  }
+}
+
+
+*/
+
+
 
 /* --- Ipsit code end --- */

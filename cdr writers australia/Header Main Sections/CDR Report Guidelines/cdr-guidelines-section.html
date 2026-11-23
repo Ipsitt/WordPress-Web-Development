@@ -1,0 +1,610 @@
+<style>
+.cdr-g.cdr-g{--red:#d9272e;--red-d:#b81d24;--charcoal:#363636;--navy:#002fa6;--ink:#333333;--text:#424242;--muted:#656d7c;--pink:#fdecec;--page:#f5f5f3;--card:#ffffff;--line:#e5e5e0;font-family:inherit;color:var(--text);line-height:1.7;font-size:16px;box-sizing:border-box;width:100%}
+.cdr-g.cdr-g *,.cdr-g.cdr-g *:before,.cdr-g.cdr-g *:after{box-sizing:border-box}
+.cdr-g.cdr-g :where(h2,h3,h4,h5,h6,p,ul,ol,li){margin:0;padding:0;list-style:none}
+.cdr-g.cdr-g :where(h2,h3,h4,h5,h6,p,li){font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;line-height:inherit}
+.cdr-g.cdr-g a{text-decoration:none}
+
+/* Section & Subtle Architectural Backdrop */
+.cdr-g.cdr-g .cdr-sec{position:relative;padding:64px 0 84px;background-color:var(--page);background-image:radial-gradient(rgba(217,39,46,.08) 1px,transparent 1px);background-size:24px 24px;overflow-x:clip}
+.cdr-g.cdr-g .cdr-orb{position:absolute;border-radius:50%;filter:blur(85px);pointer-events:none;z-index:0;opacity:.48;animation:cdrFloat 14s ease-in-out infinite alternate}
+.cdr-g.cdr-g .cdr-orb--r{width:360px;height:360px;background:radial-gradient(circle,rgba(217,39,46,.16),transparent 70%);top:70px;right:-110px}
+.cdr-g.cdr-g .cdr-orb--b{width:400px;height:400px;background:radial-gradient(circle,rgba(0,47,166,.1),transparent 70%);bottom:140px;left:-140px;animation-delay:-7s}
+@keyframes cdrFloat{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(24px,-32px,0) scale(1.07)}}
+
+.cdr-g.cdr-g .cdr-wrap{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:0 20px}
+.cdr-g.cdr-g .cdr-grid{display:grid;grid-template-columns:335px minmax(0,1fr);gap:34px;align-items:start}
+
+/* Sticky Sidebar */
+.cdr-g.cdr-g .cdr-side{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(217,39,46,.35) transparent;padding-right:4px}
+.cdr-g.cdr-g .cdr-side::-webkit-scrollbar{width:4px}
+.cdr-g.cdr-g .cdr-side::-webkit-scrollbar-thumb{background:rgba(217,39,46,.35);border-radius:99px}
+.cdr-g.cdr-g .cdr-side-stack{display:flex;flex-direction:column;gap:20px}
+
+.cdr-g.cdr-g .cdr-scard{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:14px;padding:22px;box-shadow:0 8px 24px rgba(28,34,48,.05);transition:transform .25s ease,box-shadow .25s ease}
+.cdr-g.cdr-g .cdr-scard:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(28,34,48,.09)}
+
+.cdr-g.cdr-g .cdr-sgroup-h{position:relative;font-size:17px;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:12px;padding-left:11px}
+.cdr-g.cdr-g .cdr-sgroup-h:before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;border-radius:99px;background:var(--red)}
+
+.cdr-g.cdr-g .cdr-slinks{display:flex;flex-direction:column;gap:7px}
+.cdr-g.cdr-g .cdr-slinks a{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;font-weight:500;color:var(--text);line-height:1.45;padding:7px 9px;border-radius:8px;transition:all .2s ease}
+.cdr-g.cdr-g .cdr-slinks a:hover{color:var(--red);background:var(--pink);transform:translateX(4px)}
+.cdr-g.cdr-g .cdr-chk-ico{flex-shrink:0;width:20px;height:20px;margin-top:1px;border-radius:50%;background:var(--pink);color:var(--red);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;transition:all .2s ease}
+.cdr-g.cdr-g .cdr-slinks a:hover .cdr-chk-ico{background:var(--red);color:#fff;transform:scale(1.08)}
+.cdr-g.cdr-g .cdr-sdiv{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:16px 0}
+
+/* Sticky Sidebar Consultation CTA */
+.cdr-g.cdr-g .cdr-scta{position:relative;overflow:hidden;background:linear-gradient(145deg,#1f2430 0%,#121620 100%);color:#fff;border-radius:14px;padding:24px 22px;box-shadow:0 14px 32px rgba(18,22,32,.2)}
+.cdr-g.cdr-g .cdr-scta-glow{position:absolute;top:-28px;right:-28px;width:115px;height:115px;border-radius:50%;background:rgba(217,39,46,.3);animation:cdrPulse 4s ease-in-out infinite}
+@keyframes cdrPulse{0%,100%{transform:scale(1);opacity:.45}50%{transform:scale(1.25);opacity:.78}}
+.cdr-g.cdr-g .cdr-scta h3{font-size:18px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:8px}
+.cdr-g.cdr-g .cdr-scta p{font-size:13.5px;color:rgba(255,255,255,.82);line-height:1.5;margin-bottom:16px}
+.cdr-g.cdr-g a.cdr-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--red);color:#fff;font-weight:600;font-size:14.5px;line-height:1;padding:14px 22px;border-radius:8px;box-shadow:0 8px 18px rgba(217,39,46,.32);transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.cdr-g.cdr-g a.cdr-btn:hover{background:var(--red-d);color:#fff;transform:translateY(-2px);box-shadow:0 12px 24px rgba(217,39,46,.42)}
+
+/* Main Content Blocks */
+.cdr-g.cdr-g .cdr-main{display:flex;flex-direction:column;gap:28px;min-width:0}
+.cdr-g.cdr-g .cdr-box{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px 38px;box-shadow:0 8px 26px rgba(28,34,48,.05);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.cdr-g.cdr-g .cdr-box:hover{box-shadow:0 16px 38px rgba(28,34,48,.09);border-color:rgba(217,39,46,.28)}
+
+.cdr-g.cdr-g .cdr-h2{position:relative;font-size:clamp(22px,2.7vw,31px);font-weight:700;color:var(--ink);letter-spacing:-.4px;line-height:1.28;margin-bottom:18px;padding-bottom:12px}
+.cdr-g.cdr-g .cdr-h2:after{content:"";position:absolute;left:0;bottom:0;width:54px;height:3.5px;background:linear-gradient(90deg,var(--red),#ff666c);border-radius:99px;transition:width .3s ease}
+.cdr-g.cdr-g .cdr-box:hover .cdr-h2:after{width:92px}
+
+/* Card Media Image Below Title */
+.cdr-g.cdr-g .cdr-card-media{margin:0 0 22px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#f7f7f5;box-shadow:0 6px 18px rgba(28,34,48,.06)}
+.cdr-g.cdr-g .cdr-card-media img{display:block;width:100%;max-height:420px;object-fit:cover;transition:transform .35s ease}
+.cdr-g.cdr-g .cdr-box:hover .cdr-card-media img{transform:scale(1.015)}
+
+.cdr-g.cdr-g .cdr-h5{position:relative;font-size:18px;font-weight:700;color:var(--ink);line-height:1.4;margin:24px 0 12px;padding-left:14px}
+.cdr-g.cdr-g .cdr-h5:before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:3.5px;border-radius:99px;background:var(--red)}
+.cdr-g.cdr-g .cdr-p{font-size:16px;line-height:1.75;color:var(--text)}
+.cdr-g.cdr-g .cdr-p+.cdr-p{margin-top:14px}
+.cdr-g.cdr-g .cdr-link{color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.cdr-g.cdr-g .cdr-link:hover{color:var(--navy)}
+
+.cdr-g.cdr-g .cdr-checks{display:flex;flex-direction:column;gap:9px;margin:14px 0 20px}
+.cdr-g.cdr-g .cdr-checks li{display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.6;color:var(--text);padding:8px 12px;background:#fafaf8;border:1px solid #efefec;border-radius:9px;transition:background-color .2s ease,border-color .2s ease,transform .2s ease}
+.cdr-g.cdr-g .cdr-checks li:hover{background:#fff;border-color:rgba(217,39,46,.25);transform:translateX(4px)}
+.cdr-g.cdr-g .cdr-checks li .cdr-mark{color:var(--red);font-weight:700;font-size:15px;line-height:1.5;flex-shrink:0}
+
+.cdr-g.cdr-g .cdr-num-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.cdr-g.cdr-g .cdr-num-item{display:flex;align-items:center;gap:14px;background:#fafaf8;border:1px solid var(--line);border-radius:11px;padding:14px 16px;transition:all .22s ease}
+.cdr-g.cdr-g .cdr-num-item:hover{background:#fff;border-color:var(--red);transform:translateY(-2px);box-shadow:0 8px 20px rgba(217,39,46,.08)}
+.cdr-g.cdr-g .cdr-num-badge{font-weight:800;font-size:14px;color:var(--red);background:var(--pink);padding:6px 10px;border-radius:8px;flex-shrink:0}
+.cdr-g.cdr-g .cdr-num-item h6{font-size:15px;font-weight:700;color:var(--ink);line-height:1.4}
+
+/* Shared Diagram Container */
+.cdr-g.cdr-g .cdr-diag-box{margin:26px 0;padding:26px 18px;background:#f3f3f1;background-image:linear-gradient(rgba(54,54,54,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(54,54,54,.035) 1px,transparent 1px);background-size:20px 20px;border:1px solid #e2e2dd;border-radius:16px;overflow:hidden}
+
+/* ==========================================================================
+   DIAGRAM 1: FOUR PRINCIPLE ELEMENTS OF CPD
+   ========================================================================== */
+.cdr-g.cdr-g .d1-tree{max-width:860px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.cdr-g.cdr-g .d1-root{background:linear-gradient(135deg,#e31b23,#c51218);color:#fff;font-weight:700;font-size:17.5px;padding:13px 26px;border-radius:12px;box-shadow:0 8px 20px rgba(217,39,46,.28);text-align:center;transition:transform .22s ease}
+.cdr-g.cdr-g .d1-root:hover{transform:translateY(-2px)}
+.cdr-g.cdr-g .d1-stem-top{width:2.5px;height:20px;background:#111}
+.cdr-g.cdr-g .d1-bus{position:relative;width:75%;height:2.5px;background:#111}
+.cdr-g.cdr-g .d1-cols{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:start}
+.cdr-g.cdr-g .d1-col{display:flex;flex-direction:column;align-items:center;min-width:0}
+.cdr-g.cdr-g .d1-drop{width:2.5px;height:18px;background:#111}
+.cdr-g.cdr-g .d1-cat{width:100%;background:#3a3a3a;color:#fff;font-weight:600;font-size:14px;text-align:center;padding:11px 10px;border-radius:99px;line-height:1.25;box-shadow:0 5px 14px rgba(0,0,0,.14);transition:transform .2s ease,background-color .2s ease}
+.cdr-g.cdr-g .d1-cat:hover{background:#222;transform:translateY(-2px)}
+.cdr-g.cdr-g .d1-vlink{width:2.5px;height:16px;background:#111}
+.cdr-g.cdr-g .d1-leaf{width:100%;background:#c8c8c8;color:#111;font-weight:500;font-size:13px;text-align:center;padding:10px 10px;border-radius:99px;line-height:1.3;box-shadow:0 3px 8px rgba(0,0,0,.07);transition:transform .2s ease,background-color .2s ease}
+.cdr-g.cdr-g .d1-leaf:hover{background:#b5b5b5;transform:scale(1.03)}
+
+/* ==========================================================================
+   DIAGRAM 2: FIXED CONTENT FOR CPD WHEEL
+   ========================================================================== */
+.cdr-g.cdr-g .d2-wheel-wrap{max-width:620px;margin:0 auto;padding:6px}
+.cdr-g.cdr-g .d2-svg{width:100%;height:auto;display:block}
+.cdr-g.cdr-g .d2-slice-g{transition:transform .25s ease;transform-origin:320px 320px}
+.cdr-g.cdr-g .d2-slice-g:hover{transform:scale(1.02)}
+.cdr-g.cdr-g .d2-num{font-weight:800;font-size:21px;fill:#fff}
+.cdr-g.cdr-g .d2-lbl{font-weight:600;font-size:13.5px;fill:#fff}
+.cdr-g.cdr-g .d2-center-sub{font-weight:700;font-size:25px;fill:#383838}
+.cdr-g.cdr-g .d2-center-main{font-weight:800;font-size:50px;fill:#d9272e;letter-spacing:-1px}
+
+/* ==========================================================================
+   DIAGRAM 3: CAREER EPISODES FOUR HEXAGONS
+   ========================================================================== */
+.cdr-g.cdr-g .d3-hex-board{background:#f5ecec;border:1px solid #ead8d8;border-radius:14px;padding:24px 14px}
+.cdr-g.cdr-g .d3-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:center}
+.cdr-g.cdr-g .d3-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:325px;min-width:0}
+.cdr-g.cdr-g .d3-note-top,.cdr-g.cdr-g .d3-note-bot{font-size:12.5px;font-weight:500;color:#222;text-align:center;line-height:1.35;max-width:175px}
+.cdr-g.cdr-g .d3-stem{width:2px;height:20px;background:#111;margin:5px auto}
+.cdr-g.cdr-g .d3-hex-shell{position:relative;width:156px;height:140px;display:flex;align-items:center;justify-content:center;transition:transform .25s ease}
+.cdr-g.cdr-g .d3-hex-shell:hover{transform:translateY(-4px) scale(1.03)}
+.cdr-g.cdr-g .d3-hex-svg{position:absolute;inset:0;width:100%;height:100%}
+.cdr-g.cdr-g .d3-hex-title{position:relative;z-index:2;max-width:112px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.35px;text-transform:uppercase;color:#111;line-height:1.25}
+
+/* Scroll Reveal */
+.cdr-g.cdr-g .cdr-rev{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.cdr-g.cdr-g .cdr-rev.is-vis{opacity:1;transform:translateY(0)}
+
+/* ==========================================================================
+   FULL MOBILE & TABLET RESPONSIVENESS
+   ========================================================================== */
+@media(max-width:1024px){
+  .cdr-g.cdr-g .cdr-grid{grid-template-columns:290px minmax(0,1fr);gap:24px}
+  .cdr-g.cdr-g .d3-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .cdr-g.cdr-g .d3-slot{min-height:auto}
+}
+
+@media(max-width:860px){
+  .cdr-g.cdr-g .cdr-sec{padding:40px 0 60px}
+  .cdr-g.cdr-g .cdr-wrap{padding:0 14px}
+  .cdr-g.cdr-g .cdr-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .cdr-g.cdr-g .cdr-side{position:static;max-height:none;overflow:visible;padding-right:0}
+  .cdr-g.cdr-g .cdr-box{padding:22px 18px;border-radius:14px}
+  .cdr-g.cdr-g .cdr-card-media img{max-height:280px}
+  .cdr-g.cdr-g .cdr-p,.cdr-g.cdr-g .cdr-checks li{font-size:15px}
+  .cdr-g.cdr-g .cdr-num-grid{grid-template-columns:minmax(0,1fr)}
+}
+
+@media(max-width:720px){
+  .cdr-g.cdr-g .d1-bus{display:none}
+  .cdr-g.cdr-g .d1-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px;margin-top:14px}
+  .cdr-g.cdr-g .d2-num{font-size:23px}
+  .cdr-g.cdr-g .d2-lbl{font-size:15px}
+}
+
+@media(max-width:520px){
+  .cdr-g.cdr-g .cdr-diag-box{padding:18px 12px;border-radius:12px}
+  .cdr-g.cdr-g .d1-cols{grid-template-columns:minmax(0,1fr);gap:14px}
+  .cdr-g.cdr-g .d1-root{font-size:16px;padding:12px 18px}
+  .cdr-g.cdr-g .d3-row{grid-template-columns:minmax(0,1fr);gap:22px}
+  .cdr-g.cdr-g .d2-num{font-size:25px}
+  .cdr-g.cdr-g .d2-lbl{font-size:16px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .cdr-g.cdr-g *,.cdr-g.cdr-g *:before,.cdr-g.cdr-g *:after{animation:none!important;transition:none!important}
+  .cdr-g.cdr-g .cdr-rev{opacity:1;transform:none}
+}
+</style>
+
+<section class="cdr-g cdr-g" id="cdr-guidelines-bundle" aria-label="CDR Report Guidelines">
+  <div class="cdr-sec">
+    <div class="cdr-orb cdr-orb--r" aria-hidden="true"></div>
+    <div class="cdr-orb cdr-orb--b" aria-hidden="true"></div>
+
+    <div class="cdr-wrap">
+      <div class="cdr-grid">
+
+        <!-- Sticky Sidebar -->
+        <aside class="cdr-side" aria-label="CDR Guidelines Resources">
+          <div class="cdr-side-stack">
+
+            <div class="cdr-scard">
+              <h2 class="cdr-sgroup-h">Competency Demonstration Report Guidelines</h2>
+              <ul class="cdr-slinks">
+                <li><a href="cdr-guidelines-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report Guidelines Engineers Australia</span></a></li>
+                <li><a href="cdr-report-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report Engineers Australia</span></a></li>
+                <li><a href="competency-demonstration-report"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report</span></a></li>
+                <li><a href="competency-demonstration-report-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report Engineers Australia</span></a></li>
+                <li><a href="cdr-australia-sample"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report Australia Sample</span></a></li>
+              </ul>
+
+              <div class="cdr-sdiv"></div>
+              <h2 class="cdr-sgroup-h">CPD</h2>
+              <ul class="cdr-slinks">
+                <li><a href="cpd-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>CPD Australia</span></a></li>
+                <li><a href="cpd-points-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>CPD Points Australia</span></a></li>
+                <li><a href="cpd-statement-sample"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>CPD Statement Sample</span></a></li>
+              </ul>
+
+              <div class="cdr-sdiv"></div>
+              <h2 class="cdr-sgroup-h">Career Episodes</h2>
+              <ul class="cdr-slinks">
+                <li><a href="career-episodes-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Career Episodes Engineers Australia</span></a></li>
+                <li><a href="career-episode-report-example-2"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Career Episode Report Example</span></a></li>
+              </ul>
+
+              <div class="cdr-sdiv"></div>
+              <h2 class="cdr-sgroup-h">Summary Statement</h2>
+              <ul class="cdr-slinks">
+                <li><a href="summary-statement-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Summary Statement Engineers Australia</span></a></li>
+                <li><a href="cdr-summary-statement-sample"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report Summary Statement Sample</span></a></li>
+                <li><a href="professional-engineer-summary-statement"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Professional Engineer Summary Statement</span></a></li>
+                <li><a href="professional-engineer-summary-statement-sample"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Professional Engineer Summary Statement Sample</span></a></li>
+              </ul>
+            </div>
+
+            <div class="cdr-scta">
+              <div class="cdr-scta-glow" aria-hidden="true"></div>
+              <h3>Need CDR Writing or Review?</h3>
+              <p>Connect directly with our engineering writers for original CEs, CPD, and Summary Statement.</p>
+              <a class="cdr-btn" href="https://api.whatsapp.com/send?phone=61483968416" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- Main Guidelines Content -->
+        <div class="cdr-main">
+
+          <!-- 1. Competency Demonstration Report Guidelines -->
+          <article class="cdr-box cdr-rev">
+            <h2 class="cdr-h2">Competency Demonstration Report Guidelines</h2>
+            <div class="cdr-card-media">
+              <img src="https://cdrwritersaustralia.com/wp-content/uploads/2024/07/CDR-writing-Australia.webp" alt="Competency Demonstration Report Guidelines Australia" loading="lazy" />
+            </div>
+            <p class="cdr-p">Engineers who are preparing for migration to Australia needs to be assessed by Engineers Australia through Competency Demonstration Report. It is very important to make your Competency Demonstration Report perfect to get approved by Engineers Australia. Before submitting your application, make sure to review the Engineers Australia skill assessment document checklist to avoid missing any crucial documents. The main purpose of Competency Demonstration Report Assessment is to know:</p>
+            <ul class="cdr-checks">
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Your knowledge of technical factors of engineering.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>How you have used your engineering knowledge and skills.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Your competency capability in engineering occupation you choose.</span></li>
+            </ul>
+            <p class="cdr-p">The Competency Demonstration Report has three different sections Continuing Professional Development, three Career Episodes and a Summary Statement. The complete guidelines on writing this report are presented here to help you with your Competency Demonstration Report. We also provide <a href="cdr-for-australia" class="cdr-link">Competency Demonstration Report writing,</a> Competency Demonstration Report reviewing and Competency Demonstration Report tutoring services.</p>
+          </article>
+
+          <!-- 2. Continuing Professional Development (CPD) -->
+          <article class="cdr-box cdr-rev">
+            <h2 class="cdr-h2">Continuing Professional Development (CPD)</h2>
+            <p class="cdr-p">Continuing Professional Development (CPD) is the way to show how you will and are keeping yourself updated about new inventions and discoveries in engineering field. It is better to include all the relevant CPD in Competency Demonstration Report. Engineers Australia has divided Professional Engineers Competencies into Four Principle Elements and They are:</p>
+
+            <!-- DIAGRAM 1: Four Principle Elements of CPD -->
+            <div class="cdr-diag-box" role="img" aria-label="Four Principle Elements of CPD hierarchy diagram">
+              <div class="d1-tree">
+                <div class="d1-root">Four Principle Elements of CPD</div>
+                <div class="d1-stem-top" aria-hidden="true"></div>
+                <div class="d1-bus" aria-hidden="true"></div>
+                <div class="d1-cols">
+
+                  <div class="d1-col">
+                    <div class="d1-drop" aria-hidden="true"></div>
+                    <div class="d1-cat">Personal Commitment</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Ethical Issues</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Practise Competently</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Responsibility For Engineering Activities</div>
+                  </div>
+
+                  <div class="d1-col">
+                    <div class="d1-drop" aria-hidden="true"></div>
+                    <div class="d1-cat">Obligation to Community</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Develop Safe and Sustainable Solutions</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Identify, Assess and Manage Risks</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Engage in Relevant Community Activities</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Meet Legal &amp; Regulatory Requirement</div>
+                  </div>
+
+                  <div class="d1-col">
+                    <div class="d1-drop" aria-hidden="true"></div>
+                    <div class="d1-cat">Value of Workplace</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Communication</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Team Work</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Decision Making</div>
+                  </div>
+
+                  <div class="d1-col">
+                    <div class="d1-drop" aria-hidden="true"></div>
+                    <div class="d1-cat">Technical Proficiency</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Advanced Engineering Knowledge</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Local Engineering Knowledge</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Problem Analysis</div>
+                    <div class="d1-vlink" aria-hidden="true"></div>
+                    <div class="d1-leaf">Creativity and Innovation</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <h5 class="cdr-h5">Any CPD Report must have following things:</h5>
+            <ul class="cdr-checks">
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>It must be in list format</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>It may contain any formal or informal activity done in the engineering field.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Must include detailed information like title, date, time period, location and other relevant information.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>It must not exceed one page.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Not required to attach certificates of courses and events you were involved.</span></li>
+            </ul>
+
+            <h5 class="cdr-h5">These points should be followed while preparing CPD and it should contain detail information of activity such as:</h5>
+
+            <!-- DIAGRAM 2: FIXED CONTENT FOR CPD WHEEL -->
+            <div class="cdr-diag-box" role="img" aria-label="Content for CPD 8-segment wheel diagram">
+              <div class="d2-wheel-wrap">
+                <svg class="d2-svg" viewBox="0 0 640 640" aria-hidden="true">
+
+                  <!-- Slice 5: Top-Right (-88 deg to -47 deg) - Charcoal -->
+                  <g class="d2-slice-g">
+                    <path fill="#383838" d="M 331.3 24.2 A 296 296 0 0 1 521.8 103.6 L 427.8 203.9 A 146 146 0 0 0 325.6 174.2 Z"/>
+                    <line x1="358" y1="112" x2="435" y2="112" stroke="#fff" stroke-width="1.6"/>
+                    <text x="358" y="104" class="d2-num">5.</text>
+                    <text x="358" y="130" class="d2-lbl">Research</text>
+                    <text x="358" y="147" class="d2-lbl">Papers</text>
+                  </g>
+
+                  <!-- Slice 6: Upper-Right (-43 deg to -2 deg) - Red -->
+                  <g class="d2-slice-g">
+                    <path fill="#d9272e" d="M 524.8 106.8 A 296 296 0 0 1 615.8 309.7 L 465.8 314.9 A 146 146 0 0 0 430.9 207.1 Z"/>
+                    <line x1="478" y1="210" x2="572" y2="210" stroke="#fff" stroke-width="1.6"/>
+                    <text x="478" y="202" class="d2-num">6.</text>
+                    <text x="478" y="228" class="d2-lbl">Technical</text>
+                    <text x="478" y="245" class="d2-lbl">Articles and</text>
+                    <text x="478" y="262" class="d2-lbl">Journals</text>
+                  </g>
+
+                  <!-- Slice 7: Lower-Right (2 deg to 43 deg) - Charcoal -->
+                  <g class="d2-slice-g">
+                    <path fill="#383838" d="M 615.8 330.3 A 296 296 0 0 1 524.8 533.2 L 430.9 432.9 A 146 146 0 0 0 465.8 325.1 Z"/>
+                    <line x1="478" y1="364" x2="572" y2="364" stroke="#fff" stroke-width="1.6"/>
+                    <text x="478" y="356" class="d2-num">7.</text>
+                    <text x="478" y="382" class="d2-lbl">Technical</text>
+                    <text x="478" y="399" class="d2-lbl">Courses and</text>
+                    <text x="478" y="416" class="d2-lbl">Workshops</text>
+                  </g>
+
+                  <!-- Slice 8: Bottom-Right (47 deg to 88 deg) - Red -->
+                  <g class="d2-slice-g">
+                    <path fill="#d9272e" d="M 521.8 536.4 A 296 296 0 0 1 331.3 615.8 L 325.6 465.8 A 146 146 0 0 0 427.8 436.1 Z"/>
+                    <line x1="358" y1="510" x2="452" y2="510" stroke="#fff" stroke-width="1.6"/>
+                    <text x="358" y="502" class="d2-num">8.</text>
+                    <text x="358" y="528" class="d2-lbl">Volunteering</text>
+                    <text x="358" y="545" class="d2-lbl">Works</text>
+                  </g>
+
+                  <!-- Slice 1: Bottom-Left (92 deg to 133 deg) - Charcoal -->
+                  <g class="d2-slice-g">
+                    <path fill="#383838" d="M 308.7 615.8 A 296 296 0 0 1 118.2 536.4 L 212.2 436.1 A 146 146 0 0 0 314.4 465.8 Z"/>
+                    <line x1="210" y1="510" x2="305" y2="510" stroke="#fff" stroke-width="1.6"/>
+                    <text x="210" y="502" class="d2-num">1.</text>
+                    <text x="210" y="528" class="d2-lbl">Seminars and</text>
+                    <text x="210" y="545" class="d2-lbl">Conference</text>
+                  </g>
+
+                  <!-- Slice 2: Lower-Left (137 deg to 178 deg) - Red -->
+                  <g class="d2-slice-g">
+                    <path fill="#d9272e" d="M 115.2 533.2 A 296 296 0 0 1 24.2 330.3 L 174.2 325.1 A 146 146 0 0 0 209.1 432.9 Z"/>
+                    <line x1="72" y1="364" x2="178" y2="364" stroke="#fff" stroke-width="1.6"/>
+                    <text x="72" y="356" class="d2-num">2.</text>
+                    <text x="72" y="382" class="d2-lbl">Technical</text>
+                    <text x="72" y="399" class="d2-lbl">Meetings and</text>
+                    <text x="72" y="416" class="d2-lbl">Gatherings</text>
+                  </g>
+
+                  <!-- Slice 3: Upper-Left (182 deg to 223 deg) - Charcoal -->
+                  <g class="d2-slice-g">
+                    <path fill="#383838" d="M 24.2 309.7 A 296 296 0 0 1 115.2 106.8 L 209.1 207.1 A 146 146 0 0 0 174.2 314.9 Z"/>
+                    <line x1="72" y1="210" x2="165" y2="210" stroke="#fff" stroke-width="1.6"/>
+                    <text x="72" y="202" class="d2-num">3.</text>
+                    <text x="72" y="228" class="d2-lbl">Technical</text>
+                    <text x="72" y="245" class="d2-lbl">Discussion</text>
+                    <text x="72" y="262" class="d2-lbl">Group</text>
+                  </g>
+
+                  <!-- Slice 4: Top-Left (227 deg to 268 deg) - Red -->
+                  <g class="d2-slice-g">
+                    <path fill="#d9272e" d="M 118.2 103.6 A 296 296 0 0 1 308.7 24.2 L 314.4 174.2 A 146 146 0 0 0 212.2 203.9 Z"/>
+                    <line x1="196" y1="112" x2="285" y2="112" stroke="#fff" stroke-width="1.6"/>
+                    <text x="196" y="104" class="d2-num">4.</text>
+                    <text x="196" y="130" class="d2-lbl">Technical</text>
+                    <text x="196" y="147" class="d2-lbl">Presentation</text>
+                  </g>
+
+                  <!-- Center Label -->
+                  <text x="320" y="298" text-anchor="middle" class="d2-center-sub">Content for</text>
+                  <text x="320" y="352" text-anchor="middle" class="d2-center-main">CPD</text>
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Career Episodes (CEs) -->
+          <article class="cdr-box cdr-rev">
+            <h2 class="cdr-h2">Career Episodes (CEs)</h2>
+            <div class="cdr-card-media">
+              <img src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/Gemini_Generated_Image_1hvb5t1hvb5t1hvb.jpg" alt="Career Episodes Engineers Australia" loading="lazy" />
+            </div>
+            <p class="cdr-p">Career Episodes is what explains your educational qualification and work experience in the field of engineering. All three Career episodes are based on three specific engineering projects done on a certain period of time. Career Episodes gives detailed information on technical and other skills an engineer applied to the project described.</p>
+
+            <h5 class="cdr-h5">Career Episodes are written based on the following activities:</h5>
+            <ul class="cdr-checks">
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>an engineering project was done during undergraduate or after graduation.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>A project you are or working on in your workplace.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Research is done in the field of engineering</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>An engineering position you are currently working on</span></li>
+            </ul>
+
+            <h5 class="cdr-h5">While preparing Career Episodes you must follow certain instructions given by Engineers Australia such as:</h5>
+            <ul class="cdr-checks">
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Career Episodes must be written in English</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Each Career episode must be more than 1500 words and shouldn’t exceed 2500 words</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Each Career Episode should clearly illustrate your engineering knowledge and skills.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Each Career Episode should emphasize on the personal role like what you did rather than what your team did.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>You should use the first-person language. ( I did, done by me, did it myself)</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Give more importance to engineering methods that you used to solve the problems.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Number each paragraph in each career episodes.</span></li>
+            </ul>
+
+            <p class="cdr-p">Each Career Episodes must be divided into four Sections and they are Introduction, Background, Personal Engineering Activity and Summary. Each of these sections should be written differently and should contain specific details.</p>
+
+            <!-- DIAGRAM 3: Career Episodes Four Hexagons -->
+            <div class="cdr-diag-box" role="img" aria-label="Career Episodes Introduction, Background, Summary, and Personal Engineering Activity diagram">
+              <div class="d3-hex-board">
+                <div class="d3-row">
+
+                  <div class="d3-slot">
+                    <div class="d3-note-top">The Content must have approximately 100 Words &amp; in chronological order</div>
+                    <div class="d3-stem" aria-hidden="true"></div>
+                    <div class="d3-hex-shell">
+                      <svg class="d3-hex-svg" viewBox="0 0 180 160" aria-hidden="true">
+                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#d8c8c8" stroke-width="3"/>
+                        <polygon points="50,20 130,20 164,80 130,140 50,140 16,80" fill="#ff1e00"/>
+                        <polyline points="22,42 42,10 138,10 158,42" fill="none" stroke="#111" stroke-width="2.2"/>
+                        <circle cx="22" cy="42" r="3.5" fill="#111"/>
+                        <circle cx="158" cy="42" r="3.5" fill="#111"/>
+                        <polyline points="22,118 42,150 138,150 158,118" fill="none" stroke="#111" stroke-width="2.2"/>
+                        <circle cx="22" cy="118" r="3.5" fill="#111"/>
+                        <circle cx="158" cy="118" r="3.5" fill="#111"/>
+                      </svg>
+                      <span class="d3-hex-title">INTRODUCTION</span>
+                    </div>
+                  </div>
+
+                  <div class="d3-slot">
+                    <div class="d3-hex-shell">
+                      <svg class="d3-hex-svg" viewBox="0 0 180 160" aria-hidden="true">
+                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#d8c8c8" stroke-width="3"/>
+                        <polygon points="50,20 130,20 164,80 130,140 50,140 16,80" fill="#8f8f8f"/>
+                        <polyline points="22,42 42,10 138,10 158,42" fill="none" stroke="#111" stroke-width="2.2"/>
+                        <circle cx="22" cy="42" r="3.5" fill="#111"/>
+                        <circle cx="158" cy="42" r="3.5" fill="#111"/>
+                        <polyline points="22,118 42,150 138,150 158,118" fill="none" stroke="#111" stroke-width="2.2"/>
+                        <circle cx="22" cy="118" r="3.5" fill="#111"/>
+                        <circle cx="158" cy="118" r="3.5" fill="#111"/>
+                      </svg>
+                      <span class="d3-hex-title">BACKGROUND</span>
+                    </div>
+                    <div class="d3-stem" aria-hidden="true"></div>
+                    <div class="d3-note-bot">This section should describe E the nature of the subject, it’s objectives and person’s roles &amp; responsibilities Codavatar</div>
+                  </div>
+
+                  <div class="d3-slot">
+                    <div class="d3-note-top">It’s the conclusion part that summarizes everything in abovesection &amp; should be in 50-100 words</div>
+                    <div class="d3-stem" aria-hidden="true"></div>
+                    <div class="d3-hex-shell">
+                      <svg class="d3-hex-svg" viewBox="0 0 180 160" aria-hidden="true">
+                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#d8c8c8" stroke-width="3"/>
+                        <polygon points="50,20 130,20 164,80 130,140 50,140 16,80" fill="#ff1e00"/>
+                        <polyline points="22,42 42,10 138,10 158,42" fill="none" stroke="#111" stroke-width="2.2"/>
+                        <circle cx="22" cy="42" r="3.5" fill="#111"/>
+                        <circle cx="158" cy="42" r="3.5" fill="#111"/>
+                        <polyline points="22,118 42,150 138,150 158,118" fill="none" stroke="#111" stroke-width="2.2"/>
+                        <circle cx="22" cy="118" r="3.5" fill="#111"/>
+                        <circle cx="158" cy="118" r="3.5" fill="#111"/>
+                      </svg>
+                      <span class="d3-hex-title">SUMMARY</span>
+                    </div>
+                  </div>
+
+                  <div class="d3-slot">
+                    <div class="d3-hex-shell">
+                      <svg class="d3-hex-svg" viewBox="0 0 180 160" aria-hidden="true">
+                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#d8c8c8" stroke-width="3"/>
+                        <polygon points="50,20 130,20 164,80 130,140 50,140 16,80" fill="#8f8f8f"/>
+                        <polyline points="22,42 42,10 138,10 158,42" fill="none" stroke="#111" stroke-width="2.2"/>
+                        <circle cx="22" cy="42" r="3.5" fill="#111"/>
+                        <circle cx="158" cy="42" r="3.5" fill="#111"/>
+                        <polyline points="22,118 42,150 138,150 158,118" fill="none" stroke="#111" stroke-width="2.2"/>
+                        <circle cx="22" cy="118" r="3.5" fill="#111"/>
+                        <circle cx="158" cy="118" r="3.5" fill="#111"/>
+                      </svg>
+                      <span class="d3-hex-title">PERSONAL ENGINEERING ACTIVITY</span>
+                    </div>
+                    <div class="d3-stem" aria-hidden="true"></div>
+                    <div class="d3-note-bot">This body part contains all the detail information on the things you did on project that shows your competency in</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Introduction -->
+          <article class="cdr-box cdr-rev">
+            <h2 class="cdr-h2">Introduction</h2>
+            <h5 class="cdr-h5">It is the first section of Career Episode and it should include the following things:</h5>
+            <ul class="cdr-checks">
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>It should be approximately 100 words.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>The content of the introduction should be in chronological order</span></li>
+            </ul>
+            <ol class="cdr-num-grid">
+              <li class="cdr-num-item"><span class="cdr-num-badge">01.</span><h6>Dates and Duration of career episodes</h6></li>
+              <li class="cdr-num-item"><span class="cdr-num-badge">02.</span><h6>The location where it occurred</h6></li>
+              <li class="cdr-num-item"><span class="cdr-num-badge">03.</span><h6>The name of the organization</h6></li>
+              <li class="cdr-num-item"><span class="cdr-num-badge">04.</span><h6>The title of the position occupied by you</h6></li>
+            </ol>
+          </article>
+
+          <!-- 5. Background -->
+          <article class="cdr-box cdr-rev">
+            <h2 class="cdr-h2">Background</h2>
+            <p class="cdr-p">It provides information on the activities you have been involved or working on. <strong>It should be around 200 to 500 words and should contain:</strong></p>
+            <ul class="cdr-checks">
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>the nature of the overall engineering project</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>the objectives of the project</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>the nature of your particular work area</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>a chart of the organizational structure highlighting your position, in relation to the career episode</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>a statement of your duties (provide an official duty statement where available).</span></li>
+            </ul>
+          </article>
+
+          <!-- 6. Personal Engineering Activity -->
+          <article class="cdr-box cdr-rev">
+            <h2 class="cdr-h2">Personal Engineering Activity</h2>
+            <div class="cdr-card-media">
+              <img src="https://lens.usercontent.google.com/banana?agsi=CmdnbG9iYWw6OjAwMDA1NWNmZWM3MDAyNmQ6MDAwMDAxNDE6MTo5MjYzM2U3MzIxOWZjYjI3OjAwMDA1NWNmZWM3MDAyNmQ6MDAwMDA1MzllNTQwMzM2ODowMDA2NjBlYzAyOGViZGZmEAIYAiIKaW1hZ2UvanBlZw==" alt="Personal Engineering Activity Illustration" loading="lazy" />
+            </div>
+            <p class="cdr-p">This section is the body part with all the detail information you have done such as what you did, how you did it. In here you should describe what you personally did rather than what your team did because this is a personal competency assessment.<strong>You should provide a detailed illustration on:</strong></p>
+            <ul class="cdr-checks">
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Application of your engineering knowledge and skills on the project.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>The task is given to you and how you accomplished them</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Any specific technical difficulties/problems you faced and the way you solved them</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Methods and solution developed by you using your original creation.</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>About teamwork i.e. how you worked in a team</span></li>
+            </ul>
+          </article>
+
+          <!-- 7. Summary -->
+          <article class="cdr-box cdr-rev">
+            <h2 class="cdr-h2">Summary</h2>
+            <p class="cdr-p"><strong>It concludes everything that is explained in the above section. It contains about 50 -100 words that include the following things:</strong></p>
+            <ul class="cdr-checks">
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Conclude everything you did on the project</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>how the project lead to your goals/requirements</span></li>
+              <li><span class="cdr-mark" aria-hidden="true">&#10003;</span><span>Summary of your roles and responsibilities.</span></li>
+            </ul>
+          </article>
+
+          <!-- 8. Summary Statement (SS) -->
+          <article class="cdr-box cdr-rev">
+            <h2 class="cdr-h2">Summary Statement (SS)</h2>
+            <div class="cdr-card-media">
+              <img src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/Gemini_Generated_Image_1hvb5t1hvb5t1hvb.jpg" alt="Summary Statement Engineers Australia" loading="lazy" />
+            </div>
+            <p class="cdr-p">A summary statement is the most important and difficult part of any Competency Demonstration Report. In this section, you need to analyze that you have illustrated all the competency elements for the nominated occupational category as described in the ANZSCO code. In the summary statement, you need to provide the cross-references of the paragraphs that you have written in each career episode. <strong>Only one Summary Statement (SS) is required for all three episodes.</strong></p>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var root = document.getElementById("cdr-guidelines-bundle");
+  if (!root) return;
+  var revs = root.querySelectorAll(".cdr-rev");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          e.target.classList.add("is-vis");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+    revs.forEach(function(el){ io.observe(el); });
+  } else {
+    revs.forEach(function(el){ el.classList.add("is-vis"); });
+  }
+})();
+</script>

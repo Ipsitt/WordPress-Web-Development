@@ -1,5 +1,5 @@
 <style>
-.cdr-g.cdr-g{--red:#d9272e;--red-d:#b81d24;--charcoal:#363636;--navy:#002fa6;--ink:#333333;--text:#424242;--muted:#656d7c;--pink:#fdecec;--page:#f5f5f3;--card:#ffffff;--line:#e5e5e0;font-family:inherit;color:var(--text);line-height:1.7;font-size:16px;box-sizing:border-box;width:100%}
+.cdr-g.cdr-g{--red:#d9272e;--red-d:#b81d24;--charcoal:#363636;--navy:#002fa6;--ink:#333333;--text:#424242;--muted:#656d7c;--pink:#fdecec;--page:#f5f5f3;--card:#ffffff;--line:#e5e5e0;font-family:inherit;color:var(--text);line-height:1.65;font-size:16px;box-sizing:border-box;width:100%}
 .cdr-g.cdr-g *,.cdr-g.cdr-g *:before,.cdr-g.cdr-g *:after{box-sizing:border-box}
 .cdr-g.cdr-g :where(h2,h3,h4,h5,h6,p,ul,ol,li){margin:0;padding:0;list-style:none}
 .cdr-g.cdr-g :where(h2,h3,h4,h5,h6,p,li){font-family:inherit;font-style:normal;text-transform:none;letter-spacing:normal;line-height:inherit}
@@ -12,36 +12,34 @@
 .cdr-g.cdr-g .cdr-orb--b{width:400px;height:400px;background:radial-gradient(circle,rgba(0,47,166,.1),transparent 70%);bottom:140px;left:-140px;animation-delay:-7s}
 @keyframes cdrFloat{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(24px,-32px,0) scale(1.07)}}
 
-.cdr-g.cdr-g .cdr-wrap{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:0 20px}
-.cdr-g.cdr-g .cdr-grid{display:grid;grid-template-columns:335px minmax(0,1fr);gap:34px;align-items:start}
+.cdr-g.cdr-g .cdr-wrap{position:relative;z-index:1;max-width:1340px;margin:0 auto;padding:0 20px}
+.cdr-g.cdr-g .cdr-grid{position:relative;display:grid;grid-template-columns:390px minmax(0,1fr);gap:32px;align-items:start}
 
-/* Sticky Sidebar */
-.cdr-g.cdr-g .cdr-side{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(217,39,46,.35) transparent;padding-right:4px}
-.cdr-g.cdr-g .cdr-side::-webkit-scrollbar{width:4px}
-.cdr-g.cdr-g .cdr-side::-webkit-scrollbar-thumb{background:rgba(217,39,46,.35);border-radius:99px}
-.cdr-g.cdr-g .cdr-side-stack{display:flex;flex-direction:column;gap:20px}
+/* Sidebar: JS-clamped smooth offset so it never clips or passes bottom */
+.cdr-g.cdr-g .cdr-side{align-self:start;z-index:2;will-change:transform}
+.cdr-g.cdr-g .cdr-side-stack{display:flex;flex-direction:column;gap:14px}
 
-.cdr-g.cdr-g .cdr-scard{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:14px;padding:22px;box-shadow:0 8px 24px rgba(28,34,48,.05);transition:transform .25s ease,box-shadow .25s ease}
-.cdr-g.cdr-g .cdr-scard:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(28,34,48,.09)}
+.cdr-g.cdr-g .cdr-scard{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:14px;padding:16px 18px;box-shadow:0 8px 24px rgba(28,34,48,.05);transition:transform .25s ease,box-shadow .25s ease}
+.cdr-g.cdr-g .cdr-scard:hover{box-shadow:0 14px 32px rgba(28,34,48,.09)}
 
-.cdr-g.cdr-g .cdr-sgroup-h{position:relative;font-size:17px;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:12px;padding-left:11px}
-.cdr-g.cdr-g .cdr-sgroup-h:before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;border-radius:99px;background:var(--red)}
+.cdr-g.cdr-g .cdr-sgroup-h{position:relative;font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:8px;padding-left:9px}
+.cdr-g.cdr-g .cdr-sgroup-h:before{content:"";position:absolute;left:0;top:2px;bottom:2px;width:3px;border-radius:99px;background:var(--red)}
 
-.cdr-g.cdr-g .cdr-slinks{display:flex;flex-direction:column;gap:7px}
-.cdr-g.cdr-g .cdr-slinks a{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;font-weight:500;color:var(--text);line-height:1.45;padding:7px 9px;border-radius:8px;transition:all .2s ease}
-.cdr-g.cdr-g .cdr-slinks a:hover{color:var(--red);background:var(--pink);transform:translateX(4px)}
-.cdr-g.cdr-g .cdr-chk-ico{flex-shrink:0;width:20px;height:20px;margin-top:1px;border-radius:50%;background:var(--pink);color:var(--red);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;transition:all .2s ease}
-.cdr-g.cdr-g .cdr-slinks a:hover .cdr-chk-ico{background:var(--red);color:#fff;transform:scale(1.08)}
-.cdr-g.cdr-g .cdr-sdiv{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:16px 0}
+.cdr-g.cdr-g .cdr-slinks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 8px}
+.cdr-g.cdr-g .cdr-slinks a{display:flex;align-items:flex-start;gap:6px;font-size:12px;font-weight:500;color:var(--text);line-height:1.32;padding:4px 6px;border-radius:6px;transition:all .18s ease}
+.cdr-g.cdr-g .cdr-slinks a:hover{color:var(--red);background:var(--pink)}
+.cdr-g.cdr-g .cdr-chk-ico{flex-shrink:0;width:15px;height:15px;margin-top:1px;border-radius:50%;background:var(--pink);color:var(--red);display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700}
+.cdr-g.cdr-g .cdr-slinks a:hover .cdr-chk-ico{background:var(--red);color:#fff}
+.cdr-g.cdr-g .cdr-sdiv{height:1px;background:var(--line);margin:10px 0}
 
-/* Sticky Sidebar Consultation CTA */
-.cdr-g.cdr-g .cdr-scta{position:relative;overflow:hidden;background:linear-gradient(145deg,#1f2430 0%,#121620 100%);color:#fff;border-radius:14px;padding:24px 22px;box-shadow:0 14px 32px rgba(18,22,32,.2)}
-.cdr-g.cdr-g .cdr-scta-glow{position:absolute;top:-28px;right:-28px;width:115px;height:115px;border-radius:50%;background:rgba(217,39,46,.3);animation:cdrPulse 4s ease-in-out infinite}
+/* Sidebar Consultation CTA */
+.cdr-g.cdr-g .cdr-scta{position:relative;overflow:hidden;background:linear-gradient(145deg,#1f2430 0%,#121620 100%);color:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 12px 26px rgba(18,22,32,.18)}
+.cdr-g.cdr-g .cdr-scta-glow{position:absolute;top:-28px;right:-28px;width:100px;height:100px;border-radius:50%;background:rgba(217,39,46,.3);animation:cdrPulse 4s ease-in-out infinite}
 @keyframes cdrPulse{0%,100%{transform:scale(1);opacity:.45}50%{transform:scale(1.25);opacity:.78}}
-.cdr-g.cdr-g .cdr-scta h3{font-size:18px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:8px}
-.cdr-g.cdr-g .cdr-scta p{font-size:13.5px;color:rgba(255,255,255,.82);line-height:1.5;margin-bottom:16px}
-.cdr-g.cdr-g a.cdr-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--red);color:#fff;font-weight:600;font-size:14.5px;line-height:1;padding:14px 22px;border-radius:8px;box-shadow:0 8px 18px rgba(217,39,46,.32);transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
-.cdr-g.cdr-g a.cdr-btn:hover{background:var(--red-d);color:#fff;transform:translateY(-2px);box-shadow:0 12px 24px rgba(217,39,46,.42)}
+.cdr-g.cdr-g .cdr-scta h3{font-size:15.5px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:5px}
+.cdr-g.cdr-g .cdr-scta p{font-size:12.5px;color:rgba(255,255,255,.82);line-height:1.42;margin-bottom:12px}
+.cdr-g.cdr-g a.cdr-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--red);color:#fff;font-weight:600;font-size:13.5px;line-height:1;padding:11px 16px;border-radius:7px;box-shadow:0 6px 16px rgba(217,39,46,.32);transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.cdr-g.cdr-g a.cdr-btn:hover{background:var(--red-d);color:#fff;transform:translateY(-2px);box-shadow:0 10px 22px rgba(217,39,46,.42)}
 
 /* Main Content Blocks */
 .cdr-g.cdr-g .cdr-main{display:flex;flex-direction:column;gap:28px;min-width:0}
@@ -52,10 +50,9 @@
 .cdr-g.cdr-g .cdr-h2:after{content:"";position:absolute;left:0;bottom:0;width:54px;height:3.5px;background:linear-gradient(90deg,var(--red),#ff666c);border-radius:99px;transition:width .3s ease}
 .cdr-g.cdr-g .cdr-box:hover .cdr-h2:after{width:92px}
 
-/* Card Media Image Below Title */
-.cdr-g.cdr-g .cdr-card-media{margin:0 0 22px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#f7f7f5;box-shadow:0 6px 18px rgba(28,34,48,.06)}
-.cdr-g.cdr-g .cdr-card-media img{display:block;width:100%;max-height:420px;object-fit:cover;transition:transform .35s ease}
-.cdr-g.cdr-g .cdr-box:hover .cdr-card-media img{transform:scale(1.015)}
+/* Card Media Image Below Title: cropped cleanly to remove baked-in grey margins */
+.cdr-g.cdr-g .cdr-card-media{margin:0 0 22px;border-radius:12px;overflow:hidden;background:transparent;line-height:0}
+.cdr-g.cdr-g .cdr-card-media img{display:block;width:100%;height:auto;max-width:100%;transform:scale(1.06);transform-origin:center}
 
 .cdr-g.cdr-g .cdr-h5{position:relative;font-size:18px;font-weight:700;color:var(--ink);line-height:1.4;margin:24px 0 12px;padding-left:14px}
 .cdr-g.cdr-g .cdr-h5:before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:3.5px;border-radius:99px;background:var(--red)}
@@ -75,42 +72,59 @@
 .cdr-g.cdr-g .cdr-num-badge{font-weight:800;font-size:14px;color:var(--red);background:var(--pink);padding:6px 10px;border-radius:8px;flex-shrink:0}
 .cdr-g.cdr-g .cdr-num-item h6{font-size:15px;font-weight:700;color:var(--ink);line-height:1.4}
 
-/* Shared Diagram Container */
-.cdr-g.cdr-g .cdr-diag-box{margin:26px 0;padding:26px 18px;background:#f3f3f1;background-image:linear-gradient(rgba(54,54,54,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(54,54,54,.035) 1px,transparent 1px);background-size:20px 20px;border:1px solid #e2e2dd;border-radius:16px;overflow:hidden}
+/* Clean Diagram Wrapper: no extra grey outer frame */
+.cdr-g.cdr-g .cdr-diag-box{margin:22px 0;padding:0;background:transparent;border:none;border-radius:0;overflow:visible}
 
 /* ==========================================================================
-   DIAGRAM 1: FOUR PRINCIPLE ELEMENTS OF CPD
+   DIAGRAM 1: FOUR PRINCIPLE ELEMENTS OF CPD (BORDERLESS)
    ========================================================================== */
-.cdr-g.cdr-g .d1-tree{max-width:860px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
-.cdr-g.cdr-g .d1-root{background:linear-gradient(135deg,#e31b23,#c51218);color:#fff;font-weight:700;font-size:17.5px;padding:13px 26px;border-radius:12px;box-shadow:0 8px 20px rgba(217,39,46,.28);text-align:center;transition:transform .22s ease}
-.cdr-g.cdr-g .d1-root:hover{transform:translateY(-2px)}
-.cdr-g.cdr-g .d1-stem-top{width:2.5px;height:20px;background:#111}
-.cdr-g.cdr-g .d1-bus{position:relative;width:75%;height:2.5px;background:#111}
-.cdr-g.cdr-g .d1-cols{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:start}
-.cdr-g.cdr-g .d1-col{display:flex;flex-direction:column;align-items:center;min-width:0}
-.cdr-g.cdr-g .d1-drop{width:2.5px;height:18px;background:#111}
-.cdr-g.cdr-g .d1-cat{width:100%;background:#3a3a3a;color:#fff;font-weight:600;font-size:14px;text-align:center;padding:11px 10px;border-radius:99px;line-height:1.25;box-shadow:0 5px 14px rgba(0,0,0,.14);transition:transform .2s ease,background-color .2s ease}
-.cdr-g.cdr-g .d1-cat:hover{background:#222;transform:translateY(-2px)}
-.cdr-g.cdr-g .d1-vlink{width:2.5px;height:16px;background:#111}
-.cdr-g.cdr-g .d1-leaf{width:100%;background:#c8c8c8;color:#111;font-weight:500;font-size:13px;text-align:center;padding:10px 10px;border-radius:99px;line-height:1.3;box-shadow:0 3px 8px rgba(0,0,0,.07);transition:transform .2s ease,background-color .2s ease}
-.cdr-g.cdr-g .d1-leaf:hover{background:#b5b5b5;transform:scale(1.03)}
+.cdr-g.cdr-g .d1-tree{max-width:860px;margin:0 auto;padding:12px 4px;background:transparent;border:none;border-radius:0}
+.cdr-g.cdr-g .trg-root{display:block;width:max-content;max-width:100%;margin:0 auto;background:#c81319;color:#fff;font-weight:800;font-size:17.5px;padding:13px 28px;border-radius:14px;text-align:center;box-shadow:0 8px 20px rgba(200,19,25,.22)}
+.cdr-g.cdr-g .trg-rw{position:relative;padding-bottom:26px}
+.cdr-g.cdr-g .trg-rw:after{content:"";position:absolute;bottom:0;left:50%;width:2.5px;height:26px;margin-left:-1.25px;background:#111111}
+.cdr-g.cdr-g .trg-brs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.cdr-g.cdr-g .trg-br{position:relative;padding:26px 8px 0;text-align:center;background:transparent;border:none;border-radius:0}
+.cdr-g.cdr-g .trg-br:before{content:"";position:absolute;top:0;left:0;right:0;height:2.5px;background:#111111}
+.cdr-g.cdr-g .trg-br:first-child:before{left:50%}.cdr-g.cdr-g .trg-br:last-child:before{right:50%}
+.cdr-g.cdr-g .trg-br:after{content:"";position:absolute;top:0;left:50%;width:2.5px;height:26px;margin-left:-1.25px;background:#111111}
+.cdr-g.cdr-g .trg-bn{display:block;background:#383838;color:#fff;font-weight:600;font-size:14px;padding:11px 10px;border-radius:14px;box-shadow:0 5px 14px rgba(0,0,0,.12);transition:transform .22s ease,background-color .22s ease}
+.cdr-g.cdr-g .trg-br:hover .trg-bn{transform:translateY(-3px);background:#242424}
+.cdr-g.cdr-g .trg-lf{position:relative;margin-top:14px}
+.cdr-g.cdr-g .trg-lf:before{content:"";position:absolute;left:50%;top:-14px;width:2.5px;height:14px;margin-left:-1.25px;background:#111111}
+.cdr-g.cdr-g .trg-lf span{display:block;background:#c8c8c8;color:#111111;font-size:13px;font-weight:500;line-height:1.35;padding:10px 10px;border-radius:14px;box-shadow:0 3px 8px rgba(0,0,0,.07);transition:transform .2s ease,background-color .2s ease}
+.cdr-g.cdr-g .trg-lf span:hover{transform:scale(1.03);background:#b7b7b7}
+
+@media(max-width:760px){
+  .cdr-g.cdr-g .trg-rw{padding-bottom:18px}
+  .cdr-g.cdr-g .trg-rw:after{display:none}
+  .cdr-g.cdr-g .trg-rw:before{display:none}
+  .cdr-g.cdr-g .trg-root{position:relative;z-index:1}
+  .cdr-g.cdr-g .trg-brs{display:block;padding-left:26px}
+  .cdr-g.cdr-g .trg-br{position:relative;margin:0 0 16px;padding:14px;text-align:left;background:transparent;border:none;border-radius:0}
+  .cdr-g.cdr-g .trg-br:last-child{margin-bottom:0}
+  .cdr-g.cdr-g .trg-br:before,.cdr-g.cdr-g .trg-br:first-child:before,.cdr-g.cdr-g .trg-br:last-child:before{content:"";position:absolute;left:-27px;right:auto;top:-16px;bottom:-16px;width:2.5px;height:auto;background:#111111}
+  .cdr-g.cdr-g .trg-br:first-child:before{top:-28px}
+  .cdr-g.cdr-g .trg-br:last-child:before{bottom:auto;height:56px}
+  .cdr-g.cdr-g .trg-br:after{content:"";position:absolute;left:-26px;top:37px;width:40px;height:2.5px;margin-left:0;background:#111111;z-index:2}
+}
 
 /* ==========================================================================
-   DIAGRAM 2: FIXED CONTENT FOR CPD WHEEL
+   DIAGRAM 2: CONTENT FOR CPD ANIMATED WHEEL (#383838 & #d9272e)
    ========================================================================== */
-.cdr-g.cdr-g .d2-wheel-wrap{max-width:620px;margin:0 auto;padding:6px}
-.cdr-g.cdr-g .d2-svg{width:100%;height:auto;display:block}
-.cdr-g.cdr-g .d2-slice-g{transition:transform .25s ease;transform-origin:320px 320px}
-.cdr-g.cdr-g .d2-slice-g:hover{transform:scale(1.02)}
-.cdr-g.cdr-g .d2-num{font-weight:800;font-size:21px;fill:#fff}
-.cdr-g.cdr-g .d2-lbl{font-weight:600;font-size:13.5px;fill:#fff}
-.cdr-g.cdr-g .d2-center-sub{font-weight:700;font-size:25px;fill:#383838}
-.cdr-g.cdr-g .d2-center-main{font-weight:800;font-size:50px;fill:#d9272e;letter-spacing:-1px}
+.cdr-g.cdr-g .d2-wheel-wrap{max-width:520px;margin:0 auto;padding:8px 0;background:transparent;border:none;border-radius:0}
+.cdr-g.cdr-g .trg-wheel{display:block;width:100%;max-width:500px;height:auto;margin:0 auto}
+.cdr-g.cdr-g .trg-seg{cursor:pointer;transition:transform .3s ease,filter .3s ease;animation:trSg 12s ease-in-out infinite;animation-delay:calc(var(--i)*1.5s)}
+.cdr-g.cdr-g .trg-seg:hover{transform:translate(var(--tx),var(--ty));filter:brightness(1.18);animation-play-state:paused}
+@keyframes trSg{0%{transform:none;filter:none}3%,10%{transform:translate(var(--tx),var(--ty));filter:brightness(1.15)}14%,100%{transform:none;filter:none}}
+.cdr-g.cdr-g .trg-wheel text{font-family:inherit;fill:#fff;font-size:14.5px;font-weight:600;pointer-events:none}
+.cdr-g.cdr-g .trg-wheel .nm{font-weight:800}
+.cdr-g.cdr-g .trg-wheel .ct1{fill:#383838;font-size:21px;font-weight:800}
+.cdr-g.cdr-g .trg-wheel .ct2{fill:#d9272e;font-size:44px;font-weight:800}
 
 /* ==========================================================================
    DIAGRAM 3: CAREER EPISODES FOUR HEXAGONS
    ========================================================================== */
-.cdr-g.cdr-g .d3-hex-board{background:#f5ecec;border:1px solid #ead8d8;border-radius:14px;padding:24px 14px}
+.cdr-g.cdr-g .d3-hex-board{background:#ffffff;border:1px solid var(--line);border-radius:14px;padding:22px 14px;width:100%}
 .cdr-g.cdr-g .d3-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:center}
 .cdr-g.cdr-g .d3-slot{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:325px;min-width:0}
 .cdr-g.cdr-g .d3-note-top,.cdr-g.cdr-g .d3-note-bot{font-size:12.5px;font-weight:500;color:#222;text-align:center;line-height:1.35;max-width:175px}
@@ -120,6 +134,20 @@
 .cdr-g.cdr-g .d3-hex-svg{position:absolute;inset:0;width:100%;height:100%}
 .cdr-g.cdr-g .d3-hex-title{position:relative;z-index:2;max-width:112px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.35px;text-transform:uppercase;color:#111;line-height:1.25}
 
+/* ==========================================================================
+   DIAGRAM 4: SUMMARY STATEMENT (CE 1, CE 2, CE 3 -> SS) ANIMATION
+   ========================================================================== */
+.cdr-g.cdr-g .d4-ss-board{margin:14px 0 0;padding:8px 0 0;background:transparent;border:none;border-radius:0}
+.cdr-g.cdr-g .trg-cv{display:block;width:100%;height:auto;max-width:300px;margin:0 auto}
+.cdr-g.cdr-g .trg-cv .ln{stroke:#c9cdd8;stroke-width:3;fill:none}
+.cdr-g.cdr-g .trg-cv .pk{fill:#dc3333;offset-rotate:0deg;animation:trMv 3s linear infinite;animation-delay:calc(var(--i)*.6s)}
+.cdr-g.cdr-g .trg-cv .ce{fill:#2f3347;transition:fill .25s ease}
+.cdr-g.cdr-g .trg-cv g:hover .ce{fill:#dc3333}
+.cdr-g.cdr-g .trg-cv text{font-family:inherit;font-weight:700;font-size:15px;fill:#fff;text-anchor:middle;pointer-events:none}
+.cdr-g.cdr-g .trg-cv .ssn{fill:#dc3333;animation:trSs 3s ease-in-out infinite;transform-origin:300px 100px;transform-box:view-box}
+@keyframes trSs{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes trMv{0%{opacity:0;transform:translate(0,0)}10%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy))}}
+
 /* Scroll Reveal */
 .cdr-g.cdr-g .cdr-rev{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
 .cdr-g.cdr-g .cdr-rev.is-vis{opacity:1;transform:translateY(0)}
@@ -127,8 +155,9 @@
 /* ==========================================================================
    FULL MOBILE & TABLET RESPONSIVENESS
    ========================================================================== */
-@media(max-width:1024px){
-  .cdr-g.cdr-g .cdr-grid{grid-template-columns:290px minmax(0,1fr);gap:24px}
+@media(max-width:1080px){
+  .cdr-g.cdr-g .cdr-grid{grid-template-columns:340px minmax(0,1fr);gap:24px}
+  .cdr-g.cdr-g .cdr-slinks{grid-template-columns:minmax(0,1fr)}
   .cdr-g.cdr-g .d3-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
   .cdr-g.cdr-g .d3-slot{min-height:auto}
 }
@@ -137,32 +166,22 @@
   .cdr-g.cdr-g .cdr-sec{padding:40px 0 60px}
   .cdr-g.cdr-g .cdr-wrap{padding:0 14px}
   .cdr-g.cdr-g .cdr-grid{grid-template-columns:minmax(0,1fr);gap:24px}
-  .cdr-g.cdr-g .cdr-side{position:static;max-height:none;overflow:visible;padding-right:0}
+  .cdr-g.cdr-g .cdr-side{transform:none!important}
+  .cdr-g.cdr-g .cdr-slinks{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cdr-g.cdr-g .cdr-box{padding:22px 18px;border-radius:14px}
-  .cdr-g.cdr-g .cdr-card-media img{max-height:280px}
   .cdr-g.cdr-g .cdr-p,.cdr-g.cdr-g .cdr-checks li{font-size:15px}
   .cdr-g.cdr-g .cdr-num-grid{grid-template-columns:minmax(0,1fr)}
 }
 
-@media(max-width:720px){
-  .cdr-g.cdr-g .d1-bus{display:none}
-  .cdr-g.cdr-g .d1-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px;margin-top:14px}
-  .cdr-g.cdr-g .d2-num{font-size:23px}
-  .cdr-g.cdr-g .d2-lbl{font-size:15px}
-}
-
 @media(max-width:520px){
-  .cdr-g.cdr-g .cdr-diag-box{padding:18px 12px;border-radius:12px}
-  .cdr-g.cdr-g .d1-cols{grid-template-columns:minmax(0,1fr);gap:14px}
-  .cdr-g.cdr-g .d1-root{font-size:16px;padding:12px 18px}
+  .cdr-g.cdr-g .cdr-slinks{grid-template-columns:minmax(0,1fr)}
   .cdr-g.cdr-g .d3-row{grid-template-columns:minmax(0,1fr);gap:22px}
-  .cdr-g.cdr-g .d2-num{font-size:25px}
-  .cdr-g.cdr-g .d2-lbl{font-size:16px}
 }
 
 @media(prefers-reduced-motion:reduce){
   .cdr-g.cdr-g *,.cdr-g.cdr-g *:before,.cdr-g.cdr-g *:after{animation:none!important;transition:none!important}
   .cdr-g.cdr-g .cdr-rev{opacity:1;transform:none}
+  .cdr-g.cdr-g .trg-cv .pk,.cdr-g.cdr-g .trg-cv .ssn,.cdr-g.cdr-g .trg-seg{animation:none!important}
 }
 </style>
 
@@ -175,17 +194,17 @@
       <div class="cdr-grid">
 
         <!-- Sticky Sidebar -->
-        <aside class="cdr-side" aria-label="CDR Guidelines Resources">
+        <aside class="cdr-side" id="cdr-sticky-sidebar" aria-label="CDR Guidelines Resources">
           <div class="cdr-side-stack">
 
             <div class="cdr-scard">
               <h2 class="cdr-sgroup-h">Competency Demonstration Report Guidelines</h2>
               <ul class="cdr-slinks">
-                <li><a href="cdr-guidelines-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report Guidelines Engineers Australia</span></a></li>
-                <li><a href="cdr-report-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report Engineers Australia</span></a></li>
+                <li><a href="cdr-guidelines-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>CDR Guidelines Engineers Australia</span></a></li>
+                <li><a href="cdr-report-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>CDR Report Engineers Australia</span></a></li>
                 <li><a href="competency-demonstration-report"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report</span></a></li>
-                <li><a href="competency-demonstration-report-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report Engineers Australia</span></a></li>
-                <li><a href="cdr-australia-sample"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report Australia Sample</span></a></li>
+                <li><a href="competency-demonstration-report-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>CDR Engineers Australia</span></a></li>
+                <li><a href="cdr-australia-sample"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>CDR Australia Sample</span></a></li>
               </ul>
 
               <div class="cdr-sdiv"></div>
@@ -199,17 +218,17 @@
               <div class="cdr-sdiv"></div>
               <h2 class="cdr-sgroup-h">Career Episodes</h2>
               <ul class="cdr-slinks">
-                <li><a href="career-episodes-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Career Episodes Engineers Australia</span></a></li>
-                <li><a href="career-episode-report-example-2"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Career Episode Report Example</span></a></li>
+                <li><a href="career-episodes-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Career Episodes EA</span></a></li>
+                <li><a href="career-episode-report-example-2"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Career Episode Example</span></a></li>
               </ul>
 
               <div class="cdr-sdiv"></div>
               <h2 class="cdr-sgroup-h">Summary Statement</h2>
               <ul class="cdr-slinks">
-                <li><a href="summary-statement-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Summary Statement Engineers Australia</span></a></li>
-                <li><a href="cdr-summary-statement-sample"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Competency Demonstration Report Summary Statement Sample</span></a></li>
-                <li><a href="professional-engineer-summary-statement"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Professional Engineer Summary Statement</span></a></li>
-                <li><a href="professional-engineer-summary-statement-sample"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Professional Engineer Summary Statement Sample</span></a></li>
+                <li><a href="summary-statement-engineers-australia"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Summary Statement EA</span></a></li>
+                <li><a href="cdr-summary-statement-sample"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>CDR Summary Statement Sample</span></a></li>
+                <li><a href="professional-engineer-summary-statement"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Professional Engineer SS</span></a></li>
+                <li><a href="professional-engineer-summary-statement-sample"><span class="cdr-chk-ico" aria-hidden="true">&#10003;</span><span>Professional Engineer SS Sample</span></a></li>
               </ul>
             </div>
 
@@ -224,7 +243,7 @@
         </aside>
 
         <!-- Main Guidelines Content -->
-        <div class="cdr-main">
+        <div class="cdr-main" id="cdr-sticky-main">
 
           <!-- 1. Competency Demonstration Report Guidelines -->
           <article class="cdr-box cdr-rev">
@@ -249,59 +268,34 @@
             <!-- DIAGRAM 1: Four Principle Elements of CPD -->
             <div class="cdr-diag-box" role="img" aria-label="Four Principle Elements of CPD hierarchy diagram">
               <div class="d1-tree">
-                <div class="d1-root">Four Principle Elements of CPD</div>
-                <div class="d1-stem-top" aria-hidden="true"></div>
-                <div class="d1-bus" aria-hidden="true"></div>
-                <div class="d1-cols">
-
-                  <div class="d1-col">
-                    <div class="d1-drop" aria-hidden="true"></div>
-                    <div class="d1-cat">Personal Commitment</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Ethical Issues</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Practise Competently</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Responsibility For Engineering Activities</div>
+                <div class="trg-rw"><span class="trg-root">Four Principle Elements of CPD</span></div>
+                <div class="trg-brs">
+                  <div class="trg-br">
+                    <span class="trg-bn">Personal Commitment</span>
+                    <div class="trg-lf"><span>Ethical Issues</span></div>
+                    <div class="trg-lf"><span>Practise Competently</span></div>
+                    <div class="trg-lf"><span>Responsibility For Engineering Activities</span></div>
                   </div>
-
-                  <div class="d1-col">
-                    <div class="d1-drop" aria-hidden="true"></div>
-                    <div class="d1-cat">Obligation to Community</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Develop Safe and Sustainable Solutions</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Identify, Assess and Manage Risks</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Engage in Relevant Community Activities</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Meet Legal &amp; Regulatory Requirement</div>
+                  <div class="trg-br">
+                    <span class="trg-bn">Obligation to Community</span>
+                    <div class="trg-lf"><span>Develop Safe and Sustainable Solutions</span></div>
+                    <div class="trg-lf"><span>Identify, Assess and Manage Risks</span></div>
+                    <div class="trg-lf"><span>Engage in Relevant Community Activities</span></div>
+                    <div class="trg-lf"><span>Meet Legal &amp; Regulatory Requirement</span></div>
                   </div>
-
-                  <div class="d1-col">
-                    <div class="d1-drop" aria-hidden="true"></div>
-                    <div class="d1-cat">Value of Workplace</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Communication</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Team Work</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Decision Making</div>
+                  <div class="trg-br">
+                    <span class="trg-bn">Value of Workplace</span>
+                    <div class="trg-lf"><span>Communication</span></div>
+                    <div class="trg-lf"><span>Team Work</span></div>
+                    <div class="trg-lf"><span>Decision Making</span></div>
                   </div>
-
-                  <div class="d1-col">
-                    <div class="d1-drop" aria-hidden="true"></div>
-                    <div class="d1-cat">Technical Proficiency</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Advanced Engineering Knowledge</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Local Engineering Knowledge</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Problem Analysis</div>
-                    <div class="d1-vlink" aria-hidden="true"></div>
-                    <div class="d1-leaf">Creativity and Innovation</div>
+                  <div class="trg-br">
+                    <span class="trg-bn">Technical Proficiency</span>
+                    <div class="trg-lf"><span>Advanced Engineering Knowledge</span></div>
+                    <div class="trg-lf"><span>Local Engineering Knowledge</span></div>
+                    <div class="trg-lf"><span>Problem Analysis</span></div>
+                    <div class="trg-lf"><span>Creativity and Innovation</span></div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -317,90 +311,44 @@
 
             <h5 class="cdr-h5">These points should be followed while preparing CPD and it should contain detail information of activity such as:</h5>
 
-            <!-- DIAGRAM 2: FIXED CONTENT FOR CPD WHEEL -->
+            <!-- DIAGRAM 2: CONTENT FOR CPD ANIMATED WHEEL -->
             <div class="cdr-diag-box" role="img" aria-label="Content for CPD 8-segment wheel diagram">
               <div class="d2-wheel-wrap">
-                <svg class="d2-svg" viewBox="0 0 640 640" aria-hidden="true">
-
-                  <!-- Slice 5: Top-Right (-88 deg to -47 deg) - Charcoal -->
-                  <g class="d2-slice-g">
-                    <path fill="#383838" d="M 331.3 24.2 A 296 296 0 0 1 521.8 103.6 L 427.8 203.9 A 146 146 0 0 0 325.6 174.2 Z"/>
-                    <line x1="358" y1="112" x2="435" y2="112" stroke="#fff" stroke-width="1.6"/>
-                    <text x="358" y="104" class="d2-num">5.</text>
-                    <text x="358" y="130" class="d2-lbl">Research</text>
-                    <text x="358" y="147" class="d2-lbl">Papers</text>
+                <svg class="trg-wheel" viewBox="-10 -10 520 520" role="img" aria-label="Content for CPD">
+                  <g class="trg-seg" style="--i:0;--tx:-4.6px;--ty:11.1px">
+                    <path d="M245.8 490.0 A240 240 0 0 1 83.3 422.6 L175.0 327.7 A108 108 0 0 0 248.1 358.0 Z" fill="#383838"/>
+                    <text x="183.4" y="392.8" text-anchor="middle"><tspan class="nm" x="183.4" dy="0">1.</tspan><tspan x="183.4" dy="17">Seminars and</tspan><tspan x="183.4" dy="17">Conference</tspan></text>
                   </g>
-
-                  <!-- Slice 6: Upper-Right (-43 deg to -2 deg) - Red -->
-                  <g class="d2-slice-g">
-                    <path fill="#d9272e" d="M 524.8 106.8 A 296 296 0 0 1 615.8 309.7 L 465.8 314.9 A 146 146 0 0 0 430.9 207.1 Z"/>
-                    <line x1="478" y1="210" x2="572" y2="210" stroke="#fff" stroke-width="1.6"/>
-                    <text x="478" y="202" class="d2-num">6.</text>
-                    <text x="478" y="228" class="d2-lbl">Technical</text>
-                    <text x="478" y="245" class="d2-lbl">Articles and</text>
-                    <text x="478" y="262" class="d2-lbl">Journals</text>
+                  <g class="trg-seg" style="--i:1;--tx:-11.1px;--ty:4.6px">
+                    <path d="M77.4 416.7 A240 240 0 0 1 10.0 254.2 L142.0 251.9 A108 108 0 0 0 172.3 325.0 Z" fill="#d9272e"/>
+                    <text x="89.2" y="290.6" text-anchor="middle"><tspan class="nm" x="89.2" dy="0">2.</tspan><tspan x="89.2" dy="17">Technical</tspan><tspan x="89.2" dy="17">Meetings and</tspan><tspan x="89.2" dy="17">Gatherings</tspan></text>
                   </g>
-
-                  <!-- Slice 7: Lower-Right (2 deg to 43 deg) - Charcoal -->
-                  <g class="d2-slice-g">
-                    <path fill="#383838" d="M 615.8 330.3 A 296 296 0 0 1 524.8 533.2 L 430.9 432.9 A 146 146 0 0 0 465.8 325.1 Z"/>
-                    <line x1="478" y1="364" x2="572" y2="364" stroke="#fff" stroke-width="1.6"/>
-                    <text x="478" y="356" class="d2-num">7.</text>
-                    <text x="478" y="382" class="d2-lbl">Technical</text>
-                    <text x="478" y="399" class="d2-lbl">Courses and</text>
-                    <text x="478" y="416" class="d2-lbl">Workshops</text>
+                  <g class="trg-seg" style="--i:2;--tx:-11.1px;--ty:-4.6px">
+                    <path d="M10.0 245.8 A240 240 0 0 1 77.4 83.3 L172.3 175.0 A108 108 0 0 0 142.0 248.1 Z" fill="#383838"/>
+                    <text x="89.2" y="157.4" text-anchor="middle"><tspan class="nm" x="89.2" dy="0">3.</tspan><tspan x="89.2" dy="17">Technical</tspan><tspan x="89.2" dy="17">Discussion</tspan><tspan x="89.2" dy="17">Group</tspan></text>
                   </g>
-
-                  <!-- Slice 8: Bottom-Right (47 deg to 88 deg) - Red -->
-                  <g class="d2-slice-g">
-                    <path fill="#d9272e" d="M 521.8 536.4 A 296 296 0 0 1 331.3 615.8 L 325.6 465.8 A 146 146 0 0 0 427.8 436.1 Z"/>
-                    <line x1="358" y1="510" x2="452" y2="510" stroke="#fff" stroke-width="1.6"/>
-                    <text x="358" y="502" class="d2-num">8.</text>
-                    <text x="358" y="528" class="d2-lbl">Volunteering</text>
-                    <text x="358" y="545" class="d2-lbl">Works</text>
+                  <g class="trg-seg" style="--i:3;--tx:-4.6px;--ty:-11.1px">
+                    <path d="M83.3 77.4 A240 240 0 0 1 245.8 10.0 L248.1 142.0 A108 108 0 0 0 175.0 172.3 Z" fill="#d9272e"/>
+                    <text x="183.4" y="71.2" text-anchor="middle"><tspan class="nm" x="183.4" dy="0">4.</tspan><tspan x="183.4" dy="17">Technical</tspan><tspan x="183.4" dy="17">Presentation</tspan></text>
                   </g>
-
-                  <!-- Slice 1: Bottom-Left (92 deg to 133 deg) - Charcoal -->
-                  <g class="d2-slice-g">
-                    <path fill="#383838" d="M 308.7 615.8 A 296 296 0 0 1 118.2 536.4 L 212.2 436.1 A 146 146 0 0 0 314.4 465.8 Z"/>
-                    <line x1="210" y1="510" x2="305" y2="510" stroke="#fff" stroke-width="1.6"/>
-                    <text x="210" y="502" class="d2-num">1.</text>
-                    <text x="210" y="528" class="d2-lbl">Seminars and</text>
-                    <text x="210" y="545" class="d2-lbl">Conference</text>
+                  <g class="trg-seg" style="--i:4;--tx:4.6px;--ty:-11.1px">
+                    <path d="M254.2 10.0 A240 240 0 0 1 416.7 77.4 L325.0 172.3 A108 108 0 0 0 251.9 142.0 Z" fill="#383838"/>
+                    <text x="316.6" y="71.2" text-anchor="middle"><tspan class="nm" x="316.6" dy="0">5.</tspan><tspan x="316.6" dy="17">Research</tspan><tspan x="316.6" dy="17">Papers</tspan></text>
                   </g>
-
-                  <!-- Slice 2: Lower-Left (137 deg to 178 deg) - Red -->
-                  <g class="d2-slice-g">
-                    <path fill="#d9272e" d="M 115.2 533.2 A 296 296 0 0 1 24.2 330.3 L 174.2 325.1 A 146 146 0 0 0 209.1 432.9 Z"/>
-                    <line x1="72" y1="364" x2="178" y2="364" stroke="#fff" stroke-width="1.6"/>
-                    <text x="72" y="356" class="d2-num">2.</text>
-                    <text x="72" y="382" class="d2-lbl">Technical</text>
-                    <text x="72" y="399" class="d2-lbl">Meetings and</text>
-                    <text x="72" y="416" class="d2-lbl">Gatherings</text>
+                  <g class="trg-seg" style="--i:5;--tx:11.1px;--ty:-4.6px">
+                    <path d="M422.6 83.3 A240 240 0 0 1 490.0 245.8 L358.0 248.1 A108 108 0 0 0 327.7 175.0 Z" fill="#d9272e"/>
+                    <text x="410.8" y="157.4" text-anchor="middle"><tspan class="nm" x="410.8" dy="0">6.</tspan><tspan x="410.8" dy="17">Technical</tspan><tspan x="410.8" dy="17">Articles and</tspan><tspan x="410.8" dy="17">Journals</tspan></text>
                   </g>
-
-                  <!-- Slice 3: Upper-Left (182 deg to 223 deg) - Charcoal -->
-                  <g class="d2-slice-g">
-                    <path fill="#383838" d="M 24.2 309.7 A 296 296 0 0 1 115.2 106.8 L 209.1 207.1 A 146 146 0 0 0 174.2 314.9 Z"/>
-                    <line x1="72" y1="210" x2="165" y2="210" stroke="#fff" stroke-width="1.6"/>
-                    <text x="72" y="202" class="d2-num">3.</text>
-                    <text x="72" y="228" class="d2-lbl">Technical</text>
-                    <text x="72" y="245" class="d2-lbl">Discussion</text>
-                    <text x="72" y="262" class="d2-lbl">Group</text>
+                  <g class="trg-seg" style="--i:6;--tx:11.1px;--ty:4.6px">
+                    <path d="M490.0 254.2 A240 240 0 0 1 422.6 416.7 L327.7 325.0 A108 108 0 0 0 358.0 251.9 Z" fill="#383838"/>
+                    <text x="410.8" y="290.6" text-anchor="middle"><tspan class="nm" x="410.8" dy="0">7.</tspan><tspan x="410.8" dy="17">Technical</tspan><tspan x="410.8" dy="17">Courses and</tspan><tspan x="410.8" dy="17">Workshops</tspan></text>
                   </g>
-
-                  <!-- Slice 4: Top-Left (227 deg to 268 deg) - Red -->
-                  <g class="d2-slice-g">
-                    <path fill="#d9272e" d="M 118.2 103.6 A 296 296 0 0 1 308.7 24.2 L 314.4 174.2 A 146 146 0 0 0 212.2 203.9 Z"/>
-                    <line x1="196" y1="112" x2="285" y2="112" stroke="#fff" stroke-width="1.6"/>
-                    <text x="196" y="104" class="d2-num">4.</text>
-                    <text x="196" y="130" class="d2-lbl">Technical</text>
-                    <text x="196" y="147" class="d2-lbl">Presentation</text>
+                  <g class="trg-seg" style="--i:7;--tx:4.6px;--ty:11.1px">
+                    <path d="M416.7 422.6 A240 240 0 0 1 254.2 490.0 L251.9 358.0 A108 108 0 0 0 325.0 327.7 Z" fill="#d9272e"/>
+                    <text x="316.6" y="392.8" text-anchor="middle"><tspan class="nm" x="316.6" dy="0">8.</tspan><tspan x="316.6" dy="17">Volunteering</tspan><tspan x="316.6" dy="17">Works</tspan></text>
                   </g>
-
-                  <!-- Center Label -->
-                  <text x="320" y="298" text-anchor="middle" class="d2-center-sub">Content for</text>
-                  <text x="320" y="352" text-anchor="middle" class="d2-center-main">CPD</text>
+                  <text class="ct1" x="250" y="236" text-anchor="middle">Content for</text>
+                  <text class="ct2" x="250" y="284" text-anchor="middle">CPD</text>
                 </svg>
               </div>
             </div>
@@ -439,13 +387,12 @@
             <div class="cdr-diag-box" role="img" aria-label="Career Episodes Introduction, Background, Summary, and Personal Engineering Activity diagram">
               <div class="d3-hex-board">
                 <div class="d3-row">
-
                   <div class="d3-slot">
                     <div class="d3-note-top">The Content must have approximately 100 Words &amp; in chronological order</div>
                     <div class="d3-stem" aria-hidden="true"></div>
                     <div class="d3-hex-shell">
                       <svg class="d3-hex-svg" viewBox="0 0 180 160" aria-hidden="true">
-                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#d8c8c8" stroke-width="3"/>
+                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#e5e5e0" stroke-width="3"/>
                         <polygon points="50,20 130,20 164,80 130,140 50,140 16,80" fill="#ff1e00"/>
                         <polyline points="22,42 42,10 138,10 158,42" fill="none" stroke="#111" stroke-width="2.2"/>
                         <circle cx="22" cy="42" r="3.5" fill="#111"/>
@@ -461,7 +408,7 @@
                   <div class="d3-slot">
                     <div class="d3-hex-shell">
                       <svg class="d3-hex-svg" viewBox="0 0 180 160" aria-hidden="true">
-                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#d8c8c8" stroke-width="3"/>
+                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#e5e5e0" stroke-width="3"/>
                         <polygon points="50,20 130,20 164,80 130,140 50,140 16,80" fill="#8f8f8f"/>
                         <polyline points="22,42 42,10 138,10 158,42" fill="none" stroke="#111" stroke-width="2.2"/>
                         <circle cx="22" cy="42" r="3.5" fill="#111"/>
@@ -481,7 +428,7 @@
                     <div class="d3-stem" aria-hidden="true"></div>
                     <div class="d3-hex-shell">
                       <svg class="d3-hex-svg" viewBox="0 0 180 160" aria-hidden="true">
-                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#d8c8c8" stroke-width="3"/>
+                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#e5e5e0" stroke-width="3"/>
                         <polygon points="50,20 130,20 164,80 130,140 50,140 16,80" fill="#ff1e00"/>
                         <polyline points="22,42 42,10 138,10 158,42" fill="none" stroke="#111" stroke-width="2.2"/>
                         <circle cx="22" cy="42" r="3.5" fill="#111"/>
@@ -497,7 +444,7 @@
                   <div class="d3-slot">
                     <div class="d3-hex-shell">
                       <svg class="d3-hex-svg" viewBox="0 0 180 160" aria-hidden="true">
-                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#d8c8c8" stroke-width="3"/>
+                        <polygon points="46,12 134,12 172,80 134,148 46,148 8,80" fill="#ffffff" stroke="#e5e5e0" stroke-width="3"/>
                         <polygon points="50,20 130,20 164,80 130,140 50,140 16,80" fill="#8f8f8f"/>
                         <polyline points="22,42 42,10 138,10 158,42" fill="none" stroke="#111" stroke-width="2.2"/>
                         <circle cx="22" cy="42" r="3.5" fill="#111"/>
@@ -511,7 +458,6 @@
                     <div class="d3-stem" aria-hidden="true"></div>
                     <div class="d3-note-bot">This body part contains all the detail information on the things you did on project that shows your competency in</div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -550,7 +496,7 @@
           <article class="cdr-box cdr-rev">
             <h2 class="cdr-h2">Personal Engineering Activity</h2>
             <div class="cdr-card-media">
-              <img src="https://lens.usercontent.google.com/banana?agsi=CmdnbG9iYWw6OjAwMDA1NWNmZWM3MDAyNmQ6MDAwMDAxNDE6MTo5MjYzM2U3MzIxOWZjYjI3OjAwMDA1NWNmZWM3MDAyNmQ6MDAwMDA1MzllNTQwMzM2ODowMDA2NjBlYzAyOGViZGZmEAIYAiIKaW1hZ2UvanBlZw==" alt="Personal Engineering Activity Illustration" loading="lazy" />
+              <img src="https://cdrwritersaustralia.com/wp-content/uploads/2026/11/image_579bacb8.jpeg" alt="Personal Engineering Activity Illustration" loading="lazy" />
             </div>
             <p class="cdr-p">This section is the body part with all the detail information you have done such as what you did, how you did it. In here you should describe what you personally did rather than what your team did because this is a personal competency assessment.<strong>You should provide a detailed illustration on:</strong></p>
             <ul class="cdr-checks">
@@ -580,6 +526,32 @@
               <img src="https://cdrwritersaustralia.com/wp-content/uploads/2026/09/Gemini_Generated_Image_1hvb5t1hvb5t1hvb.jpg" alt="Summary Statement Engineers Australia" loading="lazy" />
             </div>
             <p class="cdr-p">A summary statement is the most important and difficult part of any Competency Demonstration Report. In this section, you need to analyze that you have illustrated all the competency elements for the nominated occupational category as described in the ANZSCO code. In the summary statement, you need to provide the cross-references of the paragraphs that you have written in each career episode. <strong>Only one Summary Statement (SS) is required for all three episodes.</strong></p>
+
+            <!-- DIAGRAM 4: Three Career Episodes Feed One Summary Statement -->
+            <div class="d4-ss-board">
+              <svg class="trg-cv" viewBox="0 0 380 200" role="img" aria-label="Three career episodes feed one summary statement">
+                <path class="ln" d="M70 34 L240 100"/>
+                <circle class="pk" cx="70" cy="34" r="6" style="--i:0;--dx:170px;--dy:66px"/>
+                <g>
+                  <circle class="ce" cx="40" cy="34" r="30"/>
+                  <text x="40" y="39">CE 1</text>
+                </g>
+                <path class="ln" d="M70 100 L240 100"/>
+                <circle class="pk" cx="70" cy="100" r="6" style="--i:1;--dx:170px;--dy:0px"/>
+                <g>
+                  <circle class="ce" cx="40" cy="100" r="30"/>
+                  <text x="40" y="105">CE 2</text>
+                </g>
+                <path class="ln" d="M70 166 L240 100"/>
+                <circle class="pk" cx="70" cy="166" r="6" style="--i:2;--dx:170px;--dy:-66px"/>
+                <g>
+                  <circle class="ce" cx="40" cy="166" r="30"/>
+                  <text x="40" y="171">CE 3</text>
+                </g>
+                <circle class="ssn" cx="300" cy="100" r="48"/>
+                <text x="300" y="106" style="font-size:20px">SS</text>
+              </svg>
+            </div>
           </article>
 
         </div>
@@ -592,6 +564,8 @@
 (function(){
   var root = document.getElementById("cdr-guidelines-bundle");
   if (!root) return;
+
+  // Scroll reveal
   var revs = root.querySelectorAll(".cdr-rev");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function(entries){
@@ -606,5 +580,54 @@
   } else {
     revs.forEach(function(el){ el.classList.add("is-vis"); });
   }
+
+  // Boundary-clamped sidebar movement with header + WP admin bar clearance
+  var side = document.getElementById("cdr-sticky-sidebar");
+  var main = document.getElementById("cdr-sticky-main");
+  var grid = root.querySelector(".cdr-grid");
+  var baseTopOffset = 115;
+  var ticking = false;
+
+  function getTopOffset(){
+    var adminBar = document.getElementById("wpadminbar");
+    var adminH = adminBar ? adminBar.offsetHeight : 0;
+    return baseTopOffset + adminH;
+  }
+
+  function updateSidebarPosition(){
+    ticking = false;
+    if (!side || !main || !grid) return;
+
+    if (window.innerWidth <= 860) {
+      side.style.transform = "";
+      return;
+    }
+
+    var topOffset = getTopOffset();
+    var mainRect = main.getBoundingClientRect();
+    var sideHeight = side.offsetHeight;
+    var mainHeight = main.offsetHeight;
+    var maxShift = Math.max(0, mainHeight - sideHeight);
+
+    var desiredShift = -mainRect.top + topOffset;
+    var clampedShift = Math.min(Math.max(desiredShift, 0), maxShift);
+
+    side.style.transform = "translate3d(0, " + Math.round(clampedShift) + "px, 0)";
+  }
+
+  function requestTick(){
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(updateSidebarPosition);
+    }
+  }
+
+  window.addEventListener("scroll", requestTick, { passive: true });
+  window.addEventListener("resize", requestTick, { passive: true });
+  if ("ResizeObserver" in window && main) {
+    new ResizeObserver(requestTick).observe(main);
+    new ResizeObserver(requestTick).observe(side);
+  }
+  updateSidebarPosition();
 })();
 </script>
